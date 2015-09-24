@@ -1,0 +1,35 @@
+body {
+  padding-bottom: 20px;
+  font-family: 'Raleway', sans-serif;
+  background: url('../assets/hero.png') no-repeat top center;
+}
+
+.navbar {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: transparent;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+.benefit {
+  text-align: center;
+}
+
+.benefit-img {
+  margin: 25px auto;
+}
+
+.benefit-wrapper {
+  min-height: 100px;
+}
+
+h2 {
+  margin-top: 50px;
+}

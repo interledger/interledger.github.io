@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Payments across payment networks">
+
+    <title>Interledger</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Google font -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Interledger</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Read Whitepaper</a></li>
+            <li><a href="#">Github</a></li>
+            <li><a href="#">Participate</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- hero -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>INTERLEDGER</h1>
+        <p>Payments across payment networks</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Read the Whitepaper</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- what is it section -->
+      <div class="col-md-12">
+        <h2>What is it</h2>
+        <hr>
+        <div class="row">
+          <div class='col-md-8'>
+            <p>There are many ledgers out there. Payment systems, blockchains, banks and so on.</p>
+
+            <p>Market makers can create connections between them. You pay me here and I pay whoever you want over there. The industry calls this "payment-vs-payment", because    someone is making a payment over there in exchange for a payment over here.</p>
+
+            <p>But the problem with payment-vs-payment is: Who goes first? If the market maker goes first, they have to trust the sender to hold up their end of the bargain. If the sender goes first, the market maker could disappear with the money, never to be seen again.</p>
+
+            <p>The solution is pretty obvious: Escrow. Both the sender and the market maker share a common ledger. So let's have that ledger guarantee the transfer. The sender puts the money into escrow, the market maker delivers funds at the destination, shows proof and gets paid.</p>
+
+            <p>Notice how we didn't need any central coordinating super-ledger? We just created a truly neutral protocol for payments.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- paths section -->
+      <div class="col-md-12">
+        <h2>Paths</h2>
+        <hr>
+        <div class="row">
+          <div class='col-md-8'>
+            <p>But trying to find market makers for every possible pair of ledgers is unrealistic. The number of possible combinations explodes as the number of ledgers increases.</p>
+
+            <p>Instead, we create the ability to chain market makers together. Now we can use the magic of networks. As long as you're connected somewhere into the Interledger you can make payments. Ever heard of the <a targer="_blank" href="https://en.wikipedia.org/wiki/Six_degrees_of_separation">six degrees of separation</a>?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- benefits section -->
+      <div class="col-md-12">
+        <h2>Benefits</h2>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="benefit col-md-3">
+            <div class="benefit-wrapper">
+              <img class='benefit-img img-responsive' src='assets/freedom.png'/>
+            </div>
+            <h4>True freedom</h4>
+            <p>You choose your ledger. If you want to use Kanyecoin, use Kanyecoin. It'll be accepted everywhere. You like proof-of-work? Proof-of-stake? Consensus? Or even just a regular bank account? Use it. It'll work.</p>
+          </div>
+          <div class="benefit col-md-3">
+            <div class="benefit-wrapper">
+              <img class='benefit-img img-responsive' src='assets/access.png'/>
+            </div>
+            <h4>Universal access</h4>
+            <p>A local payment services provider (PSP) in Nigeria can accept global payments without getting permission from VISA.</p>
+         </div>
+          <div class="benefit col-md-3">
+            <div class="benefit-wrapper">
+              <img class='benefit-img img-responsive' src='assets/payments.png'/>
+            </div>
+            <h4>Universal payments</h4>
+            <p>No more barrage of logos, none of which happen to match what you have.</p>
+          </div>
+          <div class="benefit col-md-3">
+            <div class="benefit-wrapper">
+              <img class='benefit-img img-responsive' src='assets/scalability.png'/>
+            </div>
+            <h4>Scalability</h4>
+            <p>Without a central ledger that all payments have to go through, scalability becomes a non-issue. Need more speed? Just create more ledgers and more market makers.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- partcipate section -->
+      <div class="col-md-12">
+        <h2>Participate</h2>
+        <hr>
+        <div class="row">
+          <div class='col-md-8'>
+            <p>The work to make Interledger payments a reality is currently happening at the W3C.</p>
+
+            <p>Anyone can join the mailing list and participate.</p>
+
+            <ul>
+              <li><a href="#">Read Whitepaper</a></li>
+              <li><a href="#">Github</a></li>
+              <li><a href="#">Participate</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
