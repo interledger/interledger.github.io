@@ -1,7 +1,6 @@
 body {
   padding-bottom: 20px;
   font-family: 'Raleway', sans-serif;
-  background: url('../assets/hero.png') no-repeat top center;
 }
 
 .navbar {
@@ -12,6 +11,27 @@ body {
 .jumbotron {
   text-align: center;
   background-color: transparent;
+}
+
+.jumbotron p {
+  margin-bottom: 25px;
+}
+
+.hero-img {
+  width: 50%;
+  margin: 50px auto;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #526667;
+  border-color: transparent;
+  padding: 7px 68px !important;
+}
+
+.btn-primary:hover {
+  background-color: #6a8484;
+  border-color: transparent;
 }
 
 h1 {
