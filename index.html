@@ -26,7 +26,7 @@
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+<!--     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -43,9 +43,9 @@
             <li><a href="#">Github</a></li>
             <li><a href="#">Participate</a></li>
           </ul>
-        </div><!--/.navbar-collapse -->
+        </div>
       </div>
-    </nav>
+    </nav> -->
 
     <!-- hero -->
     <div class="jumbotron">
@@ -64,29 +64,58 @@
         <h2>What is it</h2>
         <hr>
         <div class="row">
-          <div class='col-md-8'>
-            <p>There are many ledgers out there. Payment systems, blockchains, banks and so on.</p>
+          <div class='col-md-12'>
+            <p>When paying online, depending on where you are in the world, you are either confronted with a barrage of payment options and a terrible UX, or you have no option at all.</p>
 
-            <p>Market makers can create connections between them. You pay me here and I pay whoever you want over there. The industry calls this "payment-vs-payment", because    someone is making a payment over there in exchange for a payment over here.</p>
+            <p>We as developers have worked for decades to solve that problem with elegant payment apps and APIs (e.g. PayPal, Alipay, Stripe). We’ve abstracted away some of the ugly parts of payments. But, we haven’t fixed the root problem.</p>
 
-            <p>But the problem with payment-vs-payment is: Who goes first? If the market maker goes first, they have to trust the sender to hold up their end of the bargain. If the sender goes first, the market maker could disappear with the money, never to be seen again.</p>
+            <p>There is no interoperability between payment networks. The sender and receiver of a payment must both be on the same network. Few networks can reach global scale so there is little competition. Payments infrastructure has a few big network operators, just like in the days of AOL, Genie and CompuServe. It took open web standards to interconnect the early web services.</p>
 
-            <p>The solution is pretty obvious: Escrow. Both the sender and the market maker share a common ledger. So let's have that ledger guarantee the transfer. The sender puts the money into escrow, the market maker delivers funds at the destination, shows proof and gets paid.</p>
+            <p>Some thought we found a solution for connecting all of the payment networks with Bitcoin, Ripple and other so-called protocols for money. But in reality, these are all just networks themselves.</p>
 
-            <p>Notice how we didn't need any central coordinating super-ledger? We just created a truly neutral protocol for payments.</p>
+            <p>We need a neutral protocol, like HTTP or SMTP, for payments on the Web that enables senders and receivers to each use different providers. It should not require a central operator, nor a globally accepted currency or blockchain. Anyone should be able to use the protocol without connecting to any core or official network.</p>
           </div>
         </div>
       </div>
 
-      <!-- paths section -->
+      <!-- how it works -->
       <div class="col-md-12">
-        <h2>Paths</h2>
+        <h2>How the Protocol Works</h2>
         <hr>
         <div class="row">
-          <div class='col-md-8'>
-            <p>But trying to find market makers for every possible pair of ledgers is unrealistic. The number of possible combinations explodes as the number of ledgers increases.</p>
+          <div class='col-md-12'>
+            <p>There are many payment systems or ledgers out there. Payment networks, blockchains, banks and so on.</p>
 
-            <p>Instead, we create the ability to chain market makers together. Now we can use the magic of networks. As long as you're connected somewhere into the Interledger you can make payments. Ever heard of the <a targer="_blank" href="https://en.wikipedia.org/wiki/Six_degrees_of_separation">six degrees of separation</a>?</p>
+            <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>(&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>(&nbsp;)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>(&nbsp;)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>(&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;)</span></span></span></div></pre>
+
+            <p>Currency traders can create connections between them. You pay a trader on your ledger and the trader pays whoever you want on another ledger.</p>
+
+            <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>(&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span><span class="meta paragraph text"><span>|&nbsp;&nbsp;(&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;\</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;|&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;(&nbsp;)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>(&nbsp;)&nbsp;----&nbsp;(&nbsp;)</span></span></span></div></pre>
+
+            <p>But the problem with this is: Who pays who first? If the trader goes first, they have to trust the sender to hold up their end of the bargain. If the sender goes first, the trader could disappear with the money, never to be seen again.</p>
+
+            <p>The solution is pretty simple: Escrow. Both the sender and the trader share a common ledger. And, the trader and receiver share another ledger. So let's have the sender’s ledger guarantee the transfer. The sender puts the money into escrow, the trader delivers funds at the destination, shows proof to the sender’s ledger and gets paid.</p>
+
+            <p>Using this protocol, anyone can transact across ledgers, without relying on a specific network.</p>
+
+
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Six Degrees of Separation section -->
+      <div class="col-md-12">
+        <h2>Six Degrees of Separation</h2>
+        <hr>
+        <div class="row">
+          <div class='col-md-12'>
+            <p>Trying to find currency traders for every possible pair of currencies or ledgers is unrealistic. The number of possible combinations explodes as the number of ledgers increases.</p>
+
+            <p>Instead, we can create chains of traders to enable payments between any sender and any receiver. Think six degrees of separation for money.</p>
+
+            <p>This means I can use whatever obscure payment system I want to pay you, even if you’re on a different one.</p>
+
           </div>
         </div>
       </div>
@@ -98,33 +127,26 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <div class="benefit col-md-3">
-            <div class="benefit-wrapper">
-              <img class='benefit-img img-responsive' src='assets/freedom.png'/>
-            </div>
-            <h4>True freedom</h4>
-            <p>You choose your ledger. If you want to use Kanyecoin, use Kanyecoin. It'll be accepted everywhere. You like proof-of-work? Proof-of-stake? Consensus? Or even just a regular bank account? Use it. It'll work.</p>
-          </div>
-          <div class="benefit col-md-3">
-            <div class="benefit-wrapper">
-              <img class='benefit-img img-responsive' src='assets/access.png'/>
-            </div>
-            <h4>Universal access</h4>
-            <p>A local payment services provider (PSP) in Nigeria can accept global payments without getting permission from VISA.</p>
-         </div>
-          <div class="benefit col-md-3">
+          <div class="benefit col-md-4">
             <div class="benefit-wrapper">
               <img class='benefit-img img-responsive' src='assets/payments.png'/>
             </div>
             <h4>Universal payments</h4>
-            <p>No more barrage of logos, none of which happen to match what you have.</p>
+            <p>Pay and receive payments using whatever means you prefer.</p>
           </div>
-          <div class="benefit col-md-3">
+          <div class="benefit col-md-4">
+            <div class="benefit-wrapper">
+              <img class='benefit-img img-responsive' src='assets/freedom.png'/>
+            </div>
+            <h4>Competitive rates</h4>
+            <p>YMany traders compete to provide the cheapest, fastest payments.</p>
+          </div>
+          <div class="benefit col-md-4">
             <div class="benefit-wrapper">
               <img class='benefit-img img-responsive' src='assets/scalability.png'/>
             </div>
-            <h4>Scalability</h4>
-            <p>Without a central ledger that all payments have to go through, scalability becomes a non-issue. Need more speed? Just create more ledgers and more market makers.</p>
+            <h4>Unlimited calability</h4>
+            <p>Without depending on a single system for processing payments, scalability becomes a non-issue. Need more speed? Just add more ledgers and more traders.</p>
           </div>
         </div>
       </div>
@@ -134,15 +156,16 @@
         <h2>Participate</h2>
         <hr>
         <div class="row">
-          <div class='col-md-8'>
-            <p>The work to make Interledger payments a reality is currently happening at the W3C.</p>
+          <div class='col-md-12'>
+            <p>The work to make Interledger payments a reality is currently happening at the W3C.<strong> Anyone can join the mailing list and participate.</strong></p>
 
-            <p>Anyone can join the mailing list and participate.</p>
+            <p>Check out our draft specs and an implementation on GitHub. Fork it, clone it, hack it!</p>
+
+            <p>Let's fix payments once and for all!</p>
 
             <ul>
               <li><a href="#">Read Whitepaper</a></li>
-              <li><a href="#">Github</a></li>
-              <li><a href="#">Participate</a></li>
+              <li><a href="http://github.com/interledger">Github</a></li>
             </ul>
           </div>
         </div>
