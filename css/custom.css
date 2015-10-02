@@ -15,12 +15,12 @@ body {
 }
 
 .jumbotron p {
-  margin-bottom: 25px;
+  margin: 15px auto 25px;
 }
 
 .hero-img {
   width: 50%;
-  margin: 50px auto;
+  margin: 50px auto 25px;
 }
 
 .btn-primary {
@@ -28,6 +28,7 @@ body {
   background-color: #526667;
   border-color: transparent;
   padding: 7px 68px !important;
+  border-radius: 3px;
 }
 
 .btn-primary:hover {
@@ -38,6 +39,7 @@ body {
 h1 {
   font-weight: 600;
   font-family: 'Raleway', sans-serif;
+  color: #526667 !important;
 }
 
 .benefit {
