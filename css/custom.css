@@ -61,10 +61,6 @@ p {
   margin-bottom: 20px;
 }
 
-.six-degreees-section {
-  margin: 75px auto 50px;
-}
-
 .six-degrees {
   width: 50%;
   height: 50%;
@@ -76,6 +72,27 @@ p {
 }
 
 .how-it-works {
-    max-width: 450px;
+    width: 450px;
     margin: auto;
+}
+
+@media (min-width: 768px) {
+  .six-degreees-section {
+    margin: 75px auto 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .jumbotron {
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  #six-header {
+    margin-top: 30px;
+  }
+
+  .benefit-img {
+    margin: 0 auto;
+  }
 }
