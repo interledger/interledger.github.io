@@ -1,6 +1,6 @@
 body {
   padding-bottom: 20px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .navbar {
@@ -11,6 +11,7 @@ body {
 .jumbotron {
   text-align: center;
   background-color: transparent;
+  font-family: 'Raleway', sans-serif;
 }
 
 .jumbotron p {
@@ -36,6 +37,7 @@ body {
 
 h1 {
   font-weight: 600;
+  font-family: 'Raleway', sans-serif;
 }
 
 .benefit {
@@ -52,4 +54,28 @@ h1 {
 
 h2 {
   margin-top: 50px;
+  font-family: 'Raleway', sans-serif;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.six-degreees-section {
+  margin: 75px auto 50px;
+}
+
+.six-degrees {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+
+#six-header {
+  margin-top: 150px;
+}
+
+.how-it-works {
+    max-width: 450px;
+    margin: auto;
 }
