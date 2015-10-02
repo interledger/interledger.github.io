@@ -16,6 +16,7 @@ body {
 
 .jumbotron p {
   margin: 15px auto 25px;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .hero-img {
@@ -29,9 +30,10 @@ body {
   border-color: transparent;
   padding: 7px 68px !important;
   border-radius: 3px;
+  font-family: 'Noto Sans', sans-serif;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
   background-color: #6a8484;
   border-color: transparent;
 }
@@ -40,6 +42,7 @@ h1 {
   font-weight: 600;
   font-family: 'Raleway', sans-serif;
   color: #526667 !important;
+  letter-spacing: 3px;
 }
 
 .benefit {
@@ -55,7 +58,7 @@ h1 {
 }
 
 h2 {
-  margin-top: 50px;
+  margin: 50px auto 20px;
   font-family: 'Raleway', sans-serif;
 }
 
