@@ -72,9 +72,9 @@ p {
 }
 
 .six-degrees {
-  width: 50%;
-  height: 50%;
-  margin: auto;
+  width: 30%;
+  height: 30%;
+  margin: 100px auto 0;
 }
 
 #six-header {
@@ -82,13 +82,19 @@ p {
 }
 
 .how-it-works {
-    width: 450px;
-    margin: auto;
+  width: 450px;
+}
+
+.ledger-today {
+  width: 70%;
+  height: auto;
+  margin: auto;
 }
 
 @media (min-width: 768px) {
-  .six-degreees-section {
-    margin: 75px auto 50px;
+  .how-it-works {
+    width: 450px;
+    margin: 125px auto 0;
   }
 }
 
@@ -100,6 +106,10 @@ p {
 
   #six-header {
     margin-top: 30px;
+  }
+
+  .six-degrees {
+    margin-top: 0 !important;
   }
 
   .benefit-img {
