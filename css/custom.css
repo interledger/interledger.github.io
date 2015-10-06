@@ -29,9 +29,10 @@ body {
   color: #fff;
   background-color: #526667;
   border-color: transparent;
-  padding: 7px 68px !important;
+  padding: 10px 75px !important;
   border-radius: 3px;
   font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
 }
 
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
