@@ -9,6 +9,53 @@ body {
   border-color: transparent;
 }
 
+.container-fluid {
+  background: #eaeee6;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  padding: 10px;
+}
+
+h3.banner-text {
+  font-size: 20px;
+  color: #526768;
+  margin-bottom: 20px;
+}
+
+img.git {
+  width: 35px;
+  height: 35px;
+  margin:-2px 25px 0 0;
+  opacity: .7;
+}
+
+header {
+  display: none;
+}
+
+.x {
+  cursor: pointer;
+  margin-top: 3px;
+  font-family: 'Raleway', sans-serif;
+  position: absolute;
+  right: 30px;
+}
+
+.inner-text {
+  margin-right: 5px;
+  line-height: 1.3em;
+}
+
+header.animate {
+  height: 90px;
+  position: relative;
+  -webkit-animation: dropHeader 0.7s ease-out;
+  -moz-animation: dropHeader 0.7s ease-out;;
+  animation: dropHeader 0.7s ease-out;;
+}
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -118,4 +165,74 @@ p {
   .benefit-img {
     margin: 0 auto;
   }
+
+  .x {
+    right: 5px;
+    top: 0;
+
+  }
+}
+
+@media (max-width: 992px) {
+  h3.banner-text {
+    font-size: 16px;
+  }
+  .x {
+    margin-top: 6px;
+
+  }
+}
+
+@media (max-width: 651px) {
+  h3.banner-text {
+    text-align: left;
+  }
+
+  img.git {
+    float: left;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  img.git {
+    float: left;
+    margin: 0 10px 0 0;
+  }
+
+  .x {
+    font-weight: bold;
+    right: 0;
+  }
+
+  h3.banner-text {
+    font-size: 14px;
+    max-width: 330px;
+  }
+}
+
+
+@-moz-keyframes dropHeader {
+    0% {
+        -moz-transform: translateY(-90px);
+    }
+    100% {
+        -moz-transform: translateY(0);
+    }
+}
+@-webkit-keyframes dropHeader {
+    0% {
+        -webkit-transform: translateY(-90px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+    }
+}
+@keyframes dropHeader {
+    0% {
+        transform: translateY(-90px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
