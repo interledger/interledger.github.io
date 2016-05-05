@@ -1,12 +1,24 @@
 body {
-  padding-bottom: 200px;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
 }
 
 .navbar {
-  background-color: transparent;
+  background-color: #000;
   border-color: transparent;
+  border: none !important;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+  background-color: rgba(255,255,255,0.2);
+  color: #fff;
+  border-bottom: 3px solid red;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #fff;
 }
 
 .container-fluid {
@@ -35,10 +47,14 @@ header {
   display: none;
 }
 
+code, kbd, pre, samp {
+  font-family: 'Droid Sans Mono', Menlo, Monaco,Consolas, "Courier New", monospace;
+}
+
 .x {
   cursor: pointer;
   margin-top: 3px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   position: absolute;
   right: 30px;
 }
@@ -58,13 +74,14 @@ header.animate {
 
 .jumbotron {
   text-align: center;
-  background-color: transparent;
-  font-family: 'Raleway', sans-serif;
+  background-color: #253b3f;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .jumbotron p {
   margin: 15px auto 25px;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #fff;
 }
 
 .hero-img {
@@ -74,41 +91,34 @@ header.animate {
 
 .btn-primary {
   color: #fff;
-  background-color: #526667;
+  background-color: #ff0c3e;
   border-color: transparent;
   padding: 10px 75px !important;
   border-radius: 3px;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 14px;
 }
 
-.btn-primary:hover, .btn-primary:active:hover, .btn-primary:active, .btn-primary:focus {
+.btn-primary:hover,
+.btn-primary:active:hover,
+.btn-primary:active,
+.btn-primary:focus {
   background-color: #6a8484;
   border-color: transparent;
 }
 
 h1 {
   font-weight: 600;
-  font-family: 'Raleway', sans-serif;
-  color: #526667 !important;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #fff !important;
   letter-spacing: 3px;
 }
 
-.benefit {
-  text-align: center;
-}
 
-.benefit-img {
-  margin: 25px auto;
-}
-
-.benefit-wrapper {
-  min-height: 100px;
-}
 
 h2 {
   margin: 50px auto 20px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 h4 {
@@ -121,49 +131,120 @@ p {
   color: #999;
 }
 
-.six-degrees {
-  width: 30%;
-  height: 30%;
-  margin: 100px auto 0;
+.callout {
+  min-height: 200px;
+  width: 100%;
+  float: left;
+  background-color: #485a5e;
+  background-image: -moz-linear-gradient(top, #485a5e, #485a5e);
+  position: relative;
+  color: #fff;
+  padding: 10px;
+  border-radius: 3px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+  margin: 50px 0;
 }
 
-#six-header {
-  margin-top: 150px;
+.callout:after {
+  border-radius: 2px;
+  content: "";
+  position: absolute;
+  box-shadow: 2px 3px 3px rgba(0,0,0,0.2);
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  right: -14px;
+  border-width: 14px;
+  border-style: solid;
+  border-color: transparent #485a5e #485a5e transparent;
+  top: 50%;
+  margin-top: -14px;
 }
 
-.how-it-works {
-  width: 450px;
+
+.callout a {
+  color: #ff0c3e;
 }
 
-.ledger-today {
-  width: 70%;
-  height: auto;
-  margin: auto;
+.magic {
+  text-align: center;
+  display: block !important;
+}
+
+.nav-tabs {
+  margin-top: 15px;
+}
+
+.nav-tabs>li>a {
+  background: #ccc;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #000;
+}
+
+.nav-tabs>li.see-console>a {
+  background:transparent;
+  color: #000;
+}
+
+.nav-tabs>li.teaser>a {
+  color: transparent !important;
+}
+
+.tab-content pre {
+  color: #fff;
+  background-color: #253b3f;
+}
+
+#menu1 {
+  min-height: 351px;
+}
+
+.visual-wrapper {
+  background: url('../assets/ledgerstoday@2x.png');
+  background-size: contain;
+  background-repeat: repeat-y;
+  height: 100%;
+  min-height:790px;
+}
+
+.example-intro {
+  max-width: 75%;
+}
+
+.color1 {
+  color: #4aa7a4;
+}
+
+.color2 {
+  color: #ffb91d;
+}
+
+hr {
+  max-width: 550px;
+  margin: 20px auto;
+}
+
+footer {
+  margin: 80px 0 25px;
+}
+
+footer a {
+  color: #ff0c3e;
 }
 
 @media (min-width: 768px) {
-  .how-it-works {
-    width: 450px;
-    margin: 125px auto 0;
+
+  .navbar>.container .navbar-brand,
+  .navbar>.container-fluid .navbar-brand {
+    margin-left: 0;
   }
+
 }
 
 @media (max-width: 768px) {
   .jumbotron {
     margin-bottom: 0;
     padding: 0;
-  }
-
-  #six-header {
-    margin-top: 30px;
-  }
-
-  .six-degrees {
-    margin-top: 0 !important;
-  }
-
-  .benefit-img {
-    margin: 0 auto;
   }
 
   .x {
