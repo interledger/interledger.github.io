@@ -232,6 +232,71 @@ footer a {
   color: #ff0c3e;
 }
 
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.twitter-time-widget {
+  margin-bottom: 50px;
+}
+
+.docs-wrapper,
+.community-wrapper {
+  margin-top: 55px;
+}
+
+.sidebar {
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 1px solid #eee;
+}
+
+ul.nav.nav-sidebar {
+    border-bottom: 1px solid #ccc;
+}
+
+li.nav-label {
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.nav-sidebar>li>a {
+  color: #666;
+}
+
+.nav-sidebar>li.nav-label {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #ff0c3e;
+}
+
+.page-header {
+  color: #000 !important;
+}
+
 @media (min-width: 768px) {
 
   .navbar>.container .navbar-brand,

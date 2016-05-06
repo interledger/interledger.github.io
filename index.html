@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Payments across payment networks">
 
-    <title>Interledger</title>
+    <title>Welcome | Interledger</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -15,8 +15,10 @@
     <link href="css/custom.css" rel="stylesheet">
 
     <!-- Google fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,400italic|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 
     <link href="favicon.ico" rel="icon" type="image/x-icon">
 
@@ -28,157 +30,209 @@
   </head>
 
   <body>
-    <!-- banner -->
-    <header class='animate'>
-      <div class="container-fluid">
-        <div class="code-banner">
-          <div class="col-md-12">
-            <h3 class='banner-text'><span class="inner-text"><a href="https://www.youtube.com/channel/UCAQpSd1FWbM-MwE-5JGYzyw">Watch presentations</a> from the first community group meeting.</span><span class='x'>X</span></h3>
+
+     <!-- navbar -->
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Interledger</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="overview.html">Docs</a></li>
+              <li><a href="community.html">Community</a></li>
+              <li><a href="news.html">News</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a target="_blank" href="https://github.com/interledger">Github <i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+            </ul>
           </div>
         </div>
-      </div>
-    </header>
+      </nav>
 
     <!-- hero -->
     <div class="jumbotron">
       <div class="container">
         <img class='hero-img img-responsive' src='assets/hero.png'/>
         <h1>INTERLEDGER</h1>
-        <p>Payments across payment networks</p>
-        <p><a class="btn btn-primary btn-lg" href="http://interledger.org/interledger.pdf" role="button" onclick="ga('send', 'event', 'Button', 'Click', 'Whitepaper');">Read the Whitepaper</a></p>
+        <p>Payments <strong>across</strong> payment networks</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a></p>
       </div>
     </div>
 
     <div class="container">
 
-      <!-- what is it section -->
-      <div class="col-md-12">
-        <h2>The Problem</h2>
-        <div class="row">
-          <div class='col-md-6'>
-            <p>When paying online, depending on where you are in the world, you are either confronted with a barrage of payment options and a terrible UX, or you have no option at all.</p>
-
-            <p>The fundamental problem is that payment networks are not interoperable. The sender and receiver of a payment must both be on the same network. Few networks can reach global scale so there is little competition.</p>
-
-            <p>This situation is similar to the days before the Web. It took open standards to interconnect the early web services.</p>
-
-            <p>What about Bitcoin, Ripple and other so-called protocols for money? In reality, these are all just networks themselves.</p>
-
-            <p>We need a neutral protocol, like HTTP or SMTP, for payments on the Web that enables senders and receivers to each use different providers. It should not require a central operator, nor a globally accepted currency or blockchain. Anyone should be able to use the protocol without connecting to any core or official network.</p>
-          </div>
-          <div class='col-md-6'>
-             <img class='ledger-today img-responsive' src='assets/ledgerstoday@2x.png'/>
-          </div>
-        </div>
-      </div>
-
-      <!-- how it works -->
-      <div class="col-md-12">
-        <div class="row">
-          <div class='col-md-6'>
-             <img class='how-it-works img-responsive visible-lg-block visible-md-block' src='assets/how-it-works@2x.png'/>
-          </div>
-          <div class='col-md-6'>
-            <h2>How the Protocol Works</h2>
-            <p>There are many payment systems or ledgers out there. Payment networks, blockchains, banks and so on.</p>
-
-            <p>Currency traders can create connections between them. You pay a trader on your ledger and the trader pays whoever you want on another ledger.</p>
-
-            <p>But the problem with this is: Who pays who first? If the trader goes first, they have to trust the sender to hold up their end of the bargain. If the sender goes first, the trader could disappear with the money, never to be seen again.</p>
-
-            <p>The solution is pretty simple: Escrow. Both the sender and the trader share a common ledger. And, the trader and receiver share another ledger. So let's have the sender’s ledger guarantee the transfer. The sender puts the money into escrow, the trader delivers funds at the destination, shows proof to the sender’s ledger and gets paid.</p>
-
-            <p>Using this protocol, anyone can transact across ledgers, without relying on a specific network.</p>
-
-          </div>
-          <div class='col-md-6'>
-             <img class='how-it-works img-responsive visible-sm-block visible-xs-block' src='assets/how-it-works@2x.png'/>
-          </div>
-        </div>
-      </div>
-
-      <!-- Six Degrees of Separation section -->
-      <div class="six-degreees-section col-md-12">
-        <div class="row">
-          <div class='col-md-6'>
-            <h2 id='six-header'>Six Degrees of Separation</h2>
-
-            <p>Trying to find currency traders for every possible pair of currencies or ledgers is unrealistic. The number of possible combinations explodes as the number of ledgers increases.</p>
-
-            <p>Instead, we can create chains of traders to enable payments between any sender and any receiver. Think six degrees of separation for money.</p>
-
-            <p>This means I can use whatever obscure payment system I want to pay you, even if you’re on a different one.</p>
-
-          </div>
-          <div class='col-md-6'>
-             <img class='six-degrees img-responsive' src='assets/6deg@2x.png'/>
-          </div>
-        </div>
-      </div>
-
       <!-- benefits section -->
-      <div class="col-md-12">
-        <h2>Benefits</h2>
-      </div>
       <div class="row">
         <div class="col-md-12">
           <div class="benefit col-md-4">
-            <div class="benefit-wrapper">
-              <img class='benefit-img img-responsive' src='assets/cost@2x.png'/>
-            </div>
-            <h4>Universal payments</h4>
+            <h3>Cross Ledger</h3>
             <p>Pay and receive payments using whatever means you prefer.</p>
           </div>
           <div class="benefit col-md-4">
-            <div class="benefit-wrapper">
-              <img class='benefit-img img-responsive' src='assets/markets@2x.png'/>
-            </div>
-            <h4>Competitive rates</h4>
+            <h3>Simple</h3>
             <p>Many traders compete to provide the cheapest, fastest payments.</p>
           </div>
           <div class="benefit col-md-4">
-            <div class="benefit-wrapper">
-              <img class='benefit-img img-responsive' src='assets/scale@2x.png'/>
-            </div>
-            <h4>Unlimited scalability</h4>
+            <h3>Automated</h3>
             <p>Without depending on a single system for processing payments, scalability becomes a non-issue. Need more speed? Just add more ledgers and more traders.</p>
           </div>
         </div>
       </div>
 
-      <!-- partcipate section -->
+      <hr>
+
+      <!-- example section -->
       <div class="col-md-12">
-        <h2>Participate</h2>
+        <h2>Example</h2>
+          <p class="example-intro">When paying online, depending on where you are in the world, you are either confronted with a barrage of payment options and a terrible UX, or you have no option at all.</p>
+
+        <h3>Sender</h3>
 
         <div class="row">
-          <div class='col-md-12'>
-            <p>We're looking forward to working with you to make Interledger payments a reality.</p>
+          <div class='col-md-9'>
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#js1">Javascript</a></li>
+              <li class="teaser"><a data-toggle="tab" href="#menu1">teaser</a></li>
+            </ul>
 
-            <p>Further work on the Interledger Protocol will be done in the <a href="https://www.w3.org/community/interledger/">Interledger Payments Community Group</a> at the W3C.</p>
+            <div class="tab-content">
+              <div id="js1" class="tab-pane fade in active">
+                <pre>
+                  <code>
+<span class="color1">const</span> WalletClient = require('five-bells-wallet-client')
+<span class="color1">const</span> client = <span class="color1">new</span> WalletClient({
+  address: <span class="color2">'alice@red.ilpdemo.org'</span>,
+  password: <span class="color2">'alice'</span>
+})
 
-            <p>To participate please <a href="https://www.w3.org/community/interledger/join">join the group</a> (you will need a <a href="https://www.w3.org/accounts/request">W3C account</a>). Note that W3C Membership is not required to join a Community Group.</p>
+client.sendPayment({
+      destinationAccount: <span class="color2">'bob@blue.ilpdemo.org'</span>,
+destinationAmount: <span class="color2">'10'</span>,
+destinationMemo: {
+        somethingYouAreExpecting: <span class="color2">'For that thing, ya know'</span>
+      }
+})
 
-            <p>Attend the <a href="https://www.eventbrite.com/e/interledger-protocol-workshop-tickets-21070974853">Interledger Protocol Workshop </a> - Thursday, February 25, 2016 from 9:00 AM to 1:00 PM (PST) San Francisco, CA, or remotely.</p>
+Timer client.sendPayment({
+      destinationAccount: <span class="color2">'bob@blue.ilpdemo.org'</span>,
+destinationAmount: <span class="color2">'10'</span>,
+                </code>
+              </pre>
+              </div>
+
+              <div id="menu1" class="tab-pane fade">
+                <h3>Contribute to a new language!</h3>
+                <p>Fork the repo here!</p>
+              </div>
+            </div>
+
+            <div class="callout left">
+              <div class="col-md-3">
+                <img class='magic img-responsive' src='assets/ledgy.gif'/>
+              </div>
+              <div class="col-md-9">
+                <h3>Automated Routing - It's like magic</h3>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Conso nantia, there live the blind texts.<br><a href="#"> Look inside</a></p>
+              </div>
+            </div>
+
+            <h3>Receiver</h3>
+
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#js2">Javascript</a></li>
+              <li class="teaser"><a data-toggle="tab" href="#menu2">teaser</a></li>
+              <li class="see-console pull-right"><a data-toggle="tab" href="#menu3">see output</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div id="js2" class="tab-pane fade in active">
+                <pre>
+                  <code>
+<span class="color1">const</span> WalletClient = require('five-bells-wallet-client')
+<span class="color1">const</span> client = new WalletClient({
+  address: <span class="color2">‘bob@blue.ilpdemo.org'</span>,
+  password: <span class="color2">‘bob’</span>
+})
+
+client.on('incoming', function (transfer) {
+  console.log(<span class="color2">'Got notification of incoming transfer: ', transfer</span>)
+})
+                </code>
+              </pre>
+              </div>
+
+              <div id="menu2" class="tab-pane fade">
+                <h3>Contribute to a new language!</h3>
+                <p>Fork the repo here!</p>
+              </div>
+
+              <div id="menu3" class="tab-pane fade">
+                <pre>
+                  <code>
+                    <h3>Console copy!</h3>
+                  </code>
+                </pre>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class='col-md-3 text-center'>
+
+            <h2 class="sending-amount">$ 1,234.00 USD</h2>
+              <p>Sending account</p>
+
+            <div class="visual-wrapper"></div>
+
+            <h2 class="receiving-amount">€ 23.12 EUR</h2>
+              <p>Receiving account</p>
+
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="text-center">
+              <button class="btn btn-primary" id="singlebutton">Get Started</button>
+            </div>
           </div>
         </div>
       </div>
 
-       <!-- reference section -->
-      <div class="col-md-12">
-        <h2>Reference Implementation</h2>
 
-        <div class="row">
-          <div class='col-md-12'>
-            <p> To see Interledger in action, try out our reference implementation <a target="_blank" href='https://github.com/interledger/five-bells-demo'>here.</a></p>
-          </div>
-        </div>
-      </div>
 
     </div> <!-- /container -->
 
+    <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-4">
+                <p><a href="#">About Us</a> - Interledger Fundation</p>
+              </div>
+              <div class="col-md-4">
+                <p class="text-center">See list of <a href="#">Contributors</a></p>
+              </div>
+              <div class="col-md-4">
+                <p class="pull-right">Documentation licensed under <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
