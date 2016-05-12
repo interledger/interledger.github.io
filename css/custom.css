@@ -45,6 +45,10 @@ img.git {
   opacity: .7;
 }
 
+.jumbotron h1 {
+  color: #fff;
+}
+
 header {
   display: none;
 }
@@ -110,6 +114,10 @@ header.animate {
 }
 .wrapper ul {
   padding: 0 20px 26px 20px;
+}
+
+ul.list-group {
+  padding-left: 0;
 }
 
 .wrapper li {
@@ -320,17 +328,16 @@ li.nav-label {
   padding: 0px 15px;
 }
 
-.nav-sidebar>li>a:hover {
-  /* 
-  border-left: 3px solid #ff0c3e;
-  background-color: rgba(0,0,0,0.03);
-  color: #111;
-  padding-left: 12px;
-  */
+.nav-sidebar>li>a:hover,
+.nav-sidebar>li>a:focus  {
   color: #ff0c3e;
   background-color: transparent;
-
 }
+
+/*.nav>li>a:focus,
+.nav>li>a:hover {
+  background-color: transparent;
+}*/
 
 .nav-sidebar>li.nav-label {
     position: relative;
@@ -414,6 +421,13 @@ li.nav-label {
     max-width: 330px;
   }
 }
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px !important;
+  }
+}
+
 
 
 @-moz-keyframes dropHeader {
