@@ -31,4 +31,14 @@
   sidebarActiveClass();
 
 
+  //homepage type effect
+  $(function(){
+    console.log('start');
+      $(".typewriter").typed({
+        strings: ["Blockchain.", "Ledgers."],
+        typeSpeed: 0
+      });
+  });
+
+
 })(jQuery)
