@@ -3,6 +3,7 @@ body {
   font-size: 17px;
   line-height: 26px;
   color: #555;
+  position: relative;
 }
 
 .navbar {
@@ -427,6 +428,44 @@ li.nav-label {
     width: 970px !important;
   }
 }
+
+h3:before,
+.section-title:before {
+    display: block;
+    content: "";
+    margin-top: -60px !important;
+    height: 60px;
+    visibility: hidden;
+    position: relative;
+    width: 0;
+}
+
+.overview-back {
+  margin: 32px 0 10px 13px;
+  width: 100%;
+}
+
+a.section-title {
+  border-bottom: 1px solid #ccc;
+}
+
+.overview-back a {
+  color: #333;
+  font-weight: 800;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.overview-back a:hover{
+  color: #ff0c3e;
+}
+
+.nav-fixed {
+  top: 30px;
+  position: fixed;
+}
+
 .blue {
   color: #f09;
 }
@@ -434,6 +473,7 @@ li.nav-label {
 .red {
   color: red;
 }
+
 .typed-cursor{
     opacity: 1;
     -webkit-animation: blink 0.7s infinite;
