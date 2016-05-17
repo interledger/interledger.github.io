@@ -329,16 +329,22 @@ li.nav-label {
   padding: 0px 15px;
 }
 
+.architecture-overview .nav-sidebar li.nav-label a {
+  color: #000;
+}
+
+.architecture-overview .nav-sidebar li.nav-label {
+  border-top: 1px solid #ccc;
+  padding-top: 22px !important;
+  padding-left: 0 !important;
+  margin-top: 15px;
+}
+
 .nav-sidebar>li>a:hover,
 .nav-sidebar>li>a:focus  {
   color: #ff0c3e;
   background-color: transparent;
 }
-
-/*.nav>li>a:focus,
-.nav>li>a:hover {
-  background-color: transparent;
-}*/
 
 .nav-sidebar>li.nav-label {
     position: relative;
@@ -362,6 +368,7 @@ li.nav-label {
   border: none;
   margin: 30px 0 0;
 }
+
 
 @media (min-width: 768px) {
 
@@ -441,8 +448,12 @@ h3:before,
 }
 
 .overview-back {
-  margin: 32px 0 10px 13px;
+  margin: 29px 0 -5px 13px;
+}
+
+.overview-back a {
   width: 100%;
+
 }
 
 a.section-title {
@@ -464,6 +475,7 @@ a.section-title {
 .nav-fixed {
   top: 30px;
   position: fixed;
+  width: 268px;
 }
 
 .blue {
