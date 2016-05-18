@@ -58,6 +58,16 @@ code, kbd, pre, samp {
   font-family: 'Droid Sans Mono', Menlo, Monaco,Consolas, "Courier New", monospace;
 }
 
+pre {
+  border: none;
+  border-radius: 0;
+}
+
+pre code {
+  overflow: auto;
+  white-space: pre;
+}
+
 .x {
   cursor: pointer;
   margin-top: 3px;
@@ -211,6 +221,7 @@ p.intro {
 
 .nav-tabs {
   margin-top: 15px;
+  border: none;
 }
 
 .nav-tabs>li>a {
@@ -226,16 +237,63 @@ p.intro {
 }
 
 .nav-tabs>li.teaser>a {
-  color: transparent !important;
+/*  color: transparent !important;*/
 }
 
 .tab-content pre {
   color: #fff;
-  background-color: #253b3f;
+  background-color: #373e3f;
+  margin: 6px 0;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+  color: #fff;
+  cursor: default;
+  background-color: #373e3f;
+  border: none;
+  border-bottom-color: transparent;
+  font-size: 15px;
+  padding: 7px 15px;
+}
+
+.nav-tabs>li>a {
+  border: none;
+  border-radius: 0;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+  font-weight: 400;
+  font-size: 15px;
+  background-color: #9a9a9a;
+  color: #fff;
+  padding: 7px 15px 7px 15px;
+}
+
+.nav-tabs>li {
+  margin-bottom: -6px;
+  border: none;
+}
+
+.nav-tabs>li>a:hover {
+    background-color: #737373;
+    border: none;
+}
+
+li.see-console {
+  margin-right: -2px;
+}
+
+li.see-console>a:hover {
+  color: #fff;
 }
 
 #menu1 {
   min-height: 351px;
+}
+
+code.bash {
+  max-height: 500px;
 }
 
 .visual-wrapper {
@@ -369,6 +427,23 @@ li.nav-label {
   margin: 30px 0 0;
 }
 
+.logo {
+  width: 20px;
+  height: 20px;
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+  transition: transform .8s ease-in-out;
+}
+
+img.logo:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.canvas-wrapper {
+/*  display:block;
+  width:100%;
+  margin-left: -130px;*/
+}
 
 @media (min-width: 768px) {
 
