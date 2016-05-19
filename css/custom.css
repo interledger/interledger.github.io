@@ -47,7 +47,7 @@ img.git {
 }
 
 .jumbotron h1 {
-  color: #000;
+  color: #fff;
 }
 
 header {
@@ -91,14 +91,14 @@ header.animate {
 
 .jumbotron {
   text-align: center;
-  background-color: #fff;
+  background-color: #253b3f;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
 .jumbotron p {
   margin: 15px auto 25px;
   font-family: 'Source Sans Pro', sans-serif;
-  color: #000;
+  color: #fff;
 }
 
 .hero-img {
