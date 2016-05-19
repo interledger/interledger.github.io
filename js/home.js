@@ -21,10 +21,10 @@
 
   //canvas animation
   var canvas, stage, exportRoot;
-
   function init() {
+
     canvas = document.getElementById("canvas");
-    exportRoot = new lib.AnimateCC_Test();
+    exportRoot = new lib.sidebar_animation_v1();
 
     stage = new createjs.Stage(canvas);
     stage.addChild(exportRoot);
@@ -34,8 +34,8 @@
     createjs.Ticker.addEventListener("tick", stage);
   }
 
-  //initialize canvas on load
-  $('body').load(function() {
+  //draw the canvas
+  $('document').ready(function() {
     init();
   });
 
