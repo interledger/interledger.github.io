@@ -47,7 +47,7 @@ img.git {
 }
 
 .jumbotron h1 {
-  color: #fff;
+  color: #000;
 }
 
 header {
@@ -91,14 +91,14 @@ header.animate {
 
 .jumbotron {
   text-align: center;
-  background-color: #253b3f;
+  background-color: #fff;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
 .jumbotron p {
   margin: 15px auto 25px;
   font-family: 'Source Sans Pro', sans-serif;
-  color: #fff;
+  color: #000;
 }
 
 .hero-img {
@@ -561,12 +561,70 @@ a.section-title {
   color: red;
 }
 
-.typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
+.onoffswitch {
+  position: relative;
+  width: 30px;
+  top: 17px;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select: none;
 }
+
+.onoffswitch-checkbox {
+  display: none;
+}
+
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  height: 15px;
+  padding: 0;
+  line-height: 15px;
+  border: 2px solid rgba(255,255,255,0.7);
+  border-radius: 15px;
+  background-color: #000000;
+  transition: background-color 0.3s ease-in;
+}
+
+.onoffswitch-label:before {
+  content: "";
+  display: block; width: 15px; margin: 0px;
+  background: #000;
+  position: absolute; top: 0; bottom: 0;
+  right: 15px;
+  border: 2px solid rgba(255,255,255,0.7); border-radius: 15px;
+  transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+  background-color: #FF0C3E;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  border-color: #FF0C3E;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  right: 0px;
+}
+
+.typewriter-wrapper {
+  height: 65px;
+}
+
+.typewriter-intro {
+  position: absolute;
+  margin-left: 15px !important;
+}
+
+.typed-cursor{
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+
 @keyframes blink{
     0% { opacity:1; }
     50% { opacity:0; }
@@ -582,8 +640,6 @@ a.section-title {
     50% { opacity:0; }
     100% { opacity:1; }
 }
-
-
 
 @-moz-keyframes dropHeader {
     0% {
@@ -608,4 +664,19 @@ a.section-title {
     100% {
         transform: translateY(0);
     }
+}
+
+
+/*dark styles*/
+
+.dark .jumbotron {
+  background-color: #253b3f;
+}
+
+.dark .jumbotron h1 {
+  color: #fff;
+}
+
+.dark .jumbotron p {
+  color: #fff;
 }
