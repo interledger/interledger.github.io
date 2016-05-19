@@ -47,6 +47,7 @@ img.git {
 }
 
 .jumbotron h1 {
+  font-family: 'Titillium Web', sans-serif;
   color: #fff;
 }
 
@@ -90,14 +91,14 @@ header.animate {
 }
 
 .jumbotron {
-  text-align: center;
+  text-align: left;
   background-color: #253b3f;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
 .jumbotron p {
   margin: 15px auto 25px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   color: #fff;
 }
 
@@ -184,8 +185,8 @@ p.intro {
   min-height: 200px;
   width: 100%;
   float: left;
-  background-color: #485a5e;
-  background-image: -moz-linear-gradient(top, #485a5e, #485a5e);
+  background-color: #fff;
+  background-image: -moz-linear-gradient(top, #fff, #fff);
   position: relative;
   color: #fff;
   padding: 10px;
@@ -204,11 +205,37 @@ p.intro {
   right: -14px;
   border-width: 14px;
   border-style: solid;
-  border-color: transparent #485a5e #485a5e transparent;
+  border-color: transparent #fff #fff transparent;
   top: 50%;
   margin-top: -14px;
 }
 
+.callout p {
+  color: rgba(51,51,51,.6);
+}
+
+hr {
+  border-top: 1px solid rgba(51,51,51,.3);
+}
+
+.benefit {
+  text-align: center;
+}
+
+.benefit p {
+  margin-top: 20px;
+  color: rgba(51,51,51,.6);
+}
+
+.example-intro {
+  color: rgba(51,51,51,.6);
+  max-width: 440px;
+}
+
+.example-wrapper h2 {
+  font-size: 36px;
+  font-family: 'Titillium Web', sans-serif;
+}
 
 .callout a {
   color: #ff0c3e;
@@ -302,10 +329,6 @@ code.bash {
   background-repeat: repeat-y;
   height: 100%;
   min-height:790px;
-}
-
-.example-intro {
-  max-width: 75%;
 }
 
 .color1 {
@@ -440,9 +463,12 @@ img.logo:hover {
 }
 
 .canvas-wrapper {
-/*  display:block;
-  width:100%;
-  margin-left: -130px;*/
+  margin-top: -110px;
+  margin-left: -30px;
+}
+
+.tab-content pre code {
+    line-height: 1.6em;
 }
 
 @media (min-width: 768px) {

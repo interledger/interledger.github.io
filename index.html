@@ -72,23 +72,27 @@
     <!-- hero -->
     <div class="jumbotron">
       <div class="container">
-        <img class='hero-img img-responsive' src='assets/hero.png'/>
-        <h1>INTERLEDGER</h1>
-        <div class="typewriter-wrapper">
-          <p class="typewriter-intro">The protocol for connecting <span class="typewriter"></span></p>
+        <div class="col-sm-4">
+          <img class='hero-img img-responsive' src='assets/hero.png'/>
         </div>
-        <!-- SEO friendly typewrite strings -->
-        <div id="typed-strings">
-          <p><span class=''>ledgers. ^2000 </span></p>
-          <p><span class='red'>payment networks.</span></p>
-          <p><span class='blue'>digital wallets.</span></p>
-          <p><span class='blue'>bank ledgers.</span></p>
-          <p><span class='red'>national clearinghouses.</span></p>
-          <p><span class='blue'>mobile money.</span></p>
-        </div>
-        <span id="typed"></span>
+        <div class="col-sm-8">
+          <h1>INTERLEDGER</h1>
+          <div class="typewriter-wrapper">
+            <p class="typewriter-intro">The protocol for connecting <span class="typewriter"></span></p>
+          </div>
+          <!-- SEO friendly typewrite strings -->
+          <div id="typed-strings">
+            <p><span class=''>ledgers. ^2000 </span></p>
+            <p><span class='red'>payment networks.</span></p>
+            <p><span class='blue'>digital wallets.</span></p>
+            <p><span class='blue'>bank ledgers.</span></p>
+            <p><span class='red'>national clearinghouses.</span></p>
+            <p><span class='blue'>mobile money.</span></p>
+          </div>
+          <span id="typed"></span>
 
-        <p><a class="btn btn-primary btn-lg" href="getting-started.html" role="button">Get Started</a></p>
+          <p><a class="btn btn-primary btn-lg" href="getting-started.html" role="button">Get Started</a></p>
+        </div>
       </div>
     </div>
 
@@ -98,16 +102,16 @@
       <div class="row">
         <div class="col-md-12">
           <div class="benefit col-md-4">
-            <h3>Cross Ledger</h3>
-            <p>Pay and receive payments using whatever means you prefer.</p>
+            <h3>Code With Money</h3>
+            <p>Build payments into apps and protocols without being tied to a single currency or payment provider.</p>
           </div>
           <div class="benefit col-md-4">
-            <h3>Simple</h3>
-            <p>Many traders compete to provide the cheapest, fastest payments.</p>
+            <h3>Multi-Hop Routing</h3>
+            <p>Send payments to other ledgers, even if they are multiple hops away.</p>
           </div>
           <div class="benefit col-md-4">
-            <h3>Automated</h3>
-            <p>Without depending on a single system for processing payments, scalability becomes a non-issue. Need more speed? Just add more ledgers and more traders.</p>
+            <h3>Simple Protocol</h3>
+            <p>Inspired by TCP/IP, Interledger is easy to implement and use.</p>
           </div>
         </div>
       </div>
@@ -115,11 +119,9 @@
       <hr>
 
       <!-- example section -->
-      <div class="col-md-12">
-        <h2>Example</h2>
-          <p class="example-intro">When paying online, depending on where you are in the world, you are either confronted with a barrage of payment options and a terrible UX, or you have no option at all.</p>
-
-        <h3>Sender</h3>
+      <div class="col-md-12 example-wrapper">
+        <h2>Simple Sending</h2>
+          <p class="example-intro">Interledger makes it easy to send money, no matter what ledger you or the recipient are on.</p>
 
         <div class="row">
           <div class='col-md-9'>
@@ -158,16 +160,16 @@ setInterval(pay, 1500)</code></pre>
 
             <div class="callout left">
               <div class="col-md-3">
-                <img class='magic img-responsive' src='assets/ledgy.gif'/>
+                <!-- <img class='magic img-responsive' src='assets/ledgy.gif'/> -->
               </div>
               <div class="col-md-9">
-                <h3>Automated Routing - It's like magic</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Conso nantia, there live the blind texts.<br><a href="#"> Look inside</a></p>
+                <h2>Automated Routing</h2>
+                <p>Interledger takes care of getting your money from ledger A to ledger B, so you can get back to building awesome things! If you’re interested, <a href="#">learn more about how the magic works.</a></p>
               </div>
             </div>
 
-            <h3>Receiver</h3>
-
+            <h2>Receiving Money</h2>
+            <p class="example-intro">Interledger allows you to receive money from any ledger, without setting up accounts on lots of different services.</p>
             <ul class="nav nav-tabs">
               <li class="active"><a data-toggle="tab" href="#js2">Javascript</a></li>
               <li class="teaser"><a data-toggle="tab" href="#menu2">&#43;</a></li>
@@ -294,7 +296,7 @@ socket.io-client:socket emitting event ["balance","1009.25"] +1ms</code></pre>
                 <p><a href="#">About Us</a> - Interledger Foundation</p>
               </div>
               <div class="col-xs-4">
-                <p class="text-center">See list of <a href="#">Contributors</a></p>
+                <p class="text-center">See list of <a href="https://www.w3.org/community/interledger/participants">Contributors</a></p>
               </div>
               <div class="col-xs-4">
                 <p class="pull-right">Documentation licensed under <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></p>
