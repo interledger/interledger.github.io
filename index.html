@@ -140,7 +140,7 @@
             </ul>
 
             <div class="tab-content">
-              <div id="js1" class="tab-pane fade in active">
+              <div id="js1" class="tab-pane active">
                 <pre><code>import { Client } from 'spp-client'
 
 const client = new Client({
@@ -161,9 +161,15 @@ function pay () {
 setInterval(pay, 1500)</code></pre>
               </div>
 
-              <div id="menu1" class="tab-pane fade">
-                <h3>Contribute to a new language!</h3>
-                <p>Fork the repo here!</p>
+              <div id="menu1" class="tab-pane">
+                <pre><code>
+&lt;!-- Don’t see your language here? --&gt;
+
+Help implement Interledger in your
+favorite programming language.
+                <p><a class="btn btn-primary btn-lg getting-started-button contribute" href="https://github.com/interledger" role="button">Contribute</a></p>
+                </pre></code>
+
               </div>
             </div>
 
@@ -186,7 +192,7 @@ setInterval(pay, 1500)</code></pre>
             </ul>
 
             <div class="tab-content">
-              <div id="js2" class="tab-pane fade in active">
+              <div id="js2" class="tab-pane active">
                 <pre><code>import { Client } from 'spp-client'
 
 const client = new Client({
@@ -200,12 +206,17 @@ client.on('incoming', (payment) => {
 })</code></pre>
               </div>
 
-              <div id="menu2" class="tab-pane fade">
-                <h3>Contribute to a new language!</h3>
-                <p>Fork the repo here!</p>
+              <div id="menu2" class="tab-pane">
+                 <pre><code>
+&lt;!-- Don’t see your language here? --&gt;
+
+Help implement Interledger in your
+favorite programming language.
+<p><a class="btn btn-primary btn-lg getting-started-button contribute" href="https://github.com/interledger" role="button">Contribute</a></p>
+                </pre></code>
               </div>
 
-              <div id="menu3" class="tab-pane fade">
+              <div id="menu3" class="tab-pane">
                 <pre><code class="bash">engine.io-client:polling polling +4ms
 engine.io-client:polling-xhr xhr poll +1ms
 engine.io-client:polling-xhr xhr open GET: https://red.ilpdemo.org/api/socket.io/?EIO=3&transport=polling&t=LHzLkLa&b64=1&sid=dfmf_Zz7oaGuklkRAAAO +0ms
