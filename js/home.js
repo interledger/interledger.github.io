@@ -58,6 +58,7 @@
     $('.cents2').addOne();
   }
 
+  //fire every 1.5s
   setInterval(count, 1500);
 
 
