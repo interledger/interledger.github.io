@@ -15,7 +15,7 @@
     <link href="css/custom.css" rel="stylesheet">
 
     <!-- Google fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700|Droid+Sans+Mono|Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,400italic|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
@@ -67,23 +67,29 @@
            <div id="sidebarContent"></div>
         </div>
         <div class="col-sm-8 wrapper">
-          <h1 class="page-header">Overview</h1>
+          <h1 class="page-header">Docs Overview</h1>
 
-          <h2>Welcome to the Interledger Documentation</h2>
+          <p class="intro">Welcome to the Interledger Documentation. Here you can learn all about how Interledger works and how to start building with it.</p>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
+          <p>Wondering what this is all about? See <a href="why-interledger.html">Why Interledger</a>.</p>
 
-          <h2>What is the Interledger Protocol?</h2>
+          <h2>Building on Interledger</h2>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Build payments into your apps or other protocools without tying yourself to a specific currency or payment network. Create accounts on our demo ledgers and start sending Interledger payments with the client libraries. Check out <a href="getting-started.html">Getting Started</a>.</p>
 
-          <h2>Why Interledger?</h2>
+          <h2>Interleger Architecture</h2>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Interledger enable payments across many different types of ledgers. The Interledger Protocol Suite is comprised of four layers: the Application, Transport, Interledger, and Ledger protocols. To learn more, see the <a href="">Interledger Architecture Overview</a>.</p>
 
-          <h2>The Interledger W3c Working Group</h2>
+          <h2>Protocol Specs and APIs</h2>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>To dive into the technical specs, see the <a href="https://github.com/interledger/rfcs">Interledger RFCs</a>. Also see the documentation for the components of the reference implementation, code-named <a href="https://github.com/interledger/five-bells-demo#why-five-bells">"Five Bells"</a>. There are the <a href="">client</a>, <a href="">connector</a>, the example <a href="">ledger</a> and the application layer <a href="">wallet</a>.</p>
+
+          <h2>Security</h2>
+
+          <p>Interledger provides secure payments using transfer holds based on <a href="">Cryptographic Conditions</a>. The Transport protocols provide reliable transmission even through untrusted intermediaries. For the theoretical foundations of Interledger, read the <a href="interledger.pdf">Whitepaper</a>.</p>
+
+          <p>Next: <a href="getting-started.html">Getting Started</a></p>
 
       </div>
 
@@ -94,10 +100,10 @@
           <div class="row">
             <div class="col-md-12">
               <div class="col-xs-4">
-                <p><a href="#">About Us</a> - Interledger Foundation</p>
+                <p><a href="#">About Us</a> - Interledger Fundation</p>
               </div>
               <div class="col-xs-4">
-                <p class="text-center">See list of <a href="https://www.w3.org/community/interledger/participants">Contributors</a></p>
+                <p class="text-center">See list of <a href="#">Contributors</a></p>
               </div>
               <div class="col-xs-4">
                 <p class="pull-right">Documentation licensed under <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></p>
