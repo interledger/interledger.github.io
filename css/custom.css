@@ -659,6 +659,13 @@ a.section-title {
   margin-bottom: 70px;
 }
 
+.superscript {
+  font-size: 17px;
+  vertical-align: super;
+  font-weight: 700;
+  padding-left: 2px;
+}
+
 .onoffswitch {
   position: relative;
   width: 30px;
@@ -715,7 +722,7 @@ a.section-title {
   position: absolute;
 }
 
-.typed-cursor{
+.typed-cursor {
   opacity: 1;
   -webkit-animation: blink 0.7s infinite;
   -moz-animation: blink 0.7s infinite;

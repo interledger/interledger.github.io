@@ -41,21 +41,31 @@
     init();
   });
 
+
+
+
   //number counting
-  $.extend($.fn, {
-     "addOne": function() {
-        var num = parseInt(this.text(), 10);
-        this.text(++num);
-     },
-     "subtractOne": function() {
-        var num = parseInt(this.text(), 10);
-        this.text(--num);
-     }
-  });
+  var sender = 525.380;
+  var receiver = 23.120;
 
   function count(){
-    $('.cents1').subtractOne();
-    $('.cents2').addOne();
+
+    sender -= .0111;
+    receiver += .01;
+
+    var senderNumber = sender.toFixed(3);
+    var receiverNumber = receiver.toFixed(3);
+
+    var senderInitial = senderNumber.slice(0, -1);
+    var senderLastChar = '<span class="superscript">'+senderNumber.slice(-1)+'</span>';
+
+    var receiverInitial = receiverNumber.slice(0, -1);
+    var receiverLastChar = '<span class="superscript">'+receiverNumber.slice(-1)+'</span>';
+
+    $(".cents1").html(senderInitial + senderLastChar);
+    $(".cents2").html(receiverInitial + receiverLastChar);
+
+
   }
 
   //fire every 1.5s
