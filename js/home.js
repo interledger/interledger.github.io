@@ -45,31 +45,27 @@
 
 
   //number counting
+  function count(type, number){
+
+    number = type === 'sender' ? number - .0111 : number + .01;
+
+    number = number.toFixed(3);
+
+    var initial = number.slice(0, -1);
+    var last = '<span class="superscript">'+number.slice(-1)+'</span>';
+
+    $('.'+type).html(initial + last);
+
+    return parseFloat(number);
+  }
+
   var sender = 525.380;
   var receiver = 23.120;
 
-  function count(){
-
-    sender -= .0111;
-    receiver += .01;
-
-    var senderNumber = sender.toFixed(3);
-    var receiverNumber = receiver.toFixed(3);
-
-    var senderInitial = senderNumber.slice(0, -1);
-    var senderLastChar = '<span class="superscript">'+senderNumber.slice(-1)+'</span>';
-
-    var receiverInitial = receiverNumber.slice(0, -1);
-    var receiverLastChar = '<span class="superscript">'+receiverNumber.slice(-1)+'</span>';
-
-    $(".cents1").html(senderInitial + senderLastChar);
-    $(".cents2").html(receiverInitial + receiverLastChar);
+  setInterval(function(){
+    sender = count('sender', sender);
+    receiver = count('receiver', receiver);
+  }, 1500);
 
 
-  }
-
-  //fire every 1.5s
-  setInterval(count, 1500);
-
-
-})(jQuery)
+})(jQuery);
