@@ -92,6 +92,7 @@ header.animate {
 }
 
 .jumbotron {
+  margin-bottom: 45px;
   padding-top: 100px;
   text-align: left;
   font-family: 'Source Sans Pro', sans-serif;
