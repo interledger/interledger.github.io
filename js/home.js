@@ -41,5 +41,24 @@
     init();
   });
 
+  //number counting
+  $.extend($.fn, {
+     "addOne": function() {
+        var num = parseInt(this.text(), 10);
+        this.text(++num);
+     },
+     "subtractOne": function() {
+        var num = parseInt(this.text(), 10);
+        this.text(--num);
+     }
+  });
+
+  function count(){
+    $('.cents1').subtractOne();
+    $('.cents2').addOne();
+  }
+
+  setInterval(count, 1500);
+
 
 })(jQuery)
