@@ -49,6 +49,7 @@ img.git {
 .jumbotron h1 {
   font-family: 'Titillium Web', sans-serif;
   color: #fff;
+  font-weight: 300;
 }
 
 header {
@@ -91,9 +92,14 @@ header.animate {
 }
 
 .jumbotron {
+  padding-top: 100px;
   text-align: left;
-  background-color: #253b3f;
   font-family: 'Source Sans Pro', sans-serif;
+  background: #34393c ;
+  background-image: url('../assets/bg_pattern.png');
+  background-image: url('../assets/bg_pattern.png'), linear-gradient(to right, #34393c  0%, #375d65  100%);
+  background-image: url('../assets/bg_pattern.png'), -webkit-linear-gradient(left, #34393c  0%, #375d65  100%);
+  background-image: url('../assets/bg_pattern.png'), -moz-linear-gradient(left, #34393c  0%, #375d65  100%);
 }
 
 .jumbotron p {
@@ -103,8 +109,8 @@ header.animate {
 }
 
 .hero-img {
-  width: 50%;
-  margin: 50px auto 25px;
+  max-width: 230px;
+  margin: 20px auto 25px;
 }
 
 .btn-primary {
@@ -121,9 +127,21 @@ header.animate {
 .btn-primary:active:hover,
 .btn-primary:active,
 .btn-primary:focus {
-  background-color: #6a8484;
+  background-color: #ff3d4b;
   border-color: transparent;
 }
+
+.getting-started-button {
+  -webkit-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.2);
+}
+
+.jumbotron h1,
+.typewriter-intro {
+  text-shadow: 0px 7px 5px rgba(0, 0, 0, 0.2);
+}
+
 .wrapper ul {
   padding: 0 20px 26px 20px;
 }
@@ -181,6 +199,24 @@ p.intro {
  font-style: normal;
 }
 
+.code-img {
+  width: 50px;
+  margin: auto;
+  height: 40px;
+}
+
+.hop-img {
+  width: 65px;
+  margin:auto;
+  height: 40px;
+}
+
+.simple-img {
+  width: 43px;
+  margin: auto;
+  height: 40px;
+}
+
 .callout {
   min-height: 200px;
   width: 100%;
@@ -192,7 +228,7 @@ p.intro {
   padding: 10px;
   border-radius: 3px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-  margin: 50px 0;
+  margin: 100px 0;
 }
 
 .callout:after {
@@ -214,8 +250,22 @@ p.intro {
   color: rgba(51,51,51,.6);
 }
 
+
+h2.sending-amount {
+  margin: 55px auto 0;
+}
+
+h2.receiving-amount {
+  margin-bottom: 0;
+}
+
+.account {
+  font-size: 14px;
+  color: rgba(51,51,51,0.7);
+}
+
 hr {
-  border-top: 1px solid rgba(51,51,51,.3);
+  border-top: 1px solid rgba(51,51,51,0.3);
 }
 
 .benefit {
@@ -224,11 +274,11 @@ hr {
 
 .benefit p {
   margin-top: 20px;
-  color: rgba(51,51,51,.6);
+  color: rgba(51,51,51,0.6);
 }
 
 .example-intro {
-  color: rgba(51,51,51,.6);
+  color: rgba(51,51,51,0.6);
   max-width: 440px;
 }
 
@@ -242,8 +292,9 @@ hr {
 }
 
 .magic {
-  text-align: center;
-  display: block !important;
+  display: block;
+  max-width: 30px;
+  margin: 30px auto;
 }
 
 .nav-tabs {
@@ -463,8 +514,11 @@ img.logo:hover {
 }
 
 .canvas-wrapper {
-  margin-top: -110px;
   margin-left: -30px;
+}
+
+.get-started {
+  margin-top: 50px;
 }
 
 .tab-content pre code {
@@ -579,12 +633,28 @@ a.section-title {
   width: 268px;
 }
 
-.blue {
-  color: #f09;
+.color1 {
+  color: #fd8062;
 }
 
-.red {
-  color: red;
+.color2 {
+  color: #ffce76;
+}
+
+.color3 {
+  color: #73e08d;
+}
+
+.color4 {
+  color: #73d0c7;
+}
+
+.color5 {
+  color: #d394d0;
+}
+
+.example-wrapper {
+  margin-bottom: 70px;
 }
 
 .onoffswitch {
@@ -641,7 +711,6 @@ a.section-title {
 
 .typewriter-intro {
   position: absolute;
-  margin-left: 15px !important;
 }
 
 .typed-cursor{

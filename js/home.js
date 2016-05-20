@@ -6,6 +6,8 @@
       stringsElement: $('#typed-strings'),
       typeSpeed: 50,
       loop: true,
+      backDelay: 1000,
+      backSpeed: 10,
     });
   });
 
