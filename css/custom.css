@@ -367,8 +367,38 @@ li.see-console>a:hover {
   color: #fff;
 }
 
-#menu1 {
-  min-height: 351px;
+#menu1 pre code {
+  height: 373px;
+  text-align: center;
+  color: #20c6aa;
+  line-height: 1.7em;
+  padding-top: 60px;
+}
+
+#menu2 pre code {
+  height: 233px;
+  text-align: center;
+  color: #20c6aa;
+  line-height: 1.7em;
+  padding-top: 16px;
+  overflow: hidden;
+}
+
+#menu2 p {
+  padding-bottom: 0;
+}
+
+.contribute {
+  background-color: #20c6aa;
+  margin-top: 20px;
+}
+
+.contribute:hover {
+  background-color: #58d4b5;
+}
+
+.tab-content .hljs-comment {
+  color: #fff;
 }
 
 code.bash {
