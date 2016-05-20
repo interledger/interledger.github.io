@@ -251,6 +251,9 @@ p.intro {
   color: rgba(51,51,51,.6);
 }
 
+.callout h2 {
+  font-size: 22px !important;
+}
 
 h2.sending-amount {
   margin: 80px auto 0;
