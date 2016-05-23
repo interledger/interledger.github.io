@@ -83,6 +83,10 @@ pre code {
   white-space: pre;
 }
 
+a {
+  color: #ff0c3e;
+}
+
 .x {
   cursor: pointer;
   margin-top: 3px;
