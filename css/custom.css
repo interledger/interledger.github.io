@@ -20,6 +20,11 @@ body {
   border-color: #fff;
 }
 
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: #000;
+}
+
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover {
@@ -578,6 +583,10 @@ img.logo:hover {
 }
 
 @media (max-width: 768px) {
+
+  .callout {
+    margin: 40px 0;
+  }
 
   .hero-img {
     margin: 70px auto 25px;
