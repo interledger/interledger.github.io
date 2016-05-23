@@ -12,6 +12,14 @@ body {
   border: none !important;
 }
 
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: #fff;
+}
+
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover {
@@ -570,9 +578,22 @@ img.logo:hover {
 }
 
 @media (max-width: 768px) {
+
+  .hero-img {
+    margin: 70px auto 25px;
+  }
+
+  .callout:after {
+    display: none;
+  }
+
   .jumbotron {
-    margin-bottom: 0;
     padding: 0;
+    text-align: center;
+  }
+
+  .typewriter-intro {
+    position: relative !important;
   }
 
   .x {
