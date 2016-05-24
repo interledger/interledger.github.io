@@ -420,8 +420,10 @@ li.see-console>a:hover {
   margin-top: 20px;
 }
 
-.contribute:hover {
-  background-color: #58d4b5;
+.contribute:hover,
+.contribute:active,
+.contribute:focus {
+  background-color: #58d4b5 !important;
 }
 
 .tab-content .hljs-comment {
