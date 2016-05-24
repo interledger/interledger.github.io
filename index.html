@@ -22,9 +22,7 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="css/monokai-sublime.css">
 
-    <!-- canvas animation -->
-    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-    <script src="js/sidebar_animation_v1.js"></script>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -275,7 +273,89 @@ socket.io-client:socket emitting event ["balance","1009.25"] +1ms</code></pre>
               <p class="account">Sending account</p>
 
             <div class="canvas-wrapper">
-              <canvas id="canvas" width="350" height="1000"></canvas>
+              <svg id="svgGraphic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 1000">
+                <line id="conncection-top" y1="48.102" x2="133.0815" y2="48.102" style="fill:none;stroke:#4f6164;stroke-miterlimit:10"/>
+                <line id="connection-btm" x1="133.0815" y1="951.898" y2="951.898" style="fill:none;stroke:#4f6164;stroke-miterlimit:10"/>
+                <g id="lines_bg">
+                  <polyline points="170.081 48.102 133.081 376.669 81.402 532.924 170.081 951.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;opacity:0.3"/>
+                  <line x1="170.0815" y1="48.102" x2="207.0815" y2="618.9239" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;opacity:0.3"/>
+                  <line x1="170.0815" y1="951.898" x2="207.0815" y2="618.9239" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;opacity:0.3"/>
+                  <line x1="81.4021" y1="532.9238" x2="207.0815" y2="618.9239" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;opacity:0.3"/>
+                  <line x1="133.0815" y1="376.6689" x2="207.0815" y2="618.9239" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;opacity:0.3"/>
+                </g>
+                <circle id="circle-1" cx="170.0815" cy="48.102" r="37" style="fill:#176f87;opacity:0.7;transform-origin: 18.5px 18.5px"/>
+                <circle id="circle-2" cx="133.0815" cy="376.6689" r="35.5277" style="fill:#529948;opacity:0.5;transform-origin: 17.7px 17.7px"/>
+                <circle id="circle-3" cx="81.4021" cy="532.9238" r="42.465" style="fill:#254c45;opacity:0.7;transform-origin: 21.2px 21.2px"/>
+                <circle id="circle-4" cx="207.0815" cy="618.9239" r="26.403" style="fill:#f7ba59;opacity:0.7;transform-origin: 13.2px 13.2px"/>
+                <circle id="circle-5" cx="170.0815" cy="951.898" r="37" style="fill:#c95959;opacity:0.7;transform-origin: 18.5px 18.5px"/>
+                <g id="label-1">
+                  <text transform="translate(217.1534 52.3919)" style="font-size:14px;fill:#333;font-family:Source Sans Pro">
+                    Digital Wallet
+                  </text>
+                </g>
+                <text transform="translate(178.044 380.2177)" style="font-size:14px;fill:#253b3f;font-family:Source Sans Pro">
+                  Local Bank
+                </text>
+                <text transform="translate(135.5684 536.4723)" style="font-size:14px;fill:#253b3f;font-family:Source Sans Pro">
+                  International Bank
+                </text>
+                <text transform="translate(241.4844 622.4718)" style="font-size:14px;fill:#253b3f;font-family:Source Sans Pro">
+                  Cryptocurrency
+                </text>
+                <g id="label-5">
+                  <text transform="translate(216.1534 949.8694)" style="font-size:14px;fill:#333;font-family:Source Sans Pro">
+                    Online
+                    <tspan x="0" y="16">Payment Service</tspan>
+                  </text>
+                </g>
+                <g id="icn-bigbank">
+                  <polyline points="85.25 547.882 85.25 537.897 77.487 537.897 77.487 547.882 56.89 547.882 56.89 522.142 71.233 522.142 71.233 509.997 91.901 509.997 91.901 522.142 106.232 522.142 106.232 547.882 91.901 547.882 91.901 526.899" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="61.7193" y1="526.8991" x2="66.0957" y2="526.8991" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="61.7193" y1="531.8288" x2="66.0957" y2="531.8288" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="61.7193" y1="536.7586" x2="66.0957" y2="536.7586" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="61.7193" y1="541.6883" x2="66.0957" y2="541.6883" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="97.0383" y1="526.8991" x2="101.4147" y2="526.8991" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="97.0383" y1="531.8288" x2="101.4147" y2="531.8288" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="97.0383" y1="536.7586" x2="101.4147" y2="536.7586" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="97.0383" y1="541.6883" x2="101.4147" y2="541.6883" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="86.2988" y1="516.109" x2="86.2988" y2="520.4854" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="81.3691" y1="516.109" x2="81.3691" y2="520.4854" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="76.4393" y1="516.109" x2="76.4393" y2="520.4854" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="86.2988" y1="526.8828" x2="86.2988" y2="531.2592" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="76.4393" y1="526.8828" x2="76.4393" y2="531.2592" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="71.2326" y1="522.1425" x2="71.2326" y2="543.4993" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="52.6121" y1="552.2493" x2="110.1261" y2="552.2493" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                </g>
+                <g id="icn-display">
+                  <path d="M151.4382,957.9249h37.2866v4.6467a1.4828,1.4828,0,0,1-1.4928,1.4726H174.4809v3.8a1.4614,1.4614,0,0,0,.3815.9833l2.0962,2.3054a0.7353,0.7353,0,0,1-.5556,1.228H164.4859a0.7353,0.7353,0,0,1-.5556-1.228l2.0962-2.3054a1.4614,1.4614,0,0,0,.3815-0.9833v-3.8H152.931a1.4828,1.4828,0,0,1-1.4928-1.4726V939.488a1.4828,1.4828,0,0,1,1.4928-1.4726h34.301a1.4828,1.4828,0,0,1,1.4928,1.4726v14.4928" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="166.408" y1="968.0446" x2="170.0815" y2="968.0446" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.85px"/>
+                </g>
+                <g id="icn-phone">
+                  <path d="M181.2137,38.4073V67.7108a2.2505,2.2505,0,0,1-2.2656,2.2351H161.2122a2.2505,2.2505,0,0,1-2.2656-2.2351V28.4932a2.2505,2.2505,0,0,1,2.2656-2.2351h17.7359a2.2505,2.2505,0,0,1,2.2656,2.2351v4.8826H158.9466" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.85px"/>
+                  <line x1="158.9466" y1="60.8647" x2="181.2137" y2="60.8647" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.85px"/>
+                  <ellipse cx="170.0802" cy="65.4053" rx="1.471" ry="1.4511" style="fill:#fff"/>
+                </g>
+                <g id="icn-bank">
+                  <path d="M137.6337,370.8155H117.0366a0.6856,0.6856,0,0,1-.4137-1.24L131.9893,358.38l16.3163,11.1845a0.6856,0.6856,0,0,1-.3974,1.2512h-5.0327V386.41a0.72,0.72,0,0,1-.7248.715H128.614l-0.0057-16.3091" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="121.4417" y1="370.8155" x2="121.4417" y2="387.1246" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.85px"/>
+                  <line x1="135.5689" y1="370.8155" x2="135.5689" y2="387.1246" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.85px"/>
+                  <line x1="115.783" y1="390.9699" x2="149.1618" y2="390.9699" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.85px"/>
+                </g>
+                <g id="icn-wallet">
+                  <path d="M195.5129,608.2415v20.37a1.2813,1.2813,0,0,0,1.2813,1.2813h22.2583a1.2813,1.2813,0,0,0,1.2813-1.2813v-4.8963" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <path d="M222.65,617.7583v4.2424a1.3837,1.3837,0,0,1-1.3837,1.3837h-6.379a1.3477,1.3477,0,0,1-1.0248-.4725L211.9741,620.7a1.3477,1.3477,0,0,1-.0018-1.7483l1.8055-2.1231a1.3477,1.3477,0,0,1,1.0267-.4746h4.3647a1.1646,1.1646,0,0,0,1.1646-1.1646v-3.4964a1.1646,1.1646,0,0,0-1.1646-1.1646H197.8a2.2869,2.2869,0,0,1-2.2869-2.2869h0a2.2869,2.2869,0,0,1,2.2869-2.2869h17.1286a1.2135,1.2135,0,0,1,1.2135,1.2135h0" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <circle cx="216.1534" cy="619.9761" r="1.4649" style="fill:#fff"/>
+                </g>
+                <circle id="dot-1" cx="170.0815" cy="48.102" r="1.9941" style="fill:#36dabc"/>
+                <circle id="dot-2" cx="133.0815" cy="376.6689" r="1.9941" style="fill:#36dabc"/>
+                <circle id="dot-3" cx="81.4021" cy="532.9238" r="1.9941" style="fill:#36dabc"/>
+                <circle id="dot-4" cx="207.0815" cy="618.9239" r="1.9941" style="fill:#36dabc"/>
+                <circle id="dot-5" cx="170.0815" cy="950.8979" r="1.9941" style="fill:#36dabc"/>
+                <polyline id="path-1" points="170.081 48.102 133.081 376.669 81.402 532.924 170 950.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
+                <polyline id="path-4" points="170 48.102 133.081 376.669 81.402 532.924 207.081 618.924 170.081 950.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
+                <polyline id="path-2" points="170 48.102 133.081 376.669 207.081 618.924 170.081 950.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
+                <polyline id="path-3" points="170 48.102 207.081 618.924 170.081 950.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
+              </svg>
             </div>
 
             <h2 class="receiving-amount">€ <span class="receiver">23.12<span class="superscript">0</span></span> EUR</h2>
@@ -322,6 +402,13 @@ socket.io-client:socket emitting event ["balance","1009.25"] +1ms</code></pre>
     <script src="js/typed.min.js"></script>
     <script src="js/highlight.pack.js"></script>
     <script src="js/home.js"></script>
+
+     <!-- svg animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/easing/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TimelineLite.min.js"></script>
+    <script type="text/javascript" src="js/DrawSVGPlugin.min.js"></script>
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

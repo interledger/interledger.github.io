@@ -733,6 +733,10 @@ a.section-title {
   padding-left: 2px;
 }
 
+#svgGraphic {
+  height: 1000px;
+}
+
 .onoffswitch {
   position: relative;
   width: 30px;
