@@ -177,7 +177,6 @@ favorite programming language.
             <ul class="nav nav-tabs">
               <li class="active"><a data-toggle="tab" href="#js2">Javascript</a></li>
               <li class="teaser"><a data-toggle="tab" href="#menu2">&#43;</a></li>
-              <li class="see-console pull-right"><a data-toggle="tab" href="#menu3">see output</a></li>
             </ul>
 
             <div class="tab-content">
@@ -204,65 +203,6 @@ favorite programming language.
 <p><a class="btn btn-primary btn-lg getting-started-button contribute" href="https://github.com/interledger" role="button">Contribute</a></p>
                 </pre></code>
               </div>
-
-              <div id="menu3" class="tab-pane">
-                <pre><code class="bash">engine.io-client:polling polling +4ms
-engine.io-client:polling-xhr xhr poll +1ms
-engine.io-client:polling-xhr xhr open GET: https://red.ilpdemo.org/api/socket.io/?EIO=3&transport=polling&t=LHzLkLa&b64=1&sid=dfmf_Zz7oaGuklkRAAAO +0ms
-engine.io-client:polling-xhr xhr data null +0ms
-engine.io-client:socket probe transport "websocket" opened +124ms
-engine.io-client:polling polling got data 2:40 +3ms
-engine.io-client:socket socket receive: type "message", data "0" +0ms
-socket.io-parser decoded 0 as {"type":0,"nsp":"/"} +1ms
-WalletClient Connected to wallet API socket.io +0ms
-socket.io-client:manager writing packet {"type":2,"data":["unsubscribe","walt"],"options":{"compress":true},"nsp":"/"} +1ms
-socket.io-parser encoding packet {"type":2,"data":["unsubscribe","walt"],"options":{"compress":true},"nsp":"/"} +0ms
-socket.io-parser encoded {"type":2,"data":["unsubscribe","walt"],"options":{"compress":true},"nsp":"/"} as 2["unsubscribe","walt"] +0ms
-engine.io-client:socket flushing 1 packets in socket +1ms
-engine.io-client:polling-xhr xhr open POST: https://red.ilpdemo.org/api/socket.io/?EIO=3&transport=polling&t=LHzLkNd&b64=1&sid=dfmf_Zz7oaGuklkRAAAO +1ms
-engine.io-client:polling-xhr xhr data 24:42["unsubscribe","walt"] +0ms
-socket.io-client:manager writing packet {"type":2,"data":["subscribe","walt"],"options":{"compress":true},"nsp":"/"} +2ms
-socket.io-parser encoding packet {"type":2,"data":["subscribe","walt"],"options":{"compress":true},"nsp":"/"} +0ms
-socket.io-parser encoded {"type":2,"data":["subscribe","walt"],"options":{"compress":true},"nsp":"/"} as 2["subscribe","walt"] +0ms
-engine.io-client:polling polling +0ms
-engine.io-client:polling-xhr xhr poll +0ms
-engine.io-client:polling-xhr xhr open GET: https://red.ilpdemo.org/api/socket.io/?EIO=3&transport=polling&t=LHzLkNf&b64=1&sid=dfmf_Zz7oaGuklkRAAAO +1ms
-engine.io-client:polling-xhr xhr data null +0ms
-WalletClient sendPayment +1ms { destination_account: 'https://red.ilpdemo.org/ledger/accounts/alice',
-destination_amount: '0.144',
-source_amount: undefined,
-source_memo: { content_hash: 'd6057fd10c300269f998514f193287859f9e9c09' },
-destination_memo:
- { expires_at: '2016-05-05T19:55:27.199Z',
-   licensee_public_key: '/OIEm3WzXiOxLWSuY1dU7bp3smvldivD+w9R40nUZnU=' } }
-superagent max redirects 5 +1ms
-superagent PUT https://red.ilpdemo.org/api/payments/ee99b4e7-1418-4239-8afc-4acf125c1503 +2ms
-engine.io-client:socket probe transport "websocket" pong +25ms
-engine.io-client:socket pausing current transport "polling" +0ms
-engine.io-client:polling we are currently polling - waiting to pause +0ms
-engine.io-client:polling we are currently writing - waiting to pause +0ms
-engine.io-client:polling polling got data 1:6 +108ms
-engine.io-client:socket socket receive: type "noop", data "undefined" +0ms
-engine.io-client:polling pre-pause polling complete +1ms
-engine.io-client:polling ignoring poll - transport state "pausing" +0ms
-engine.io-client:polling pre-pause writing complete +2ms
-engine.io-client:polling paused +0ms
-engine.io-client:socket changing transport and sending upgrade packet +1ms
-engine.io-client:socket setting transport websocket +0ms
-engine.io-client:socket clearing existing transport polling +0ms
-engine.io-client:socket flushing 1 packets in socket +2ms
-superagent PUT https://red.ilpdemo.org/api/payments/ee99b4e7-1418-4239-8afc-4acf125c1503 -> 200 +327ms
-superagent end PUT https://red.ilpdemo.org/api/payments/ee99b4e7-1418-4239-8afc-4acf125c1503 +2ms
-WebTorrentIlp Sent payment: { status: 'OK' } +682ms
-engine.io-client:socket socket receive: type "message", data "2["payment",null]" +42ms
-socket.io-parser decoded 2["payment",null] as {"type":2,"nsp":"/","data":["payment",null]} +0ms
-socket.io-client:socket emitting event ["payment",null] +1ms
-WalletClient Got notification null +0ms
-engine.io-client:socket socket receive: type "message", data "2["balance","1009.25"]" +175ms
-socket.io-parser decoded 2["balance","1009.25"] as {"type":2,"nsp":"/","data":["balance","1009.25"]} +0ms
-socket.io-client:socket emitting event ["balance","1009.25"] +1ms</code></pre>
-              </div>
-
             </div>
 
           </div>
