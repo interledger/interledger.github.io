@@ -39,11 +39,11 @@
   var sender = 525.380;
   var receiver = 23.120;
 
-
-  setInterval(function(){
-    sender = count('sender', sender);
-  }, 1500);
-
+  setTimeout(function(){
+    setInterval(function(){
+      sender = count('sender', sender);
+    }, 1500);
+  }, 200);
 
   setTimeout(function(){
     setInterval(function(){
@@ -74,7 +74,6 @@
     var tl = new TimelineLite({onComplete:function() {
       this.restart()}
     });
-
     TweenLite.set([dot1, dot2, dot3, dot4, dot5], {opacity:0});
     TweenLite.set([path1, path2, path3, path4], {drawSVG:"0px"});
 
@@ -97,7 +96,7 @@
     });
 
     anim1.delay(1.5)
-       .set(dot1, {opacity:1},0)
+       .set(dot1, {opacity:1},0.01)
        .set(dot1, {opacity:0}, 0.3)
        .set(dot2, {opacity:1},0.3)
        .set(dot2, {opacity:0}, 0.5)
@@ -105,8 +104,8 @@
        .set(dot3, {opacity:0}, 0.6)
        .set(dot5, {opacity:1},0.6)
        .set(dot5, {opacity:0}, 0.8)
-       .to(circle1, 0, {scale:1.05},0)
-       .to(circle1, 1, {scale:1, ease: Elastic.easeOut.config(1, 0.3), y: 0 },0)
+       .to(circle1, 0, {scale:1.05},0.01)
+       .to(circle1, 1, {scale:1, ease: Elastic.easeOut.config(1, 0.3), y: 0 },0.01)
        .to(circle2, 0, {scale:1.05}, 0.3)
        .to(circle2, 1, {scale:1, ease: Elastic.easeOut.config(1, 0.3), y: 0 }, 0.3)
        .to(circle3, 0, {scale:1.05}, 0.4)
@@ -115,13 +114,13 @@
        .to(circle5, 1, {scale:1, ease: Elastic.easeOut.config(1, 0.3), y: 0 }, 0.8)
        .set({}, {}, "+=4.2");
 
-    var anim2 = new TimelineLite({onComplete:function() {
+      var anim2 = new TimelineLite({onComplete:function() {
       this.restart()}
     });
 
     anim2
        .delay(3)
-       .set(dot1, {opacity:1},0)
+       .set(dot1, {opacity:1},0.01)
        .set(dot1, {opacity:0}, 0.3)
        .set(dot2, {opacity:1},0.3)
        .set(dot2, {opacity:0}, 0.5)
@@ -129,8 +128,8 @@
        .set(dot4, {opacity:0}, 0.6)
        .set(dot5, {opacity:1},0.6)
        .set(dot5, {opacity:0}, 0.8)
-       .to(circle1, 0, {scale:1.05},0)
-       .to(circle1, 1, {scale:1, ease: Elastic.easeOut.config(1, 0.3), y: 0 },0)
+       .set(circle1, {scale:1.05},0.01)
+       .to(circle1, 1, {scale:1, ease: Elastic.easeOut.config(1, 0.3), y: 0 },0.01)
        .to(circle2, 0, {scale:1.05}, 0.3)
        .to(circle2, 1, {scale:1, ease: Elastic.easeOut.config(1, 0.3), y: 0 }, 0.3)
        .to(circle4, 0, {scale:1.05}, 0.4)
@@ -145,14 +144,14 @@
 
     anim3
        .delay(4.5)
-       .set(dot1, {opacity:1},0)
+       .set(dot1, {opacity:1},0.01)
        .set(dot1, {opacity:0}, 0.3)
        .set(dot4, {opacity:1},0.5)
        .set(dot4, {opacity:0}, 0.6)
        .set(dot5, {opacity:1},0.6)
        .set(dot5, {opacity:0}, 0.8)
-       .to(circle1, 0, {scale:1.05},0)
-       .to(circle1, 1, {scale:1, ease: Elastic.easeOut.config(1, 0.3), y: 0 },0)
+       .to(circle1, 0, {scale:1.05},0.01)
+       .to(circle1, 1, {scale:1, ease: Elastic.easeOut.config(1, 0.3), y: 0 },0.01)
        .to(circle4, 0, {scale:1.05}, 0.5)
        .to(circle4, 1, {scale:1, ease: Elastic.easeOut.config(2, 0.3), y: 0 }, 0.5)
        .to(circle5, 0, {scale:1.05}, 0.8)
@@ -165,7 +164,7 @@
 
     anim4
        .delay(6)
-       .set(dot1, {opacity:1},0)
+       .set(dot1, {opacity:1},0.01)
        .set(dot1, {opacity:0}, 0.3)
        .set(dot2, {opacity:1},0.3)
        .set(dot2, {opacity:0}, 0.5)
@@ -173,10 +172,10 @@
        .set(dot3, {opacity:0}, 0.6)
        .set(dot4, {opacity:1},0.5)
        .set(dot4, {opacity:0}, 0.7)
-       .set(dot5, {opacity:1},0.6)
-       .set(dot5, {opacity:0}, 0.8)
-       .to(circle1, 0, {scale:1.05},0)
-       .to(circle1, 1, {scale:1, ease: Elastic.easeOut.config(1, 0.3), y: 0 },0)
+       .set(dot5, {opacity:1},0.7)
+       .set(dot5, {opacity:0}, 0.9)
+       .to(circle1, 0, {scale:1.05},0.01)
+       .to(circle1, 1, {scale:1, ease: Elastic.easeOut.config(1, 0.3), y: 0 },0.01)
        .to(circle2, 0, {scale:1.05}, 0.3)
        .to(circle2, 1, {scale:1, ease: Elastic.easeOut.config(1, 0.3), y: 0 }, 0.3)
        .to(circle3, 0, {scale:1.05}, 0.4)
