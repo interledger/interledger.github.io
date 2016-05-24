@@ -2,6 +2,7 @@
 
   //typewriter
   $(function(){
+    $(".typewriter").show();
     $(".typewriter").typed({
       stringsElement: $('#typed-strings'),
       typeSpeed: 50,
