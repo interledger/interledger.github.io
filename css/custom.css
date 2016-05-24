@@ -162,6 +162,11 @@ header.animate {
   text-shadow: 0px 7px 5px rgba(0, 0, 0, 0.2);
 }
 
+.typewriter,
+.typed-strings {
+  display: none;
+}
+
 .wrapper ul {
   padding: 0 20px 26px 20px;
 }
