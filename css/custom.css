@@ -74,8 +74,10 @@ code, kbd, pre, samp {
 }
 
 pre {
+  color: #fff;
   border: none;
   border-radius: 0;
+  background-color: #373e3f;
 }
 
 pre code {
@@ -512,11 +514,11 @@ li.nav-label {
   padding: 0px 15px;
 }
 
-.architecture-overview .nav-sidebar li.nav-label a {
+.spec .nav-sidebar li.nav-label a {
   color: #000;
 }
 
-.architecture-overview .nav-sidebar li.nav-label {
+.spec .nav-sidebar li.nav-label {
   border-top: 1px solid #ccc;
   padding-top: 22px !important;
   padding-left: 0 !important;
@@ -660,8 +662,19 @@ img.logo:hover {
   }
 }
 
+h2:before {
+  display: block;
+  content: "";
+  margin-top: -75px !important;
+  height: 75px;
+  visibility: hidden;
+  position: relative;
+  width: 0;
+}
+
 h3:before,
-.section-title:before {
+.section-title:before,
+h4:before  {
     display: block;
     content: "";
     margin-top: -60px !important;
