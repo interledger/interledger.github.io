@@ -84,7 +84,7 @@
               <img class="code-img img-responsive" src="assets/icn_code.svg">
             </div>
             <h3>Code With Money</h3>
-            <p>Build payments into apps and protocols without being tied to a single currency or payment provider.</p>
+            <p>Add payments without being tied to a single currency or payment provider.</p>
           </div>
           <div class="benefit col-sm-4">
             <div class="benefit-wrapper">
@@ -119,24 +119,20 @@
 
             <div class="tab-content">
               <div id="js1" class="tab-pane active">
-                <pre><code>import { Client } from 'spp-client'
+                <pre><code>import WalletClient from 'five-bells-wallet-client'
 
-const client = new Client({
+const client = new WalletClient({
   username: 'alice@red.ilpdemo.org',
   password: 'secret'
 })
 
-function pay () {
-  const payment = client.payment({
+setInterval(() => {
+  client.send({
     destination: 'bob@blue.ilpdemo.org',
     destinationAmount: '0.01',
-    memo: 'Still love you!'
+    message: 'Still love you!'
   })
-
-  return payment.send()
-}
-
-setInterval(pay, 1500)</code></pre>
+}, 1500)</code></pre>
               </div>
 
               <div id="menu1" class="tab-pane">
@@ -157,7 +153,7 @@ favorite programming language.
               </div>
               <div class="col-sm-10 col-xs-12">
                 <h2>Automated Routing</h2>
-                <p>Interledger takes care of getting your money from ledger A to ledger B, so you can get back to building awesome things! If you’re interested, <a href="architecture-overview.html">learn more about how the magic works.</a></p>
+                <p>Interledger takes care of getting your money from ledger A to ledger Z, so you can get back to building awesome things! If you’re interested, <a href="architecture-overview.html">learn more about how the magic works.</a></p>
               </div>
             </div>
 
@@ -170,16 +166,16 @@ favorite programming language.
 
             <div class="tab-content">
               <div id="js2" class="tab-pane active">
-                <pre><code>import { Client } from 'spp-client'
+                <pre><code>import WalletClient from 'five-bells-wallet-client'
 
-const client = new Client({
+const client = new WalletClient({
   username: 'bob@blue.ilpdemo.org',
   password: 'secret'
 })
 
 client.on('incoming', (payment) => {
-  console.log('Received ' + payment.amount + ' bucks!')
-  console.log(payment.sender + ' says: ' + payment.memo)
+  console.log('Received ' + payment.destinationAmount + ' bucks!')
+  console.log(payment.sourceAccount + ' says: ' + payment.message)
 })</code></pre>
               </div>
 
@@ -316,7 +312,7 @@ favorite programming language.
                 <p>Interledger Team</p>
               </div>
               <div class="col-xs-4">
-                <p class="text-center">See list of <a href="https://www.w3.org/community/interledger/participants">Contributors</a></p>
+                <p class="text-center">See list of <a target="_blank" href="https://www.w3.org/community/interledger/participants">Contributors</a></p>
               </div>
               <div class="col-xs-4">
                 <p class="pull-right">Documentation licensed under <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></p>
