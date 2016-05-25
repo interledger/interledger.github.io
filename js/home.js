@@ -4,7 +4,7 @@
   $(function(){
     $(".typewriter").show();
     $(".typewriter").typed({
-      strings: ["ledgers", "<span class='color1'>payment networks.</span>", "<span class='color2'>blockchains.</span>", "<span class='color3'>bank ledgers.</span>", "<span class='color4'>digital wallets.</span>", "<span class='color5'>clearing houses.</span>", "<span class='color2'>stock exchanges.</span>", "<span class='color3'>mobile money.</span>"],
+      strings: ["ledgers.", "<span class='color1'>payment networks.</span>", "<span class='color2'>blockchains.</span>", "<span class='color3'>bank ledgers.</span>", "<span class='color4'>digital wallets.</span>", "<span class='color5'>clearing houses.</span>", "<span class='color2'>stock exchanges.</span>", "<span class='color3'>mobile money.</span>"],
       typeSpeed: 50,
       loop: true,
       backDelay: 1000,
