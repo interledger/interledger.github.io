@@ -286,11 +286,12 @@ p.intro {
 }
 
 h2.sending-amount {
-  margin: 80px auto 0;
+  margin: 40px auto 0;
 }
 
 h2.receiving-amount {
   margin-bottom: 0;
+  margin-top: 15px;
 }
 
 .account {
@@ -587,6 +588,7 @@ img.logo:hover {
 
 .canvas-wrapper {
   margin-left: -30px;
+  margin-top: -10px;
 }
 
 .get-started {
