@@ -1,5 +1,11 @@
 (function($){
 
+  //google analytics event tracking for all links
+  $('a').on('click', function() {
+    var linkText = $(this).text();
+    ga( 'send', 'event', 'Link', 'Click', linkText);
+  });
+
   //typewriter
   $(function(){
     $(".typewriter").show();
