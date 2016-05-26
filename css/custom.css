@@ -540,6 +540,7 @@ li.nav-label {
 
 .spec h1 {
   font-family: 'Titillium Web', sans-serif;
+  margin-top: 30px;
 }
 
 .nav-sidebar>li>a:hover,
