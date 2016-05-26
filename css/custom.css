@@ -538,6 +538,10 @@ li.nav-label {
   margin-top: 15px;
 }
 
+.spec h1 {
+  font-family: 'Titillium Web', sans-serif;
+}
+
 .nav-sidebar>li>a:hover,
 .nav-sidebar>li>a:focus  {
   color: #ff0c3e;
