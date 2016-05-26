@@ -395,11 +395,11 @@ li.see-console>a:hover {
 }
 
 #menu1 pre code {
-  height: 373px;
+  height: 293px;
   text-align: center;
   color: #20c6aa;
   line-height: 1.7em;
-  padding-top: 60px;
+  padding-top: 25px;
 }
 
 #menu2 pre code {
