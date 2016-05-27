@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Payments across payment networks">
 
-    <title>Interledger</title>
+    <title>Welcome | Interledger</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -15,10 +15,14 @@
     <link href="css/custom.css" rel="stylesheet">
 
     <!-- Google fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700|Droid+Sans+Mono|Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
 
-    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <link href="assets/favicon.png" rel="icon" type="image/x-icon">
+
+    <!--  highlight js -->
+    <link rel="stylesheet" href="css/monokai-sublime.css">
+
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -28,157 +32,302 @@
   </head>
 
   <body>
-    <!-- banner -->
-    <header class='animate'>
-      <div class="container-fluid">
-        <div class="code-banner">
-          <div class="col-md-12">
-            <h3 class='banner-text'><span class="inner-text">The Interledger Community is coming to London on 6 July. <a href="https://www.eventbrite.com/e/interledger-protocol-workshop-tickets-25473847965">Register</a> for the workshop!</a></span><span class='x'>X</span></h3>
+
+     <!-- navbar -->
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img class="logo" alt="interledger" src="assets/ilp_icon.png"/></a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="overview.html">Docs</a></li>
+              <li><a href="community.html">Community</a></li>
+              <li><a href="news.html">News</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a target="_blank" href="https://github.com/interledger">Github</a></li>
+            </ul>
           </div>
         </div>
-      </div>
-    </header>
+      </nav>
 
     <!-- hero -->
     <div class="jumbotron">
       <div class="container">
-        <img class='hero-img img-responsive' src='assets/hero.png'/>
-        <h1>INTERLEDGER</h1>
-        <p>Payments across payment networks</p>
-        <p><a class="btn btn-primary btn-lg" href="http://interledger.org/interledger.pdf" role="button" onclick="ga('send', 'event', 'Button', 'Click', 'Whitepaper');">Read the Whitepaper</a></p>
+        <div class="col-sm-4">
+          <img class='hero-img img-responsive animated zoomIn' src='assets/ilp_logo.svg'/>
+        </div>
+        <div class="col-sm-8">
+          <h1>Interledger</h1>
+          <div class="typewriter-wrapper">
+            <p class="typewriter-intro">The protocol for connecting <span class="typewriter"></span></p>
+          </div>
+          <p><a class="btn btn-primary btn-lg getting-started-button" href="getting-started.html" role="button">Get Started</a></p>
+        </div>
       </div>
     </div>
 
     <div class="container">
 
-      <!-- what is it section -->
-      <div class="col-md-12">
-        <h2>The Problem</h2>
-        <div class="row">
-          <div class='col-md-6'>
-            <p>When paying online, depending on where you are in the world, you are either confronted with a barrage of payment options and a terrible UX, or you have no option at all.</p>
-
-            <p>The fundamental problem is that payment networks are not interoperable. The sender and receiver of a payment must both be on the same network. Few networks can reach global scale so there is little competition.</p>
-
-            <p>This situation is similar to the days before the Web. It took open standards to interconnect the early web services.</p>
-
-            <p>What about Bitcoin, Ripple and other so-called protocols for money? In reality, these are all just networks themselves.</p>
-
-            <p>We need a neutral protocol, like HTTP or SMTP, for payments on the Web that enables senders and receivers to each use different providers. It should not require a central operator, nor a globally accepted currency or blockchain. Anyone should be able to use the protocol without connecting to any core or official network.</p>
-          </div>
-          <div class='col-md-6'>
-             <img class='ledger-today img-responsive' src='assets/ledgerstoday@2x.png'/>
-          </div>
-        </div>
-      </div>
-
-      <!-- how it works -->
-      <div class="col-md-12">
-        <div class="row">
-          <div class='col-md-6'>
-             <img class='how-it-works img-responsive visible-lg-block visible-md-block' src='assets/how-it-works@2x.png'/>
-          </div>
-          <div class='col-md-6'>
-            <h2>How the Protocol Works</h2>
-            <p>There are many payment systems or ledgers out there. Payment networks, blockchains, banks and so on.</p>
-
-            <p>Currency traders can create connections between them. You pay a trader on your ledger and the trader pays whoever you want on another ledger.</p>
-
-            <p>But the problem with this is: Who pays who first? If the trader goes first, they have to trust the sender to hold up their end of the bargain. If the sender goes first, the trader could disappear with the money, never to be seen again.</p>
-
-            <p>The solution is pretty simple: Escrow. Both the sender and the trader share a common ledger. And, the trader and receiver share another ledger. So let's have the sender’s ledger guarantee the transfer. The sender puts the money into escrow, the trader delivers funds at the destination, shows proof to the sender’s ledger and gets paid.</p>
-
-            <p>Using this protocol, anyone can transact across ledgers, without relying on a specific network.</p>
-
-          </div>
-          <div class='col-md-6'>
-             <img class='how-it-works img-responsive visible-sm-block visible-xs-block' src='assets/how-it-works@2x.png'/>
-          </div>
-        </div>
-      </div>
-
-      <!-- Six Degrees of Separation section -->
-      <div class="six-degreees-section col-md-12">
-        <div class="row">
-          <div class='col-md-6'>
-            <h2 id='six-header'>Six Degrees of Separation</h2>
-
-            <p>Trying to find currency traders for every possible pair of currencies or ledgers is unrealistic. The number of possible combinations explodes as the number of ledgers increases.</p>
-
-            <p>Instead, we can create chains of traders to enable payments between any sender and any receiver. Think six degrees of separation for money.</p>
-
-            <p>This means I can use whatever obscure payment system I want to pay you, even if you’re on a different one.</p>
-
-          </div>
-          <div class='col-md-6'>
-             <img class='six-degrees img-responsive' src='assets/6deg@2x.png'/>
-          </div>
-        </div>
-      </div>
-
       <!-- benefits section -->
-      <div class="col-md-12">
-        <h2>Benefits</h2>
-      </div>
       <div class="row">
         <div class="col-md-12">
-          <div class="benefit col-md-4">
+          <div class="benefit col-sm-4">
             <div class="benefit-wrapper">
-              <img class='benefit-img img-responsive' src='assets/cost@2x.png'/>
+              <img class="code-img img-responsive" src="assets/icn_code.svg">
             </div>
-            <h4>Universal payments</h4>
-            <p>Pay and receive payments using whatever means you prefer.</p>
+            <h3>Code With Money</h3>
+            <p>Add payments without being tied to a single currency or payment provider.</p>
           </div>
-          <div class="benefit col-md-4">
+          <div class="benefit col-sm-4">
             <div class="benefit-wrapper">
-              <img class='benefit-img img-responsive' src='assets/markets@2x.png'/>
+              <img class="hop-img img-responsive" src="assets/icn_hop.svg">
             </div>
-            <h4>Competitive rates</h4>
-            <p>Many traders compete to provide the cheapest, fastest payments.</p>
+            <h3>Multi-Hop Routing</h3>
+            <p>Send payments to other ledgers, even if they are multiple hops away.</p>
           </div>
-          <div class="benefit col-md-4">
+          <div class="benefit col-sm-4">
             <div class="benefit-wrapper">
-              <img class='benefit-img img-responsive' src='assets/scale@2x.png'/>
+              <img class="simple-img img-responsive" src="assets/icn_simple.svg">
             </div>
-            <h4>Unlimited scalability</h4>
-            <p>Without depending on a single system for processing payments, scalability becomes a non-issue. Need more speed? Just add more ledgers and more traders.</p>
+            <h3>Simple Protocol</h3>
+            <p>Inspired by TCP/IP, Interledger is easy to implement and use.</p>
           </div>
         </div>
       </div>
 
-      <!-- partcipate section -->
+      <hr>
+
+      <!-- example section -->
       <div class="col-md-12">
-        <h2>Participate</h2>
+        <h2>Simple Sending</h2>
+          <p class="example-intro">Interledger makes it easy to send money, no matter what ledger you or the recipient are on.</p>
 
-        <div class="row">
-          <div class='col-md-12'>
-            <p>We're looking forward to working with you to make Interledger payments a reality.</p>
+        <div class="row example-wrapper">
+          <div class='col-sm-8 col-xs-12'>
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#js1">Javascript</a></li>
+              <li class="teaser"><a data-toggle="tab" href="#menu1">&#43;</a></li>
+            </ul>
 
-            <p>Further work on the Interledger Protocol will be done in the <a href="https://www.w3.org/community/interledger/">Interledger Payments Community Group</a> at the W3C.</p>
+            <div class="tab-content">
+              <div id="js1" class="tab-pane active">
+                <pre><code>import WalletClient from 'five-bells-wallet-client'
 
-            <p>To participate please <a href="https://www.w3.org/community/interledger/join">join the group</a> (you will need a <a href="https://www.w3.org/accounts/request">W3C account</a>). Note that W3C Membership is not required to join a Community Group.</p>
+const client = new WalletClient({
+  username: 'alice@red.ilpdemo.org',
+  password: 'secret'
+})
 
-            <p>Attend the <a href="https://www.eventbrite.com/e/interledger-protocol-workshop-tickets-25473847965">Interledger Protocol Workshop </a> - 6 July 2016 from 8:30 AM to 5:30 PM (BST) London, UK, or remotely.</p>
+setInterval(() => {
+  client.send({
+    destination: 'bob@blue.ilpdemo.org',
+    destinationAmount: '0.01',
+    message: 'Still love you!'
+  })
+}, 1500)</code></pre>
+              </div>
+
+              <div id="menu1" class="tab-pane">
+                <pre><code>
+&lt;!-- Don’t see your language here? --&gt;
+
+Help implement Interledger in your
+favorite programming language.
+                <p><a class="btn btn-primary btn-lg getting-started-button contribute" target="_blank" href="https://github.com/interledger" role="button">Contribute</a></p>
+                </pre></code>
+
+              </div>
+            </div>
+
+            <div class="callout left">
+              <div class="col-sm-2 hidden-xs">
+                <img class='magic' src='assets/icn_routing.svg'/>
+              </div>
+              <div class="col-sm-10 col-xs-12">
+                <h2>Automated Routing</h2>
+                <p>Interledger takes care of getting your money from ledger A to ledger Z, so you can get back to building awesome things! If you’re interested, <a href="architecture-overview.html">learn more about how the magic works.</a></p>
+              </div>
+            </div>
+
+            <h2>Receiving Money</h2>
+            <p class="example-intro">Interledger allows you to receive money from any ledger, without setting up accounts on lots of different services.</p>
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#js2">Javascript</a></li>
+              <li class="teaser"><a data-toggle="tab" href="#menu2">&#43;</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div id="js2" class="tab-pane active">
+                <pre><code>import WalletClient from 'five-bells-wallet-client'
+
+const client = new WalletClient({
+  username: 'bob@blue.ilpdemo.org',
+  password: 'secret'
+})
+
+client.on('incoming', (payment) => {
+  console.log('Received ' + payment.destinationAmount + ' bucks!')
+  console.log(payment.sourceAccount + ' says: ' + payment.message)
+})</code></pre>
+              </div>
+
+              <div id="menu2" class="tab-pane">
+                 <pre><code>
+&lt;!-- Don’t see your language here? --&gt;
+
+Help implement Interledger in your
+favorite programming language.
+<p><a class="btn btn-primary btn-lg getting-started-button contribute" target="_blank" href="https://github.com/interledger" role="button">Contribute</a></p>
+                </pre></code>
+              </div>
+            </div>
+
+          </div>
+
+          <div class='col-sm-4 hidden-xs text-center'>
+
+            <h2 class="sending-amount">$ <span class="sender">525.38<span class="superscript">0</span></span> USD</h2>
+              <p class="account">Sending account</p>
+
+            <div class="canvas-wrapper">
+              <svg id="svgGraphic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 1000">
+                <line id="conncection-top" y1="48.102" x2="133.0815" y2="48.102" style="fill:none;stroke:#4f6164;stroke-miterlimit:10"/>
+                <line id="connection-btm" x1="133.0815" y1="951.898" y2="951.898" style="fill:none;stroke:#4f6164;stroke-miterlimit:10"/>
+                <g id="lines_bg">
+                  <polyline points="170.081 48.102 133.081 376.669 81.402 532.924 170.081 951.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;opacity:0.3"/>
+                  <line x1="170.0815" y1="48.102" x2="207.0815" y2="618.9239" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;opacity:0.3"/>
+                  <line x1="170.0815" y1="951.898" x2="207.0815" y2="618.9239" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;opacity:0.3"/>
+                  <line x1="81.4021" y1="532.9238" x2="207.0815" y2="618.9239" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;opacity:0.3"/>
+                  <line x1="133.0815" y1="376.6689" x2="207.0815" y2="618.9239" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;opacity:0.3"/>
+                </g>
+                <circle id="circle-1" cx="170.0815" cy="48.102" r="37" style="fill:#176f87;opacity:0.7;transform-origin: 18.5px 18.5px"/>
+                <circle id="circle-2" cx="133.0815" cy="376.6689" r="35.5277" style="fill:#529948;opacity:0.5;transform-origin: 17.7px 17.7px"/>
+                <circle id="circle-3" cx="81.4021" cy="532.9238" r="42.465" style="fill:#254c45;opacity:0.7;transform-origin: 21.2px 21.2px"/>
+                <circle id="circle-4" cx="207.0815" cy="618.9239" r="26.403" style="fill:#f7ba59;opacity:0.7;transform-origin: 13.2px 13.2px"/>
+                <circle id="circle-5" cx="170.0815" cy="951.898" r="37" style="fill:#c95959;opacity:0.7;transform-origin: 18.5px 18.5px"/>
+                <g id="label-1">
+                  <text transform="translate(217.1534 52.3919)" style="font-size:14px;fill:#333;font-family:Source Sans Pro">
+                    Digital Wallet
+                  </text>
+                </g>
+                <text transform="translate(178.044 380.2177)" style="font-size:14px;fill:#253b3f;font-family:Source Sans Pro">
+                  Local Bank
+                </text>
+                <text transform="translate(135.5684 536.4723)" style="font-size:14px;fill:#253b3f;font-family:Source Sans Pro">
+                  International Bank
+                </text>
+                <text transform="translate(241.4844 622.4718)" style="font-size:14px;fill:#253b3f;font-family:Source Sans Pro">
+                  Cryptocurrency
+                </text>
+                <g id="label-5">
+                  <text transform="translate(216.1534 949.8694)" style="font-size:14px;fill:#333;font-family:Source Sans Pro">
+                    Payment
+                    <tspan x="0" y="16">Service Provider</tspan>
+                  </text>
+                </g>
+                <g id="icn-bigbank">
+                  <polyline points="85.25 547.882 85.25 537.897 77.487 537.897 77.487 547.882 56.89 547.882 56.89 522.142 71.233 522.142 71.233 509.997 91.901 509.997 91.901 522.142 106.232 522.142 106.232 547.882 91.901 547.882 91.901 526.899" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="61.7193" y1="526.8991" x2="66.0957" y2="526.8991" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="61.7193" y1="531.8288" x2="66.0957" y2="531.8288" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="61.7193" y1="536.7586" x2="66.0957" y2="536.7586" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="61.7193" y1="541.6883" x2="66.0957" y2="541.6883" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="97.0383" y1="526.8991" x2="101.4147" y2="526.8991" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="97.0383" y1="531.8288" x2="101.4147" y2="531.8288" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="97.0383" y1="536.7586" x2="101.4147" y2="536.7586" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="97.0383" y1="541.6883" x2="101.4147" y2="541.6883" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="86.2988" y1="516.109" x2="86.2988" y2="520.4854" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="81.3691" y1="516.109" x2="81.3691" y2="520.4854" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="76.4393" y1="516.109" x2="76.4393" y2="520.4854" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="86.2988" y1="526.8828" x2="86.2988" y2="531.2592" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="76.4393" y1="526.8828" x2="76.4393" y2="531.2592" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="71.2326" y1="522.1425" x2="71.2326" y2="543.4993" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="52.6121" y1="552.2493" x2="110.1261" y2="552.2493" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                </g>
+                <g id="icn-display">
+                  <path d="M151.4382,957.9249h37.2866v4.6467a1.4828,1.4828,0,0,1-1.4928,1.4726H174.4809v3.8a1.4614,1.4614,0,0,0,.3815.9833l2.0962,2.3054a0.7353,0.7353,0,0,1-.5556,1.228H164.4859a0.7353,0.7353,0,0,1-.5556-1.228l2.0962-2.3054a1.4614,1.4614,0,0,0,.3815-0.9833v-3.8H152.931a1.4828,1.4828,0,0,1-1.4928-1.4726V939.488a1.4828,1.4828,0,0,1,1.4928-1.4726h34.301a1.4828,1.4828,0,0,1,1.4928,1.4726v14.4928" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="166.408" y1="968.0446" x2="170.0815" y2="968.0446" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.85px"/>
+                </g>
+                <g id="icn-phone">
+                  <path d="M181.2137,38.4073V67.7108a2.2505,2.2505,0,0,1-2.2656,2.2351H161.2122a2.2505,2.2505,0,0,1-2.2656-2.2351V28.4932a2.2505,2.2505,0,0,1,2.2656-2.2351h17.7359a2.2505,2.2505,0,0,1,2.2656,2.2351v4.8826H158.9466" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.85px"/>
+                  <line x1="158.9466" y1="60.8647" x2="181.2137" y2="60.8647" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.85px"/>
+                  <ellipse cx="170.0802" cy="65.4053" rx="1.471" ry="1.4511" style="fill:#fff"/>
+                </g>
+                <g id="icn-bank">
+                  <path d="M137.6337,370.8155H117.0366a0.6856,0.6856,0,0,1-.4137-1.24L131.9893,358.38l16.3163,11.1845a0.6856,0.6856,0,0,1-.3974,1.2512h-5.0327V386.41a0.72,0.72,0,0,1-.7248.715H128.614l-0.0057-16.3091" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <line x1="121.4417" y1="370.8155" x2="121.4417" y2="387.1246" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.85px"/>
+                  <line x1="135.5689" y1="370.8155" x2="135.5689" y2="387.1246" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.85px"/>
+                  <line x1="115.783" y1="390.9699" x2="149.1618" y2="390.9699" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.85px"/>
+                </g>
+                <g id="icn-wallet">
+                  <path d="M195.5129,608.2415v20.37a1.2813,1.2813,0,0,0,1.2813,1.2813h22.2583a1.2813,1.2813,0,0,0,1.2813-1.2813v-4.8963" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <path d="M222.65,617.7583v4.2424a1.3837,1.3837,0,0,1-1.3837,1.3837h-6.379a1.3477,1.3477,0,0,1-1.0248-.4725L211.9741,620.7a1.3477,1.3477,0,0,1-.0018-1.7483l1.8055-2.1231a1.3477,1.3477,0,0,1,1.0267-.4746h4.3647a1.1646,1.1646,0,0,0,1.1646-1.1646v-3.4964a1.1646,1.1646,0,0,0-1.1646-1.1646H197.8a2.2869,2.2869,0,0,1-2.2869-2.2869h0a2.2869,2.2869,0,0,1,2.2869-2.2869h17.1286a1.2135,1.2135,0,0,1,1.2135,1.2135h0" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
+                  <circle cx="216.1534" cy="619.9761" r="1.4649" style="fill:#fff"/>
+                </g>
+                <circle id="dot-1" cx="170.0815" cy="48.102" r="1.9941" style="fill:#36dabc"/>
+                <circle id="dot-2" cx="133.0815" cy="376.6689" r="1.9941" style="fill:#36dabc"/>
+                <circle id="dot-3" cx="81.4021" cy="532.9238" r="1.9941" style="fill:#36dabc"/>
+                <circle id="dot-4" cx="207.0815" cy="618.9239" r="1.9941" style="fill:#36dabc"/>
+                <circle id="dot-5" cx="170.0815" cy="950.8979" r="1.9941" style="fill:#36dabc"/>
+                <polyline id="path-1" points="170.081 48.102 133.081 376.669 81.402 532.924 170 950.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
+                <polyline id="path-4" points="170 48.102 133.081 376.669 81.402 532.924 207.081 618.924 170.081 950.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
+                <polyline id="path-2" points="170 48.102 133.081 376.669 207.081 618.924 170.081 950.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
+                <polyline id="path-3" points="170 48.102 207.081 618.924 170.081 950.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
+              </svg>
+            </div>
+
+            <h2 class="receiving-amount">€ <span class="receiver">23.12<span class="superscript">0</span></span> EUR</h2>
+              <p class="account">Receiving account</p>
+
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row get-started">
+          <div class="col-sm-12">
+            <div class="text-center">
+              <a class="btn btn-primary btn-lg" href="getting-started.html" role="button">Get Started</a>
+            </div>
           </div>
         </div>
       </div>
 
-       <!-- reference section -->
-      <div class="col-md-12">
-        <h2>Reference Implementation</h2>
 
-        <div class="row">
-          <div class='col-md-12'>
-            <p> To see Interledger in action, try out our reference implementation <a target="_blank" href='https://github.com/interledger/five-bells-demo'>here.</a></p>
-          </div>
-        </div>
-      </div>
 
     </div> <!-- /container -->
 
+     <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-xs-4">
+                <p>Interledger Team</p>
+              </div>
+              <div class="col-xs-4">
+                <p class="text-center">See list of <a target="_blank" href="https://www.w3.org/community/interledger/participants">Contributors</a></p>
+              </div>
+              <div class="col-xs-4">
+                <p class="pull-right">Documentation licensed under <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="js/highlight.pack.js"></script>
+    <script src="js/home.js"></script>
+    <script type="text/javascript" src="js/svg-animation.js"></script>
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
