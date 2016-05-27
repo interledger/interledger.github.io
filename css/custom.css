@@ -611,6 +611,14 @@ img.logo:hover {
 
 @media (max-width: 768px) {
 
+  footer p {
+    text-align: center;
+  }
+
+  footer .pull-right {
+    float: none !important;
+  }
+
   .callout {
     margin: 40px 0;
   }
@@ -670,6 +678,7 @@ img.logo:hover {
 }
 
 @media (max-width: 480px) {
+
   img.git {
     float: left;
     margin: 0 10px 0 0;
