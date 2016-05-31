@@ -648,6 +648,7 @@ img.logo:hover {
   .nav-fixed {
     position: relative !important;
     top: 0 !important;
+    width: auto !important;
   }
 }
 
@@ -660,9 +661,11 @@ img.logo:hover {
   .x {
     margin-top: 6px;
   }
+}
 
+@media (max-width: 992px) and (min-width: 768px) {
   .nav-fixed {
-    width: auto !important;
+    width: 220px !important;
   }
 }
 
