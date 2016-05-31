@@ -759,6 +759,8 @@ a.section-title {
   overflow-y: auto;
   z-index: 10;
   bottom: 0;
+  margin-bottom: 90px;
+  border-bottom: none !important;
 }
 
 .color1 {
