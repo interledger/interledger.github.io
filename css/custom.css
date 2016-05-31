@@ -752,6 +752,10 @@ a.section-title {
   top: 30px;
   position: fixed;
   width: 268px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 10;
+  bottom: 0;
 }
 
 .color1 {
