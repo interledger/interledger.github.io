@@ -116,6 +116,32 @@ header.animate {
   animation: dropHeader 0.7s ease-out;;
 }
 
+.callout-banner {
+  margin: -45px 0 45px;
+  position: relative;
+  background-color: rgba(0, 150, 143, 0.7);
+  -o-transition: .1s;
+  -webkit-transition: .1s;
+  transition: .1s
+}
+
+.callout-banner:hover {
+  background-color: #73d0c7;
+  -o-transition: .1s;
+  -webkit-transition: .1s;
+  transition: .1s
+}
+
+.callout-banner p {
+  padding: 3px 0;
+  font-weight: 300;
+  color: #fff;
+}
+
+.callout-banner strong {
+  font-weight: 600;
+}
+
 .jumbotron {
   margin-bottom: 45px;
   padding-top: 100px;
@@ -140,7 +166,7 @@ header.animate {
 }
 
 .btn-primary {
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Source Sans Pro', sans-serif;
   color: #fff;
   background-color: #ff0c3e;
