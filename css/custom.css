@@ -66,7 +66,8 @@ img.git {
 .jumbotron h1 {
   font-family: 'Titillium Web', sans-serif;
   color: #fff;
-  font-weight: 300;
+  font-weight: 400;
+  margin: 29px 0 0;
 }
 
 header {
@@ -215,7 +216,7 @@ ul.list-group {
 .wrapper li {
   font-size: 16px;
   line-height: 20px;
-  padding-bottom: 6px;
+/*  padding-bottom: 6px;*/
 }
 
 a:hover{
@@ -226,6 +227,11 @@ b, strong {
   font-weight: 600;
 }
 
+.label {
+font-weight: 400;
+
+}
+
 h1 {
   font-size: 48px;
   font-weight: 600;
@@ -234,22 +240,33 @@ h1 {
 }
 
 h2 {
+  padding: 0;
+  margin: 26px 0 13px 0;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: 'Titillium Web', sans-serif;
+  color: #333;
+}
+
+h3{
+  padding: 0;
+  margin: 13px 0 13px 0;
   font-size: 26px;
   font-weight: 400;
   font-family: 'Titillium Web', sans-serif;
   color: #333;
-  margin-top: 26px;
-  margin-bottom: 20px;
   line-height: 32px;
+  text-transform: initial;
+  letter-spacing: 0;
 }
 
-h3 {
+h4 {
  font-weight: 800;
  font-style: normal;
  font-size: 15px;
  text-transform: uppercase;
  letter-spacing: 0.5px;
- margin-top: 26px;
+ margin-top: 13px;
  margin-bottom: 6px;
  color: #333;
 }
@@ -262,56 +279,58 @@ h3 {
 }
 
 h2.simple {
-  font-size: 36px;
+  font-size: 32px;
+  font-weight: 600;
 }
 
 .spec h2 {
-  font-size: 40px;
+  padding: 0;
+  margin: 26px 0 13px 0;
+  font-size: 32px;
   font-weight: 600;
   font-family: 'Titillium Web', sans-serif;
   color: #333;
-  padding-top: 26px;
-  margin-bottom: 26px;
 }
 
 .spec h3 {
-  font-size: 32px;
+  padding: 0;
+  margin: 13px 0 13px 0;
+  font-size: 26px;
   font-weight: 400;
   font-family: 'Titillium Web', sans-serif;
   color: #333;
-  margin-bottom: 26px;
   line-height: 32px;
-  margin-top: 52px;
   text-transform: initial;
   letter-spacing: 0;
 }
 
 .spec h4 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   color: #333;
   margin-top: 0;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .spec h5 {
+ padding: 0;
+ margin: 13px 0 6px 0;
  font-weight: 700;
  font-style: normal;
  font-size: 17px;
-  margin-top: 26px;
-  margin-bottom: 6px;
-  color: #333;
+ color: #333;
 }
 
 .spec h6 {
+ padding: 0;
+ margin: 13px 0 13px 0;
  font-weight: 600;
  font-style: normal;
  font-size: 13px;
  text-transform: uppercase;
  letter-spacing: 0.5px;
- margin-top: 26px;
- margin-bottom: 6px;
- padding-bottom: 2px;
- color: #ccc;
+ color: #333;
 }
 
 .spec .nav-sidebar li.nav-label a {
@@ -476,15 +495,18 @@ blockquote {
 
 .callout h2 {
   font-size: 22px !important;
+  font-weight: 400 !important;
 }
 
 h2.sending-amount {
   margin: 40px auto 0;
+  font-weight: 400 !important;
 }
 
 h2.receiving-amount {
   margin-bottom: 0;
   margin-top: 15px;
+  font-weight: 400 !important;
 }
 
 .account {
@@ -512,8 +534,9 @@ hr {
 }
 
 .example-wrapper h2 {
-  font-size: 36px;
+  font-size: 32px;
   font-family: 'Titillium Web', sans-serif;
+  font-weight: 600;
 }
 
 .callout a {
@@ -749,7 +772,7 @@ li.nav-label {
 .page-header {
   color: #333333 !important;
   border: none;
-  margin: 30px 0 0;
+  margin: 27px 0 0;
   font-family: 'Titillium Web', sans-serif;
 }
 
@@ -937,7 +960,7 @@ a.section-title {
   overflow-y: auto;
   z-index: 10;
   bottom: 0;
-  margin-bottom: 90px;
+/*  margin-bottom: 90px;*/
   border-bottom: none !important;
 }
 
@@ -968,7 +991,7 @@ a.section-title {
 .superscript {
   font-size: 17px;
   vertical-align: super;
-  font-weight: 700;
+  font-weight: 800;
   padding-left: 2px;
 }
 
@@ -1025,7 +1048,7 @@ a.section-title {
 }
 
 .typewriter-wrapper {
-  height: 65px;
+  height: 56px;
 }
 
 .typewriter-intro {
