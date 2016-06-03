@@ -254,6 +254,17 @@ h3 {
  color: #333;
 }
 
+.benefit h3 {
+  font-size: 21px;
+  font-weight: 400;
+  text-transform: initial;
+  letter-spacing: 0;
+}
+
+h2.simple {
+  font-size: 36px;
+}
+
 .spec h2 {
   font-size: 40px;
   font-weight: 600;
@@ -884,13 +895,13 @@ h2:before {
 h3:before,
 .section-title:before,
 h4:before  {
-    display: block;
-    content: "";
-    margin-top: -60px !important;
-    height: 60px;
-    visibility: hidden;
-    position: relative;
-    width: 0;
+  display: block;
+  content: "";
+  margin-top: -60px !important;
+  height: 60px;
+  visibility: hidden;
+  position: relative;
+  width: 0;
 }
 
 .overview-back {
