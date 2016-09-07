@@ -42,7 +42,7 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://interledger.org/five-bells-connector/apidoc/</loc>
+  <loc>https://interledger.org/js-ilp-connector/apidoc/</loc>
   <lastmod>2016-05-27T01:17:17+00:00</lastmod>
   <changefreq>weekly</changefreq>
 </url>
