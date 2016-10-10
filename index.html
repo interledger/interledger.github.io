@@ -73,18 +73,18 @@ title: "Welcome | Interledger"
                     <div id="js1" class="tab-pane active">
                     <pre><code>import WalletClient from 'five-bells-wallet-client'
 
-                        const client = new WalletClient({
-                        username: 'alice@red.ilpdemo.org',
-                        password: 'secret'
-                        })
+const client = new WalletClient({
+  username: 'alice@red.ilpdemo.org',
+  password: 'secret'
+})
 
-                        setInterval(() => {
-                        client.send({
-                        destination: 'bob@blue.ilpdemo.org',
-                        destinationAmount: '0.01',
-                        message: 'Still love you!'
-                        })
-                        }, 1500)</code></pre>
+setInterval(() => {
+  client.send({
+    destination: 'bob@blue.ilpdemo.org',
+    destinationAmount: '0.01',
+    message: 'Still love you!'
+  })
+}, 1500)</code></pre>
                     </div>
 
                     <div id="menu1" class="tab-pane">
@@ -119,15 +119,15 @@ title: "Welcome | Interledger"
                     <div id="js2" class="tab-pane active">
                     <pre><code>import WalletClient from 'five-bells-wallet-client'
 
-                        const client = new WalletClient({
-                        username: 'bob@blue.ilpdemo.org',
-                        password: 'secret'
-                        })
+const client = new WalletClient({
+  username: 'bob@blue.ilpdemo.org',
+  password: 'secret'
+})
 
-                        client.on('incoming', (payment) => {
-                        console.log('Received ' + payment.destinationAmount + ' bucks!')
-                        console.log(payment.sourceAccount + ' says: ' + payment.message)
-                        })</code></pre>
+client.on('incoming', (payment) => {
+  console.log('Received ' + payment.destinationAmount + ' bucks!')
+  console.log(payment.sourceAccount + ' says: ' + payment.message)
+})</code></pre>
                     </div>
 
                     <div id="menu2" class="tab-pane">
