@@ -17,8 +17,15 @@
                 <li{%if page.active-nav == "News" %}  class="active"{% endif %}><a href="news.html">News</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a target="_blank" href="https://github.com/interledger">Github</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Github <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a target="_blank" href="https://github.com/interledgerjs">JS Reference Implementations</a></li>
+                        <li><a target="_blank" href="https://github.com/interledger">Specs and other repos</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
