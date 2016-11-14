@@ -1,5 +1,7 @@
 # [Interledger.org](www.interledger.org)
 
+The following information was extracted as is from the [Getting Started](https://interledger.org/getting-started.html) section behind the interledger.org website.
+
 ## Getting Started
 Sign up for the demo wallets and start sending Interledger payments between them in under 3 minutes.
 
