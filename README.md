@@ -1,26 +1,7 @@
 # [Interledger.org](www.interledger.org)
 
-The following information was extracted as is from the [Getting Started](https://interledger.org/getting-started.html) section behind the interledger.org website.
+This repository holds the code behind the website at [interledger.org](https://interledger.org).
 
-## Getting Started
-Sign up for the demo wallets and start sending Interledger payments between them in under 3 minutes.
+If you are willing to contribute, you are invited to get involved.
 
-First, create an account on the [Red Demo Wallet](https://red.ilpdemo.org/) and the [Blue Demo Wallet](https://blue.ilpdemo.org/) (one for sending and the other for receiving).
-
-![](https://interledger.org/assets/demo_register.png)
-
-Now you can send payments between your accounts.
-
-![](https://interledger.org/assets/demo_send.png)
-
-And they arrive instantly, even though they are on different ledgers.
-
-![](https://interledger.org/assets/demo_receive.png)
-
-Congratulations, you've sent your first Interledger payment!
-
-##Next Steps
-
-Want to start coding with payments? Use the accounts you just created to programmatically send and receive payments with the [Wallet Client](https://github.com/interledger/five-bells-wallet-client).
-
-
+[![Get involved](http://sparkboom.org/wp-content/uploads/2013/03/get-involved-button.png)](https://interledger.org/community.html)
