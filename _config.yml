@@ -9,7 +9,9 @@ url: "https://interledger.org" # the base hostname & protocol for your site, e.g
 twitter_username: interledger
 github_username:  interledger
 interledgerjs_baseurl: https://interledgerjs.github.io/
-
+gems:
+  - jekyll-redirect-from
+  
 # Build settings
 markdown: kramdown
 exclude:
