@@ -35,6 +35,8 @@ active-nav: "Docs"
             <h4>Mentors</h4>
             <p>TBD</p>
 
+            <hr/>
+
             <h3>New Settlement Options</h3>
 
             <p>ILP-Kit allows two peers to pick a settlement mechanism that they both agree on (cash, bank transfer, etc). The more settlement options we have available the easier it is for two nodes to peer.</p>
@@ -47,6 +49,8 @@ active-nav: "Docs"
 
             <h4>Mentors</h4>
             <p>TBD</p>
+
+            <hr/>
 
             <h3>Easy deployment</h3>
 
@@ -63,17 +67,22 @@ active-nav: "Docs"
             <h4>Mentors</h4>
             <p>TBD</p>
 
+            <hr/>
+
             <h3>Monitoring</h3>
 
             <p>ILP-Kit currently outputs a number of logs which are useful for technical debugging but it would also be valuable to produce instrumentation data that can be used to monitor things like liquidity, performance, reach etc.</p>
 
             <p>It would also be useful to have a mechanism to aggregate (and anonymize) this data and submit it to a central monitoring service that can monitor the health of the entire network.</p>
 
-            <h4>Requirements (one or more of the following)</h4>
+            <h4>Requirements</h4>
 
-            <p>Add instrumentation output to ILP modules that would make collection of operational data easier.</p>
-            <p>Build a monitoring and rules engine (or adaptor for an existing one) that can be used for operating an ILP node</p>
-            <p>Build an data collection and aggreagtion service for ILP data that can be used to monitor the health of the network.</p>
+            <p>Any or all of the following:</p>
+            <ul>
+                <li>Add instrumentation output to ILP modules that would make collection of operational data easier.</li>
+                <li>Build a monitoring and rules engine (or adaptor for an existing one) that can be used for operating an ILP node</li>
+                <li>Build an data collection and aggreagtion service for ILP data that can be used to monitor the health of the network.</li>
+            </ul>
 
             <h4>Tech</h4>
             <p>Javascript for updates to ILP-kit. Any for other deliverables.</p>
@@ -82,9 +91,13 @@ active-nav: "Docs"
             <p>TBD</p>
 
 
+            <hr/>
+
             <h3>ILP-enable a Ledger</h3>
 
             <p>Interledger has specific service requirements from any payment network/ledger that becomes part of the network. The most common way to ILP-enable a ledger is to write a plugin/adaptor for that ledger that conforms to the Interledger specifications</p>
+
+            <p>The community has been particulalry excited about integrating the Bitcoin Lightning and Ethereum Raden netwokrs into the Interledger so experience with eithr of these would be a big bonus.</p>
 
             <h4>Requirements</h4>
 
@@ -95,7 +108,9 @@ active-nav: "Docs"
 
             <h4>Mentors</h4>
             <p>For Java adaptors: <a href="https://github.com/adrianhopebailie">Adrian Hope-Bailie</a></p>
-            <p>For Javascript plugins: TBD</p>
+            <p>For Javascript plugins: <a href="https://github.com/emschwartz">Evan Schwartz</a></p>
+
+            <hr/>
 
             <h3>Java Implementations</h3>
             <p>The Javascript implementations of Interledger are more mature than the Java equivalents.</p>
@@ -108,6 +123,34 @@ active-nav: "Docs"
 
             <h4>Mentors</h4>
             <p><a href="https://github.com/adrianhopebailie">Adrian Hope-Bailie</a></p>
+
+            <hr/>
+
+            <h3>Any other implementations</h3>
+            <p>Various ILP-related componenets have been developed by community memebers in Python, Haskell, Go and other langauges. If you'd like to implement ILP in a new langauge we'll find a mentor to help you do it!</p>
+
+            <h4>Requirements</h4>
+            <p>Implement an ILP Client in a language other than Javascript or Java.</p>
+
+            <h4>Tech</h4>
+            <p>Any</p>
+
+            <h4>Mentors</h4>
+            <p>TBD</p>
+
+            <hr/>
+
+            <h3>Build Micropayments Into an App or Protocol</h3>
+            <p>Imagine the Web without ads, Torrents where seeders compete to upload files to you as fast as possible, or the Internet without DDoS attacks. Interledger micropayments can be used to enable each of these visions.</p>
+
+            <h4>Requirements</h4>
+            <p>Integrate interledger payments into an existing OSS application</p>
+
+            <h4>Tech</h4>
+            <p>Any</p>
+
+            <h4>Mentors</h4>
+            <p><a href="https://github.com/emschwartz">Evan Schwartz</a></p>
 
         </div>
     </div> <!-- /container -->
