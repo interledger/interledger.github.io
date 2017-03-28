@@ -71,20 +71,24 @@ title: "Welcome | Interledger"
 
                 <div class="tab-content">
                     <div id="js1" class="tab-pane active">
-                    <pre><code>import WalletClient from 'five-bells-wallet-client'
+                    <pre><code>import { SPSP } from 'ilp'
+import PluginBells from 'ilp-plugin-bells'
 
-const client = new WalletClient({
-  username: 'alice@red.ilpdemo.org',
+const plugin = new PluginBells({
+  account: 'https://red.ilpdemo.org/ledger/accounts/alice',
   password: 'secret'
 })
 
-setInterval(() => {
-  client.send({
-    destination: 'bob@blue.ilpdemo.org',
-    destinationAmount: '0.01',
-    message: 'Still love you!'
-  })
-}, 1500)</code></pre>
+SPSP.quote(plugin, {
+  receiver: 'bob@blue.ilpdemo.org',
+  destinationAmount: '0.01'
+}).then((payment) => {
+  payment.memo = { message: 'Still love you!' }
+
+  return SPSP.sendPayment(plugin, payment)
+}).then(() => {
+  console.log('Sent!')
+})</code></pre>
                     </div>
 
                     <div id="menu1" class="tab-pane">
@@ -117,16 +121,17 @@ favorite programming language.
 
                 <div class="tab-content">
                     <div id="js2" class="tab-pane active">
-                    <pre><code>import WalletClient from 'five-bells-wallet-client'
+                    <pre><code>import PluginBells from 'ilp-plugin-bells'
 
-const client = new WalletClient({
-  username: 'bob@blue.ilpdemo.org',
+const plugin = new PluginBells({
+  account: 'https://blue.ilpdemo.org/ledger/accounts/bob',
   password: 'secret'
 })
 
-client.on('incoming', (payment) => {
-  console.log('Received ' + payment.destinationAmount + ' bucks!')
-  console.log(payment.sourceAccount + ' says: ' + payment.message)
+plugin.connect().then(() => {
+  plugin.on('incoming_fulfill', (transfer) => {
+    console.log('Received ' + transfer.amount + ' euros!')
+  })
 })</code></pre>
                     </div>
 
