@@ -33,10 +33,6 @@ body {
   border-bottom: 3px solid red;
 }
 
-.navbar-default .navbar-nav>li>a {
-  color: rgba(255,255,255,0.7);
-}
-
 .container-fluid {
   background: #eaeee6;
   text-align: center;
@@ -769,6 +765,10 @@ li.nav-label {
   color: #fff;
 }
 
+.navbar-default .navbar-nav>li>a {
+  color: rgba(255,255,255,0.7);
+}
+
 .page-header {
   color: #333333 !important;
   border: none;
@@ -1143,4 +1143,23 @@ a.section-title {
   animation-duration: 1.2s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+}
+
+.github-mark {
+  float: left;
+  margin: -1px 5px -1px -2px;
+  color: #fff;
+  fill: rgba(255,255,255,0.7);
+  white-space: nowrap;
+}
+
+.navbar-default .navbar-nav .dropdown:hover .github-mark,
+.navbar-default .navbar-nav .dropdown:focus .github-mark,
+.navbar-default .navbar-nav .dropdown:active .github-mark
+ {
+  fill: #fff;
+}
+
+.open .github-mark {
+  fill: #555 !important;
 }
