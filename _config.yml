@@ -11,6 +11,12 @@ github_username:  interledger
 interledgerjs_baseurl: https://interledgerjs.github.io/
 gems:
   - jekyll-redirect-from
+  - jekyll-multiple-languages-plugin
+
+# multiple language setting
+# https://github.com/Anthony-Gaudino/jekyll-multiple-languages-plugin
+languages: ["en", "ja"]
+exclude_from_localizations: ["js", "assets", "css", "presentations"]
   
 # Build settings
 markdown: kramdown
