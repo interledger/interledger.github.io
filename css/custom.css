@@ -140,6 +140,11 @@ header.animate {
   color: #fff;
 }
 
+.callout-banner a {
+  font-weight: 500;
+  color: #fff;
+}
+
 .callout-banner strong {
   font-weight: 600;
 }

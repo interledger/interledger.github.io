@@ -2,8 +2,7 @@
 
 This repository holds the code behind the website at [interledger.org](https://interledger.org).
 
+To run a local copy you need [Jekyll](https://jekyllrb.com/) installed and should run `$jekyll serve`
 
 ## Get involved
-If you are willing to contribute, you are invited to get involved from our community page.
-
-[![Get involved](http://sparkboom.org/wp-content/uploads/2013/03/get-involved-button.png)](https://interledger.org/community.html)
+If you are keen to contribute, [join the community](https://interledger.org/community.html).
