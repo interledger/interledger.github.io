@@ -1,2 +1,8 @@
 index:
-  callout-banner: Read about the 7-ledger Interledger payment and the 3rd Community Workshop
+  callout-banner: Register for the Interledger meetups in <a href="/sanfrancisco">San Francisco</a> and <a href="/singapore">Singapore</a> or a possible workshop in <a href="/tokyo">Tokyo</a>
+  top-explanation: |
+    Interledger is an open protocol suite for sending payments across different <em>ledgers</em>.
+    Like routers on the Internet, <em>connectors</em> route packets of money across independent payment networks.
+    The open architecture and minimal protocol enable interoperability for any value transfer system. Interledger is not tied to any one company, blockchain, or currency.
+    Interested in connecting ledgers, building with micropayments or getting involved in the protocol development? Join the <a href="community.html">Interledger W3C Community Group</a>!
+    |

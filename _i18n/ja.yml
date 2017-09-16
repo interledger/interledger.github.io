@@ -1,2 +1,8 @@
 index:
-  callout-banner: 7つのレジャーを超えた支払いとコミュニティの3回目のワークショップについて読む
+  callout-banner: Interledger のミートアップに参加登録しましょう。<a href="/sanfrancisco">サンフランシスコ</a>、<a href="/singapore">シンガポール</a>、<a href="/tokyo">東京（検討中）</a>
+  top-explanation: |
+    Interledger は異なる複数の<em>レジャー</em>を超えて支払いを行う一連のオープンなプロトコルです。
+    インターネットにおけるルーターと同じ様に、<em>コネクタ</em>が独立した支払いネットワークを超えてお金のパケットをルーティングします。
+    Interledger のオープンなアーキテクチャと最小限のプロトコルが様々な価値の交換システムの相互運用を可能にします。Interledger はいかなる１つの企業、ブロックチェーン、通貨にも依存していません。
+    レジャーの相互接続、マイクロペイメントを利用した開発や Interledger プロトコルの開発にご興味がありましたら、<a href="community.html">Interledger W3C コミュニティグループ</a>に参加してみましょう！
+    |
