@@ -1,4 +1,4 @@
-# [Interledger.org](www.interledger.org)
+# [Interledger.org](https://interledger.org)
 
 This repository holds the code behind the website at [interledger.org](https://interledger.org).
 
