@@ -21,9 +21,9 @@ title: "Welcome | Interledger"
 <!-- event callout section -->
 <div class="container-fluid callout-banner">
     <div class="col-xs-12">
-        <p>Register for the Interledger meetups in 
-            <a href="/sanfrancisco">San Francisco</a> and 
-            <a href="/singapore">Singapore</a> or a possible workshop in 
+        <p>Register for the Interledger meetups in
+            <a href="/sanfrancisco">San Francisco</a> and
+            <a href="/singapore">Singapore</a> or a possible workshop in
             <a href="/tokyo">Tokyo</a></p>
     </div>
 </div>
@@ -78,8 +78,8 @@ title: "Welcome | Interledger"
 
     <!-- example section -->
     <div class="col-md-12">
-        <h2 class="simple">Simple Sending</h2>
-        <p class="example-intro">Interledger makes it easy to send money, no matter what ledger you or the recipient are on.</p>
+        <h2>Receiving Money</h2>
+        <p class="example-intro">Interledger allows you to receive money from any ledger, without setting up accounts on lots of different services.</p>
 
         <div class="row example-wrapper">
             <div class='col-sm-8 col-xs-12'>
@@ -90,23 +90,17 @@ title: "Welcome | Interledger"
 
                 <div class="tab-content">
                     <div id="js1" class="tab-pane active">
-                    <pre><code>import { SPSP } from 'ilp'
-import PluginBells from 'ilp-plugin-bells'
+                    <pre><code>import PluginBells from 'ilp-plugin-bells'
 
 const plugin = new PluginBells({
-  account: 'https://red.ilpdemo.org/ledger/accounts/alice',
+  account: 'https://blue.ilpdemo.org/ledger/accounts/bob',
   password: 'secret'
 })
 
-SPSP.quote(plugin, {
-  receiver: 'bob@blue.ilpdemo.org',
-  destinationAmount: '0.01'
-}).then((payment) => {
-  payment.memo = { message: 'Still love you!' }
-
-  return SPSP.sendPayment(plugin, payment)
-}).then(() => {
-  console.log('Sent!')
+plugin.connect().then(() => {
+  plugin.on('incoming_fulfill', (transfer) => {
+    console.log('Received ' + transfer.amount + ' euros!')
+  })
 })</code></pre>
                     </div>
 
@@ -131,8 +125,9 @@ favorite programming language.
                     </div>
                 </div>
 
-                <h2>Receiving Money</h2>
-                <p class="example-intro">Interledger allows you to receive money from any ledger, without setting up accounts on lots of different services.</p>
+                <h2 class="simple">Simple Sending</h2>
+                <p class="example-intro">Interledger makes it easy to send money, no matter what ledger you or the recipient are on.</p>
+
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#js2">Javascript</a></li>
                     <li class="teaser"><a data-toggle="tab" href="#menu2">&#43;</a></li>
@@ -140,18 +135,25 @@ favorite programming language.
 
                 <div class="tab-content">
                     <div id="js2" class="tab-pane active">
-                    <pre><code>import PluginBells from 'ilp-plugin-bells'
+                    <pre><code>import { SPSP } from 'ilp'
+import PluginBells from 'ilp-plugin-bells'
 
 const plugin = new PluginBells({
-  account: 'https://blue.ilpdemo.org/ledger/accounts/bob',
+  account: 'https://red.ilpdemo.org/ledger/accounts/alice',
   password: 'secret'
 })
 
-plugin.connect().then(() => {
-  plugin.on('incoming_fulfill', (transfer) => {
-    console.log('Received ' + transfer.amount + ' euros!')
-  })
+SPSP.quote(plugin, {
+  receiver: 'bob@blue.ilpdemo.org',
+  destinationAmount: '0.01'
+}).then((payment) => {
+  payment.memo = { message: 'Still love you!' }
+
+  return SPSP.sendPayment(plugin, payment)
+}).then(() => {
+  console.log('Sent!')
 })</code></pre>
+
                     </div>
 
                     <div id="menu2" class="tab-pane">
@@ -167,10 +169,10 @@ favorite programming language.
 
             </div>
 
-            <div class='col-sm-4 hidden-xs text-center'>
+            <div class="col-sm-4 hidden-xs text-center">
 
-                <h2 class="sending-amount">$ <span class="sender">525.38<span class="superscript">0</span></span> USD</h2>
-                <p class="account">Sending account</p>
+                <h2 class="receiving-amount">€ <span class="receiver">23.12<span class="superscript">0</span></span> EUR</h2>
+                <p class="account">Receiving account</p>
 
                 <div class="canvas-wrapper">
                     <svg id="svgGraphic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 1000">
@@ -183,30 +185,30 @@ favorite programming language.
                             <line x1="81.4021" y1="532.9238" x2="207.0815" y2="618.9239" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;opacity:0.3"/>
                             <line x1="133.0815" y1="376.6689" x2="207.0815" y2="618.9239" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;opacity:0.3"/>
                         </g>
-                        <circle id="circle-1" cx="170.0815" cy="48.102" r="37" style="fill:#176f87;opacity:0.7;transform-origin: 18.5px 18.5px"/>
-                        <circle id="circle-2" cx="133.0815" cy="376.6689" r="35.5277" style="fill:#529948;opacity:0.5;transform-origin: 17.7px 17.7px"/>
+                        <circle id="circle-5" cx="170.0815" cy="48.102" r="37" style="fill:#176f87;opacity:0.7;transform-origin: 18.5px 18.5px"/>
+                        <circle id="circle-4" cx="133.0815" cy="376.6689" r="35.5277" style="fill:#529948;opacity:0.5;transform-origin: 17.7px 17.7px"/>
                         <circle id="circle-3" cx="81.4021" cy="532.9238" r="42.465" style="fill:#254c45;opacity:0.7;transform-origin: 21.2px 21.2px"/>
-                        <circle id="circle-4" cx="207.0815" cy="618.9239" r="26.403" style="fill:#f7ba59;opacity:0.7;transform-origin: 13.2px 13.2px"/>
-                        <circle id="circle-5" cx="170.0815" cy="951.898" r="37" style="fill:#c95959;opacity:0.7;transform-origin: 18.5px 18.5px"/>
+                        <circle id="circle-2" cx="207.0815" cy="618.9239" r="26.403" style="fill:#f7ba59;opacity:0.7;transform-origin: 13.2px 13.2px"/>
+                        <circle id="circle-1" cx="170.0815" cy="951.898" r="37" style="fill:#c95959;opacity:0.7;transform-origin: 18.5px 18.5px"/>
                         <g id="label-1">
-                            <text transform="translate(217.1534 52.3919)" style="font-size:14px;fill:#333;font-family:Source Sans Pro">
-                                Digital Wallet
-                            </text>
-                        </g>
-                        <text transform="translate(178.044 380.2177)" style="font-size:14px;fill:#253b3f;font-family:Source Sans Pro">
-                            Local Bank
-                        </text>
-                        <text transform="translate(135.5684 536.4723)" style="font-size:14px;fill:#253b3f;font-family:Source Sans Pro">
-                            International Bank
-                        </text>
-                        <text transform="translate(241.4844 622.4718)" style="font-size:14px;fill:#253b3f;font-family:Source Sans Pro">
-                            Cryptocurrency
-                        </text>
-                        <g id="label-5">
-                            <text transform="translate(216.1534 949.8694)" style="font-size:14px;fill:#333;font-family:Source Sans Pro">
-                                Payment
-                                <tspan x="0" y="16">Service Provider</tspan>
-                            </text>
+                                <text transform="translate(217.1534 956.8694)" style="font-size:14px;fill:#333;font-family:Source Sans Pro">
+                  Digital Wallet
+                </text>
+              </g>
+              <text transform="translate(178.044 380.2177)" style="font-size:14px;fill:#253b3f;font-family:Source Sans Pro">
+                Local Bank
+              </text>
+              <text transform="translate(135.5684 536.4723)" style="font-size:14px;fill:#253b3f;font-family:Source Sans Pro">
+                International Bank
+              </text>
+              <text transform="translate(241.4844 622.4718)" style="font-size:14px;fill:#253b3f;font-family:Source Sans Pro">
+                Cryptocurrency
+              </text>
+              <g id="label-5">
+                <text transform="translate(216.1534 45.3919)" style="font-size:14px;fill:#333;font-family:Source Sans Pro">
+                  Online
+                  <tspan x="0" y="16">Payment Service</tspan>
+                </text>
                         </g>
                         <g id="icn-bigbank">
                             <polyline points="85.25 547.882 85.25 537.897 77.487 537.897 77.487 547.882 56.89 547.882 56.89 522.142 71.233 522.142 71.233 509.997 91.901 509.997 91.901 522.142 106.232 522.142 106.232 547.882 91.901 547.882 91.901 526.899" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
@@ -246,20 +248,20 @@ favorite programming language.
                             <path d="M222.65,617.7583v4.2424a1.3837,1.3837,0,0,1-1.3837,1.3837h-6.379a1.3477,1.3477,0,0,1-1.0248-.4725L211.9741,620.7a1.3477,1.3477,0,0,1-.0018-1.7483l1.8055-2.1231a1.3477,1.3477,0,0,1,1.0267-.4746h4.3647a1.1646,1.1646,0,0,0,1.1646-1.1646v-3.4964a1.1646,1.1646,0,0,0-1.1646-1.1646H197.8a2.2869,2.2869,0,0,1-2.2869-2.2869h0a2.2869,2.2869,0,0,1,2.2869-2.2869h17.1286a1.2135,1.2135,0,0,1,1.2135,1.2135h0" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.85px"/>
                             <circle cx="216.1534" cy="619.9761" r="1.4649" style="fill:#fff"/>
                         </g>
-                        <circle id="dot-1" cx="170.0815" cy="48.102" r="1.9941" style="fill:#36dabc"/>
-                        <circle id="dot-2" cx="133.0815" cy="376.6689" r="1.9941" style="fill:#36dabc"/>
+                        <circle id="dot-5" cx="170.0815" cy="48.102" r="1.9941" style="fill:#36dabc"/>
+                        <circle id="dot-4" cx="133.0815" cy="376.6689" r="1.9941" style="fill:#36dabc"/>
                         <circle id="dot-3" cx="81.4021" cy="532.9238" r="1.9941" style="fill:#36dabc"/>
-                        <circle id="dot-4" cx="207.0815" cy="618.9239" r="1.9941" style="fill:#36dabc"/>
-                        <circle id="dot-5" cx="170.0815" cy="950.8979" r="1.9941" style="fill:#36dabc"/>
-                        <polyline id="path-1" points="170.081 48.102 133.081 376.669 81.402 532.924 170 950.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
-                        <polyline id="path-4" points="170 48.102 133.081 376.669 81.402 532.924 207.081 618.924 170.081 950.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
-                        <polyline id="path-2" points="170 48.102 133.081 376.669 207.081 618.924 170.081 950.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
-                        <polyline id="path-3" points="170 48.102 207.081 618.924 170.081 950.898" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
+                        <circle id="dot-2" cx="207.0815" cy="618.9239" r="1.9941" style="fill:#36dabc"/>
+                        <circle id="dot-1" cx="170.0815" cy="950.8979" r="1.9941" style="fill:#36dabc"/>
+                        <polyline id="path-1" points="170 951 81 533 133 377 170 48" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
+                        <polyline id="path-4" points="170 951 207 619 81 533 133 377 170 48" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
+                        <polyline id="path-2" points="170 951 207 619 133 377 170 48" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
+                        <polyline id="path-3" points="170 951 207 619 170 48" style="fill:none;stroke:#36dabc;stroke-miterlimit:10;stroke-width:2px"/>
                     </svg>
                 </div>
 
-                <h2 class="receiving-amount">€ <span class="receiver">23.12<span class="superscript">0</span></span> EUR</h2>
-                <p class="account">Receiving account</p>
+                <h2 class="sending-amount">$ <span class="sender">525.38<span class="superscript">0</span></span> USD</h2>
+                <p class="account">Sending account</p>
 
             </div>
         </div>
