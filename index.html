@@ -92,18 +92,22 @@ title: "Welcome | Interledger"
 
                 <div class="tab-content">
                     <div id="js1" class="tab-pane active">
-                    <pre><code>import PluginBells from 'ilp-plugin-bells'
+                    <pre><code>const Koa = require('koa')
+const router = require('koa-router')()
+const app = new Koa()
 
-const plugin = new PluginBells({
-  account: 'https://blue.ilpdemo.org/ledger/accounts/bob',
-  password: 'secret'
+const KoaIlp = require('koa-ilp')
+const plugin = require('ilp-plugin')()
+const ilp = new KoaIlp({ plugin })
+
+router.get('/', ilp.paid({ price: 1000 }), async ctx => {
+  ctx.body = 'Hello World!'
 })
 
-plugin.connect().then(() => {
-  plugin.on('incoming_fulfill', (transfer) => {
-    console.log('Received ' + transfer.amount + ' euros!')
-  })
-})</code></pre>
+app
+  .use(router.routes())
+  .use(router.allowedMethods())
+  .listen(8080)</code></pre>
                     </div>
 
                     <div id="menu1" class="tab-pane">
@@ -132,30 +136,30 @@ favorite programming language.
 
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#js2">Javascript</a></li>
+                    <li class="teaser"><a data-toggle="tab" href="#sh2">Command-Line</a></li>
                     <li class="teaser"><a data-toggle="tab" href="#menu2">&#43;</a></li>
                 </ul>
 
                 <div class="tab-content">
                     <div id="js2" class="tab-pane active">
-                    <pre><code>import { SPSP } from 'ilp'
-import PluginBells from 'ilp-plugin-bells'
+                    <pre><code>const plugin = require('ilp-plugin')()
+const superagent = require('superagent')
+const agent = require('superagent-ilp')(superagent, plugin)
 
-const plugin = new PluginBells({
-  account: 'https://red.ilpdemo.org/ledger/accounts/alice',
-  password: 'secret'
-})
+agent
+  .get('http://localhost:8080/')
+  .pay(5000)
+  .then(response => {
+    console.log('paid!')
+    console.log('got response:', response.text)
+  })</code></pre>
+                    </div>
 
-SPSP.quote(plugin, {
-  receiver: 'bob@blue.ilpdemo.org',
-  destinationAmount: '0.01'
-}).then((payment) => {
-  payment.memo = { message: 'Still love you!' }
-
-  return SPSP.sendPayment(plugin, payment)
-}).then(() => {
-  console.log('Sent!')
-})</code></pre>
-
+                    <div id="sh2" class="tab-pane">
+                    <pre><code>$ npm install -g ilp-curl moneyd
+$ moneyd start --host ... --secret s...
+$ ilp-curl -X GET localhost:8080/pay
+Hello World!</code></pre>
                     </div>
 
                     <div id="menu2" class="tab-pane">
