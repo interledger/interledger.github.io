@@ -13,16 +13,24 @@ active-sub-nav: "Libraries"
         <div class="col-sm-8 wrapper">
           <h1 class="page-header">Libraries &amp; Tools</h1>
 
-          <p class="intro">Build high- and low-level Interledger applications.</p>
+          <p class="intro">Build Interledger applications.</p>
 
-          <h2>High Level: ILP Client (SPSP)</h2>
+          <h2>SPSP</h2>
 
-          <p>Build Interledger payments into your apps with the <a target="_blank" href="https://github.com/interledgerjs/ilp#simple-payment-setup-protocol-spsp">ILP SPSP Client</a>. This library can connect to the <a target="_blank" href="https://github.com/interledgerjs/ilp-kit">ILP Kit</a>, which uses the <a href="https://github.com/interledger/rfcs/tree/master/0009-simple-payment-setup-protocol">Simple Payment Setup Protocol</a> for account discovery and automatic payment detail negotiation.
+          <p>Build Interledger payments into your apps with the <a target="_blank" href="https://github.com/interledgerjs/ilp-protocol-spsp">ILP SPSP Client</a>. This library can connect to any SPSP receiver for account discovery and payment detail negotation. For more information on how to use SPSP, read <a href="https://medium.com/interledger-blog/spsp-simple-payment-setup-protocol-2028292e6925">"SPSP: Simple Payment Setup Protocol"</a> on the Interledger Blog.
 
 
-          <h2>Low Level: ILP Client (PSK, ILQP)</h2>
+          <h2>Koa ILP</h2>
 
-          <p>Build Interledger payments into other protocols or low-level applications with the ILP Client's <a target="_blank" href="https://github.com/interledgerjs/ilp#pre-shared-key-psk-transport-protocol">PSK</a> and <a target="_blank" href="https://github.com/interledgerjs/ilp#ilqpquoteplugin-query--promisequote">ILQP</a> functions. This library gives you direct control over the Interledger parameters and allows you to determine how to handle account discovery, condition negotiation, and communication between senders and recipients.</p>
+          <p>If you use the <a href="http://koajs.com/">Koa framework</a> in Node.js, this library will allow you to monetize your API in only a few lines of code. For more information, <a href="https://github.com/interledgerjs/koa-ilp">check out our Github</a> and <a href="https://medium.com/interledger-blog/http-ilp-paid-api-calls-with-interledger-fda53643a2eb">our blog post about it.</a></p>
+
+          <h2>ILP Fetch</h2>
+
+          <p>You can use <a href="https://github.com/interledgerjs/ilp-fetch">ILP Fetch</a> as a client to HTTP-ILP. ILP Fetch follows the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a>, but allows the client to send payments. You can use it to interact with paid APIs on Interledger.</p>
+
+          <h2>Moneyd XRP</h2>
+
+          <p><a href="https://github.com/interledgerjs/moneyd-xrp">Moneyd-XRP</a> allows you to connect to the Interledger network via XRP. It can be used on the livenet or the testnet with minimal configuration. We also have "Moneyd-ETH" and "Moneyd-Lightning" in the works.</p>
 
           <h2>More tools coming soon!</h2>
 
