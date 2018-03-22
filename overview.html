@@ -25,11 +25,11 @@ active-sub-nav: "Overview"
 
           <h2>Protocol Specs and APIs</h2>
 
-          <p>To dive into the technical specs, see the <a target="_blank" href="https://github.com/interledger/rfcs">Interledger RFCs</a>. Also see the documentation for the components of the reference implementation. There are the <a href="{{site.interledgerjs_baseurl}}ilp-connector/apidoc/">connector</a>, the example <a href="{{site.interledgerjs_baseurl}}five-bells-ledger/apidoc/">ledger</a> and the application layer <a href="{{site.interledgerjs_baseurl}}ilp-kit/apidoc/">ILP Kit</a>.</p>
+          <p>To dive into the technical specs, see the <a target="_blank" href="https://github.com/interledger/rfcs">Interledger RFCs</a>. Also see the documentation for the components of the reference implementation.</p>
 
           <h2>Security</h2>
 
-          <p>Interledger provides secure multi-hop payments using <a href="https://adrian.hopebailie.com/the-power-of-conditional-payments-2d1ea531250a">conditional transfers</a>. For the theoretical foundations of Interledger, read the <a target="_blank" href="interledger.pdf">Whitepaper</a> (Note: the whitepaper provides a technical defense of the protocol fundamentals, not the simplest explanation. For a higher-level overview of how it works, see the <a href="rfcs/0001-interledger-architecture/">Interledger Architecture RFC</a>).</p>
+          <p>Interledger provides secure multi-hop payments using <a href="https://github.com/interledger/rfcs/blob/master/0022-hashed-timelock-agreements/0022-hashed-timelock-agreements.md">Hashed Timelock Agreements</a>. As of Interledger version 4, these conditions are not enforced by the ledger, as it would be too costly and slow. Instead, participants in the network use these hashlocks to perform accounting with their peers. This accounting is used to determine in-flight balances, which are periodically settled with on-ledger transfers or payment channel claims. For a detailed description of how this works, read <a href="https://github.com/interledger/rfcs/blob/master/0027-interledger-protocol-4/0027-interledger-protocol-4.md">the ILPv4 specification.</a></p>
 
           <p>Next: <a href="getting-started.html">Getting Started</a></p>
       </div>
