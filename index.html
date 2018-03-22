@@ -143,12 +143,13 @@ favorite programming language.
                 <div class="tab-content">
                     <div id="js2" class="tab-pane active">
                     <pre><code>const plugin = require('ilp-plugin')()
-const superagent = require('superagent')
-const agent = require('superagent-ilp')(superagent, plugin)
+const fetch = require('ilp-fetch')
 
-agent
-  .get('http://localhost:8080/')
-  .pay(5000)
+fetch('http://localhost:8080/', {
+  method: 'GET',
+  maxPrice: 5000,
+  plugin
+})
   .then(response => {
     console.log('paid!')
     console.log('got response:', response.text)
@@ -157,7 +158,8 @@ agent
 
                     <div id="sh2" class="tab-pane">
                     <pre><code>$ npm install -g ilp-curl moneyd
-$ moneyd start --host ... --secret s...
+$ moneyd configure --testnet
+$ moneyd start --testnet
 $ ilp-curl -X GET localhost:8080/pay
 Hello World!</code></pre>
                     </div>
