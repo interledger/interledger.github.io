@@ -272,6 +272,11 @@ h4 {
  color: #333;
 }
 
+.lead {
+  font-weight: 400 !important;
+  font-size: 18px;
+}
+
 .benefit h3 {
   font-size: 21px;
   font-weight: 400;
