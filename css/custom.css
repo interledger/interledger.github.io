@@ -970,7 +970,7 @@ a.section-title {
   overflow-y: auto;
   z-index: 10;
   bottom: 0;
-/*  margin-bottom: 90px;*/
+  margin-bottom: 110px;
   border-bottom: none !important;
 }
 
