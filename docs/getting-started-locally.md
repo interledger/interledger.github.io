@@ -1,46 +1,13 @@
 # Starting an Interledger Node Locally Using moneyd
 
 This tutorial describes how to:
-* Install [`moneyd`](https://github.com/interledgerjs/moneyd) on your system
-* Start an [Interledger](https://github.com/interledgerjs/ilp-connector) node on a local test network using moneyd
-* Send and receive payments using the [SPSP](https://github.com/interledgerjs/ilp-protocol-spsp) (Simple Payment Setup Protocol) API
+1. Install [`moneyd`](../concepts/moneyd.md) on your system
+2. Start an [Interledger](https://github.com/interledgerjs/ilp-connector) node on a local test network using moneyd
+3. Send and receive payments using the [SPSP](../concepts/spsp.md) (Simple Payment Setup Protocol) API
 
-This tutorial is useful if you’re doing local development. It can also help you understand how Interledger payments work at a high level. 
-This step-by-step tutorial can get you set up with moneyd and SPSP and get you ready to process Interledger payments locally. 
+This tutorial is useful if you’re doing local development. 
 
 ![Getting-Started-Locally](../assets/getting-started-locally.png)
-
-## What is moneyd?
-[`moneyd`](https://github.com/interledgerjs/moneyd) is a daemon that enables you to connect to peers through the Interledger protocol and to send value in the form of 
-packets of data. Traditional routers and `moneyd` both transfer packets over the internet. With `moneyd`, the packets represent 
-value being transferred rather than just data.
-
-`moneyd` uses uplinks to connect to an Interledger node. An uplink wraps ILP plugins for `moneyd`’s use. 
-They provide additional features such as payment channel management and configuration construction. 
-For example, `moneyd-uplink-xrp` is an XRP uplink that connects `moneyd` to a peer Interledger node and creates an 
-XRP payment channel. 
-
-When you run `moneyd` using an uplink, it:
-* Starts an Interledger node
-* Listens on a local port
-* Peers with a node on the Interledger network and creates a payment channel depending on the uplink used
-* Receives packets of value from the sender and routes it to the peer node
-
-NOTE: You *do not* need an uplink if you run `moneyd` to start a node locally because in this case, you’re not interacting on a payment channel, but you can process payments locally between a sender and a receiver.
-
-## What is SPSP?
-[SPSP](https://github.com/interledgerjs/ilp-protocol-spsp) (Simple Payment Setup Protocol) is an application layer protocol, which uses HTTP endpoints to securely exchange 
-payment details, and then allows the user to send one or more Interledger packets. SPSP provides lightweight client-server 
-APIs to send and receive payments. An [SPSP client](https://github.com/interledgerjs/ilp-spsp) sends a payment, and 
-an [SPSP server](https://github.com/interledgerjs/ilp-spsp-server) receives a payment. An SPSP server must 
-be connected to an Interledger node to receive payments. 
-
-When you start an SPSP server, it:
-* Connects to an Interledger node
-* Creates a receiver
-* Opens a port to listen to
-* Generates a payment pointer<br/>
-A payment pointer is like an email address, but for money. An SPSP client uses a recipient's payment pointer to send money.
 
 ## Before you begin
 * Install a stable version of [Node.js](https://nodejs.org/en/) (10.16.0 LTS is recommended)
