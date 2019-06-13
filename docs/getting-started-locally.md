@@ -110,6 +110,7 @@ Now, using an editor of your choice, create a `index.js` file and add the follow
 ```shell
 const plugin = require('ilp-plugin')()
 const SPSP = require('ilp-protocol-spsp')
+
 async function run () {
   console.log('paying $my_subdomain.localtunnel.me...')
   await SPSP.pay(plugin, {
@@ -118,6 +119,7 @@ async function run () {
   })
   console.log('paid!')
 }
+
 run().catch(e => console.error(e))
 ```
 
