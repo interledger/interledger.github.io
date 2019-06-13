@@ -17,7 +17,7 @@ Open a command line and use the following commands:
   * `npm config set prefix <path-to-new-npm-dir>`  
   * Add `<new-npm-dir>` to your system’s `PATH` environment variable
 
-NOTE: For this tutorial, you *do not* need to use any cryptocurrency.
+NOTE: For this tutorial you *do not* need to use any cryptocurrency.
 
 ## Installing moneyd
 To install `moneyd`, open a command line and run the following command:
