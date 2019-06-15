@@ -90,4 +90,4 @@ async function run () {
 run().catch(e => console.error(e))
 ```
 
-Running the above code is equivalent to running the `ilp-spsp` command that you ran in previous section.
+Running the above code is equivalent to running the `ilp-spsp` command that you ran in the previous section.
