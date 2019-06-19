@@ -13,7 +13,7 @@ When you start an SPSP server, it:
 * Generates a payment pointer<br/>
 A payment pointer is like an email address, but for sending/receiving value. 
 
-An SPSP client 
-* Uses a recipient's payment pointer to directly obtain destination account and secret from the receiver
+When you start an SPSP client, it:
+* Uses the recipient's payment pointer to directly obtain destination account and secret from the receiver
 * Connects with moneyd using the destination account and secret.
 * Sends value over the connection
