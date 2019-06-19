@@ -59,5 +59,5 @@ $ ilp-spsp send --amount 10 --receiver 'http://localhost:8080'
 ```
 
 You should see `sent!` on the sending terminal and `got packet for 10 units` on the receiving terminal confirming 
-that you have successfully sent and received value through the Interledger protocol. You are now ready to use 
-SPSP in your applications.
+that you have successfully sent and received value through the Interledger protocol. You are now ready to [use 
+SPSP in your applications.](sending-value-programmatically.md)
