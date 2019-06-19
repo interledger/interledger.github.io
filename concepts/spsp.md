@@ -1,6 +1,6 @@
 ## SPSP
 [SPSP](https://github.com/interledgerjs/ilp-protocol-spsp) (Simple Payment Setup Protocol) is an application layer protocol, 
-which uses HTTPS endpoint to securely exchange payment details, and then allows the user to send and receive value 
+which uses HTTPS endpoints to securely exchange payment details, and then allows the user to send and receive value 
 over Interledger. SPSP provides lightweight client-server APIs to send and receive value. 
 
 An SPSP client sends (pay) value, and an SPSP server receives value. If *pull* value is supported,
