@@ -1,13 +1,19 @@
 ## SPSP
-[SPSP](https://github.com/interledgerjs/ilp-protocol-spsp) (Simple Payment Setup Protocol) is an application layer protocol, which uses HTTPS endpoints to securely exchange 
-payment details, and then allows the user to send one or more Interledger packets. SPSP provides lightweight client-server 
-APIs to send and receive payments. An [SPSP client](https://github.com/interledgerjs/ilp-spsp) sends a payment, and 
-an [SPSP server](https://github.com/interledgerjs/ilp-spsp-server) receives a payment. An SPSP server must 
-be connected to an Interledger node to receive payments. 
+[SPSP](https://github.com/interledgerjs/ilp-protocol-spsp) (Simple Payment Setup Protocol) is an application layer protocol, 
+which uses HTTPS endpoint to securely exchange payment details, and then allows the user to send and receive value 
+over Interledger. SPSP provides lightweight client-server APIs to send and receive value. 
+
+An SPSP client sends (pay) value, and an SPSP server receives value. If *pull* value is supported,
+a server can send value and a client can receive (pull) value. 
 
 When you start an SPSP server, it:
-* Connects to an Interledger node
+* Connects to a `moneyd` instance
 * Creates a receiver
 * Opens a port to listen to
 * Generates a payment pointer<br/>
-A payment pointer is like an email address, but for money. An SPSP client uses a recipient's payment pointer to send money.
+A payment pointer is like an email address, but for sending/receiving value. 
+
+An SPSP client 
+* Uses a recipient's payment pointer to directly obtain destination account and secret from the receiver
+* Connects with moneyd using the destination account and secret.
+* Sends value over the connection
