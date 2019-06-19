@@ -1,6 +1,6 @@
 # Sending Value Programmatically
 
-This tutorial shows how to send value over Interledger using SPSP API.
+This tutorial shows how to send value over ILP using SPSP API.
 
 ## Prerequisites
 This tutorial assumes that you’re running `moneyd` and SPSP server on your computer. 

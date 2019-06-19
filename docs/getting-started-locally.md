@@ -12,10 +12,6 @@ This tutorial is useful if you’re doing local development.
 ## Before you begin
 * Install a stable version of [Node.js](https://nodejs.org/en/) (10.16.0 LTS is recommended)
 * Set up Node to install modules globally <br/>
-Open a command line and use the following commands:  
-  * `$ mkdir <new-npm-dir>`  
-  * `$ npm config set prefix <path-to-new-npm-dir>`  
-  * Add `<new-npm-dir>` to your system’s `PATH` environment variable
 
 NOTE: For this tutorial you *do not* need to use any cryptocurrency.
 
