@@ -1,13 +1,13 @@
-# Starting an Interledger Node Locally Using moneyd
+# Getting Started
+
+This tutorial will help you start an Interledger node locally on you computer and create a local ILP test network.
 
 This tutorial describes how to:
 1. Install [`moneyd`](../concepts/moneyd.md) on your system
 2. Start an [Interledger](https://github.com/interledgerjs/ilp-connector) node on a local test network using moneyd
 3. Send and receive value using the [SPSP](../concepts/spsp.md) (Simple Payment Setup Protocol) API
 
-This tutorial is useful if you’re doing local development. 
-
-![Getting-Started-Locally](../assets/getting-started-locally.png)
+![Getting-Started-Locally](../images/getting-started-locally.png)
 
 ## Before you begin
 * Install a stable version of [Node.js](https://nodejs.org/en/) (10.16.0 LTS is recommended)
