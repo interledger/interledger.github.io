@@ -16,7 +16,7 @@ This tutorial describes how to:
 NOTE: For this tutorial you *do not* need to use any cryptocurrency.
 
 ## Installing moneyd
-To install `moneyd`, open a command line and run the following command:
+To install `moneyd`, open a terminal and run the following command:
 ```shell
 $ npm install -g moneyd
 ```
