@@ -10,8 +10,7 @@ This tutorial describes how to:
 ![Getting-Started-Locally](../images/getting-started-locally.png)
 
 ## Before you begin
-* Install a stable version of [Node.js](https://nodejs.org/en/) (10.16.0 LTS is recommended)
-* Set up Node to install modules globally <br/>
+Install a stable version of [Node.js](https://nodejs.org/en/) (10.16.0 LTS is recommended)
 
 NOTE: For this tutorial you *do not* need to use any cryptocurrency.
 
@@ -21,7 +20,7 @@ To install `moneyd`, open a terminal and run the following command:
 $ npm install -g moneyd
 ```
 
-## Starting a node
+## Starting moneyd
 After you’ve installed `moneyd`, run the following command to start your local node:
 ```shell
 $ moneyd local
@@ -33,7 +32,7 @@ Once you have `moneyd` running, you can send and receive value over ILP using th
 we’ll use the SPSP command line tool.
 
 ### Installing the SPSP client and server
-To install an SPSP client and server, open a new command line and run:
+To install an SPSP client and server, open a new terminal and run:
 ```shell
 $ npm install -g ilp-spsp ilp-spsp-server
 ```
