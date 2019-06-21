@@ -12,7 +12,8 @@ This tutorial describes how to:
 ## Before you begin
 Install a stable version of [Node.js](https://nodejs.org/en/) (10.16.0 LTS is recommended)
 
-NOTE: For this tutorial you *do not* need to use any cryptocurrency.
+NOTE: For this tutorial you *do not* need to use any cryptocurrency. Since you are running ILP 
+on a local test network, settlement (moving real money) does not take place. 
 
 ## Installing moneyd
 To install `moneyd`, open a terminal and run the following command:
