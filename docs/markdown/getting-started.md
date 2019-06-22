@@ -1,6 +1,6 @@
 # Getting Started
 
-This tutorial will help you start an Interledger node locally on you computer and create a local ILP test network.
+This tutorial will help you start an Interledger node locally on your computer and create a local ILP test network.
 
 This tutorial describes how to:
 1. Install [`moneyd`](../concepts/moneyd.md) on your system
