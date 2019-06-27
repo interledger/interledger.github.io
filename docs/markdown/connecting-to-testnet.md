@@ -4,9 +4,9 @@ This tutorial will help you start an Interledger node locally on your computer a
 
 This tutorial describes how to:
 
-1. Configure moneyd to connect to a node on testnet
-2. Start an Interledger node locally using moneyd
-3. Send value to a payment pointer on the testnet
+1. Configure [`moneyd`](https://github.com/interledgerjs/moneyd) to connect to a node on testnet
+2. Start an [Interledger node](https://github.com/interledgerjs/ilp-connector) locally using moneyd
+3. Send value to a [payment pointer](https://interledger.org/rfcs/0026-payment-pointers/) on the testnet
 
 ## Before you begin
 For this tutorial, you will need `moneyd` and SPSP installed on your computer. You can learn how to install `moneyd` 
