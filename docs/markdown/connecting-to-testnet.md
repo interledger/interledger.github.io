@@ -9,9 +9,11 @@ This tutorial describes how to:
 3. Send value to a payment pointer on the testnet
 
 ## Before you begin
-For this tutorial, you will need `moneyd` and SPSP installed on your computer. You can learn how to install `moneyd` and SPSP from the Getting Started tutorial.
+For this tutorial, you will need `moneyd` and SPSP installed on your computer. You can learn how to install `moneyd` 
+and SPSP from the Getting Started tutorial.
 
-NOTE: For this tutorial you do not need to use real cryptocurrency. Since you will be running ILP on a testnet, settlement (moving real money) does not take place.
+NOTE: For this tutorial you do not need to use real cryptocurrency. Since you will be running ILP on a testnet, 
+funds will be used from a [testnet faucet](https://xrpl.org/xrp-test-net-faucet.html) and have no real-world value.
 
 ## Configuring moneyd
 To configure moneyd: 
@@ -29,7 +31,8 @@ xpring.dev
 3. Press enter for other default options.
 
 ## Starting moneyd
-After you’ve configured `moneyd`, run the following command to start an Interledger node on your computer and connect it to a node on the testnet:
+After you’ve configured `moneyd`, run the following command to start an Interledger node on your computer and 
+connect it to a node on the testnet:
 
 ```shell
 moneyd xrp:start --testnet
