@@ -10,7 +10,7 @@ This tutorial describes how to:
 
 ## Before you begin
 For this tutorial, you will need `moneyd` and SPSP installed on your computer. You can learn how to install `moneyd` 
-and SPSP from the Getting Started tutorial.
+and SPSP from the [Getting Started](getting-started.md) tutorial.
 
 NOTE: For this tutorial you do not need to use real cryptocurrency. Since you will be running ILP on a testnet, 
 funds will be used from a [testnet faucet](https://xrpl.org/xrp-test-net-faucet.html) and have no real-world value.
