@@ -32,7 +32,7 @@ xpring.dev
 
 ## Starting moneyd
 After you’ve configured `moneyd`, run the following command to start an Interledger node on your computer and 
-connect it to a node on the testnet:
+connect it to a routing node on the testnet:
 
 ```shell
 moneyd xrp:start --testnet
@@ -54,5 +54,5 @@ $ ilp-spsp send --amount 10 --receiver '$xpring.dev/xrp’
 If you were successful, you should see the following output on the sending terminal:
 ```shell
 paying 10 to "$xpring.dev/xrp"...
-Sent 10 units!
+sent 10 units!
 ```
