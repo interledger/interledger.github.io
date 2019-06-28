@@ -1,6 +1,6 @@
 # Connecting to an ILP Testnet
 
-This tutorial will help you start an ILP node locally on your computer and connect to an ILP testnet node..
+This tutorial will help you start an ILP node locally on your computer and connect to an ILP testnet node.
 
 This tutorial describes how to:
 
