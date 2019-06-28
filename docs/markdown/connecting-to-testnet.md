@@ -1,18 +1,18 @@
 # Connecting to an ILP Testnet
 
-This tutorial will help you start an Interledger node locally on your computer and connect to an external ILP testnet.
+This tutorial will help you start an ILP node locally on your computer and connect to an ILP testnet node..
 
 This tutorial describes how to:
 
 1. Configure [`moneyd`](https://github.com/interledgerjs/moneyd) to connect to a node on testnet
-2. Start an [Interledger node](https://github.com/interledgerjs/ilp-connector) locally using moneyd
+2. Start an [ILP node](https://github.com/interledgerjs/ilp-connector) locally using moneyd
 3. Send value to a [payment pointer](https://interledger.org/rfcs/0026-payment-pointers/) on the testnet
 
 ## Before you begin
 For this tutorial, you will need `moneyd` and SPSP installed on your computer. You can learn how to install `moneyd` 
 and SPSP from the [Getting Started](getting-started.md) tutorial.
 
-NOTE: For this tutorial you do not need to use real cryptocurrency. Since you will be running ILP on a testnet, 
+NOTE: For this tutorial you do not need to use real cryptocurrency. Since you will be running ILP on a testnet node, 
 funds will be used from a [testnet faucet](https://xrpl.org/xrp-test-net-faucet.html) and have no real-world value.
 
 ## Configuring moneyd
@@ -31,8 +31,8 @@ xpring.dev
 3. Press enter for other default options.
 
 ## Starting moneyd
-After you’ve configured `moneyd`, run the following command to start an Interledger node on your computer and 
-connect it to a routing node on the testnet:
+After you’ve configured `moneyd`, run the following command to start an ILP node on your computer and connect it 
+to another ILP node on testnet:
 
 ```shell
 moneyd xrp:start --testnet
