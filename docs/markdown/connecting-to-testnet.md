@@ -12,8 +12,8 @@ This tutorial describes how to:
 For this tutorial, you will need `moneyd` and SPSP installed on your computer. You can learn how to install `moneyd` 
 and SPSP from the [Getting Started](getting-started.md) tutorial.
 
-NOTE: For this tutorial you do not need to use real cryptocurrency. Since you will be running ILP on a testnet node, 
-funds will be used from a [testnet faucet](https://xrpl.org/xrp-test-net-faucet.html) and have no real-world value.
+NOTE: For this tutorial you do not need to use real cryptocurrency. Since you will be sending value through an 
+ILP router on the testnet, funds will be used from a [testnet faucet](https://xrpl.org/xrp-test-net-faucet.html) and have no real-world value.
 
 ## Configuring moneyd
 NOTE: Before configuring `moneyd`, make sure to delete the `.moneyd.test.json` config file if it already exists on 
