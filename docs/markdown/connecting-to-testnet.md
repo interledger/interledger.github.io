@@ -1,11 +1,11 @@
 # Connecting to an ILP Testnet
 
-This tutorial will help you start moneyd locally on your computer and connect it to an ILP router on the testnet.
+This tutorial will help you start [`moneyd`](https://github.com/interledgerjs/moneyd) locally on your computer and 
+connect it to an [ILP router](https://github.com/interledgerjs/ilp-connector) on the testnet.
 
 This tutorial describes how to:
 
-1. Configure and start [`moneyd`](https://github.com/interledgerjs/moneyd) to connect to an 
-[ILP router](https://github.com/interledgerjs/ilp-connector) on the testnet
+1. Configure and start `moneyd` to connect to an ILP router on the testnet
 2. Send value to a [payment pointer](https://interledger.org/rfcs/0026-payment-pointers/) on the testnet
 
 ## Before you begin
@@ -31,7 +31,7 @@ moneyd xrp:configure --testnet --advanced
 js.xpring.dev
 ```
 
-3. Press enter for other default options.
+3. Press enter for all other default options.
 
 ## Starting moneyd
 After you’ve configured `moneyd`, run the following command to start it on your computer and connect it to an 
