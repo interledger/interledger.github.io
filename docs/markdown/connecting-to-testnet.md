@@ -6,7 +6,7 @@ connect it to an [ILP router](https://github.com/interledgerjs/ilp-connector) on
 This tutorial describes how to:
 
 1. Configure and start `moneyd` to connect to an ILP router on the testnet
-2. Send value to a [payment pointer](https://interledger.org/rfcs/0026-payment-pointers/) on the testnet
+2. Send value in XRP to a [payment pointer](https://interledger.org/rfcs/0026-payment-pointers/) on the testnet
 
 ## Before you begin
 For this tutorial you will need to:
