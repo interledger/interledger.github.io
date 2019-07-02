@@ -9,15 +9,20 @@ This tutorial describes how to:
 2. Send value to a [payment pointer](https://interledger.org/rfcs/0026-payment-pointers/) on the testnet
 
 ## Before you begin
-For this tutorial, you will need `moneyd` and SPSP installed on your computer. You can learn how to install `moneyd` 
+For this tutorial you will need to:
+ 1. Install `moneyd` and SPSP. You can learn how to install `moneyd` 
 and SPSP from the [Getting Started](getting-started.md) tutorial.
+2. Install the [moneyd XRP uplink](https://github.com/interledgerjs/moneyd#uplinks) using the command:
+```shell
+npm install -g moneyd-uplink-xrp
+```
 
 NOTE: For this tutorial you do not need to use real cryptocurrency. Since you will be sending value through an 
-ILP router on the testnet, funds will be used from a [testnet faucet](https://xrpl.org/xrp-test-net-faucet.html) and have no real-world value.
+ILP router on the testnet, funds will be used from the [XRP testnet faucet](https://xrpl.org/xrp-test-net-faucet.html) and have no real-world value.
 
 ## Configuring moneyd
-NOTE: Before configuring `moneyd`, make sure to delete the `.moneyd.test.json` config file if it already exists on 
-your computer.
+NOTE: Before configuring `moneyd`, make sure to delete the `.moneyd.test.json` config file, located in the home folder 
+of your computer, if the file already exists.
 
 To configure moneyd: 
 
@@ -28,7 +33,7 @@ moneyd xrp:configure --testnet --advanced
 
 2. When prompted for the `BTP host of parent connector`, enter:
 ```shell
-js.xpring.dev
+js1.xpring.dev
 ```
 
 3. Press enter for all other default options.
@@ -40,7 +45,7 @@ ILP router on the testnet:
 moneyd xrp:start --testnet
 ```
 
-If everything goes well, you should see an output similar to this:
+If everything goes well, you should see `connector ready` in the logs similar to this:
 ```shell
 2019-07-01T16:33:34.921Z connector:ilp-plugin-mini-accounts[local] info listening on port 7768
 2019-07-01T16:33:34.924Z connector:app info connector ready (republic attitude). address=test.xpring-dev.js1.ilspServer.P7sCid1j1WzWayl2s4w8Tuu2yyBrLCqtRc9s4Umb3xg version=22.4.1
