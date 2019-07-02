@@ -17,8 +17,10 @@ and SPSP from the [Getting Started](getting-started.md) tutorial.
 npm install -g moneyd-uplink-xrp
 ```
 
-NOTE: For this tutorial you do not need to use real cryptocurrency. Since you will be sending value through an 
-ILP router on the testnet, funds will be used from the [XRP testnet faucet](https://xrpl.org/xrp-test-net-faucet.html) and have no real-world value.
+NOTE: Even though Interledger supports many different underlying asset types, you do not need to use real 
+cryptocurrency for this tutorial. Since you will be sending value through an ILP router on the testnet, 
+funds will be sourced from the [XRP testnet faucet](https://xrpl.org/xrp-test-net-faucet.html) and 
+will have no real-world value.
 
 ## Configuring moneyd
 NOTE: Before configuring `moneyd`, make sure to delete the `.moneyd.test.json` config file, located in the home folder 
