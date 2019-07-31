@@ -39,7 +39,7 @@ $ npm install -g ilp-spsp ilp-spsp-server
 ```
 ### Starting the SPSP server
 By default, the SPSP server uses [localtunnel](https://localtunnel.github.io/www/) to create an HTTP endpoint. 
-Alternatively, we can set up the server on `localhost` and `port` by disabling localtunnel.
+Alternatively, you can set up the server on `localhost` and `port` by disabling localtunnel.
 
 To receive value, start the SPSP server using the following command:
 ```shell
