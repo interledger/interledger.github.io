@@ -21,7 +21,7 @@ the sender and the receiver.
 
 ## How does Interledger work?
 At the core of Interledger is the [Interledger Protocol (ILP)](https://interledger.org/rfcs/0027-interledger-protocol-4/), 
-which is a set of rules that define how nodes should send value over the Interledger network. ILP is a request/response 
+which is a set of rules that define how nodes should send value over the Interledger network. ILP is a *request/response* 
 protocol, where each request or response is sent or received in the form of ILP packets. Typically, a single transaction 
 of sending value from source to destination is broken into several ILP packets. Each packet contains transaction 
 information, which is private to the participating nodes. ILP has three packet types -  *Prepare*, *Fulfill*, and *Reject*. 
