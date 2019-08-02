@@ -41,7 +41,7 @@ which makes transactions fast, secure, and inexpensive.
 ## Building on Interledger
 Build payments into your apps or other protocols without tying yourself to a specific currency or payment network. 
 Create accounts on our demo ledgers and start sending Interledger payments with the client libraries. 
-Check out [Getting Started](https://interledger.org/docs/tutorials/getting-started.html).
+Check out [Getting Started](https://interledger.org/docs/tutorials/getting-started.html) for more details.
 
 ## Interledger architecture
 Interledger enables payments across many different types of ledgers. The Interledger Protocol Suite is comprised of 
