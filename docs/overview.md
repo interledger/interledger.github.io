@@ -1,8 +1,8 @@
 # Interledger Overview
-Interledger enables the seamless exchange of value across different payment networks. 
-Traditional payment networks operate independently from each other. Sending value is easy only if the sender and 
-recipient have accounts on the same network, but it can be slow and expensive if they have accounts on 
-different networks.
+
+Interledger enables the seamless exchange of value across different payment networks. Traditional payment networks 
+operate independently from each other. Sending value is easy only if the sender and recipient have accounts on the same 
+network, but it can be slow and expensive if they have accounts on different networks.
 
 Interledger is not tied to any one company, blockchain, or currency. You can easily send XRP to someone who wants to 
 receive ETH, or you can send USD through a Paypal account to someone who wants to receive USD in a Venmo account. 
@@ -35,7 +35,7 @@ receives a Fulfill packet, it knows that the packet was successfully delivered t
 continues to send the remaining Prepare packets until the value is fully transferred. 
 
 Interledger does not rely on any single payment network for processing value transactions. You can connect with 
-an Interledger node at any time to join the network. Moreover, Interledger sends value as tiny data packets, 
+an Interledger node at any time to join the network. Furthermore, Interledger sends value as tiny data packets, 
 which makes transactions fast, secure, and inexpensive.
 
 ## Building on Interledger
