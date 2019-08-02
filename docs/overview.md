@@ -9,7 +9,7 @@ receive ETH, or you can send USD through a Paypal account to someone who wants t
 Interledger makes it easy to transact in whatever currency or payment network you choose.
 
 ## What is Interledger?
-Interledger is a network of computers for sending value across independent payment networks. Similar to the Internet, 
+Interledger is a network of computers that enables sending value across independent payment networks. Similar to the Internet, 
 Interledger routes packets of value from source to destination. Computers on the Interledger network are 
 called *nodes*. Nodes can take one or more of the following roles: 
 * Sender Node – Initiates a value transfer
