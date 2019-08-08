@@ -19,6 +19,8 @@ the sender and the receiver.
 
 ![ILP-nodes](images/ilp-nodes.png)
 
+>Note: The terms *Router* and *Connector* are used interchangeably throughout the documentation.
+
 ## How does Interledger work?
 At the core of Interledger is the [Interledger Protocol (ILPv4)](https://interledger.org/rfcs/0027-interledger-protocol-4/), 
 which is a set of rules that defines how nodes should send value over the Interledger network. ILPv4 is a *request/response* 
@@ -45,7 +47,7 @@ Check out [Getting Started](https://interledger.org/docs/tutorials/getting-start
 
 ## Interledger architecture
 Interledger enables payments across many different types of ledgers. The Interledger Protocol Suite is comprised of 
-four layers: the Application, Transport, Interledger, and Ledger protocols. To learn more, see the Interledger 
+four layers: the Application, Transport, Interledger, and Link protocols. To learn more, see the Interledger 
 [Architecture Overview](https://interledger.org/rfcs/0001-interledger-architecture/).
 
 ## Protocol specs and APIs
@@ -53,7 +55,7 @@ To dive into the technical specs, see the [Interledger RFCs](https://github.com/
 reference implementation.
 
 ## Security
-Interledger provides secure multi-hop payments using 
+Interledger guarantees that the sender’s money cannot be lost or stolen in flight. It provides secure multi-hop payments using 
 [Hashed Timelock Agreements](https://interledger.org/rfcs/0022-hashed-timelock-agreements/). 
 As of Interledger version 4, these conditions are not enforced by the ledger, as it would be too costly and slow. 
 Instead, participants in the network use these hashlocks to perform accounting with their peers. This accounting is 
