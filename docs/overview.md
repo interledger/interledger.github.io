@@ -5,16 +5,16 @@ operate independently from each other. Sending value is easy only if the sender 
 network, but it can be slow and expensive if they have accounts on different networks.
 
 Interledger is not tied to any one company, blockchain, or currency. You can easily send XRP to someone who wants to 
-receive ETH, or you can send USD through a PayPal account to someone who wants to receive USD in a Venmo account. 
-Interledger makes it easy to transact in whatever currency or payment network you choose.
+receive ETH, or you can send USD to someone who wants to receive EUR. Interledger makes it easy to transact in whatever 
+currency or payment network you choose.
 
 ## What is Interledger?
-Interledger is a network of computers that enables sending value across independent payment networks. Similar to the Internet, 
-Interledger routes packets of value from source to destination. Computers on the Interledger network are 
-called *nodes*. Nodes can take one or more of the following roles: 
+Interledger is a network of computers that enables the sending of value across independent payment networks. 
+Similar to how the Internet routes packets information, Interledger routes packets of value. Computers on the Interledger 
+network are called *nodes*. Nodes can take one or more of the following roles: 
 * Sender – Initiates a value transfer.
-* Router – Applies currency exchange and forwards packets of value. This is the intermediary node between 
-the sender and the receiver. 
+* Router – Applies currency exchange and forwards packets of value. This is an intermediary node between the sender 
+and the receiver. 
 * Receiver – Receives the value.
 
 ![ILP-nodes](images/ilp-nodes.png)
@@ -23,8 +23,8 @@ the sender and the receiver.
 
 ## How does Interledger work?
 At the core of Interledger is the [Interledger Protocol (ILPv4)](https://interledger.org/rfcs/0027-interledger-protocol-4/), 
-which is a set of rules that defines how nodes should send value over the Interledger network. ILPv4 is a *request/response* 
-protocol, where each request or response is sent or received in the form of ILP packets. Typically, a single aggregate 
+which is a set of rules that define how nodes should send value over the Interledger network. ILPv4 is a *request/response* 
+protocol, where requests and responses are ILPv4 packets. Typically, a single aggregate 
 payment from source to destination is split into multiple ILP packets. Each packet contains transaction 
 information, which is private to the participating nodes. ILPv4 has three packet types -  *Prepare*, *Fulfill*, and *Reject*. 
 
@@ -35,6 +35,8 @@ until it reaches the receiver. The receiver then accepts or rejects the packet b
 Reject packet as the response. The routers relay the response from the receiver back to the sender. When the sender 
 receives a Fulfill packet, it knows that the packet was successfully delivered to the receiver. The sender then 
 continues to send the remaining Prepare packets until the value is fully transferred. 
+
+> For a deeper dive into how ILPv4 works, see [ILPv4 Flow](https://interledger.org/rfcs/0027-interledger-protocol-4/#prerequisites).
 
 Interledger does not rely on any single payment network for processing value transactions. You can connect with 
 an Interledger node at any time to join the network. Furthermore, Interledger sends value as tiny data packets, 
@@ -55,8 +57,9 @@ To dive into the technical specs, see the [Interledger RFCs](https://github.com/
 reference implementation.
 
 ## Security
-Interledger guarantees that the sender’s money cannot be lost or stolen in flight. It provides secure multi-hop payments using 
-[Hashed Timelock Agreements](https://interledger.org/rfcs/0022-hashed-timelock-agreements/). 
+Interledger enables secure, multi-hop payments so that the sender, intermediaries, and recipient only need to trust 
+their direct peers not to steal money, and not every participant in the payment chain. Interledger ensures payment 
+security using [Hashed Timelock Agreements](https://interledger.org/rfcs/0022-hashed-timelock-agreements/). 
 As of Interledger version 4, these conditions are not enforced by the ledger, as it would be too costly and slow. 
 Instead, participants in the network use these hashlocks to perform accounting with their peers. This accounting is 
 used to determine in-flight balances, which are periodically settled with on-ledger transfers or payment channel claims. 
