@@ -57,9 +57,7 @@ To dive into the technical specs, see the [Interledger RFCs](https://github.com/
 reference implementation.
 
 ## Security
-Interledger enables secure, multi-hop payments so that the sender, intermediaries, and recipient only need to trust 
-their direct peers not to steal money, and not every participant in the payment chain. Interledger ensures payment 
-security using [Hashed Timelock Agreements](https://interledger.org/rfcs/0022-hashed-timelock-agreements/). 
+Interledger enables secure, multi-hop payments using [Hashed Timelock Agreements](https://interledger.org/rfcs/0022-hashed-timelock-agreements/). 
 As of Interledger version 4, these conditions are not enforced by the ledger, as it would be too costly and slow. 
 Instead, participants in the network use these hashlocks to perform accounting with their peers. This accounting is 
 used to determine in-flight balances, which are periodically settled with on-ledger transfers or payment channel claims. 
