@@ -36,11 +36,11 @@ Reject packet as the response. The routers relay the response from the receiver 
 receives a Fulfill packet, it knows that the packet was successfully delivered to the receiver. The sender then 
 continues to send the remaining Prepare packets until the value is fully transferred. 
 
-> For a deeper dive into how ILPv4 works, see [ILPv4 Flow](https://interledger.org/rfcs/0027-interledger-protocol-4/#prerequisites).
-
 Interledger does not rely on any single payment network for processing value transactions. You can connect with 
-an Interledger node at any time to join the network. Furthermore, Interledger sends value as tiny data packets, 
+an ILPv4 router at any time to join the network. Furthermore, Interledger sends value as tiny data packets, 
 which makes transactions fast, secure, and inexpensive.
+
+> For a deeper dive into how ILPv4 works, see [ILPv4 Flow](https://interledger.org/rfcs/0027-interledger-protocol-4/#prerequisites).
 
 ## Building on Interledger
 Build payments into your apps or other protocols without tying yourself to a specific currency or payment network. 
