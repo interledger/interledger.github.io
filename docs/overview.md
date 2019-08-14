@@ -26,8 +26,8 @@ and the receiver.
 At the core of Interledger is the [Interledger Protocol (ILPv4)](https://interledger.org/rfcs/0027-interledger-protocol-4/), 
 which is a set of rules that define how nodes should send value over the Interledger network. ILPv4 is a *request/response* 
 protocol, where requests and responses are ILPv4 packets. Typically, a single aggregate 
-payment from source to destination is split into multiple ILP packets. Each packet contains transaction 
-information, which is private to the participating nodes. ILPv4 has three packet types -  *Prepare*, *Fulfill*, and *Reject*. 
+payment from source to destination is split into multiple ILPv4 packets. Each ILPv4 packet contains transaction 
+information, which is private to the nodes participating in the transaction. ILPv4 has three packet types -  *Prepare*, *Fulfill*, and *Reject*. 
 
 ![ILP-packets](images/ilp-packets.png)
 
