@@ -2,11 +2,10 @@
 
 Interledger enables the seamless exchange of value across different payment networks. Traditional payment networks 
 operate independently from each other. Sending value is easy only if the sender and recipient have accounts on the same 
-network, but it can be slow and expensive if they have accounts on different networks.
-
-Interledger makes it easy to transact in whatever currency or payment network you choose because it is not tied to any 
-one company, blockchain, or currency. Using Interledger, you can easily send XRP to someone who wants to receive ETH, 
-or you can send USD to someone who wants to receive EUR.
+network, but it can be slow and expensive if they have accounts on different networks. Interledger makes it easy to 
+transact in whatever currency or payment network you choose because it is not tied to any one company, blockchain, or 
+currency. Using Interledger, you can easily send XRP to someone who wants to receive ETH, or you can send USD to someone 
+who wants to receive EUR.
 
 
 ## What is Interledger?
