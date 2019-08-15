@@ -17,7 +17,7 @@ network are called *nodes*. Nodes can take one or more of the following roles:
 and the receiver. 
 * Receiver – Receives the value.
 
-![ILP-nodes](../images/ilp-nodes.png)
+![ILP-nodes](../images/ilp-nodes-2.png)
 
 >Note: The terms *Router* and *Connector* are used interchangeably throughout the documentation.
 
@@ -28,7 +28,7 @@ protocol, where requests and responses are ILPv4 packets. Typically, a single ag
 payment from source to destination is split into multiple ILP packets. Each ILP packet contains transaction 
 information, which is private to the nodes participating in the transaction. ILPv4 has three packet types -  *Prepare*, *Fulfill*, and *Reject*. 
 
-![ILP-packets](../images/ilp-packets-2.png)
+![ILP-packets](../images/ilp-packets.png)
 
 The sender constructs and sends a Prepare packet as a request to the connecting router. The routers forward the packet 
 until it reaches the receiver. The receiver then accepts or rejects the packet by sending a Fulfill packet or a 
