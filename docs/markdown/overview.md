@@ -28,7 +28,7 @@ protocol, where requests and responses are ILPv4 packets. Typically, a single ag
 payment from source to destination is split into multiple ILP packets. Each ILP packet contains transaction 
 information, which is private to the nodes participating in the transaction. ILPv4 has three packet types -  *Prepare*, *Fulfill*, and *Reject*. 
 
-![ILP-packets](../images/ilp-packets.png)
+![ILP-packets](../images/ilp-packets-2.png)
 
 The sender constructs and sends a Prepare packet as a request to the connecting router. The routers forward the packet 
 until it reaches the receiver. The receiver then accepts or rejects the packet by sending a Fulfill packet or a 
