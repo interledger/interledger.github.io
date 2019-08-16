@@ -10,6 +10,7 @@ to receive ETH, or you can send USD to someone who wants to receive EUR.
 
 
 ## What is Interledger?
+
 Interledger is a network of computers that enables the sending of value across independent payment networks. 
 Similar to how the Internet routes packets information, Interledger routes packets of value. Computers on the Interledger 
 network are called *nodes*. Nodes can take one or more of the following roles:
@@ -26,6 +27,7 @@ and the receiver.
 
 
 ## How does Interledger work?
+
 At the core of Interledger is the [Interledger Protocol (ILPv4)](https://interledger.org/rfcs/0027-interledger-protocol-4/), 
 which is a set of rules that define how nodes should send value over the Interledger network. ILPv4 is a *request/response* 
 protocol, where requests and responses are ILPv4 packets. Typically, a single aggregate 
@@ -48,23 +50,27 @@ which makes transactions fast, secure, and inexpensive.
 
 
 ## Building on Interledger
+
 Build payments into your apps or other protocols without tying yourself to a specific currency or payment network. 
 Create accounts on our demo ledgers and start sending Interledger payments with the client libraries. 
-Check out [Getting Started](https://interledger.org/docs/tutorials/getting-started.html) for more details.
+Check out [Getting Started](getting-started.html) for more details.
 
 
 ## Interledger architecture
+
 Interledger enables payments across many different types of ledgers. The Interledger Protocol Suite is comprised of 
 four layers: the Application, Transport, Interledger, and Link protocols. To learn more, see the Interledger 
 [Architecture Overview](https://interledger.org/rfcs/0001-interledger-architecture/).
 
 
 ## Protocol specs and APIs
+
 To dive into the technical specs, see the [Interledger RFCs](https://github.com/interledger/rfcs). Also see the documentation for the components of the 
 reference implementation.
 
 
 ## Security
+
 Interledger enables secure, multi-hop payments using [Hashed Timelock Agreements](https://interledger.org/rfcs/0022-hashed-timelock-agreements/). 
 As of Interledger version 4, these conditions are not enforced by the ledger, as it would be too costly and slow. 
 Instead, participants in the network use these hashlocks to perform accounting with their peers. This accounting is 
@@ -72,4 +78,4 @@ used to determine in-flight balances, which are periodically settled with on-led
 For a detailed description of how this works, read the 
 [Peering, Clearing, and Settlement](https://interledger.org/rfcs/0032-peering-clearing-settlement/) documentation.
 
-Next: [Getting Started](https://interledger.org/docs/tutorials/getting-started.html)
+Next: [Getting Started](getting-started.html)
