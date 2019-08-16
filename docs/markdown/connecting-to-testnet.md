@@ -8,19 +8,22 @@ This tutorial describes how to:
 1. Configure and start `moneyd` to connect to an ILP router on the testnet
 2. Send value in XRP to a [payment pointer](https://interledger.org/rfcs/0026-payment-pointers/) on the testnet
 
+
 ## Before you begin
 For this tutorial you will need to:
- 1. Install `moneyd` and SPSP. You can learn how to install `moneyd` 
-and SPSP from the [Getting Started](getting-started.md) tutorial.
+
+1. Install `moneyd` and SPSP. You can learn how to install `moneyd` 
+and SPSP from the [Getting Started](getting-started.html) tutorial.
 2. Install the [moneyd XRP uplink](https://github.com/interledgerjs/moneyd#uplinks) using the command:
 ```shell
 npm install -g moneyd-uplink-xrp
 ```
 
-NOTE: Even though Interledger supports many different underlying asset types, you do not need to use real 
+**Note:** Even though Interledger supports many different underlying asset types, you do not need to use real 
 cryptocurrency for this tutorial. Since you will be sending value through an ILP router on the testnet, 
 funds will be sourced from the [XRP testnet faucet](https://xrpl.org/xrp-test-net-faucet.html) and 
 will have no real-world value.
+
 
 ## Configuring moneyd
 NOTE: Before configuring `moneyd`, make sure to delete the `.moneyd.test.json` config file, located in the home folder 
@@ -40,6 +43,7 @@ js1.xpring.dev
 
 3. Press enter for all other default options.
 
+
 ## Starting moneyd
 After you’ve configured `moneyd`, run the following command to start it on your computer and connect it to an 
 ILP router on the testnet:
@@ -52,6 +56,7 @@ If everything goes well, you should see `connector ready` in the logs similar to
 2019-07-01T16:33:34.921Z connector:ilp-plugin-mini-accounts[local] info listening on port 7768
 2019-07-01T16:33:34.924Z connector:app info connector ready (republic attitude). address=test.xpring-dev.js1.ilspServer.P7sCid1j1WzWayl2s4w8Tuu2yyBrLCqtRc9s4Umb3xg version=22.4.1
 ```
+
 
 ## Sending value
 Once `moneyd` is connected to the router on the testnet, you can send value to `Alice` or `Carol`.

@@ -2,10 +2,12 @@
 
 This tutorial shows how to send value over ILP using the SPSP API.
 
+
 ## Before you begin
 This tutorial assumes that you’re running `moneyd` and SPSP server on your computer. 
-If you're not set up, you can learn how to [set up moneyd and SPSP here.](getting-started.md)
+If you're not set up, you can learn how to [set up moneyd and SPSP here.](getting-started.html)
     
+
 ## Sending value
 To send value programmatically, you need to install `ilp-protocol-spsp` and `ilp-plugin` modules. 
 Open a command line and use the following commands:
