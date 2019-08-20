@@ -1,0 +1,61 @@
+{% extends "template-base.html" %}
+
+{% block mainclasses %}landing{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block main %}
+
+<div class="container">
+
+  <section class="container-fluid bg-white section-hero pb-4 pt-2">
+    <h1 class="main-page-header">XRP Ledger Documentation</h1>
+    <p class="blurb"> Dive into our documentation and start integrating with the XRP Ledger.</p>
+  </section>
+
+  <section class="container-fluid card-grid card-grid-3xN doc-landing-section">
+    {% set doc_types = [] %}
+    
+    {% for page in pages %}
+      {% if page.doc_type is defined and page.doc_type not in doc_types %}
+        {% set doc_type_top = pages|selectattr('doc_type', 'defined_and_equalto', page.doc_type)|first %}
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"><a href="{{doc_type_top.html}}">{{doc_type_top.name}}</a></h3>
+            </div><!--/.card-header-->
+            <div class="card-body">
+              {% if page.blurb is defined %}
+                <p class="blurb">{{page.blurb}}</p>
+              {% endif %}
+              {% set parent_page = doc_type_top %}
+              {% set depth = 1.5 %}
+              
+            </div><!--/.card-body-->
+            <div class="card-footer">
+              <div class="readmore">
+                <a class="btn btn-outline-secondary" href="{{doc_type_top.html}}">View all {{doc_type_top.name}}</a>
+              </div>
+            </div><!--/.card-footer-->
+            
+          </div><!--/.card-->
+
+        {% set _ = doc_types.append(page.doc_type) %}
+      {% endif %}
+    {% endfor %}
+
+  </section>
+
+  <section class="container-fluid doc-index">
+    <h2 id="full-doc-index">Full Documentation Index</h2>
+    <div class="row">
+      <div class="col-md-8">
+        {% set parent_page = currentpage %}
+        {% set depth = 5 %}
+        
+      </div>
+    </div>
+  </section>
+
+</div> 
+{% endblock %}
