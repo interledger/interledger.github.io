@@ -33,7 +33,7 @@ pages:
         doc_type: Overview
         html: overview.html
         md: overview.md
-        template: template-doc.html
+        template: template-spec.html
         blurb: Welcome to the Interledger documentation. Here you can learn how Interledger works and how to start building with it.
         targets:
             - en            
@@ -138,6 +138,15 @@ pages:
         targets:
             - en 
 
+    -   name: Web Monetization
+        funnel: Docs
+        doc_type: Specs
+        html: rfcs/0028-web-monetization/index.html
+        md: 0028-web-monetization.md
+        template: template-spec.html
+        targets:
+            - en 
+            
     # -   name: Web Monetization
     #     funnel: Docs
     #     doc_type: Specs
@@ -232,6 +241,15 @@ pages:
         targets:
             - en 
 
+    -   name: Bilateral Transfer Protocol 2.0 (BTP/2.0)
+        funnel: Docs
+        doc_type: Specs
+        html: rfcs/0023-bilateral-transfer-protocol/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/0023-bilateral-transfer-protocol/0023-bilateral-transfer-protocol.md
+        template: template-spec.html
+        targets:
+            - en
+
     -   name: Hashed-Timelock Agreements (HTLAs)
         funnel: Docs
         doc_type: Specs
@@ -239,7 +257,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0022-hashed-timelock-agreements/0022-hashed-timelock-agreements.md
         template: template-spec.html
         targets:
-            - en 
+            - en
             
     -   name: avascript Ledger Plugin Interface Version 2
         funnel: Docs
@@ -397,6 +415,144 @@ pages:
         targets:
             - en
 
+
+
+# Deprecated ---------------------------------------------------------------------
+
+    -   name: Crypto Conditions
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0002-crypto-conditions/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0002-crypto-conditions/0002-crypto-conditions.md
+        template: template-spec.html
+        targets:
+            - en  
+
+    -   name: Interledger Protocol (ILP)
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0003-interledger-protocol/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0003-interledger-protocol/0003-interledger-protocol.md
+        template: template-spec.html
+        targets:
+            - en         
+            
+    -   name: Javascript Ledger Plugin Interface
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0004-ledger-plugin-interface/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0004-ledger-plugin-interface/0004-ledger-plugin-interface.md
+        template: template-spec.html
+        targets:
+            - en
+
+    -   name: Optimistic Transport Protocol
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0005-optimistic-transport-protocol/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0005-optimistic-transport-protocol/0005-optimistic-transport-protocol.md
+        template: template-spec.html
+        targets:
+            - en
+
+    -   name: Universal Transport Protocol
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0006-universal-transport-protocol/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0006-universal-transport-protocol/0006-universal-transport-protocol.md
+        template: template-spec.html
+        targets:
+            - en
+
+    -   name: Atomic Transport Protocol
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0007-atomic-transport-protocol/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0007-atomic-transport-protocol/0007-atomic-transport-protocol.md
+        template: template-spec.html
+        targets:
+            - en            
+
+    -   name: Interledger Quoting Protocol
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0008-interledger-quoting-protocol/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0008-interledger-quoting-protocol/0008-interledger-quoting-protocol.md
+        template: template-spec.html
+        targets:
+            - en
+
+    -   name: Connector to Connector protocol
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0010-connector-to-connector-protocol/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0010-connector-to-connector-protocol/0010-connector-to-connector-protocol.md
+        template: template-spec.html
+        targets:
+            - en
+
+    -   name: Interledger Payment Request (IPR)
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0011-interledger-payment-request/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0011-interledger-payment-request/0011-interledger-payment-request.md
+        template: template-spec.html
+        targets:
+            - en
+
+    -   name: Five Bells Ledger API
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0012-five-bells-ledger-api/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0012-five-bells-ledger-api/0012-five-bells-ledger-api.md
+        template: template-spec.html
+        targets:
+            - en            
+
+    -   name: Pre-Shared Key Transport Protocol (PSK)
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0016-pre-shared-key/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0016-pre-shared-key/0016-pre-shared-key.md
+        template: template-spec.html
+        targets:
+            - en 
+
+    -   name: Ledger Layer Requirements
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0017-ledger-requirements/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0017-ledger-requirements/0017-ledger-requirements.md
+        template: template-spec.html
+        targets:
+            - en 
+
+    -   name: Explain Like I'm Five (ELI5)
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0020-explain-like-im-five/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0020-explain-like-im-five/0020-explain-like-im-five.md
+        template: template-spec.html
+        targets:
+            - en
+
+    -   name: Plugin RPC API
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0021-plugin-rpc-api/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0021-plugin-rpc-api/0021-plugin-rpc-api.md
+        template: template-spec.html
+        targets:
+            - en
+
+    -   name: Pre-Shared Key V2 (PSKv2) Transport Protocol
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0025-pre-shared-key-2/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0025-pre-shared-key-2/0025-pre-shared-key-2.md
+        template: template-spec.html
+        targets:
+            - en
 
 
 # -------------------- Style Checker Rules ------------------------
