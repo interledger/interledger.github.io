@@ -98,31 +98,43 @@
         <main class="main col-md-7 col-lg-6 order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
-        <h1 id="main-page-header">Get Involved</h1>
-        <p class="blurb"></p>
-        <h2 id="who-are-we">Who Are We?</h2>
-<p>Interledger is developed by an open group of companies and individual contributors, loosely organized as part of a Community Group of the World Wide Web Consortium (W3C). See the full list of members <a href="https://www.w3.org/community/interledger/participants">here</a>.</p>
-<p>Want to build on Interledger or be part of its development? <br/>
-Here's where you can find us and get involved:</p>
-<h2 id="github">Github</h2>
-<p>Technical discussion about the Interledger specs and reference implementation are done mainly through Github issues and pull requests. Watch the <a href="https://github.com/interledger/rfcs">Interledger RFCs repo</a> for updates to the specs and the projects under the <a href="https://github.com/interledgerjs">Interledger.js organization</a> for developments on the reference implementation.</p>
-<h2 id="forum">Forum</h2>
-<p>The official Interledger community forum can be found <a href="https://forum.interledger.org">forum.interledger.org</a>. It's the place for technical discussions related to the Interledger protocol stack, implementations, and applications built on top.</p>
-<h2 id="bi-weekly-calls">Bi-Weekly Calls</h2>
-<p>We have open community calls <strong>every other Wednesday at 4pm UTC</strong> to discuss the latest in Interledger spec development, the implementations, and to answer any questions people have. Agendas are sent out via the mailing list and anyone can suggest an agenda item by adding to the <a href="https://forum.interledger.org/tags/community-call-agenda">topic</a> created for that purpose in the forum. </p>
-<p>Recordings of previous calls are available <a href="https://interledger.org/calls.html">here</a>.</p>
-<h2 id="mailing-list">Mailing List</h2>
-<h3 id="w3c">W3C</h3>
-<p>All announcements, including about upcoming in-person meetings, and many technical discussions are done through the W3C Interledger Community Group Mailing List. Have ideas to share or just want to keep up with the latest developments? <a href="https://www.w3.org/community/interledger/">Join the Community Group</a>.</p>
-<p>The mailing list archive is available <a href="https://lists.w3.org/Archives/Public/public-interledger/">here</a>. </p>
-<h3 id="ietf">IETF</h3>
-<p>Since presenting the Interledger project at IETF Berlin, the IETF have established another mailing list for the IETF community interested in the project; <a href="https://www.ietf.org/mailman/listinfo/ledger">[email protected]</a></p>
-<h2 id="slack">Slack</h2>
-<p>Want to chat about Interledger or have a question to ask? <a href="https://communityinviter.com/apps/interledger/interledger-working-groups-slack">Join on Slack</a></p>
-<h2 id="twitter">Twitter</h2>
-<p>Follow <a href="https://twitter.com/interledger">@interledger</a> on Twitter for the latest news and annoucements.</p>
-<h2 id="interledger-summits">Interledger Summits</h2>
-<p>You can watch the videos from the 2019 summit <a href="https://interledger.org/summit-2019.html">here</a>. Sign up on the forum or follow us on Twitter to make sure you hear when the next summit is announced!</p>
+        <h1 id="ilp-over-http">ILP Over HTTP</h1>
+<blockquote>
+<p>A bilateral communication protocol for server-to-server connections</p>
+</blockquote>
+<h2 id="motivation">Motivation</h2>
+<p>Scaling Interledger infrastructure to handle large volumes of ILP packets requires horizontally scaling connectors. Using HTTP for bilateral communication enables service providers to leverage standard tools and services for hosting, load balancing, Distributed Denial of Service (DDoS) protection, and monitoring.</p>
+<h2 id="overview">Overview</h2>
+<p>In an ILP Over HTTP connection, both peers run HTTP servers with accessible HTTPS endpoints. When peering, the peers exchange their respective URLs, authentication tokens or TLS certificates, ILP addresses, and settlement-related details.</p>
+<p>Each ILP Prepare packet is sent as the body of an HTTP request to the peer's server endpoint. ILP Fulfill or Reject packets are returned as the body of the HTTP response.</p>
+<h2 id="specification">Specification</h2>
+<p>This is a minimal protocol built on HTTP. HTTP/2 is HIGHLY RECOMMENDED for performance reasons, although HTTP/1.1 MAY also be used. Implementations SHOULD support HTTP version negotiation via Application Protocol Negotiation (ALPN).</p>
+<h3 id="authentication">Authentication</h3>
+<p>Peers MAY use any standard HTTP authentication mechanism to authenticate incoming requests. TLS Client Certificates are RECOMMENDED between peers for security and performance, though bearer tokens such as JSON Web Tokens (JWTs) or Macaroons MAY be used instead. Basic authentication (username and password) is NOT RECOMMENDED, because of the additional delay introduced by securely hashing the password.</p>
+<h3 id="request">Request</h3>
+<pre><code class="http">POST /ilp HTTP/x.x
+Host: example.com
+Accept: application/octet-stream
+Content-Type: application/octet-stream
+Authorization: Bearer zxcljvoizuu09wqqpowipoalksdflksjdgxclvkjl0s909asdf
+
+&lt; Body: Binary OER-Encoded ILP Prepare Packet &gt;
+</code></pre>
+<p><strong>Field Details:</strong></p>
+<ul>
+<li><strong>Path</strong> - A connector MAY specify any HTTP path for their peer to send ILP packets to.</li>
+<li><strong>Host Header</strong> - The standard <a href="https://tools.ietf.org/html/rfc2616#section-14.23">HTTP Host Header</a> indicating the domain of the HTTP server the Request is sent to.</li>
+<li><strong>Content-Type / Accept Headers</strong> - MUST be set to <code>application/octet-stream</code>.</li>
+<li><strong>Body</strong> - ILP Packet encoded using OER, as specified in <a href="./0027-interledger-protocol-4/0027-interledger-protocol-4.md">RFC 27: Interledger Protocol V4</a>.</li>
+</ul>
+<h3 id="response">Response</h3>
+<pre><code class="http">HTTP/x.x 200 OK
+Content-Type: application/octet-stream
+
+&lt; Body: Binary OER-Encoded ILP Fulfill or Reject Packet &gt;
+</code></pre>
+<p>All ILP Packets MUST be returned with the HTTP status code <code>200: OK</code>.</p>
+<p>An endpoint MAY return standard HTTP errors, including but not limited to: a malformed or unauthenticated request, rate limiting, or an unresponsive upstream service. Connectors SHOULD either retry the request, if applicable, or relay an ILP Reject packet back to the original sender with an appropriate <a href="./0027-interledger-protocol-4/0027-interledger-protocol-4#error-codes">Final or Temporary error code</a>. Server errors (status codes 500-599) SHOULD be translated into ILP Reject packets with <code>T00: Temporary Error</code> codes.</p>
     </div>
   </article>
         </main>
@@ -133,16 +145,13 @@ Here's where you can find us and get involved:</p>
       <h4>On This Page</h4>
     </div>
     <ul class="card-body">
-      <li class="level-2"><a href="#who-are-we">Who Are We?</a></li>
-<li class="level-2"><a href="#github">Github</a></li>
-<li class="level-2"><a href="#forum">Forum</a></li>
-<li class="level-2"><a href="#bi-weekly-calls">Bi-Weekly Calls</a></li>
-<li class="level-2"><a href="#mailing-list">Mailing List</a></li>
-<li class="level-3"><a href="#w3c">W3C</a></li>
-<li class="level-3"><a href="#ietf">IETF</a></li>
-<li class="level-2"><a href="#slack">Slack</a></li>
-<li class="level-2"><a href="#twitter">Twitter</a></li>
-<li class="level-2"><a href="#interledger-summits">Interledger Summits</a></li>
+      <li class="level-1"><a href="#ilp-over-http">ILP Over HTTP</a></li>
+<li class="level-2"><a href="#motivation">Motivation</a></li>
+<li class="level-2"><a href="#overview">Overview</a></li>
+<li class="level-2"><a href="#specification">Specification</a></li>
+<li class="level-3"><a href="#authentication">Authentication</a></li>
+<li class="level-3"><a href="#request">Request</a></li>
+<li class="level-3"><a href="#response">Response</a></li>
 
     </ul>
   </div>

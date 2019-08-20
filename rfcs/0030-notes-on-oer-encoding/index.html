@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <base href="https://jakeatdocforce.github.io/interledger-dactyl/"> -->
+    <!-- <base href="http://localhost:8000/"> -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The protocol for connecting blockchains and other ledgers">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles -->
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700|Droid+Sans+Mono|Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+
+    <link href="/assets/favicon.png" rel="icon" type="image/x-icon">
+
+    <!--  highlight js -->
+    <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+</head>
+
+<body class="xrp-ledger-dev-portal sidebar-primary ">
+
+  <div class="container">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
+            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> -->
+
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarHolder">
+              <ul class="nav navbar-nav">
+                    <li class="nav-item" ><a class="nav-link" href="/overview.html">Docs</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/libraries.html">Tools</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/interledger">Edit on Github</a></li>
+                    <li class="nav-item"><a class="nav-link cornerlink" href="/getting-started.html">Get Started</a></li>
+              </ul><!-- /.navbar-nav -->
+              <div class="cornerbox"></div>
+            </div>
+            <div class="menu-overlay"></div>
+        </nav>
+    </div>
+
+    <div class="container-fluid" role="document" id="main_content_wrapper">
+        <div class="row">
+
+        <aside class="sidebar col-md-5 col-lg-3 p-0 order-md-1" role="complementary">
+
+    <div id="sidenav" class="tree_nav">
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Quick Start</li>
+        <li><a href="/overview.html">Overview</a></li>
+        <li><a href="/getting-started.html">Getting Started</a></li>
+      </ul>
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Community Resources</li>
+        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
+        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
+      </ul>
+
+      <div class="sidebar-nav-header">Specs</div>
+      <ul class=" sidebar_pagelist sidebar_indent">
+        <!--    <li><a href="/rfcs/0001-interledger-architecture/">Interledger Architecture</a></li> -->
+        <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+        <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+        <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+        <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+        <li><a href="/rfcs/0026-payment-pointers/">Payment Pointers</a></li>
+        <li><a href="/rfcs/0028-web-monetization/">Web Monetization</a></li>
+        <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+        <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+        <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+        <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+        <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+
+      </ul>
+    </div>        </aside>
+
+          <!-- main column -->
+        <main class="main col-md-7 col-lg-6 order-md-3  " role="main" id="main_content_body">
+  <article class="pt-3 p-md-3">
+    <div class="content doc-content">
+        <h1 id="introduction">Introduction</h1>
+<p>The Interledger stack consists of a collection of different protocols. In order to keep some consistency between these separate, but related protocols, the Interledger team has decided to use some common choices for encoding formats across at least those protocols we control.</p>
+<p>These choices will not be applicable for all protocols in the Interledger ecosystem. For example, we used a binary encoding while a text-based encoding may be more suitable. We used an encoding with a fixed schema, while a schema-less encoding may be easier to extend by third-parties.</p>
+<p>Nevertheless, designers of new Interledger protocols SHOULD consider staying within the boundaries set by this document. Deviations from these norms should be carefully considered. This is intended to minimize the load on implementors who should be able to write components such as date encoding and decoding once and reuse it across protocols.</p>
+<h1 id="how-to-use-this-document">How to use this document</h1>
+<p>This document is intended as a first reference for implementors to use when writing code that serializes and deserializes Interledger formats. We intend to make this document sufficient on its own, such that reading the official ASN.1/OER specifications is not required to correctly implement Interledger formats.</p>
+<p>Implementors SHOULD NOT aim to create a full-featured OER parser, since Interledger intentionally does not use some of the more complex features of ASN.1. Implementors MAY use a full-featured CANONICAL-OER implementation, but we expect most will prefer a lighter-weight implementation that only handles types that are actually used in the Interledger protocols.</p>
+<h1 id="foundation">Foundation</h1>
+<p>Interledger encodings are based on and compliant with Abstract Syntax Notation One (ASN.1) using Canonical Octet Encoding Rules (CANONICAL-OER).</p>
+<h2 id="asn1">ASN.1</h2>
+<h3 id="what-is-asn1">What is ASN.1?</h3>
+<p>Abstract Syntax Notation One (ASN.1) is an international standard for describing abstract data types. ITU gives the following definition:</p>
+<blockquote>
+<p>Abstract Syntax Notation number One
+is a standard that defines a formalism
+for the specification of abstract data types.</p>
+</blockquote>
+<p>In plain English, ASN.1 describes what your data can be, without making any statements about how it could be encoded in bits and bytes.</p>
+<h3 id="why-asn1">Why ASN.1?</h3>
+<p>A protocol like Interledger is fundamentally a set of guidelines for a conversation between different computers. The more precise this set of guidelines is, the less likely it is that there will be a misunderstanding. It is the job of the protocol designer to specify this conversation with as little ambiguity as possible.</p>
+<p>Using a formalized language like ASN.1 to describe one's protocol means that one can use automated tools to verify the consistency and completeness of one's specification. This is a very valuable tool. It also means that one can refer to existing specifications which already cover many edge cases. Otherwise, each protocol would have to answer all possible edge cases itself, which quickly becomes tedious.</p>
+<p>ASN.1 is by far the most widely used formalized language for defining protocols. As an ISO and ITU standard, it is used in telecommunications protocols, cryptography standards and many more.</p>
+<p>The Interledger team chose ASN.1 because of it's long history and robust ecosystem. It may not be the most modern of standards, but it is extremely powerful and comes with huge amounts of implementation experience. Also, there exist high-quality tools for protocol designers.</p>
+<h2 id="canonical-oer">CANONICAL-OER</h2>
+<h3 id="what-is-oercanonical-oer">What is OER/CANONICAL-OER?</h3>
+<p>The Octet Encoding Rules (OER) are a set of simple byte-aligned encoding rules for ASN.1 types.</p>
+<p>CANONICAL-OER narrows BASIC-OER to a single canonical encoding.</p>
+<h3 id="why-canonical-oer">Why CANONICAL-OER?</h3>
+<p>For Interledger, we wanted to use the power of ASN.1 in order to design and validate our protocols and to avoid any ambiguity for implementors. However, we also wanted it to be easy to implement Interledger encodings, without having to first learn a bunch of ASN.1 and related technology. OER gives us the best of both worlds, because its encodings are extremely simple and can easily be described and implemented without referencing ASN.1 or OER. Yet, we can use standard tools to generate test data and validate our implementations. And we can refer to the ASN.1/OER specs to resolve any ambiguities that are discovered later.</p>
+<p>OER is designed to strike a better compromise between simplicity, speed and size than previous ASN.1 encoding rules. All OER types are byte-aligned, which makes them easier to serialize and parse in most programming languages than Packed Encoding Rules (PER) and also faster on most platforms.</p>
+<p>We chose CANONICAL-OER instead of BASIC-OER because we wanted a canonical encoding format so that Interledger encodings could be used for cryptographic operations like hashing and signing.</p>
+<h2 id="basics">Basics</h2>
+<h3 id="octet-strings">Octet strings</h3>
+<p>All Interledger formats are byte-aligned messages and should be passed as octet strings, i.e. sequences of bytes. The correct type for this would be a <code>Buffer</code> in JavaScript, <code>byte[]</code> in Java, <code>bytes</code> in Python, etc.</p>
+<h3 id="extensibility">Extensibility</h3>
+<p>For most Interledger formats, we require that implementations MUST ignore extra bytes at the end of the message. This behavior allows additional fields to be added in the future that are automatically ignored by existing implementations.</p>
+<h2 id="types">Types</h2>
+<h3 id="fixed-length-unsigned-integers">Fixed-length unsigned integers</h3>
+<blockquote>
+<p>Used in: ILP, BTP</p>
+</blockquote>
+<p>All fixed-length unsigned integers are encoded in big-endian, least-significant bit last. Interledger encoding provides the following fixed-length unsigned integers:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Size</th>
+<th align="left">Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">UInt8</td>
+<td align="left">1 byte</td>
+<td align="left">0 .. 255 (2^8 - 1)</td>
+</tr>
+<tr>
+<td align="left">UInt16</td>
+<td align="left">2 bytes</td>
+<td align="left">0 .. 65535 (2^16 - 1)</td>
+</tr>
+<tr>
+<td align="left">UInt32</td>
+<td align="left">4 bytes</td>
+<td align="left">0 .. 4294967295 (2^32 - 1)</td>
+</tr>
+<tr>
+<td align="left">UInt64</td>
+<td align="left">8 bytes</td>
+<td align="left">0 .. 18446744073709551615 (2^64 - 1)</td>
+</tr>
+<tr>
+<td align="left">UInt128</td>
+<td align="left">16 bytes</td>
+<td align="left">0 .. 2^128 - 1</td>
+</tr>
+<tr>
+<td align="left">UInt160</td>
+<td align="left">20 bytes</td>
+<td align="left">0 .. 2^160 - 1</td>
+</tr>
+<tr>
+<td align="left">UInt192</td>
+<td align="left">24 bytes</td>
+<td align="left">0 .. 2^192 - 1</td>
+</tr>
+<tr>
+<td align="left">UInt224</td>
+<td align="left">28 bytes</td>
+<td align="left">0 .. 2^224 - 1</td>
+</tr>
+<tr>
+<td align="left">UInt256</td>
+<td align="left">32 bytes</td>
+<td align="left">0 .. 2^256 - 1</td>
+</tr>
+<tr>
+<td align="left">UInt384</td>
+<td align="left">48 bytes</td>
+<td align="left">0 .. 2^384 - 1</td>
+</tr>
+<tr>
+<td align="left">UInt512</td>
+<td align="left">64 bytes</td>
+<td align="left">0 .. 2^512 - 1</td>
+</tr>
+</tbody>
+</table>
+<p>For UInt64 and smaller, implementations SHOULD use internal methods that can serialize/deserialize any unsigned integer of size 1-8 bytes. This can also be used to decode the <a href="#length-determinant">length determinant</a>.</p>
+<p>Unsigned integers larger than 8 bytes MAY be represented as a byte string.</p>
+<h4 id="examples">Examples</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Bytes</th>
+<th align="left">Decoded value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">UInt8</td>
+<td align="left"><code>00</code></td>
+<td align="left"><code>0</code></td>
+</tr>
+<tr>
+<td align="left">UInt16</td>
+<td align="left"><code>1234</code></td>
+<td align="left"><code>4660</code></td>
+</tr>
+<tr>
+<td align="left">UInt32</td>
+<td align="left"><code>ABABABAB</code></td>
+<td align="left"><code>2880154539</code></td>
+</tr>
+<tr>
+<td align="left">UInt64</td>
+<td align="left"><code>AC01055A 1DEBAC1E</code></td>
+<td align="left"><code>12394193534107495454</code></td>
+</tr>
+<tr>
+<td align="left">UInt256</td>
+<td align="left"><code>FF713A73 8B32F2D3 29898CD9 7A42D75A</code><br/><code>86D9E59E B3928E7B 7BFAADF4 A4689459</code></td>
+<td align="left"><code>byte[32]</code></td>
+</tr>
+<tr>
+<td align="left">UInt512</td>
+<td align="left"><code>37DA42AC 9C322C80 E5D7FD75 112CBEAD</code><br/><code>B0B9FD10 E27A68FE 2DA16BE9 DB0BC10D</code><br/><code>76EC90B0 BB136B13 EF033692 53119203</code><br/><code>21B47236 C42FB4D1 A4DC52B6 DD0556E2</code></td>
+<td align="left"><code>byte[64]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="fixed-length-signed-integers">Fixed-length signed integers</h3>
+<blockquote>
+<p>Not currently used</p>
+</blockquote>
+<p>All fixed-length signed integers are encoded in big-endian, least-significant bit last. Negative values are encoded using 2's complement binary encoding.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Size</th>
+<th align="left">Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Int8</td>
+<td align="left">1 byte</td>
+<td align="left">-128 .. 127</td>
+</tr>
+<tr>
+<td align="left">Int16</td>
+<td align="left">2 bytes</td>
+<td align="left">-32768 .. 32767</td>
+</tr>
+<tr>
+<td align="left">Int32</td>
+<td align="left">4 bytes</td>
+<td align="left">-2147483648 .. 2147483647</td>
+</tr>
+<tr>
+<td align="left">Int64</td>
+<td align="left">8 bytes</td>
+<td align="left">-9223372036854775808 .. 9223372036854775807</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples_1">Examples</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Bytes</th>
+<th align="left">Decoded value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Int8</td>
+<td align="left"><code>00</code></td>
+<td align="left"><code>0</code></td>
+</tr>
+<tr>
+<td align="left">Int8</td>
+<td align="left"><code>7F</code></td>
+<td align="left"><code>127</code></td>
+</tr>
+<tr>
+<td align="left">Int8</td>
+<td align="left"><code>FF</code></td>
+<td align="left"><code>-1</code></td>
+</tr>
+<tr>
+<td align="left">Int8</td>
+<td align="left"><code>80</code></td>
+<td align="left"><code>-128</code></td>
+</tr>
+<tr>
+<td align="left">Int16</td>
+<td align="left"><code>0000</code></td>
+<td align="left"><code>0</code></td>
+</tr>
+<tr>
+<td align="left">Int16</td>
+<td align="left"><code>7FFF</code></td>
+<td align="left"><code>32767</code></td>
+</tr>
+<tr>
+<td align="left">Int16</td>
+<td align="left"><code>FFFF</code></td>
+<td align="left"><code>-1</code></td>
+</tr>
+<tr>
+<td align="left">Int16</td>
+<td align="left"><code>8000</code></td>
+<td align="left"><code>-32768</code></td>
+</tr>
+<tr>
+<td align="left">Int16</td>
+<td align="left"><code>FC00</code></td>
+<td align="left"><code>-1024</code></td>
+</tr>
+<tr>
+<td align="left">Int16</td>
+<td align="left"><code>CFC7</code></td>
+<td align="left"><code>-12345</code></td>
+</tr>
+<tr>
+<td align="left">Int32</td>
+<td align="left"><code>00000000</code></td>
+<td align="left"><code>0</code></td>
+</tr>
+<tr>
+<td align="left">Int32</td>
+<td align="left"><code>7FFFFFFF</code></td>
+<td align="left"><code>2147483647</code></td>
+</tr>
+<tr>
+<td align="left">Int32</td>
+<td align="left"><code>FFFFFFFF</code></td>
+<td align="left"><code>-1</code></td>
+</tr>
+<tr>
+<td align="left">Int32</td>
+<td align="left"><code>80000000</code></td>
+<td align="left"><code>-2147483648</code></td>
+</tr>
+<tr>
+<td align="left">Int32</td>
+<td align="left"><code>0C00F5C9</code></td>
+<td align="left"><code>201389513</code></td>
+</tr>
+<tr>
+<td align="left">Int32</td>
+<td align="left"><code>F204BA10</code></td>
+<td align="left"><code>-234571248</code></td>
+</tr>
+<tr>
+<td align="left">Int64</td>
+<td align="left"><code>00000000 00000000</code></td>
+<td align="left"><code>0</code></td>
+</tr>
+<tr>
+<td align="left">Int64</td>
+<td align="left"><code>7FFFFFFF FFFFFFFF</code></td>
+<td align="left"><code>9223372036854775807</code></td>
+</tr>
+<tr>
+<td align="left">Int64</td>
+<td align="left"><code>FFFFFFFF FFFFFFFF</code></td>
+<td align="left"><code>-1</code></td>
+</tr>
+<tr>
+<td align="left">Int64</td>
+<td align="left"><code>80000000 00000000</code></td>
+<td align="left"><code>-9223372036854775808</code></td>
+</tr>
+<tr>
+<td align="left">Int64</td>
+<td align="left"><code>0C1B3391 3EFE4F1F</code></td>
+<td align="left"><code>872347651746451231</code></td>
+</tr>
+<tr>
+<td align="left">Int64</td>
+<td align="left"><code>EF68FE12 0BC51AD7</code></td>
+<td align="left"><code>-1195426347606533417</code></td>
+</tr>
+<tr>
+<td align="left">Int64</td>
+<td align="left"><code>909701ED F43AE528</code></td>
+<td align="left"><code>-8027945689248242392</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="fixed-length-floating-point-numbers">Fixed-length floating point numbers</h3>
+<blockquote>
+<p>Not currently used</p>
+</blockquote>
+<p>Floating point values in Interledger are encoded using IEEE 754 binary floating point.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Size</th>
+<th align="left">IEEE 754 name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Float32</td>
+<td align="left">4 bytes</td>
+<td align="left">binary32</td>
+</tr>
+<tr>
+<td align="left">Float64</td>
+<td align="left">8 bytes</td>
+<td align="left">binary64</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples_2">Examples</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Bytes</th>
+<th align="left">Decoded value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Float32</td>
+<td align="left"><code>3F8FCD36</code></td>
+<td align="left"><code>1.12345</code> (approximately)</td>
+</tr>
+<tr>
+<td align="left">Float64</td>
+<td align="left"><code>3FF1F9A6B50B0F28</code></td>
+<td align="left"><code>1.12345</code> (approximately)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fixed-length-octet-string">Fixed-length octet string</h3>
+<blockquote>
+<p>Used in: ILP, BTP</p>
+</blockquote>
+<p>A fixed length octet string is encoded as itself with no added prefix or suffix.</p>
+<h3 id="length-determinant">Length determinant</h3>
+<blockquote>
+<p>Used in: ILP, BTP</p>
+</blockquote>
+<p>All variable-length fields are prefixed with a length determinant. The length determinant can be either short form or long form.</p>
+<h4 id="short-form">Short form</h4>
+<p>A single byte in the range 0 .. 127, denoting the length.</p>
+<h4 id="long-form">Long form</h4>
+<p>A single byte in the range 128 .. 255, denoting the value <em>128 + n</em>, where <em>n</em> is the length-of-length. This is followed by an unsigned integer of <em>n</em> bytes denoting the length. This length MUST NOT contain leading zeros. If the length is less than 127, the short form encoding MUST be used.</p>
+<p>Implementations MAY limit the length determinants they support to a length-of-length of no more than eight bytes. Interledger protocols MUST NOT use length determinants greater than <code>18446744073709551615 (2^64 - 1)</code>.</p>
+<h4 id="examples_3">Examples</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Encoding</th>
+<th align="left">Decoded value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>07</code></td>
+<td align="left"><code>7</code></td>
+</tr>
+<tr>
+<td align="left"><code>8182</code></td>
+<td align="left"><code>130</code></td>
+</tr>
+<tr>
+<td align="left"><code>821234</code></td>
+<td align="left"><code>4660</code></td>
+</tr>
+<tr>
+<td align="left"><code>83ABCDEF</code></td>
+<td align="left"><code>11259375</code></td>
+</tr>
+<tr>
+<td align="left"><code>88AC0105 5A1DEBAC 1E</code></td>
+<td align="left"><code>12394193534107495454</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="variable-length-octet-string">Variable-length octet string</h3>
+<blockquote>
+<p>Used in: ILP, BTP</p>
+</blockquote>
+<p>A variable length octet string consists of a length determinant, followed by that many bytes.</p>
+<h3 id="variable-length-unsigned-integer">Variable-length unsigned integer</h3>
+<blockquote>
+<p>Not currently used</p>
+</blockquote>
+<p>A variable length unsigned integer consists of a length determinant, followed by a big-endian integer of that many bytes. Leading zeros MUST NOT be used.</p>
+<h3 id="variable-length-signed-integer">Variable-length signed integer</h3>
+<blockquote>
+<p>Not currently used</p>
+</blockquote>
+<p>A variable length signed integer consists of a length determinant, followed by a 2's complement bin-endian integer of that many bytes. The first byte MAY be zero if and only if the first bit of the second byte is set. Otherwise, leading zeros MUST NOT be used.</p>
+<h3 id="variable-length-string">Variable-length string</h3>
+<blockquote>
+<p>Used in: ILP, BTP</p>
+</blockquote>
+<p>A variable length string consists of a length determinant, followed by that many bytes. UTF-8 MUST be used as the character encoding unless otherwise specified.</p>
+<h3 id="fixed-length-timestamps">Fixed-length Timestamps</h3>
+<blockquote>
+<p>Used in: ILP</p>
+</blockquote>
+<p>ILP Timestamps are encoded using ASN.1 PrintableString with a fixed length of 17, using a shortened and slightly restricted variant of ISO-8601 encoding.</p>
+<h4 id="encoding">Encoding</h4>
+<p>When encoding an ISO-8601 ILP timestamp, the hyphens, colons, <code>T</code> character, decimal period, and any <code>Z</code> timezone indicator MUST be removed. The date MUST denote UTC time, as local timezones are not allowed. Years MUST be given as four digits and MUST NOT be left out. Months, day, hours, minutes and seconds MUST be given 
+as two digits and MUST NOT be left out. Milliseconds MUST be given as three digits, and MUST NOT be left out. Midnight MUST be encoded as <code>000000000</code> on the following day. 
+Leap seconds MUST be smeared across the entirety of a day according to <a href="https://www.cl.cam.ac.uk/~mgk25/time/utc-sls/">UTC-SLS</a> (note that many programming languages support this functionality by default, including Java and Javascript. See <a href="https://github.com/interledger/rfcs/issues/481">IL-RFC-481</a> for more details).</p>
+<p>Here is how to encode certain dates:</p>
+<ul>
+<li><code>2017-12-24T16:14:32.279112Z</code> -&gt;  <code>20171224161432279</code> (rounded)</li>
+<li><code>2017-12-24T16:14:32.279Z</code> -&gt;     <code>20171224161432279</code></li>
+<li><code>2016-12-31T23.59.60.852Z</code> -&gt;     <code>20161231235960852</code> (leap second)</li>
+<li><code>2017-12-24T16:14:32.200Z</code> -&gt;     <code>20171224161432200</code></li>
+<li><code>2017-12-24T16:14:32.000Z</code> -&gt;     <code>20171224161432000</code></li>
+<li><code>2017-12-24T16:14:30.000Z</code> -&gt;     <code>20171224161430000</code></li>
+<li><code>2017-12-24T16:14:00.000Z</code> -&gt;     <code>20171224161400000</code></li>
+<li><code>2017-12-24T16:10:00.000Z</code> -&gt;     <code>20171224161000000</code></li>
+<li><code>2017-12-24T16:00:00.000Z</code> -&gt;     <code>20171224160000000</code></li>
+<li><code>2017-12-24T10:00:00.000Z</code> -&gt;     <code>20171224100000000</code></li>
+<li><code>2017-12-24T00:00:00.000Z</code> -&gt;     <code>20171224000000000</code></li>
+<li><code>2017-12-24T24:00:00.000Z</code> -&gt;     <code>20171225000000000</code> (use correct midnight format)</li>
+<li><code>2017-12-24T16:14:32,182Z</code> -&gt;     <code>20171224161432182</code></li>
+<li><code>2017-12-24T18:14:32.000+0200</code> -&gt; <code>20171224161432000</code> (converted to UTC)</li>
+</ul>
+<h4 id="decoding">Decoding</h4>
+<p>All required fields MUST be present. Extra elements MUST NOT be present. Midnight MUST be represented as <code>000000</code>. Leap seconds MUST be smeared across the entirety of a day according to <a href="https://www.cl.cam.ac.uk/~mgk25/time/utc-sls/">UTC-SLS</a> (note that many programming languages support this functionality by default, including Java and Javascript. See <a href="https://github.com/interledger/rfcs/issues/481">IL-RFC-481</a> for more details).  </p>
+<p>The following examples are invalid and parsers MUST reject them:</p>
+<ul>
+<li><code>20171224235312.431+0200</code> -&gt; INVALID; not UTC, invalid characters</li>
+<li><code>201712242153124318</code> -&gt; INVALID; too much precision, invalid characters</li>
+<li><code>20171324161432200</code> -&gt; INVALID, month out of range</li>
+<li><code>20171224230000000.</code> -&gt; INVALID, spurious decimal point</li>
+<li><code>20171224240000000</code> -&gt; INVALID, wrong representation of midnight</li>
+<li><code>20171224215300</code> -&gt; INVALID, missing milliseconds</li>
+<li><code>2017122421531</code> -&gt; INVALID, missing digit in seconds and milliseconds</li>
+<li><code>201712242153</code> -&gt; INVALID, missing seconds and milliseconds</li>
+<li><code>2017122421</code> -&gt; INVALID, missing seconds, minutes, and milliseconds</li>
+<li><code>20161231235960852</code> -&gt; INVALID, unsmeared leap-second.</li>
+</ul>
+<p>The following examples are valid and parsers MUST correct deserialize them:</p>
+<ul>
+<li><code>20171224161432279</code> -&gt; <code>2017-12-24T16:14:32.279Z</code></li>
+<li><code>20171224161432270</code> -&gt; <code>2017-12-24T16:14:32.270Z</code></li>
+<li><code>20171224161432200</code> -&gt; <code>2017-12-24T16:14:32.200Z</code></li>
+<li><code>20171224161432000</code> -&gt; <code>2017-12-24T16:14:32.000Z</code></li>
+<li><code>20161231235959852</code> -&gt; <code>2016-12-31T23:59:60.852Z</code> (nearly a leap second)</li>
+<li><code>20171225000000000</code> -&gt; <code>2017-12-25T00:00:00.000Z</code> (correct representation of midnight)</li>
+<li><code>99991224161432279</code> -&gt; <code>9999-12-24T16:14:32.279Z</code> (year 9999 is valid)</li>
+</ul>
+<h4 id="examples_4">Examples</h4>
+<p>When encoded in binary, the shortened date string is encoded as a <a href="#fixed-length-string">fixed-length string</a>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Encoding</th>
+<th align="left">Decoded value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>32303137 31323234 31363134 33323237 39</code></td>
+<td align="left"><code>20171224161432279</code></td>
+</tr>
+<tr>
+<td align="left"><code>32303137 31323234 31363134 33323230 30</code></td>
+<td align="left"><code>20171224161432200</code></td>
+</tr>
+<tr>
+<td align="left"><code>32303137 31323235 30303030 30303030 30</code></td>
+<td align="left"><code>20171225000000000</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="variable-length-timestamps">Variable-length Timestamps</h3>
+<blockquote>
+<p>Used in: BTP</p>
+</blockquote>
+<p>Timestamps are encoded using ASN.1 GeneralizedTime. This is a shortened and slightly restricted variant of ISO 8601 encoding. Once the date string is derived it is encoded as a variable-length string.</p>
+<h4 id="encoding_1">Encoding</h4>
+<p>When encoding an ISO 8601 timestamp, the hyphens, colons and <code>T</code> character MUST be removed. The date MUST end in <code>Z</code>, denoting UTC time, local timezones are not allowed. Timestamps MAY use up to millisecond precision. The period <code>.</code> MUST be used as the decimal separator. If the millisecond part is zero, it MUST be left out. Trailing zeros in the millisecond part MUST be left out. Years MUST be given as four digits and MUST NOT be left out. Months, day, hours, minutes and seconds MUST be given as two digits and MUST NOT be left out. Midnight MUST be encoded as <code>000000</code> on the following day. Leap seconds MUST be encoded using <code>60</code> as the value for seconds.</p>
+<p>Here is how to encode certain dates:</p>
+<ul>
+<li><code>2017-12-24T16:14:32.279112Z</code> -&gt; <code>20171224161432.279Z</code> (rounded)</li>
+<li><code>2017-12-24T16:14:32.279Z</code> -&gt; <code>20171224161432.279Z</code></li>
+<li><code>2016-12-31T23.59.60.852Z</code> -&gt; <code>20161231235960.852Z</code> (leap second)</li>
+<li><code>2017-12-24T16:14:32.200Z</code> -&gt; <code>20171224161432.2Z</code></li>
+<li><code>2017-12-24T16:14:32.000Z</code> -&gt; <code>20171224161432Z</code></li>
+<li><code>2017-12-24T16:14:30.000Z</code> -&gt; <code>20171224161430Z</code></li>
+<li><code>2017-12-24T16:14:00.000Z</code> -&gt; <code>20171224161400Z</code></li>
+<li><code>2017-12-24T16:10:00.000Z</code> -&gt; <code>20171224161000Z</code></li>
+<li><code>2017-12-24T16:00:00.000Z</code> -&gt; <code>20171224160000Z</code></li>
+<li><code>2017-12-24T10:00:00.000Z</code> -&gt; <code>20171224100000Z</code></li>
+<li><code>2017-12-24T00:00:00.000Z</code> -&gt; <code>20171224000000Z</code></li>
+<li><code>2017-12-24T24:00:00.000Z</code> -&gt; <code>20171225000000Z</code> (use correct midnight format)</li>
+<li><code>2017-12-24T16:14:32,182Z</code> -&gt; <code>20171224161432.182Z</code> (use correct decimal separator)</li>
+<li><code>2017-12-24T18:14:32.000+0200</code> -&gt; <code>20171224161432Z</code> (converted to UTC)</li>
+</ul>
+<h4 id="decoding_1">Decoding</h4>
+<p>All required fields MUST be present. Extra elements MUST NOT be present. Midnight MUST be represented as <code>000000</code>. Implementations MUST allow leap seconds.</p>
+<p>The following examples are invalid and parsers MUST reject them:</p>
+<ul>
+<li><code>20171224235312.431+0200</code> -&gt; INVALID, not UTC</li>
+<li><code>20171224215312.4318Z</code> -&gt; INVALID, too much precision</li>
+<li><code>20171224161432,279Z</code> -&gt; INVALID, wrong decimal element</li>
+<li><code>20171324161432.279Z</code> -&gt; INVALID, month out of range</li>
+<li><code>20171224230000.20Z</code> -&gt; INVALID, spurious trailing zero</li>
+<li><code>20171224230000.Z</code> -&gt; INVALID, spurious decimal point</li>
+<li><code>20171224240000Z</code> -&gt; INVALID, wrong representation of midnight</li>
+<li><code>2017122421531Z</code> -&gt; INVALID, missing digit in seconds</li>
+<li><code>201712242153Z</code> -&gt; INVALID, missing seconds</li>
+<li><code>2017122421Z</code> -&gt; INVALID, missing seconds and minutes</li>
+</ul>
+<p>The following examples are valid and parsers MUST correct deserialize them:</p>
+<ul>
+<li><code>20171224161432.279Z</code> -&gt; <code>2017-12-24T16:14:32.279Z</code></li>
+<li><code>20171224161432.27Z</code> -&gt; <code>2017-12-24T16:14:32.270Z</code></li>
+<li><code>20171224161432.2Z</code> -&gt; <code>2017-12-24T16:14:32.200Z</code></li>
+<li><code>20171224161432Z</code> -&gt; <code>2017-12-24T16:14:32.000Z</code></li>
+<li><code>20161231235960.852Z</code> -&gt; <code>2016-12-31T23:59:60.852Z</code> (leap second)</li>
+<li><code>20171225000000Z</code> -&gt; <code>2017-12-25T00:00:00.000Z</code> (correct representation of midnight)</li>
+<li><code>99991224161432.279Z</code> -&gt; <code>9999-12-24T16:14:32.279Z</code> (year 9999 is valid)</li>
+</ul>
+<h4 id="examples_5">Examples</h4>
+<p>When encoded in binary, the shortened date string is encoded as a <a href="#variable-length-string">variable-length string</a>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Encoding</th>
+<th align="left">Decoded value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>13323031 37313232 34313631 3433322E 3237395A</code></td>
+<td align="left"><code>2017-12-24T16:14:32.279Z</code></td>
+</tr>
+<tr>
+<td align="left"><code>11323031 37313232 34313631 3433322E 325A</code></td>
+<td align="left"><code>2017-12-24T16:14:32.200Z</code></td>
+</tr>
+<tr>
+<td align="left"><code>0F323031 37313232 35303030 3030305A</code></td>
+<td align="left"><code>2017-12-25T00:00:00.000Z</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ilp-address">ILP Address</h3>
+<blockquote>
+<p>Used in: ILP</p>
+</blockquote>
+<p>ILP addresses MUST have a length in the range 0 .. 1023 and may contain uppercase <code>A-Z</code>, lowercase <code>a-z</code>, numbers <code>0-9</code>, hyphens <code>-</code>, underscores <code>_</code>, tildes <code>~</code> and periods <code>.</code>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Encoding</th>
+<th align="left">Decoded value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>18657861 6D706C65 2E746F70 2E6D6964 646C652E 6C6F7765 72</code></td>
+<td align="left"><code>example.top.middle.lower</code></td>
+</tr>
+<tr>
+<td align="left"><code>81826578 616D706C 652E7665 72792E6C 6F6E672E 61646472 6573732E 746F2E65 78636565 642E3132 372E6368 61726163 74657273 2E616E64 2E747269 67676572 2E612E6C 6F6E672E 666F726D 2E6C656E 6774682E 64657465 726D696E 616E742E 746F2E73 686F772E 686F772E 74686174 2E776F72 6B732E67 72656174 2E61732E 77656C6C</code></td>
+<td align="left"><code>example.very.long.address.to.exceed.127.</code> <code>characters.and.trigger.a.long.form.</code> <code>length.determinant.to.show.how.that.</code> <code>works.great.as.well</code><br/><br/>(newlines added for readability)</td>
+</tr>
+</tbody>
+</table>
+    </div>
+  </article>
+        </main>
+
+        <aside class="right-sidebar col-lg-3 order-lg-4 p-0" role="complementary">
+  <div class="card" id="page-toc-wrapper">
+    <div class="card-header">
+      <h4>On This Page</h4>
+    </div>
+    <ul class="card-body">
+      <li class="level-1"><a href="#introduction">Introduction</a></li>
+<li class="level-1"><a href="#how-to-use-this-document">How to use this document</a></li>
+<li class="level-1"><a href="#foundation">Foundation</a></li>
+<li class="level-2"><a href="#asn1">ASN.1</a></li>
+<li class="level-3"><a href="#what-is-asn1">What is ASN.1?</a></li>
+<li class="level-3"><a href="#why-asn1">Why ASN.1?</a></li>
+<li class="level-2"><a href="#canonical-oer">CANONICAL-OER</a></li>
+<li class="level-3"><a href="#what-is-oercanonical-oer">What is OER/CANONICAL-OER?</a></li>
+<li class="level-3"><a href="#why-canonical-oer">Why CANONICAL-OER?</a></li>
+<li class="level-2"><a href="#basics">Basics</a></li>
+<li class="level-3"><a href="#octet-strings">Octet strings</a></li>
+<li class="level-3"><a href="#extensibility">Extensibility</a></li>
+<li class="level-2"><a href="#types">Types</a></li>
+<li class="level-3"><a href="#fixed-length-unsigned-integers">Fixed-length unsigned integers</a></li>
+<li class="level-3"><a href="#fixed-length-signed-integers">Fixed-length signed integers</a></li>
+<li class="level-3"><a href="#fixed-length-floating-point-numbers">Fixed-length floating point numbers</a></li>
+<li class="level-3"><a href="#fixed-length-octet-string">Fixed-length octet string</a></li>
+<li class="level-3"><a href="#length-determinant">Length determinant</a></li>
+<li class="level-3"><a href="#variable-length-octet-string">Variable-length octet string</a></li>
+<li class="level-3"><a href="#variable-length-unsigned-integer">Variable-length unsigned integer</a></li>
+<li class="level-3"><a href="#variable-length-signed-integer">Variable-length signed integer</a></li>
+<li class="level-3"><a href="#variable-length-string">Variable-length string</a></li>
+<li class="level-3"><a href="#fixed-length-timestamps">Fixed-length Timestamps</a></li>
+<li class="level-3"><a href="#variable-length-timestamps">Variable-length Timestamps</a></li>
+<li class="level-3"><a href="#ilp-address">ILP Address</a></li>
+
+    </ul>
+  </div>
+        </aside>
+
+        </div><!--/.row (main layout)-->
+      </div>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-sm-10 col-xs-12 float-left">
+                    <img src="/assets/img/footerlogo.png">
+                </div>
+                <div class="col-sm-2 col-xs-12 float-right">
+                    <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>
+                    <a href="https://communityinviter.com/apps/interledger/interledger-working-groups-slack"><img src="/assets/img/Slack.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/custom.js"></script>
+<script src="/assets/js/highlight.pack.js"></script>
+<script src="/assets/js/home.js"></script>
+<script type="text/javascript" src="/assets/js/svg-animation.js"></script>
+
+<!-- <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68500608-1', 'auto');
+    ga('send', 'pageview');
+
+</script> -->
+
+</body>
+</html>
