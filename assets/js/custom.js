@@ -14,7 +14,7 @@
 
   //Add active class to sidebar links
   function sidebarActiveClass() {
-    var curentFile = window.location.pathname.split("/").pop();
+    var curentFile = window.location.pathname
     $('.sidebar_pagelist > li > a[href="' + curentFile + '"]').addClass('active');
   }
 
