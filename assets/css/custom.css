@@ -346,7 +346,7 @@ h2 {
 h3{
   padding: 0;
   margin: 13px 0 13px 0;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 400;
   font-family: 'Titillium Web', sans-serif;
   color: #333;
@@ -399,6 +399,9 @@ h2.simple {
 }
 .doc-content img {
   max-width: 100%;
+}
+.doc-content ul {
+  font-size: 16px;
 }
 
 
@@ -993,9 +996,9 @@ footer a {
   transition-duration: 0.3s;
 }
 
-.xrp-ledger-dev-portal.sidebar-primary .main {
+.sidebar-primary .main {
   z-index: 5;
-  padding: 44px 24px 48px;
+  padding: 75px 24px 48px;
   min-height: 700px;
 }
 
@@ -1011,7 +1014,7 @@ footer a {
   max-height: 85vh;
   top: 48px;
   overflow: auto;
-  padding: 44px 0 48px 24px;
+  padding: 44px 20px 48px 5px;
   border: none;
 }
 
@@ -1207,7 +1210,6 @@ img.logo:hover {
   }
 
   .jumbotron {
-    /* padding: 0; */
     text-align: center;
   }
 
@@ -1249,6 +1251,16 @@ img.logo:hover {
   .cornerbox {
     display: none;
   }
+  .right-sidebar {
+    display: none;
+  }
+  .sidebar-primary .main {
+    padding: 85px 24px 48px;
+    min-height: 700px;
+  }
+  .jumbotron h1 {
+    font-size: 30px;
+  }
 
 }
 
@@ -1289,9 +1301,6 @@ img.logo:hover {
     max-width: 330px;
   }
 
-  .jumbotron h1 {
-    font-size: 30px;
-  }
 }
 
 @media (min-width: 1200px) {

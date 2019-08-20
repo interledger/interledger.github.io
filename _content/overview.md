@@ -1,6 +1,3 @@
-# Interledger Overview
-
-Interledger enables the seamless exchange of value across different payment networks. 
 
 Traditional payment networks operate independently from each other. Sending value is easy only if the sender and 
 recipient have accounts on the same network, but it can be slow and expensive if they have accounts on different 
