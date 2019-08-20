@@ -28,13 +28,13 @@ pages:
 
 # QuickStart ---------------------------------------------------------------------
 
-    -   name: Docs Overview
+    -   name: Interledger Overview
         funnel: Docs
         doc_type: Overview
         html: overview.html
         md: overview.md
-        template: template-spec.html
-        blurb: Welcome to the Interledger documentation. Here you can learn how Interledger works and how to start building with it.
+        template: template-doc.html
+        blurb: Interledger enables the seamless exchange of value across different payment networks.
         targets:
             - en            
 

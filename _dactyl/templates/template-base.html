@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{target.name}}">
 <head>
-    <!-- <base href="https://jakeatdocforce.github.io/interledger-dactyl/"> -->
-    <!-- <base href="http://localhost:8000/"> -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,13 +32,12 @@
 
 </head>
 
-<body class="xrp-ledger-dev-portal {% if currentpage.sidebar is undefined or currentpage.sidebar != "disabled" %}sidebar-primary {% endif %}{% block bodyclasses %}{% endblock %}">
+<body class="{% if currentpage.sidebar is undefined or currentpage.sidebar != "disabled" %}sidebar-primary {% endif %}{% block bodyclasses %}{% endblock %}">
 
   <div class="container">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark {% block topnavclass %}{% endblock %}">
             <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> -->
 
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -62,7 +59,7 @@
         <div class="row">
 
         {% if currentpage.sidebar is undefined or currentpage.sidebar != "disabled" %}
-        <aside class="sidebar col-md-5 col-lg-3 p-0 order-md-1" role="complementary">
+        <aside class="sidebar col-md-4 col-lg-3 p-0 order-md-1" role="complementary">
             {% block left_sidebar %}
                 {% include "template-sidebar_nav.html" %}
             {% endblock %}
@@ -70,7 +67,7 @@
         {% endif %}
 
           <!-- main column -->
-        <main class="main {% if currentpage.sidebar is defined and currentpage.sidebar == "disabled" %}col-md-12{% else %}col-md-7 col-lg-6{% endif %} order-md-3  {% block mainclasses %}{% endblock %}" role="main" id="main_content_body">
+        <main class="main {% if currentpage.sidebar is defined and currentpage.sidebar == "disabled" %}col-md-12{% else %}col-md-8 col-lg-6{% endif %} order-md-3  {% block mainclasses %}{% endblock %}" role="main" id="main_content_body">
             {% block main %}{% endblock %}
         </main>
 
@@ -97,7 +94,7 @@
 <script src="/assets/js/home.js"></script>
 <script type="text/javascript" src="/assets/js/svg-animation.js"></script>
 
-<!-- <script>
+<script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -106,7 +103,7 @@
     ga('create', 'UA-68500608-1', 'auto');
     ga('send', 'pageview');
 
-</script> -->
+</script>
 
 </body>
 </html>
