@@ -98,60 +98,8 @@
         <main class="main col-md-7 col-lg-6 order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
-        <h1 id="interledger-overview">Interledger Overview</h1>
-<p>Interledger enables the seamless exchange of value across different payment networks. </p>
-<p>Traditional payment networks operate independently from each other. Sending value is easy only if the sender and 
-recipient have accounts on the same network, but it can be slow and expensive if they have accounts on different 
-networks. Interledger makes it easy to transact in whatever currency or payment network you choose because it is 
-not tied to any one company, blockchain, or currency. Using Interledger, you can easily send XRP to someone who wants 
-to receive ETH, or you can send USD to someone who wants to receive EUR.</p>
-<h2 id="what-is-interledger">What is Interledger?</h2>
-<p>Interledger is a network of computers that enables the sending of value across independent payment networks. 
-Similar to how the Internet routes packets information, Interledger routes packets of value. Computers on the Interledger 
-network are called <em>nodes</em>. Nodes can take one or more of the following roles:</p>
-<ul>
-<li>Sender – Initiates a value transfer.</li>
-<li>Router – Applies currency exchange and forwards packets of value. This is an intermediary node between the sender 
-and the receiver. </li>
-<li>Receiver – Receives the value.</li>
-</ul>
-<p><img alt="ILP-nodes" src="assets/img/ilp-nodes-2.png"/></p>
-<p><strong>Note:</strong> The terms <em>Router</em> and <em>Connector</em> are used interchangeably throughout the documentation.</p>
-<h2 id="how-does-interledger-work">How does Interledger work?</h2>
-<p>At the core of Interledger is the <a href="https://interledger.org/rfcs/0027-interledger-protocol-4/">Interledger Protocol (ILPv4)</a>, 
-which is a set of rules that define how nodes should send value over the Interledger network. ILPv4 is a <em>request/response</em> 
-protocol, where requests and responses are ILPv4 packets. Typically, a single aggregate 
-payment from source to destination is split into multiple ILP packets. Each ILP packet contains transaction 
-information, which is private to the nodes participating in the transaction. ILPv4 has three packet types -  <em>Prepare</em>, <em>Fulfill</em>, and <em>Reject</em>. </p>
-<p><img alt="ILP-packets" src="assets/img/ilp-packets.png"/></p>
-<p>The sender constructs and sends a Prepare packet as a request to the connecting router. The routers forward the packet 
-until it reaches the receiver. The receiver then accepts or rejects the packet by sending a Fulfill packet or a 
-Reject packet as the response. The routers relay the response from the receiver back to the sender. When the sender 
-receives a Fulfill packet, it knows that the packet was successfully delivered to the receiver. The sender then 
-continues to send the remaining Prepare packets until the value is fully transferred. </p>
-<p>Interledger does not rely on any single payment network for processing value transactions. You can connect with 
-an ILPv4 router at any time to join the network. Furthermore, Interledger sends value as tiny data packets, 
-which makes transactions fast, secure, and inexpensive.</p>
-<p><strong>Tip:</strong> For a deeper dive into how ILPv4 works, see <a href="https://interledger.org/rfcs/0027-interledger-protocol-4/#prerequisites">ILPv4 Flow</a>.</p>
-<h2 id="building-on-interledger">Building on Interledger</h2>
-<p>Build payments into your apps or other protocols without tying yourself to a specific currency or payment network. 
-Create accounts on our demo ledgers and start sending Interledger payments with the client libraries. 
-Check out <a href="getting-started.html">Getting Started</a> for more details.</p>
-<h2 id="interledger-architecture">Interledger architecture</h2>
-<p>Interledger enables payments across many different types of ledgers. The Interledger Protocol Suite is comprised of 
-four layers: the Application, Transport, Interledger, and Link protocols. To learn more, see the Interledger 
-<a href="https://interledger.org/rfcs/0001-interledger-architecture/">Architecture Overview</a>.</p>
-<h2 id="protocol-specs-and-apis">Protocol specs and APIs</h2>
-<p>To dive into the technical specs, see the <a href="https://github.com/interledger/rfcs">Interledger RFCs</a>. Also see the documentation for the components of the 
-reference implementation.</p>
-<h2 id="security">Security</h2>
-<p>Interledger enables secure, multi-hop payments using <a href="https://interledger.org/rfcs/0022-hashed-timelock-agreements/">Hashed Timelock Agreements</a>. 
-As of Interledger version 4, these conditions are not enforced by the ledger, as it would be too costly and slow. 
-Instead, participants in the network use these hashlocks to perform accounting with their peers. This accounting is 
-used to determine in-flight balances, which are periodically settled with on-ledger transfers or payment channel claims. 
-For a detailed description of how this works, read the 
-<a href="https://interledger.org/rfcs/0032-peering-clearing-settlement/">Peering, Clearing, and Settlement</a> documentation.</p>
-<p>Next: <a href="getting-started.html">Getting Started</a></p>
+        <p><strong>What was formerly known as the "Atomic Transport Protocol" has been removed from the standard Interledger Protocol stack.</strong></p>
+<p>The Atomic mode outlined in the Interledger whitepaper may be used within segments of an Interledger payment path amongst groups of connectors and ledgers that support the required functionality. In an open system of interconnected ledgers, it seems unlikely that all parties in a payment path would have commonly trusted entities between them that could serve as notaries. The protocols used within specific groups need not be standardized because the failure to select commonly trusted notaries would prevent interoperability anyway.</p>
     </div>
   </article>
         </main>
@@ -162,14 +110,7 @@ For a detailed description of how this works, read the
       <h4>On This Page</h4>
     </div>
     <ul class="card-body">
-      <li class="level-1"><a href="#interledger-overview">Interledger Overview</a></li>
-<li class="level-2"><a href="#what-is-interledger">What is Interledger?</a></li>
-<li class="level-2"><a href="#how-does-interledger-work">How does Interledger work?</a></li>
-<li class="level-2"><a href="#building-on-interledger">Building on Interledger</a></li>
-<li class="level-2"><a href="#interledger-architecture">Interledger architecture</a></li>
-<li class="level-2"><a href="#protocol-specs-and-apis">Protocol specs and APIs</a></li>
-<li class="level-2"><a href="#security">Security</a></li>
-
+      
     </ul>
   </div>
         </aside>
