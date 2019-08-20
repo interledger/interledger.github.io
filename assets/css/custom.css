@@ -400,7 +400,7 @@ h2.simple {
 .doc-content img {
   max-width: 100%;
 }
-.doc-content ul {
+.doc-content ul, ol {
   font-size: 16px;
 }
 
