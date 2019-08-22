@@ -295,11 +295,6 @@ header.animate {
   
 }
 
-.jumbotron h1,
-.typewriter-intro {
-  /* text-shadow: 0px 7px 5px rgba(0, 0, 0, 0.2); */
-}
-
 .typewriter,
 .typed-strings {
   display: none;
@@ -328,8 +323,18 @@ b, strong {
 }
 
 .label {
-font-weight: 400;
-
+  font-weight: 400;
+  padding: 5px;
+  font-size: 75%;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background-color: #777;
+  max-width: 80px;
+  width: 100%;
 }
 
 h1 {
@@ -1171,6 +1176,7 @@ img.logo:hover {
   font-size: 16px;
   color: #1E1F1E;
   font-weight: bold;
+  font-family: inherit;
 }
 .get-started h5 {
   font-size: 14px;

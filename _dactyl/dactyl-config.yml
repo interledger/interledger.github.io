@@ -89,7 +89,28 @@ pages:
         targets:
             - en  
 
+    -   name: Interledger Community Calls
+        funnel: Docs
+        doc_type: Community Resources
+        html: calls.html
+        md: calls.md
+        template: template-doc.html
+        sidebar: left_only
+        blurb: Here you can find the links to the recordings of previous community conference calls (since 27 June 2018).
+        targets:
+            - en 
 
+    -   name: Interledger News
+        funnel: Docs
+        doc_type: Community Resources
+        html: news.html
+        md: news.md
+        template: template-doc.html
+        sidebar: left_only
+        blurb: Here you can find the latest Interledger developments and community announcements.
+        targets:
+            - en            
+            
 
 # Specs ---------------------------------------------------------------------
 
