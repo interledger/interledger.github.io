@@ -104,13 +104,13 @@
 const fetch = require('ilp-fetch')
 
 fetch('http://localhost:8080/', {
-method: 'GET',
-maxPrice: 5000,
-plugin
+    method: 'GET',
+    maxPrice: 5000,
+    plugin
 })
 .then(response => {
-console.log('paid!')
-console.log('got response:', response.text)
+    console.log('paid!')
+    console.log('got response:', response.text)
 })</code></pre>
                                               </div>
                               
@@ -183,23 +183,23 @@ const plugin = require('ilp-plugin')()
 const ilp = new KoaIlp({ plugin })
 
 router.get('/', ilp.paid({ price: 1000 }), async ctx => {
-ctx.body = 'Hello World!'
+    ctx.body = 'Hello World!'
 })
 
 app
-.use(router.routes())
-.use(router.allowedMethods())
-.listen(8080)</code></pre>
+    .use(router.routes())
+    .use(router.allowedMethods())
+    .listen(8080)</code></pre>
                                               </div>
                             
                                               <div id="menu1" class="tab-pane">
-                                                  <pre><code>
-                            &lt;!-- Don’t see your language here? --&gt;
-                            
-                            Help implement Interledger in your
-                            favorite programming language.
-                                                  <p><a class="btn btn-primary btn-lg getting-started-button contribute" target="_blank" href="https://github.com/interledger" role="button">Contribute</a></p>
-                                              </code></pre>
+<pre><code>
+&lt;!-- Don’t see your language here? --&gt;
+
+Help implement Interledger in your
+favorite programming language.
+<p><a class="btn btn-primary btn-lg getting-started-button contribute" target="_blank" href="https://github.com/interledger" role="button">Contribute</a></p>
+</code></pre>
                                               </div>
                                           </div>
           

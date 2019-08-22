@@ -147,6 +147,7 @@ pages:
         targets:
             - en 
             
+# TODO: file has jinja like code. Breaks dactyl proccessing. Using temp local file above until fixed 
     # -   name: Web Monetization
     #     funnel: Docs
     #     doc_type: Specs
@@ -200,7 +201,6 @@ pages:
         template: template-spec.html
         targets:
             - en      
-
 
 
 # Specs other ---------------------------------------------------------------------
@@ -416,8 +416,8 @@ pages:
             - en
 
 
-
 # Deprecated ---------------------------------------------------------------------
+# TODO: Add message above content noting deprecation and any links to new updates
 
     -   name: Crypto Conditions
         funnel: Docs
