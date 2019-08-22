@@ -38,5 +38,8 @@
     ga( 'send', 'event', 'Link', 'Click', linkText);
   });
 
+    //syntax highlighting
+    hljs.initHighlightingOnLoad();
+
 
 })(jQuery)

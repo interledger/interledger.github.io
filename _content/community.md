@@ -48,10 +48,10 @@ You can watch the videos from the 2019 summit [here][12]. Sign up on the forum o
 [3]: https://github.com/interledgerjs
 [4]: https://forum.interledger.org
 [5]: https://forum.interledger.org/tags/community-call-agenda
-[6]: https://interledger.org/calls.html
+[6]: /calls.html
 [7]: https://www.w3.org/community/interledger/
 [8]: https://lists.w3.org/Archives/Public/public-interledger/
 [9]: https://www.ietf.org/mailman/listinfo/ledger
 [10]: https://communityinviter.com/apps/interledger/interledger-working-groups-slack
 [11]: https://twitter.com/interledger
-[12]: https://interledger.org/summit-2019.html
+[12]: /summit-2019.html
