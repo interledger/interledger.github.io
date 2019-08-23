@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The protocol for connecting blockchains and other ledgers">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles -->
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900|Droid+Sans+Mono|Titillium+Web:400,300,600,900' rel='stylesheet' type='text/css'>
+
+    <link href="/assets/favicon.png" rel="icon" type="image/x-icon">
+
+    <!--  highlight js -->
+    <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+</head>
+
+<body class="sidebar-primary ">
+
+  <!-- <div class="container"> -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
+            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarHolder">
+              <ul class="nav navbar-nav">
+                    <li class="nav-item" ><a class="nav-link" href="/overview.html">Docs</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/libraries.html">Tools</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/interledger">Edit on Github</a></li>
+                    <li class="nav-item"><a class="nav-link cornerlink" href="/getting-started.html">Get Started</a></li>
+              </ul><!-- /.navbar-nav -->
+              <div class="cornerbox"></div>
+            </div>
+            <div class="menu-overlay"></div>
+        </nav>
+    <!-- </div> -->
+
+    <div class="container-fluid" role="document" id="main_content_wrapper">
+        <div class="row">
+
+        <aside class="sidebar col-md-4 col-lg-3 p-0 order-md-1" role="complementary">
+
+    <div id="sidenav" class="tree_nav">
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Quick Start</li>
+        <li><a href="/overview.html">Overview</a></li>
+        <li><a href="/getting-started.html">Getting Started</a></li>
+      </ul>
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Community Resources</li>
+        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
+        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
+      </ul>
+
+      <div class="sidebar-nav-header">Specs</div>
+      <ul class=" sidebar_pagelist sidebar_indent">
+        <!--    <li><a href="/rfcs/0001-interledger-architecture/">Interledger Architecture</a></li> -->
+        <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+        <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+        <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+        <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+        <li><a href="/rfcs/0026-payment-pointers/">Payment Pointers</a></li>
+        <li><a href="/rfcs/0028-web-monetization/">Web Monetization</a></li>
+        <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+        <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+        <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+        <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+        <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+
+      </ul>
+    </div>        </aside>
+
+          <!-- main column -->
+        <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
+  <article class="pt-3 p-md-3">
+    <div class="content doc-content">
+        <h1 id="stream-a-multiplexed-money-and-data-transport-for-ilp">STREAM: A Multiplexed Money and Data Transport for ILP</h1>
+<h2 id="abstract">Abstract</h2>
+<p>This document specifies the STREAM Interledger Transport protocol, which provides for reliably sending money and data over ILP. STREAM is designed to be used in applications that involve streaming payments or data, as well as those that require sending larger discrete payments and messages. A virtual connection is established between a "client" and a "server" and can be used to send authenticated ILP packets between them.</p>
+<p><strong>Table of Contents:</strong></p>
+<ul>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-conventions-and-definitions">2. Conventions and Definitions</a></li>
+<li><a href="#3-overview">3. Overview</a></li>
+<li><a href="#31-relationship-with-other-protocols">3.1. Relationship with Other Protocols</a></li>
+<li><a href="#32-why-streams">3.2. Why Streams?</a></li>
+<li><a href="#33-multiplexed-streams">3.3. Multiplexed Streams</a></li>
+<li><a href="#34-exchange-rates">3.4. Exchange Rates</a></li>
+<li><a href="#35-packets-and-frames">3.5. Packets and Frames</a></li>
+<li><a href="#36-packet-acknowledgements-acks">3.6. Packet Acknowledgements (ACKs)</a></li>
+<li><a href="#4-life-of-a-connection">4. Life of a Connection</a></li>
+<li><a href="#41-setup">4.1. Setup</a></li>
+<li><a href="#42-matching-packets-to-connections">4.2. Matching Packets to Connections</a></li>
+<li><a href="#43-client-address-communication-and-connection-migration">4.3. Client Address Communication and Connection Migration</a></li>
+<li><a href="#44-streams">4.4. Streams</a><ul>
+<li><a href="#441-opening-new-streams">4.4.1. Opening New Streams</a></li>
+<li><a href="#442-sending-money">4.4.2. Sending Money</a></li>
+<li><a href="#443-sending-data">4.4.3. Sending Data</a></li>
+<li><a href="#444-stream-level-flow-control">4.4.4. Stream-Level Flow Control</a></li>
+<li><a href="#445-closing-streams">4.4.5. Closing Streams</a></li>
+</ul>
+</li>
+<li><a href="#45-connection-level-flow-control">4.5. Connection-Level Flow Control</a></li>
+<li><a href="#46-closing-connections">4.6. Closing Connections</a></li>
+<li><a href="#5-packet-and-frame-specification">5. Packet and Frame Specification</a></li>
+<li><a href="#51-encryption">5.1. Encryption</a><ul>
+<li><a href="#511-encryption-envelope">5.1.1. Encryption Envelope</a></li>
+<li><a href="#512-encryption-pseudocode">5.1.2. Encryption Pseudocode</a></li>
+<li><a href="#513-maximum-number-of-packets-per-connection">5.1.3. Maximum Number of Packets Per Connection</a></li>
+</ul>
+</li>
+<li><a href="#52-stream-packet">5.2. STREAM Packet</a></li>
+<li><a href="#53-frames">5.3. Frames</a><ul>
+<li><a href="#531-connectionclose-frame">5.3.1. <code>ConnectionClose</code> Frame</a></li>
+<li><a href="#532-connectionnewaddress-frame">5.3.2. <code>ConnectionNewAddress</code> Frame</a></li>
+<li><a href="#533-connectionmaxdata-frame">5.3.3. <code>ConnectionMaxData</code> Frame</a></li>
+<li><a href="#534-connectiondatablocked-frame">5.3.4. <code>ConnectionDataBlocked</code> Frame</a></li>
+<li><a href="#535-connectionmaxstreamid-frame">5.3.5. <code>ConnectionMaxStreamId</code> Frame</a></li>
+<li><a href="#536-connectionstreamidblocked-frame">5.3.6. <code>ConnectionStreamIdBlocked</code> Frame</a></li>
+<li><a href="#537-streamclose-frame">5.3.7. <code>StreamClose</code> Frame</a></li>
+<li><a href="#538-streammoney-frame">5.3.8. <code>StreamMoney</code> Frame</a></li>
+<li><a href="#539-streammaxmoney-frame">5.3.9. <code>StreamMaxMoney</code> Frame</a></li>
+<li><a href="#5310-streammoneyblocked-frame">5.3.10. <code>StreamMoneyBlocked</code> Frame</a></li>
+<li><a href="#5311-streamdata-frame">5.3.11. <code>StreamData</code> Frame</a></li>
+<li><a href="#5312-streammaxdata-frame">5.3.12. <code>StreamMaxData</code> Frame</a></li>
+<li><a href="#5313-streamdatablocked-frame">5.3.13. <code>StreamDataBlocked</code> Frame</a></li>
+</ul>
+</li>
+<li><a href="#54-error-codes">5.4. Error Codes</a></li>
+<li><a href="#6-condition-and-fulfillment-generation">6. Condition and Fulfillment Generation</a></li>
+<li><a href="#61-unfulfillable-condition">6.1. Unfulfillable Condition</a><ul>
+<li><a href="#62-fulfillable-condition">6.2. Fulfillable Condition</a></li>
+<li><a href="#63-fulfillment-generation">6.3. Fulfillment Generation</a></li>
+</ul>
+</li>
+<li><a href="#appendix-a--similarities-and-differences-with-quic">Appendix A: Similarities and Differences with QUIC</a></li>
+</ul>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>STREAM is a multiplexed Interledger Transport Protocol that provides for sending multiple "streams" of money and data between two parties using ILP. STREAM is designed to provide a flexible set of features that allow it to be used for multiple payment and messaging applications:</p>
+<ul>
+<li>Sending money and data over ILP</li>
+<li>Segmenting larger payments or messages into packets and reassembling them</li>
+<li>Bi-directional communication between two endpoints through ILP</li>
+<li>Stream multiplexing (sending multiple logical streams of money and/or data over a single connection)</li>
+<li>Stream- and connection-level flow control (adjusting the rate at which money and data are sent)</li>
+<li>Congestion control (adjusting the rate at which ILP packets are sent based on network throughput limits)</li>
+<li>Authenticating and encrypting ILP packet data</li>
+<li>Generating and fulfilling ILP packet conditions</li>
+<li>Connection migration</li>
+</ul>
+<p>STREAM is a successor to the <a href="/rfcs/0025-pre-shared-key-2/">Pre-Shared Key V2 (PSK2)</a> Transport Protocol and also takes significant inspiration from the <a href="https://tools.ietf.org/html/draft-ietf-quic-transport-10">QUIC</a> Internet Transport Protocol. Like PSK2, STREAM uses a shared secret to authenticate and encrypt multiple packets, as well as to generate the conditions and fulfillments. In addition, STREAM enables sending money and data in both directions between the two endpoints and automatically determines how much money and data can be sent in each ILP packet. STREAM borrows heavily from QUIC's packet format, stream multiplexing, and approach to flow control (see <a href="#appendix-a-similarities-and-differences-with-quic">Appendix A</a> for similarities and differences with QUIC).</p>
+<h2 id="2-conventions-and-definitions">2. Conventions and Definitions</h2>
+<p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in BCP 14 <a href="https://tools.ietf.org/html/rfc2119">RFC2119</a> <a href="https://tools.ietf.org/html/rfc8174">RFC8174</a> when, and only when, they appear in all capitals, as shown here.</p>
+<p>Definitions of terms that are used in this document:</p>
+<ul>
+<li><strong>Client</strong> - The endpoint initiating a STREAM connection</li>
+<li><strong>Server</strong> - The endpoint accepting incoming STREAM connections</li>
+<li><strong>Endpoint</strong> - The client or server end of a connection, which can be the sender or receiver of money and/or data</li>
+<li><strong>Connection</strong> - The session established between two endpoints that uses a single shared secret and multiplexes multiple streams of money and/or data</li>
+<li><strong>Sender</strong> - The endpoint that sends a particular ILP Prepare packet. Because STREAM connections are bi-directional, either endpoint can be the sender of a given packet</li>
+<li><strong>Receiver</strong> - The endpoint that receives a particular ILP Prepare packet and responds with either an ILP Fulfill or Reject packet. Because STREAM connections are bi-directional, either endpoint can be the receiver of a given packet</li>
+<li><strong>Stream</strong> - A logical, bi-directional channel of ordered bytes and money within a STREAM connection</li>
+<li><strong>Shared Secret</strong> - A cryptographically-secure random seed that is shared between the two endpoints comprising a connection and is used to derive keys for encrypting packets and generating conditions and fulfillments</li>
+<li><strong>STREAM packet</strong> - A payload sent as the data portion of an ILP packet that can be parsed by a STREAM endpoint</li>
+</ul>
+<p>STREAM stands for the STREAMing Transport for the Real-time Exchange of Assets and Messages.</p>
+<h2 id="3-overview">3. Overview</h2>
+<p>This section provides a high-level description of key aspects of STREAM that are useful to understand before reading the full protocol outline.</p>
+<h3 id="31-relationship-with-other-protocols">3.1. Relationship with Other Protocols</h3>
+<p><img alt="STREAM in the Interledger Stack" src="../shared/graphs/stream-in-protocol-suite.svg"/></p>
+<p>STREAM is a Transport Protocol, designed to be used with <a href="/rfcs/0027-interledger-protocol-4/">ILPv4</a>. Application Layer protocols, such as the <a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a> can use STREAM to send money and data between endpoints.</p>
+<h3 id="32-why-streams">3.2. Why Streams?</h3>
+<p>Some applications involve sending money and/or data on an ongoing basis, whereas others may deliver larger logical payments or messages. Streams provide a lightweight abstraction that can be used for either of these cases.</p>
+<p>In an application that uses an ongoing flow of money, an endpoint can open a single stream and continue sending money on it for the duration of some paid interaction.</p>
+<p>In another application, an endpoint can open a stream, send a specific amount of money through it, and then close the stream to indicate the payment is complete. In this case, the stream abstraction provides a mechanism to "frame" a payment or message that may be split across multiple packets. New streams can be opened and closed on the same connection to send multiple messages.</p>
+<p>STREAM uses bidirectional streams, which can be used for request/response flows or one-way messages.</p>
+<p>The choice of streams as the key abstraction is inspired by <a href="https://quicwg.github.io/base-drafts/draft-ietf-quic-transport.html#rfc.section.9">QUIC</a> and the earlier <a href="http://www.brynosaurus.com/pub/net/sst.pdf">Structured Streams Transport (SST)</a>.</p>
+<h3 id="33-multiplexed-streams">3.3. Multiplexed Streams</h3>
+<p>Each connection can include multiple streams, each of which is used to send money and/or data.</p>
+<p>Streams are given numerical IDs. Client-initiated streams are given odd numbers starting with 1 and server-initiated streams are given even numbers starting with 2 (this is used to avoid collisions if both endpoints open streams at the same time).</p>
+<p>Endpoints can limit the number of concurrently active incoming streams by adjusting the maximum stream ID and communicating that limit to the other endpoint using a <code>ConnectionMaxStreamId</code> frame. Implementations SHOULD use a default max stream ID of 20, which allows each endpoint to open up to 10 concurrent streams.</p>
+<h3 id="34-exchange-rates">3.4. Exchange Rates</h3>
+<p>A critical function of Interledger Transport Protocols is to determine the path exchange rate and handle any changes in the rate. STREAM packets include a minimum acceptable amount in ILP Prepare packets and the amount that arrived at the other endpoint in the Fulfill or Reject packet. Senders SHOULD judge amounts and prices only in their own units using the calculated path exchange rate, because destination units can be manipulated by the receiver (by using a connector with an exchange rate they control).</p>
+<p>Implementations SHOULD use the ratio of the amount that arrived at the remote endpoint and the amount sent to determine the path exchange rate. They MAY send an unfulfillable test packet when the connection is initiated to estimate the path exchange rate.</p>
+<p>Implementations SHOULD set the minimum acceptable amount in each packet sent to prevent the remote endpoint from accepting a packet if the exchange rate was worse than expected. Implementations SHOULD NOT fulfill incoming Prepare packets with amounts less than is specified in the STREAM packet.</p>
+<h3 id="35-packets-and-frames">3.5. Packets and Frames</h3>
+<p>STREAM packets are encoded, <a href="#encryption">encrypted</a>, and sent as the <code>data</code> field in <a href="/rfcs/0027-interledger-protocol-4/#ilp-prepare">ILP Prepare, Fulfill, or Reject packets</a>.</p>
+<p>Each STREAM packet consists of multiple <a href="#53-frames">frames</a>, which can be used to send money, data, or control-related information.</p>
+<h3 id="36-packet-acknowledgements-acks">3.6. Packet Acknowledgements (ACKs)</h3>
+<p>STREAM uses ILP Fulfill packets as acknowledgements of the frames contained in the corresponding Prepare packet. If a receiver wishes to reject or NACK one or more frames in a given Prepare packet, they MUST respond with an ILP Reject packet.</p>
+<h2 id="4-life-of-a-connection">4. Life of a Connection</h2>
+<p>This section describes how connections and streams are created, used, and closed.</p>
+<h3 id="41-setup">4.1. Setup</h3>
+<p>A server MUST communicate the following values to a client using an <strong>authenticated, encrypted</strong> communication channel (such as HTTPS). Key exchange is NOT provided by STREAM.</p>
+<ul>
+<li>STREAM Version (optional -- assumed to be version 1 unless specified)</li>
+<li>Server ILP Address</li>
+<li>Cryptographically secure random or pseudorandom shared secret (it is RECOMMENDED to use 32 bytes)</li>
+</ul>
+<p>To avoid storing a 32 byte secret for each connection, a server MAY deterministically generate the shared secret for each connection from a single server secret and a nonce appended to the ILP Address given to a particular client, for example by using an HMAC.</p>
+<h3 id="42-matching-packets-to-connections">4.2. Matching Packets to Connections</h3>
+<p>Incoming packets can either be associated with an existing connection, or, for servers, potentially create a new connection. Endpoints MAY append extra segments to the ILP addresses assigned to them by their upstream connectors to help direct incoming packets.</p>
+<p>STREAM packets are completely encrypted so endpoints must try to decrypt and parse them to determine whether a given packet was sent by the other endpoint of a connection. Incoming Prepare packets whose data cannot be decrypted with the expected shared secret MUST be rejected with <code>F06: Unexpected Payment</code> errors.</p>
+<h3 id="43-client-address-communication-and-connection-migration">4.3. Client Address Communication and Connection Migration</h3>
+<p>When a client connects to a server, they MUST communicate their ILP address to the server using a <code>ConnectionNewAddress</code> frame.</p>
+<p>Either endpoint MAY change their ILP address at any point during a connection by sending a <code>ConnectionNewAddress</code> frame. To ensure the new address is received and acknowledged, implementations MAY choose to send these frames only in ILP Prepare packets.</p>
+<p>Implementations SHOULD wait for a valid response (encrypted with the same shared secret) from the new address to validate the new path. STREAM uses the authenticated request/response packets in lieu of <a href="https://quicwg.github.io/base-drafts/draft-ietf-quic-transport.html#rfc.section.6.7">QUIC's explicit Path Validation</a>. Implementations SHOULD refrain from sending large numbers of packets or large amounts of data to a new ILP address before validating the path to avoid being tricked into participating in a Denial of Service (DoS) attack on a third-party endpoint.</p>
+<h4 id="431-connection-asset-details">4.3.1. Connection Asset Details</h4>
+<p>Each endpoint MAY expose their asset details by sending a <code>ConnectionAssetDetails</code> frame.</p>
+<h3 id="44-streams">4.4. Streams</h3>
+<p>Once a connection is established, either endpoint can create streams to send money or data.</p>
+<h4 id="441-opening-new-streams">4.4.1. Opening New Streams</h4>
+<p>Streams are opened when either side sends a <code>StreamMoney</code> or <code>StreamData</code> frame with a previously unused stream ID.</p>
+<p>Client streams MUST be odd-numbered starting with 1 and server-initiated streams MUST be even-numbered starting with 2. If an endpoint sends a packet for an unopened stream with the wrong number, the receiving endpoint MUST close the connection with a <code>ProtocolViolationError</code>.</p>
+<h4 id="442-sending-money">4.4.2. Sending Money</h4>
+<p>Money can be sent for a given stream by sending an ILP Prepare packet with a non-zero <code>amount</code> and a <code>StreamMoney</code> frame in the STREAM packet to indicate which stream the money is for. A single ILP Prepare can carry value destined for multiple streams and the <code>shares</code> field in each of the <code>StreamMoney</code> frames indicates what portion of the Prepare amount should go to each stream.</p>
+<h4 id="443-sending-data">4.4.3. Sending Data</h4>
+<p>Data can be sent for a given stream by sending an ILP Prepare packet with a <code>StreamData</code> frame in the STREAM packet. A single ILP Prepare can carry data destined for multiple streams.</p>
+<h4 id="444-stream-level-flow-control">4.4.4. Stream-Level Flow Control</h4>
+<p>Each endpoint can limit the amount of money and data they are willing to receive on a particular stream. STREAM uses a credit-based flow control scheme inspired by <a href="https://quicwg.github.io/base-drafts/draft-ietf-quic-transport.html#rfc.section.10">QUIC</a>. Each endpoint advertises the maximum amount of money they are willing to receive, using <code>StreamMaxMoney</code> frames, as well as the maximum number of bytes each stream can receive, using <code>StreamMaxData</code> frames.</p>
+<p>Endpoints MAY advertise larger offsets at any point by sending new <code>StreamMaxMoney</code> or <code>StreamMaxData</code> frames. An endpoint MUST NOT renege on an advertisement. Once an endpoint advertises a given maximum receive amount or maximum byte offset, they MUST NOT advertise a smaller value later. The sending endpoint could receive the frames out of order and so they MUST ignore flow control offsets that do not increase the window.</p>
+<p>The receiving endpoint MUST close the connection with a <code>FlowControlError</code> if the sender violates the advertised stream limits.</p>
+<p>Senders SHOULD send <code>StreamMoneyBlocked</code> and <code>StreamDataBlocked</code> frames when they have more money or data to send that would exceed the other endpoint's advertised limits. These are primarily intended for debugging purposes.</p>
+<h4 id="445-closing-streams">4.4.5. Closing Streams</h4>
+<p>Either endpoint can close a stream using a <code>StreamClose</code> frame. Implementations MAY allow half-open streams (where one side has closed and the other is still able to send).</p>
+<p><code>StreamClose</code> frames are used to communicate both normal stream closes as well as errors.</p>
+<h3 id="45-connection-level-flow-control">4.5. Connection-Level Flow Control</h3>
+<p>Similar to the <a href="#444-stream-level-flow-control">stream-level flow control</a>, endpoints can limit the total amount of incoming data on all streams. Endpoints advertise the total number of bytes they are willing to receive on a given connection using <code>ConnectionMaxData</code> frames. Endpoints MAY increase the advertised limits by sending additional <code>ConnectionMaxData</code> frames with higher total byte limits.</p>
+<p>The receiving endpoint MUST close the connection with a <code>FlowControlError</code> if the sender violates the advertised limit.</p>
+<h3 id="46-closing-connections">4.6. Closing Connections</h3>
+<p>Either endpoint can close the connection using a <code>ConnectionClose</code> frame. Implementations MAY allow half-open connections (where one side has closed the connection and the other is still able to send).</p>
+<p><code>ConnectionClose</code> frames are used to communicate both normal connection closes as well as errors.</p>
+<h2 id="5-packet-and-frame-specification">5. Packet and Frame Specification</h2>
+<p>STREAM packets are encrypted and attached to ILP Prepare, Fulfill, and Reject packets as the <code>data</code> field.</p>
+<p>STREAM uses the <a href="http://www.oss.com/asn1/resources/books-whitepapers-pubs/Overview_of_OER.pdf">Octet Encoding Rules (OER)</a> to encode packet fields.</p>
+<h3 id="51-encryption">5.1. Encryption</h3>
+<p>All STREAM packets are encrypted using <a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode">AES-256-GCM</a> with a 12-byte Initialization Vector (IV) and a 16-Byte Authentication Tag.</p>
+<p>If subsequent versions support additional encryption algorithms, those details should be exchanged between the sender and receiver when they establish the shared secret. If a receiver attempts to decrypt an incoming packet but is unable to (perhaps because the sender is using an unsupported cipher), the receiver SHOULD reject the incoming transfer with an <code>F06: Unexpected Payment</code> error.</p>
+<h4 id="511-encryption-envelope">5.1.1. Encryption Envelope</h4>
+<p>See the <a href="/rfcs/asn1/Stream.asn.html">ASN.1 definition</a> for the formal encryption envelope specification.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Random IV</td>
+<td>12-Byte UInt</td>
+<td>Nonce used as input to the AES-GCM algorithm. Also ensures conditions are random. Endpoints MUST NOT encrypt two packets with the same nonce</td>
+</tr>
+<tr>
+<td>Authentication Tag</td>
+<td>16-Byte UInt</td>
+<td>Authentication tag produced by AES-GCM encryption that ensures data integrity</td>
+</tr>
+<tr>
+<td>Ciphertext</td>
+<td>0-32739 Bytes</td>
+<td>Encrypted data (see below for contents)</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the <code>Ciphertext</code> is NOT length-prefixed. The length can be inferred from the ILP packet because the whole <code>data</code> field is encoded with a length prefix. (This is done so that the entire <code>data</code> field is indistinguishable from random bytes.)</p>
+<h4 id="512-encryption-pseudocode">5.1.2. Encryption Pseudocode</h4>
+<p>The encryption key used for every packet sent for a given connection is the HMAC-SHA256 digest of the shared secret and the string <code>"ilp_stream_encryption"</code>, encoded as UTF-8 or ASCII (the byte representation is the same with both encodings).</p>
+<pre><code class="js">var iv = random_bytes(12);
+var encryption_key = hmac_sha256(shared_secret, "ilp_stream_encryption");
+var { ciphertext, auth_tag } = aes_256_gcm(encryption_key, iv, data);
+</code></pre>
+<h4 id="513-maximum-number-of-packets-per-connection">5.1.3. Maximum Number of Packets Per Connection</h4>
+<p>Implementations MUST close the connection once either endpoint has sent 2^31 packets. According to <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf">NIST</a>, it is unsafe to use AES-GCM for more than 2^32 packets using the same encryption key. (STREAM uses the limit of 2^31 because both endpoints encrypt packets with the same key.)</p>
+<h4 id="514-maximum-varuint-size">5.1.4. Maximum VarUInt Size</h4>
+<p>Implementations MAY NOT support <code>VarUInt</code>s larger than <code>MaxUInt64</code> (for performance reasons).</p>
+<p>If an implementation does not support larger <code>VarUInt</code>s, it MUST:</p>
+<ul>
+<li>When decoding a <code>StreamMaxMoney</code> frame, if the <code>receiveMax</code> is too large to fit in a <code>UInt64</code>, decode <code>receiveMax</code> as <code>MaxUInt64</code>.</li>
+<li>When decoding a <code>StreamMoneyBlockedFrame</code> frame, if the <code>sendMax</code> is too large to fit in a <code>UInt64</code>, decode <code>sendMax</code> as <code>MaxUInt64</code>.</li>
+</ul>
+<h3 id="52-stream-packet">5.2. STREAM Packet</h3>
+<p>See the <a href="/rfcs/asn1/Stream.asn.html">ASN.1 definition</a> for the formal packet specification.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version</td>
+<td>UInt8</td>
+<td><code>1</code> for this version</td>
+</tr>
+<tr>
+<td>ILP Packet Type</td>
+<td>UInt8</td>
+<td>ILPv4 packet type this STREAM packet MUST be sent in (<code>12</code> for Prepare, <code>13</code> for Fulfill, and <code>14</code> for Reject). Endpoints MUST discard STREAM packets that comes in on the wrong ILP Packet Type. (This is done to prevent malicious intermediaries from swapping the <code>data</code> fields from different valid ILP packets.)</td>
+</tr>
+<tr>
+<td>Sequence</td>
+<td>VarUInt</td>
+<td>Identifier for an ILP request / response. Clients and Servers track their own outgoing packet sequence numbers and increment the <code>Sequence</code> for each ILP Prepare they send. The Receiver MUST respond with a STREAM packet that includes the same <code>Sequence</code> as the Sender's Prepare packet. A sender MUST discard a STREAM packet in which the <code>Sequence</code> does not match the STREAM packet sent with their ILP Prepare.</td>
+</tr>
+<tr>
+<td>Prepare Amount</td>
+<td>VarUInt</td>
+<td>If the STREAM packet is sent on an ILP Prepare, this represents the minimum the receiver should accept. If the packet is sent on an ILP Fulfill or Reject, this represents the amount that the receiver got in the Prepare.</td>
+</tr>
+<tr>
+<td>Frames</td>
+<td>SEQUENCE OF Frame</td>
+<td>An array of Frames, which are specified below.</td>
+</tr>
+<tr>
+<td>Junk Data</td>
+<td>N/A</td>
+<td>Extra bytes that MUST be ignored. Implementations MAY append zero-bytes to pad packets to a specific size. Future versions of STREAM may specify additional fields that come after the <code>Frames</code> (zero-bytes MUST be used for padding to avoid confusion with future protocol versions).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-frames">5.3. Frames</h3>
+<p>See the <a href="/rfcs/asn1/Stream.asn.html">ASN.1 definition</a> for the formal specification of the frame encoding and each frame type.</p>
+<p>Each frame is encoded with its 1-byte type and length prefix. Implementations MUST ignore frames with unknown types. Future versions of STREAM may add new frame types.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>UInt8</td>
+<td>Identifier for the frame type (see below)</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>Variable-Length Octet String</td>
+<td>Frame contents</td>
+</tr>
+</tbody>
+</table>
+<p>The frame types are as follows and each is described in greater detail below:</p>
+<table>
+<thead>
+<tr>
+<th>Type ID</th>
+<th>Frame</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x01</code></td>
+<td>Connection Close</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td>Connection New Address</td>
+</tr>
+<tr>
+<td><code>0x03</code></td>
+<td>Connection Max Data</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td>Connection Data Blocked</td>
+</tr>
+<tr>
+<td><code>0x05</code></td>
+<td>Connection Max Stream ID</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td>Connection Stream ID Blocked</td>
+</tr>
+<tr>
+<td><code>0x07</code></td>
+<td>Connection Asset Details</td>
+</tr>
+<tr>
+<td><code>0x10</code></td>
+<td>Stream Close</td>
+</tr>
+<tr>
+<td><code>0x11</code></td>
+<td>Stream Money</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td>Stream Money Max</td>
+</tr>
+<tr>
+<td><code>0x13</code></td>
+<td>Stream Money Blocked</td>
+</tr>
+<tr>
+<td><code>0x14</code></td>
+<td>Stream Data</td>
+</tr>
+<tr>
+<td><code>0x15</code></td>
+<td>Stream Data Max</td>
+</tr>
+<tr>
+<td><code>0x16</code></td>
+<td>Stream Data Blocked</td>
+</tr>
+</tbody>
+</table>
+<h4 id="531-connectionclose-frame">5.3.1. <code>ConnectionClose</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Error Code</td>
+<td>UInt8</td>
+<td>Machine-readable <a href="#54-error-codes">Error Code</a> indicating why the connection was closed.</td>
+</tr>
+<tr>
+<td>Error Message</td>
+<td>Utf8String</td>
+<td>Human-readable string intended to give more information helpful for debugging purposes.</td>
+</tr>
+</tbody>
+</table>
+<p>If implementations allow half-open connections, an endpoint MAY continue sending packets after receiving a <code>ConnectionClose</code> frame. Otherwise, the endpoint MUST close the connection immediately.</p>
+<h4 id="532-connectionnewaddress-frame">5.3.2. <code>ConnectionNewAddress</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source Address</td>
+<td>ILP Address</td>
+<td>New ILP address of the endpoint that sent the frame.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="533-connectionmaxdata-frame">5.3.3. <code>ConnectionMaxData</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max Offset</td>
+<td>VarUInt</td>
+<td>The total number of bytes the endpoint is willing to receive on this connection.</td>
+</tr>
+</tbody>
+</table>
+<p>Endpoints MUST NOT exceed the total number of bytes the other endpoint is willing to accept.</p>
+<h4 id="534-connectiondatablocked-frame">5.3.4. <code>ConnectionDataBlocked</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max Offset</td>
+<td>VarUInt</td>
+<td>The total number of bytes the endpoint wants to send.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="535-connectionmaxstreamid-frame">5.3.5. <code>ConnectionMaxStreamId</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max Stream ID</td>
+<td>VarUInt</td>
+<td>The maximum stream ID the endpoint is willing to accept.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="536-connectionstreamidblocked-frame">5.3.6. <code>ConnectionStreamIdBlocked</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max Stream ID</td>
+<td>VarUInt</td>
+<td>The maximum stream ID the endpoint wishes to open.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="537-streamclose-frame">5.3.7. <code>StreamClose</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stream ID</td>
+<td>VarUInt</td>
+<td>Identifier of the stream this frame refers to.</td>
+</tr>
+<tr>
+<td>Error Code</td>
+<td>UInt8</td>
+<td>Machine-readable <a href="#54-error-codes">Error Code</a> indicating why the stream was closed.</td>
+</tr>
+<tr>
+<td>Error Message</td>
+<td>Utf8String</td>
+<td>Human-readable string intended to give more information helpful for debugging purposes.</td>
+</tr>
+</tbody>
+</table>
+<p>If implementations allow half-open streams, an endpoint MAY continue sending money or data for this stream after receiving a <code>StreamClose</code> frame. Otherwise, the endpoint MUST close the stream immediately.</p>
+<h4 id="538-streammoney-frame">5.3.8. <code>StreamMoney</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stream ID</td>
+<td>VarUInt</td>
+<td>Identifier of the stream this frame refers to.</td>
+</tr>
+<tr>
+<td>Shares</td>
+<td>VarUInt</td>
+<td>Proportion of the ILP Prepare <code>amount</code> destined for the stream specified.</td>
+</tr>
+</tbody>
+</table>
+<p>The amount of money that should go to each stream is calculated by dividing the number of shares for the given stream by the total number of shares in all of the <code>StreamMoney</code> frames in the packet.</p>
+<p>For example, if an ILP Prepare packet has an amount of 100 and three <code>StreamMoney</code> frames with 5, 15, and 30 shares for streams 2, 4, and 6, respectively, that would indicate that stream 2 should get 10 units, stream 4 gets 30 units, and stream 6 gets 60 units.</p>
+<p>If the Prepare amount is not divisible by the total number of shares, implementations SHOULD round the stream amounts down. The remainder SHOULD be allocated to the lowest-numbered open stream that has not reached its maximum receive amount.</p>
+<h4 id="539-streammaxmoney-frame">5.3.9. <code>StreamMaxMoney</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stream ID</td>
+<td>VarUInt</td>
+<td>Identifier of the stream this frame refers to.</td>
+</tr>
+<tr>
+<td>Receive Max</td>
+<td>VarUInt</td>
+<td>Total amount, denominated in the units of the endpoint sending this frame, that the endpoint is willing to receive on this stream.</td>
+</tr>
+<tr>
+<td>Total Received</td>
+<td>VarUInt</td>
+<td>Total amount, denominated in the units of the endpoint sending this frame, that the endpoint has received thus far.</td>
+</tr>
+</tbody>
+</table>
+<p>The amounts in this frame are denominated in the units of the endpoint sending the frame, so the other endpoint must use their calculated exchange rate to determine how much more they can send for this stream.</p>
+<h4 id="5310-streammoneyblocked-frame">5.3.10. <code>StreamMoneyBlocked</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stream ID</td>
+<td>VarUInt</td>
+<td>Identifier of the stream this frame refers to.</td>
+</tr>
+<tr>
+<td>Send Max</td>
+<td>VarUInt</td>
+<td>Total amount, denominated in the units of the endpoint sending this frame, that the endpoint wants to send.</td>
+</tr>
+<tr>
+<td>Total Sent</td>
+<td>VarUInt</td>
+<td>Total amount, denominated in the units of the endpoint sending this frame, that the endpoint has sent already.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="5311-streamdata-frame">5.3.11. <code>StreamData</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stream ID</td>
+<td>VarUInt</td>
+<td>Identifier of the stream this frame refers to.</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>VarUInt</td>
+<td>Position of this data in the byte stream.</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>VarOctetString</td>
+<td>Application data.</td>
+</tr>
+</tbody>
+</table>
+<p>Packets may be received out of order so the <code>Offset</code> is used to indicate the correct position of the byte segment in the overall stream. The first <code>StreamData</code> frame sent for a given stream MUST start with an <code>Offset</code> of zero.</p>
+<h4 id="5312-streammaxdata-frame">5.3.12. <code>StreamMaxData</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stream ID</td>
+<td>VarUInt</td>
+<td>Identifier of the stream this frame refers to.</td>
+</tr>
+<tr>
+<td>Max Offset</td>
+<td>VarUInt</td>
+<td>The total number of bytes the endpoint is willing to receive on this stream.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="5313-streamdatablocked-frame">5.3.13. <code>StreamDataBlocked</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stream ID</td>
+<td>VarUInt</td>
+<td>Identifier of the stream this frame refers to.</td>
+</tr>
+<tr>
+<td>Max Offset</td>
+<td>VarUInt</td>
+<td>The total number of bytes the endpoint wants to send on this stream.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="5314-connectionassetdetails-frame">5.3.14. <code>ConnectionAssetDetails</code> Frame</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source Asset Code</td>
+<td>Utf8String</td>
+<td>Asset code of endpoint that sent the frame.</td>
+</tr>
+<tr>
+<td>Source Asset Scale</td>
+<td>UInt8</td>
+<td>Asset scale of endpoint that sent the frame.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="54-error-codes">5.4. Error Codes</h3>
+<p>Error codes are sent in <code>StreamClose</code> and <code>ConnectionClose</code> frames to indicate what caused the stream or connection to be closed.</p>
+<table>
+<thead>
+<tr>
+<th>Error Code</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x01</code></td>
+<td><code>NoError</code></td>
+<td>Indicates the stream or connection closed normally.</td>
+</tr>
+<tr>
+<td><code>0x02</code></td>
+<td><code>InternalError</code></td>
+<td>The endpoint encountered an unexpected error.</td>
+</tr>
+<tr>
+<td><code>0x03</code></td>
+<td><code>EndpointBusy</code></td>
+<td>The endpoint is temporarily overloaded and unable to process the packet.</td>
+</tr>
+<tr>
+<td><code>0x04</code></td>
+<td><code>FlowControlError</code></td>
+<td>The other endpoint exceeded the flow control limits advertised.</td>
+</tr>
+<tr>
+<td><code>0x05</code></td>
+<td><code>StreamIdError</code></td>
+<td>The other endpoint opened more streams than allowed.</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td><code>StreamStateError</code></td>
+<td>The other endpoint sent frames for a stream that is already closed.</td>
+</tr>
+<tr>
+<td><code>0x07</code></td>
+<td><code>FrameFormatError</code></td>
+<td>The other endpoint sent a frame with invalid syntax.</td>
+</tr>
+<tr>
+<td><code>0x08</code></td>
+<td><code>ProtocolViolation</code></td>
+<td>The other endpoint sent invalid data or otherwise violated the protocol.</td>
+</tr>
+<tr>
+<td><code>0x09</code></td>
+<td><code>ApplicationError</code></td>
+<td>The application using STREAM closed the stream or connection with an error.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-condition-and-fulfillment-generation">6. Condition and Fulfillment Generation</h2>
+<p>There are two methods the sender can use to generate the condition, depending on whether they want the payment to be fulfillable or not.</p>
+<h3 id="61-unfulfillable-condition">6.1. Unfulfillable Condition</h3>
+<p>If the sender does not want the receiver to be able to fulfill the payment (as for an informational quote), they can generate an unfulfillable random condition.</p>
+<pre><code class="js">var condition = random_bytes(32);
+</code></pre>
+<h4 id="62-fulfillable-condition">6.2. Fulfillable Condition</h4>
+<p>If the sender does want the receiver to be able to fulfill the condition, the condition MUST be generated in the following manner.</p>
+<p>The <code>shared_secret</code> is the cryptographic seed exchanged during <a href="#41-setup">Setup</a>. The string <code>"ilp_stream_fulfillment"</code> is encoded as UTF-8 or ASCII (the byte representation is the same with both encodings). The <code>data</code> is the encrypted STREAM packet.</p>
+<pre><code class="js">var hmac_key = hmac_sha256(shared_secret, "ilp_stream_fulfillment");
+var fulfillment = hmac_sha256(hmac_key, data);
+var condition = sha256(fulfillment);
+</code></pre>
+<h4 id="63-fulfillment-generation">6.3. Fulfillment Generation</h4>
+<p>The following pseudocode details how the receiver regenerates the fulfillment from the data.</p>
+<p>The <code>shared_secret</code> is the cryptographic seed exchanged during <a href="#41-setup">Setup</a>. The string <code>"ilp_stream_fulfillment"</code> is encoded as UTF-8 or ASCII (the byte representation is the same with both encodings). The <code>data</code> is the encrypted STREAM packet.</p>
+<pre><code class="js">var hmac_key = hmac_sha256(shared_secret, "ilp_stream_fulfillment");
+var fulfillment = hmac_sha256(hmac_key, data);
+</code></pre>
+<h2 id="appendix-a-similarities-and-differences-with-quic">Appendix A: Similarities and Differences with QUIC</h2>
+<p>Unlike QUIC, STREAM:</p>
+<ul>
+<li>Has only one packet header instead of QUIC's short and long headers.</li>
+<li>Uses the shared secret to identify the Connection rather than having a separate Connection ID.</li>
+<li>Does not include a cryptographic handshake, because STREAM assumes a symmetric secret is communicated out of band.</li>
+<li>Does not support unidirectional frames. The QUIC community had significant debate over whether to include unidirectional streams, bidirectional streams, or both. They settled on both primarily to support the HTTP request/response pattern as well as HTTP/2 Server Push. Unidirectional streams were left out of STREAM because they add complexity and are a premature optimization for this protocol now.</li>
+<li>Does not have ACK frames, because ILP Prepare packets must be acknowledged with either a Fulfill or Reject packet. If the response includes an (authenticated) STREAM packet, the sender can treat that as an acknowledgement of the control and data frames from the Prepare packet they sent.</li>
+<li>Does not have Ping, Path Challenge, or Path Challenge Response frames, because a STREAM packet with no frames can be used instead. As long as the Client and Server increment the packet sequence for each packet they send, a valid Fulfill or Reject packet from the Receiver that includes the correct sequence in the encrypted data serves as the path challenge and response.</li>
+</ul>
+    </div>
+  </article>
+        </main>
+
+        <aside class="right-sidebar col-lg-3 order-lg-4 p-0" role="complementary">
+  <div class="card" id="page-toc-wrapper">
+    <div class="card-header">
+      <h4>On This Page</h4>
+    </div>
+    <ul class="card-body">
+      <li class="level-1"><a href="#stream-a-multiplexed-money-and-data-transport-for-ilp">STREAM: A Multiplexed Money and Data Transport for ILP</a></li>
+<li class="level-2"><a href="#abstract">Abstract</a></li>
+<li class="level-2"><a href="#1-introduction">1. Introduction</a></li>
+<li class="level-2"><a href="#2-conventions-and-definitions">2. Conventions and Definitions</a></li>
+<li class="level-2"><a href="#3-overview">3. Overview</a></li>
+<li class="level-3"><a href="#31-relationship-with-other-protocols">3.1. Relationship with Other Protocols</a></li>
+<li class="level-3"><a href="#32-why-streams">3.2. Why Streams?</a></li>
+<li class="level-3"><a href="#33-multiplexed-streams">3.3. Multiplexed Streams</a></li>
+<li class="level-3"><a href="#34-exchange-rates">3.4. Exchange Rates</a></li>
+<li class="level-3"><a href="#35-packets-and-frames">3.5. Packets and Frames</a></li>
+<li class="level-3"><a href="#36-packet-acknowledgements-acks">3.6. Packet Acknowledgements (ACKs)</a></li>
+<li class="level-2"><a href="#4-life-of-a-connection">4. Life of a Connection</a></li>
+<li class="level-3"><a href="#41-setup">4.1. Setup</a></li>
+<li class="level-3"><a href="#42-matching-packets-to-connections">4.2. Matching Packets to Connections</a></li>
+<li class="level-3"><a href="#43-client-address-communication-and-connection-migration">4.3. Client Address Communication and Connection Migration</a></li>
+<li class="level-3"><a href="#44-streams">4.4. Streams</a></li>
+<li class="level-3"><a href="#45-connection-level-flow-control">4.5. Connection-Level Flow Control</a></li>
+<li class="level-3"><a href="#46-closing-connections">4.6. Closing Connections</a></li>
+<li class="level-2"><a href="#5-packet-and-frame-specification">5. Packet and Frame Specification</a></li>
+<li class="level-3"><a href="#51-encryption">5.1. Encryption</a></li>
+<li class="level-3"><a href="#52-stream-packet">5.2. STREAM Packet</a></li>
+<li class="level-3"><a href="#53-frames">5.3. Frames</a></li>
+<li class="level-3"><a href="#54-error-codes">5.4. Error Codes</a></li>
+<li class="level-2"><a href="#6-condition-and-fulfillment-generation">6. Condition and Fulfillment Generation</a></li>
+<li class="level-3"><a href="#61-unfulfillable-condition">6.1. Unfulfillable Condition</a></li>
+<li class="level-2"><a href="#appendix-a-similarities-and-differences-with-quic">Appendix A: Similarities and Differences with QUIC</a></li>
+
+    </ul>
+  </div>
+        </aside>
+
+        </div><!--/.row (main layout)-->
+      </div>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-sm-9 col-xs-12 float-left">
+                    <img src="/assets/img/footerlogo.png">
+                </div>
+                <div class="col-sm-3 col-xs-12 float-right">
+                    <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>
+                    <a href="https://communityinviter.com/apps/interledger/interledger-working-groups-slack"><img src="/assets/img/Slack.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/highlight.pack.js"></script>
+<script src="/assets/js/custom.js"></script>
+<!-- <script src="/assets/js/home.js"></script> -->
+<!-- <script type="text/javascript" src="/assets/js/svg-animation.js"></script> -->
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68500608-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

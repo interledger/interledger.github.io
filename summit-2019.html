@@ -1,127 +1,217 @@
----
-layout: page
-title: "ILP Summit 2019 Videos"
-body-class: "docs-overview"
-active-nav: "Docs"
-active-sub-nav: "ILP Summit 2019"
----
-<!-- docs overview section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The protocol for connecting blockchains and other ledgers">
 
-<div class="container docs-wrapper">
-  <div class="row">
-    {% include docs-sidebar.html %}
-    <div class="col-sm-8 wrapper">
-      <h1 class="page-header">ILP Summit 2019 Videos</h1>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-      <p class="intro">The 2019 summit brought together developers, entrepreneurs, and researchers in San Francisco for
-        two days of sharing, building, and learning. Here you can find the recordings of the sessions and talks.
-        Enjoy!</p>
+    <!-- Custom styles -->
+    <link href="/assets/css/custom.css" rel="stylesheet">
 
-      <h2>Welcome and State of the Interledger - Evan Schwartz</h2>
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900|Droid+Sans+Mono|Titillium+Web:400,300,600,900' rel='stylesheet' type='text/css'>
 
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HTXLAM3PCUY" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <link href="/assets/favicon.png" rel="icon" type="image/x-icon">
 
-      <h2>Summit Kickoff - Ethan Beard, Xpring</h2>
+    <!--  highlight js -->
+    <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/tPM3lKxD2W8" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-      <h2>Running Connectors - Strata Labs</h2>
 
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/TfulRP3cmXU" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-      <h2>Coil and Web Monetization</h2>
 
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/D-_L8qR78vU" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</head>
 
-      <h2>Puma Browser Demo</h2>
+<body class="sidebar-primary ">
 
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qyTKeBTaYQY" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <!-- <div class="container"> -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
+            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
-      <h2>Demo of CryptoCowboy's Trading Algorithm</h2>
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarHolder">
+              <ul class="nav navbar-nav">
+                    <li class="nav-item" ><a class="nav-link" href="/overview.html">Docs</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/libraries.html">Tools</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/interledger">Edit on Github</a></li>
+                    <li class="nav-item"><a class="nav-link cornerlink" href="/getting-started.html">Get Started</a></li>
+              </ul><!-- /.navbar-nav -->
+              <div class="cornerbox"></div>
+            </div>
+            <div class="menu-overlay"></div>
+        </nav>
+    <!-- </div> -->
 
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FlH6J14Xzz8" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="container-fluid" role="document" id="main_content_wrapper">
+        <div class="row">
 
-      <h2>Switch API: Building a Cryptocurrency Wallet Using ILP - Kava</h2>
+        <aside class="sidebar col-md-4 col-lg-3 p-0 order-md-1" role="complementary">
 
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UxlhAozG2Fk" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div id="sidenav" class="tree_nav">
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Quick Start</li>
+        <li><a href="/overview.html">Overview</a></li>
+        <li><a href="/getting-started.html">Getting Started</a></li>
+      </ul>
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Community Resources</li>
+        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
+        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
+      </ul>
 
-      <h2>Business Use Cases for Interledger - Warren Paul Anderson, Xpring</h2>
+      <div class="sidebar-nav-header">Specs</div>
+      <ul class=" sidebar_pagelist sidebar_indent">
+        <!--    <li><a href="/rfcs/0001-interledger-architecture/">Interledger Architecture</a></li> -->
+        <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+        <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+        <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+        <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+        <li><a href="/rfcs/0026-payment-pointers/">Payment Pointers</a></li>
+        <li><a href="/rfcs/0028-web-monetization/">Web Monetization</a></li>
+        <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+        <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+        <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+        <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+        <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
 
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yCrDKRMDRnM" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </ul>
+    </div>        </aside>
 
-      <h2>Rafiki Workshop - Adrian Hope-Bailie, Coil</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/lZyy8IkfcSk" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <h2>Cosmos and Interledger - Sunny Aggarwal, Cosmos</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Lr6gRsiOn4o" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <h2>Interledger in Rust - Evan Schwartz</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/m4t1EJPcxuA" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <h2>Flare Network - Sean Rowan</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9CpIWXbMhLk" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <h2>Harbor Wallet Demo - Daniel Caroll, Secure Blockchains</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qR6FVb3fid4" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <h2>Designing the eCommerce Experience for Interledger - Sabine Bertram, Coil</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/WsMmoD_1hrU" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <h2>'Always Be Settling' and Settlement Architecture Discussion - Kevin Davis, Kava</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zETkQROuKik" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <h2>Stronghold USD Integration of Interledger Streaming Payments - Sean Bennett</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/KIIh1qArlrw" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <h2>Interledger Project Governance Discussion</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Mk_Z_YMTzKA" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <h2>Interledger Routing Discussion</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/oYb46siJDyM" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <h2>Squire Demo - Christian Ondaatje</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Dxwm5pgEPk8" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <h2>Gatehub Demo - Uroš Hercog</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/bhOmhabQ0BE" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <h2>Future of Interledger - Stefan Thomas</h2>
-
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sZRb1l-G-rE" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+          <!-- main column -->
+        <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
+  <article class="pt-3 p-md-3">
+    <div class="content doc-content">
+        <h1 id="main-page-header">ILP Summit 2019 Videos</h1>
+        <p class="blurb">The 2019 summit brought together developers, entrepreneurs, and researchers in San Francisco for two days of sharing, building, and learning. Here you can find the recordings of the sessions and talks. Enjoy!</p>
+        <h2 id="welcome-and-state-of-the-interledger-evan-schwartz">Welcome and State of the Interledger - Evan Schwartz</h2>
+<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/HTXLAM3PCUY" width="560"></iframe>
+<h2 id="summit-kickoff-ethan-beard-xpring">Summit Kickoff - Ethan Beard, Xpring</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/tPM3lKxD2W8" width="560"></iframe></p>
+<h2 id="running-connectors-strata-labs">Running Connectors - Strata Labs</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/TfulRP3cmXU" width="560"></iframe></p>
+<h2 id="coil-and-web-monetization">Coil and Web Monetization</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/D-_L8qR78vU" width="560"></iframe></p>
+<h2 id="puma-browser-demo">Puma Browser Demo</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/D-_L8qR78vU" width="560"></iframe></p>
+<h2 id="demo-of-cryptocowboys-trading-algorithm">Demo of CryptoCowboy's Trading Algorithm</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/D-_L8qR78vU" width="560"></iframe></p>
+<h2 id="switch-api-building-a-cryptocurrency-wallet-using-ilp-kava">Switch API: Building a Cryptocurrency Wallet Using ILP - Kava</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/D-_L8qR78vU" width="560"></iframe></p>
+<h2 id="business-use-cases-for-interledger-warren-paul-anderson-xpring">Business Use Cases for Interledger - Warren Paul Anderson, Xpring</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/D-_L8qR78vU" width="560"></iframe></p>
+<h2 id="rafiki-workshop-adrian-hope-bailie-coil">Rafiki Workshop - Adrian Hope-Bailie, Coil</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/D-_L8qR78vU" width="560"></iframe></p>
+<h2 id="cosmos-and-interledger-sunny-aggarwal-cosmos">Cosmos and Interledger - Sunny Aggarwal, Cosmos</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/D-_L8qR78vU" width="560"></iframe></p>
+<h2 id="interledger-in-rust-evan-schwartz">Interledger in Rust - Evan Schwartz</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/D-_L8qR78vU" width="560"></iframe></p>
+<h2 id="flare-network-sean-rowan">Flare Network - Sean Rowan</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/D-_L8qR78vU" width="560"></iframe></p>
+<h2 id="harbor-wallet-demo-daniel-caroll-secure-blockchains">Harbor Wallet Demo - Daniel Caroll, Secure Blockchains</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/D-_L8qR78vU" width="560"></iframe></p>
+<h2 id="designing-the-ecommerce-experience-for-interledger-sabine-bertram-coil">Designing the eCommerce Experience for Interledger - Sabine Bertram, Coil</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/D-_L8qR78vU" width="560"></iframe></p>
+<h2 id="always-be-settling-and-settlement-architecture-discussion-kevin-davis-kava">'Always Be Settling' and Settlement Architecture Discussion - Kevin Davis, Kava</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/zETkQROuKik" width="560"></iframe></p>
+<h2 id="stronghold-usd-integration-of-interledger-streaming-payments-sean-bennett">Stronghold USD Integration of Interledger Streaming Payments - Sean Bennett</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/zETkQROuKik" width="560"></iframe></p>
+<h2 id="interledger-project-governance-discussion">Interledger Project Governance Discussion</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/zETkQROuKik" width="560"></iframe></p>
+<h2 id="interledger-routing-discussion">Interledger Routing Discussion</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/zETkQROuKik" width="560"></iframe></p>
+<h2 id="squire-demo-christian-ondaatje">Squire Demo - Christian Ondaatje</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/zETkQROuKik" width="560"></iframe></p>
+<h2 id="gatehub-demo-uros-hercog">Gatehub Demo - Uroš Hercog</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/bhOmhabQ0BE" width="560"></iframe></p>
+<h2 id="future-of-interledger-stefan-thomas">Future of Interledger - Stefan Thomas</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube-nocookie.com/embed/sZRb1l-G-rE" width="560"></iframe></p>
     </div>
+  </article>
+        </main>
+
+        <aside class="right-sidebar col-lg-3 order-lg-4 p-0" role="complementary">
+  <div class="card" id="page-toc-wrapper">
+    <div class="card-header">
+      <h4>On This Page</h4>
+    </div>
+    <ul class="card-body">
+      <li class="level-2"><a href="#welcome-and-state-of-the-interledger-evan-schwartz">Welcome and State of the Interledger - Evan Schwartz</a></li>
+<li class="level-2"><a href="#summit-kickoff-ethan-beard-xpring">Summit Kickoff - Ethan Beard, Xpring</a></li>
+<li class="level-2"><a href="#running-connectors-strata-labs">Running Connectors - Strata Labs</a></li>
+<li class="level-2"><a href="#coil-and-web-monetization">Coil and Web Monetization</a></li>
+<li class="level-2"><a href="#puma-browser-demo">Puma Browser Demo</a></li>
+<li class="level-2"><a href="#demo-of-cryptocowboys-trading-algorithm">Demo of CryptoCowboy's Trading Algorithm</a></li>
+<li class="level-2"><a href="#switch-api-building-a-cryptocurrency-wallet-using-ilp-kava">Switch API: Building a Cryptocurrency Wallet Using ILP - Kava</a></li>
+<li class="level-2"><a href="#business-use-cases-for-interledger-warren-paul-anderson-xpring">Business Use Cases for Interledger - Warren Paul Anderson, Xpring</a></li>
+<li class="level-2"><a href="#rafiki-workshop-adrian-hope-bailie-coil">Rafiki Workshop - Adrian Hope-Bailie, Coil</a></li>
+<li class="level-2"><a href="#cosmos-and-interledger-sunny-aggarwal-cosmos">Cosmos and Interledger - Sunny Aggarwal, Cosmos</a></li>
+<li class="level-2"><a href="#interledger-in-rust-evan-schwartz">Interledger in Rust - Evan Schwartz</a></li>
+<li class="level-2"><a href="#flare-network-sean-rowan">Flare Network - Sean Rowan</a></li>
+<li class="level-2"><a href="#harbor-wallet-demo-daniel-caroll-secure-blockchains">Harbor Wallet Demo - Daniel Caroll, Secure Blockchains</a></li>
+<li class="level-2"><a href="#designing-the-ecommerce-experience-for-interledger-sabine-bertram-coil">Designing the eCommerce Experience for Interledger - Sabine Bertram, Coil</a></li>
+<li class="level-2"><a href="#always-be-settling-and-settlement-architecture-discussion-kevin-davis-kava">'Always Be Settling' and Settlement Architecture Discussion - Kevin Davis, Kava</a></li>
+<li class="level-2"><a href="#stronghold-usd-integration-of-interledger-streaming-payments-sean-bennett">Stronghold USD Integration of Interledger Streaming Payments - Sean Bennett</a></li>
+<li class="level-2"><a href="#interledger-project-governance-discussion">Interledger Project Governance Discussion</a></li>
+<li class="level-2"><a href="#interledger-routing-discussion">Interledger Routing Discussion</a></li>
+<li class="level-2"><a href="#squire-demo-christian-ondaatje">Squire Demo - Christian Ondaatje</a></li>
+<li class="level-2"><a href="#gatehub-demo-uros-hercog">Gatehub Demo - Uroš Hercog</a></li>
+<li class="level-2"><a href="#future-of-interledger-stefan-thomas">Future of Interledger - Stefan Thomas</a></li>
+
+    </ul>
   </div>
-</div> <!-- /container -->
+        </aside>
+
+        </div><!--/.row (main layout)-->
+      </div>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-sm-9 col-xs-12 float-left">
+                    <img src="/assets/img/footerlogo.png">
+                </div>
+                <div class="col-sm-3 col-xs-12 float-right">
+                    <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>
+                    <a href="https://communityinviter.com/apps/interledger/interledger-working-groups-slack"><img src="/assets/img/Slack.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/highlight.pack.js"></script>
+<script src="/assets/js/custom.js"></script>
+<!-- <script src="/assets/js/home.js"></script> -->
+<!-- <script type="text/javascript" src="/assets/js/svg-animation.js"></script> -->
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68500608-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends "template-base.html" %}
+{% block head %}
+
+
+{% endblock %}
+
+
+{% block topnavclass %}nav-innerpage{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block main %}
+  <article class="pt-3 p-md-3">
+    <div class="content doc-content">
+        <h1 id="main-page-header">{{ currentpage.name }}</h1>
+        <p class="blurb">{{ currentpage.blurb }}</p>
+        {{ content }}
+    </div>
+  </article>
+{% endblock %}
+
+{% block right_sidebar %}
+  <div class="card" id="page-toc-wrapper">
+    <div class="card-header">
+      <h4>On This Page</h4>
+    </div>
+    <ul class="card-body">
+      {{ page_toc }}
+    </ul>
+  </div>
+{% endblock %}

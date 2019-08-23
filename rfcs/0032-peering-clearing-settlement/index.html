@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The protocol for connecting blockchains and other ledgers">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles -->
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900|Droid+Sans+Mono|Titillium+Web:400,300,600,900' rel='stylesheet' type='text/css'>
+
+    <link href="/assets/favicon.png" rel="icon" type="image/x-icon">
+
+    <!--  highlight js -->
+    <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+</head>
+
+<body class="sidebar-primary ">
+
+  <!-- <div class="container"> -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
+            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarHolder">
+              <ul class="nav navbar-nav">
+                    <li class="nav-item" ><a class="nav-link" href="/overview.html">Docs</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/libraries.html">Tools</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/interledger">Edit on Github</a></li>
+                    <li class="nav-item"><a class="nav-link cornerlink" href="/getting-started.html">Get Started</a></li>
+              </ul><!-- /.navbar-nav -->
+              <div class="cornerbox"></div>
+            </div>
+            <div class="menu-overlay"></div>
+        </nav>
+    <!-- </div> -->
+
+    <div class="container-fluid" role="document" id="main_content_wrapper">
+        <div class="row">
+
+        <aside class="sidebar col-md-4 col-lg-3 p-0 order-md-1" role="complementary">
+
+    <div id="sidenav" class="tree_nav">
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Quick Start</li>
+        <li><a href="/overview.html">Overview</a></li>
+        <li><a href="/getting-started.html">Getting Started</a></li>
+      </ul>
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Community Resources</li>
+        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
+        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
+      </ul>
+
+      <div class="sidebar-nav-header">Specs</div>
+      <ul class=" sidebar_pagelist sidebar_indent">
+        <!--    <li><a href="/rfcs/0001-interledger-architecture/">Interledger Architecture</a></li> -->
+        <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+        <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+        <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+        <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+        <li><a href="/rfcs/0026-payment-pointers/">Payment Pointers</a></li>
+        <li><a href="/rfcs/0028-web-monetization/">Web Monetization</a></li>
+        <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+        <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+        <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+        <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+        <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+
+      </ul>
+    </div>        </aside>
+
+          <!-- main column -->
+        <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
+  <article class="pt-3 p-md-3">
+    <div class="content doc-content">
+        <h1 id="peering-clearing-and-settling">Peering, Clearing and Settling</h1>
+<p>The Interledger network is a graph of nodes (connectors) that have peered with one another by establishing a means of exchanging ILP packets and a means of paying one another for the successful forwarding and delivery of the packets.</p>
+<p>Further details on the ILP Protocol can be found in the <a href="/rfcs/0027-interledger-protocol-4/">specification</a>.</p>
+<h2 id="accounts-and-balances">Accounts and Balances</h2>
+<p>The edge between any two nodes (peers) is a communication link (for exchanging ILP packets and other data), and an account held between the peers (the Interledger account). The Interledger account has a balance denominated in a mutually agreed upon asset (e.g. USD) at an agreed upon scale (e.g. 2). The balance on the account is <strong>the net total of the amounts on any packets "successfully" routed between the peers</strong>.</p>
+<p>The balance on the Interledger account can only change as a result of two events:
+ 1. The "successful" routing of an ILP packet between the two peers
+ 1. A payment made between the peers on the underlying payment network they have agreed to use to settle the Interledger account</p>
+<p><em><strong>NOTE:</strong> In this context a packet is considered "successfully" routed if it is routed to the correct recipient, and they reply with a valid ILP Fulfill response which is routed back before the expiry on the packet.</em></p>
+<p>This document provides further details on when these events occur and how they are handled by the peers. </p>
+<p>Because amounts are sent in a standard form (unsigned 64-bit integers) as part of the ILP Prepare packet headers, it is necessary to infer the currency/asset and scale of the amount from the context of the packet.</p>
+<p>This is why the asset and scale are pre-configured for each Interledger account between peers. Peers that wish to exchange packets using different assets or scale need to establish separate accounts for each.</p>
+<blockquote>
+<p><strong>Example : Alice and Bob peer using Satoshis</strong></p>
+<ul>
+<li>Alice and Bob are nodes on the network.  </li>
+<li>They agree to peer and exchange ILP packets using the <a href="/rfcs/0023-bilateral-transfer-protocol/">Bilateral Transfer Protocol (BTP)</a></li>
+<li>They also agree to denominate their Interledger account in Bitcoin (BTC) at a scale of 8 and settle using the Lightning network.</li>
+</ul>
+<p>In this scenario Alice and Bob exchange ILP packets, which they are either sending or forwarding on behalf of another peer, using the BTP protocol. Every ILP Prepare packet has an amount (represented as an unsigned 64-bit integer). Because of how they have agreed to setup their peering relationship a packet with an amount of 5 represents 0.00000005 BTC (5 satoshis).</p>
+</blockquote>
+<p>Once peered, the two connectors both track the Interledger account balance and adjust it for every ILP Packet successfully routed between them. </p>
+<p>When a connector sends an ILP Prepare packet to a peer, and receives a valid ILP Fulfill response, before the expiry of the ILP Prepare, their balance with that peer <strong>decreases</strong>. </p>
+<p>When a connector receives an ILP Prepare packet and returns a valid ILP Fulfill response, before the expiry of the ILP Prepare, their balance with that peer <strong>increases</strong>.</p>
+<p>One peer's balance should always be the additive inverse (negation) of the other peer's balance. I.e. If one peer has a balance of 10 the other peer should have a balance of -10.</p>
+<p>In financial accounting terms this could be viewed as a revenue/expense account where credits to this account are balanced by a debit to a corresponding "Accounts Receivable" asset account and debits to this account are balanced by a credit to a corresponding "Accounts Payable" liability account.</p>
+<blockquote>
+<p><strong>Example : Understanding Alice and Bob's accounts</strong></p>
+<p>Assuming they start with a balance of 0 and the following sequence of events occurs:</p>
+<ol>
+<li>Alice passes an ILP Prepare to Bob with an amount of 6.</li>
+<li>Bob replies, before the request expires, with a valid ILP Fulfill.</li>
+<li>Alice's balance is now -6 satoshis</li>
+<li>Bob's balance is now 6 satoshis</li>
+<li>Bob passes an ILP Prepare to Alice with an amount of 2.</li>
+<li>Alice is unable to route the packet and replies with an ILP Reject.</li>
+<li>Alice's balance is still -6 satoshis</li>
+<li>Bob's balance is still 6 satoshis</li>
+<li>Bob passes an ILP Prepare to Alice with an amount of 20.</li>
+<li>Alice replies, before the request expires, with a valid ILP Fulfill.</li>
+<li>Alice's balance is now 14 satoshis</li>
+<li>Bob's balance is now -14 satoshis</li>
+</ol>
+</blockquote>
+<h2 id="clearing">Clearing</h2>
+<p>The traditional definition of clearing a payment is the process by which the two parties establish their net positions and reconcile any differences.</p>
+<p>In the Interledger case this would involve the two peers exchanging data on what their current balance is and, if there is a discrepency, resolving this.</p>
+<p>Notably, clearing is not part of the Interledger standard, as the means by which two peers perform these operations is a bilateral concern (i.e. has no impact on others in the network).</p>
+<p>Current implementations of ILP do not have a standardized clearing process, as most peers settle very frequently using networks on which this is possible such as distributed ledgers which support payment channels, reducing the risk of discrepencies developing in their account balances.</p>
+<p>However, there is an edge case where the peer's balances may be out of sync, as demonstrated in this example:</p>
+<blockquote>
+<p><strong>Example : Alice and Bob reconcile</strong></p>
+<p>Assuming they start with a balance of 0 and the following sequence of events occurs:</p>
+<ol>
+<li>Bob passes an ILP Prepare to Alice with an amount of 20.</li>
+<li>Alice replies with a valid ILP Fulfill and believes she has done so before the request expires, however Bob considers the request to have expired and has already rejected the payment to his downstream peer.</li>
+<li>Alice's balance is 20 satoshis</li>
+<li>Bob's balance is 0 satoshis</li>
+</ol>
+<p>Clearly, Bob and Alice need to reconcile this situation however the specific mechanism they use and recourse they take to resolve this difference is outside the scope of the Interledger protocol.</p>
+</blockquote>
+<p>It is important to note that this is an extremely unlikely scenario as telescoping expiry timeouts between peers should reduce the risk of this to almost zero.</p>
+<p><em><strong>NOTE:</strong> Telescoping timeouts is the process of subtracting some time from the expiry on a packet before forwarding it. As a result the expiry time gets shorter at each hop. The amount that a node subtracts is at its discretion so it can ensure it gives itself enough time to pass the fulfillment back.</em></p>
+<p>Further, this is a single packet, and a key principal of the Interledger network is to break payments into very small packets so that in the unlikely event that this does occur the losses incurred by the two parties are negligible.</p>
+<p>Nonetheless, it is likely that future bilateral protocols (like BTP) will define more detailed processes for reconciliation and clearing.</p>
+<h2 id="settlement">Settlement</h2>
+<p>It is unlikely that the flow of packets between two peers will always net out such that the balance continuously tends toward zero. In most cases flows will be predominantly in one direction and there will be a need for the peers to reduce (or raise) them back to 0.</p>
+<p>This avoids a situation where one peer owes the other a large sum of money and is then unable or unwilling to pay (settlement risk). Connectors should define a maximum Interledger account balance to manage the settlement risk they expose themselves to with their peers.</p>
+<p>Further, the predominant peering arrangement on the open Interledger network is to settle as often as is practically possible and financially viable such that this risk is very low.</p>
+<p>In the case of peers that use payment channels to settle this can be done for every packet as the cost of settlement is almost zero (the cost of exchanging claims or updates on the channel). This reduces the settlement risk between peers down to the value of only those packets that are not yet fulfilled, rejected or expired (i.e. packets that are in-flight).</p>
+<p>Connectors will configure their own business rules regarding when to settle, based on how much they trust their peers and the costs and speed of settlement on the underlying network.</p>
+<p>For most implementations, this configuration will consist of, at a minimum, a maximum balance, and a settlement threshold. </p>
+<h3 id="maximum-balance">Maximum Balance</h3>
+<p>When a connector receives an incoming packet from a peer it will ensure that the amount of the packet, added to the current balance, does not exceed the maximum balance. If it does it MUST reject he packet with a <a href="https://interledger.org/rfcs/0027-interledger-protocol-4/#error-codes">T04 - Insufficient Liquidity</a> error.</p>
+<p>This is only likely to occur if: 
+ 1. The settlement threshold is lower than the additive inverse (negation) of the maximum balance at the peer, or
+ 1. The sending peer is unable to settle the account fast enough to keep up with the total amount in the packets being sent.</p>
+<p>In the former case the peer may choose to perform a settlement, even though it has not reached its settlement threshold so that the balance on the Interledger account at the peer is reduced below the maximum. </p>
+<p>In the latter case, the sending peer may need to throttle back on the packets it sends to the upstream peer or they will need to make an alternative settlement arrangement that can accomodate the volume.</p>
+<h3 id="settlement-threshold">Settlement Threshold</h3>
+<p>When a connector receives a successful response from a peer it will evaluate if the amount of the packet, subtracted from the current balance, is less than the settlement threshold. If so, the connector should perform a settlement, following which the balance on the Interledger account is adjusted up by the settlement amount.</p>
+<p>In a correctly configured peering the additive inverse (negation) of the settlement threshold of one peer will be less than the maximum balance of the other peer (see below for an example).</p>
+<blockquote>
+<p><strong>Example : Alice and Bob settle their account</strong></p>
+<p>Assuming they start with a balance of 0 and have configured the following. </p>
+<ul>
+<li>Alice has configured a settlement threshold of -10. This means Alice will settle with Bob as soon as she owes him 10 satoshis or more.</li>
+<li>Alice has configured a maximum balance of 20. This means Alice will reject any packets from Bob that would move the balance higher than 20.</li>
+<li>Bob has configured a settlement threshold of -15. This means Bob will settle with Alice as soon as he owes her 15 satoshis or more.</li>
+<li>Bob has configured a maximum balance of 5. This means Bob will reject any packets from Alice that would move the balance higher than 5 satoshis.</li>
+</ul>
+<p>If the following sequence of events occurs:</p>
+<ol>
+<li>Bob passes an ILP Prepare to Alice with an amount of 12.</li>
+<li>Alice replies with a valid ILP Fulfill. Alice's balance is now 12. Bob's balance is -12.</li>
+<li>Bob passes an ILP Prepare to Alice with an amount of 9.</li>
+<li>Alice rejects this with a T04 error code because this would take her balance over 20.</li>
+<li>Bob passes an ILP Prepare to Alice with an amount of 7.</li>
+<li>Alice replies with a valid ILP Fulfill. Alice's balance is now 19. Bob's balance is -19.</li>
+<li>Bob's balance is now past his settlement threshold of -15 so he makes a 19 satoshi Lightning payment to Alice and notifies her that he has settled the account. Bob's is now 0.</li>
+<li>Alice receives the payment and adjusts her balance to 0.</li>
+<li>Alice passes an ILP Prepare to Bob with an amount of 2.</li>
+<li>Bob replies with a valid ILP Fulfill. Bob's balance is now 2. Alice's balance is -2.</li>
+<li>Alice passes an ILP Prepare to Bob with an amount of 5.</li>
+<li>Bob rejects this with a T04 error code because this would take his balance over 5.</li>
+</ol>
+<p>Note how, because Bob has used very conservative limits on his maximum balance, and Alice has used a larger number for her settlement threshold, a situation will regularly arise where Bob reject packets from Alice because she is going to exceed Bob's maximum balance but she never hits her settlement threshold. While Alice can overcome this by settling whenever Bob rejects a packet with a T04 error a better solution would be for Alice to configure her threshold to be within Bob's maximum balance.</p>
+</blockquote>
+<h3 id="settlement-models-and-mechanisms">Settlement Models and Mechanisms</h3>
+<p>It should be clear at this point that the successful exchange of ILP packets between peers creates obligations between them that must be settled.</p>
+<p>What may not be obvious is that these obligations may also be "pre-settled". The most common model in use today is for a peer to send a packet, wait for it to be successfully routed, and then settle the Interledger account immediately or some time after. This is the "post-paid" model and is also the most common model for payments, clearing and settlement in other networks.</p>
+<p>However, nothing prevents two peers from creating a pre-paid settlement arrangement where the settlement must precede the ILP packet. This will most likely take place in an environment where the trust between peers is not shared equally (especially if a fast and cheap settlement mechanism is not available).</p>
+<p>Rather than take on any settlement risk, one peer may insist that the other always maintain a positive Interledger account balance. In this case the <a href="#maximum-balance">Maximum Balance</a> is configured by that peer to be 0.</p>
+<p>It is important to note that this has no impact on the settlement models used by others that have peered with these two nodes. An ILP packet can traverse a number of peer links, all of which have different settlement models and configurations.</p>
+<h3 id="settlement-vs-settlement">Settlement vs Settlement</h3>
+<p>The term settlement can be heavily overloaded in a payments context so it is important to note that in this document we refer to settlement as the settling of the Interledger account between two peers.</p>
+<p>If this is done using a payment over a network that has its own settlement phase, we still consider the act of paying the peer to be settlement.</p>
+<blockquote>
+<p><strong>Example : Alice and Bob settle (with each other)</strong></p>
+<p>Alice and Bob are settling in BTC using the Lightning network. In order to do this they both had to join the Lightning network and commit BTC to payment channels on that network.</p>
+<p>It could be argued that payments on the Lightning network are only settled once the channel is closed and all claims have been submitted on-chain. However, when settling the Interledger account between them, simply completing the Lightning payment is enough to consider the account settled as this is an irrevocable payment.</p>
+</blockquote>
+    </div>
+  </article>
+        </main>
+
+        <aside class="right-sidebar col-lg-3 order-lg-4 p-0" role="complementary">
+  <div class="card" id="page-toc-wrapper">
+    <div class="card-header">
+      <h4>On This Page</h4>
+    </div>
+    <ul class="card-body">
+      <li class="level-1"><a href="#peering-clearing-and-settling">Peering, Clearing and Settling</a></li>
+<li class="level-2"><a href="#accounts-and-balances">Accounts and Balances</a></li>
+<li class="level-2"><a href="#clearing">Clearing</a></li>
+<li class="level-2"><a href="#settlement">Settlement</a></li>
+<li class="level-3"><a href="#maximum-balance">Maximum Balance</a></li>
+<li class="level-3"><a href="#settlement-threshold">Settlement Threshold</a></li>
+<li class="level-3"><a href="#settlement-models-and-mechanisms">Settlement Models and Mechanisms</a></li>
+<li class="level-3"><a href="#settlement-vs-settlement">Settlement vs Settlement</a></li>
+
+    </ul>
+  </div>
+        </aside>
+
+        </div><!--/.row (main layout)-->
+      </div>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-sm-9 col-xs-12 float-left">
+                    <img src="/assets/img/footerlogo.png">
+                </div>
+                <div class="col-sm-3 col-xs-12 float-right">
+                    <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>
+                    <a href="https://communityinviter.com/apps/interledger/interledger-working-groups-slack"><img src="/assets/img/Slack.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/highlight.pack.js"></script>
+<script src="/assets/js/custom.js"></script>
+<!-- <script src="/assets/js/home.js"></script> -->
+<!-- <script type="text/javascript" src="/assets/js/svg-animation.js"></script> -->
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68500608-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
