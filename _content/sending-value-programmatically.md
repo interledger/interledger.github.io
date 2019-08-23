@@ -1,8 +1,3 @@
-# Sending Value Programmatically
-
-This tutorial shows how to send value over ILP using the SPSP API.
-
-
 ## Before you begin
 
 This tutorial assumes that you’re running `moneyd` and SPSP server on your computer. 
