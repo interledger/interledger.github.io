@@ -120,6 +120,7 @@ pages:
         html: rfcs/0027-interledger-protocol-4/index.html
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0027-interledger-protocol-4/0027-interledger-protocol-4.md
         template: template-spec.html
+        template_static_path: https://github.com/interledger/interledger.github.io/tree/master/assets
         targets:
             - en   
 
