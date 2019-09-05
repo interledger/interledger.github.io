@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -128,7 +131,7 @@
 </ul>
 <p>The receiver MAY generate the shared secret from a longer-term secret and a nonce, as described in <a href="./0016-pre-shared-key/0016-pre-shared-key.md#appendix-a-recommended-algorithm-for-generating-shared-secrets">PSKv1's Appendix A: Recommended Algorithm for Generating Shared Secrets</a>. In this case, the receiver would append the nonce (<strong>not</strong> the secret) to their ILP address to create the destination address they communicate to the sender.</p>
 <h3 id="encryption">Encryption</h3>
-<p>In PSKv2.0, request and response data is encrypted using <a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode">AES-256-GCM</a> with a 12-byte Initialization Vector (IV) and a 16-Byte Authentication Tag.</p>
+<p>In PSKv2.0, request and response data is encrypted using <a class="external-link" href="https://en.wikipedia.org/wiki/Galois/Counter_Mode" target="_blank">AES-256-GCM <i aria-hidden="true" class="fa fa-external-link"></i></a> with a 12-byte Initialization Vector (IV) and a 16-Byte Authentication Tag.</p>
 <p>If subsequent versions support additional encryption algorithms, those details should be exchanged between the sender and receiver when they establish the pre-shared key. If a receiver attempts to decrypt an incoming packet but is unable to (perhaps because the sender is using an unsupported cipher), they SHOULD reject the incoming transfer with an <code>F06: Unexpected Payment</code> error.</p>
 <h3 id="conditions-and-fulfillments">Conditions and Fulfillments</h3>
 <p>The sender and receiver generate the condition and fulfillment using the pre-shared key that gives this protocol its name. The fulfillment is computed from the pre-shared key and the encrypted PSK data. The condition is the hash of the fulfillment.</p>
@@ -165,7 +168,7 @@
 </ol>
 <h2 id="specification">Specification</h2>
 <h3 id="encryption_1">Encryption</h3>
-<p>Request and response data are encrypted using <a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode">AES-256-GCM</a> with a random 12-byte Initialization Vector (IV) and a 16-byte Authentication Tag.</p>
+<p>Request and response data are encrypted using <a class="external-link" href="https://en.wikipedia.org/wiki/Galois/Counter_Mode" target="_blank">AES-256-GCM <i aria-hidden="true" class="fa fa-external-link"></i></a> with a random 12-byte Initialization Vector (IV) and a 16-byte Authentication Tag.</p>
 <h4 id="encryption-envelope">Encryption Envelope</h4>
 <p>Also see the <a href="/rfcs/asn1/PreSharedKeyV2.asn.html">ASN.1 definition</a>.</p>
 <pre><code>(Numbers represent bytes)
@@ -261,7 +264,7 @@ encryption_key = hmac_sha256(shared_secret, "ilp_psk_encryption")
 </tr>
 <tr>
 <td>Data</td>
-<td><a href="http://www.oss.com/asn1/resources/books-whitepapers-pubs/Overview%20of%20OER.pdf">OER Variable-Length Octet String</a></td>
+<td><a class="external-link" href="http://www.oss.com/asn1/resources/books-whitepapers-pubs/Overview%20of%20OER.pdf" target="_blank">OER Variable-Length Octet String <i aria-hidden="true" class="fa fa-external-link"></i></a></td>
 <td>User data carried along with the payment. Note this data is encrypted and authenticated</td>
 </tr>
 <tr>
@@ -299,7 +302,7 @@ encryption_key = hmac_sha256(shared_secret, "ilp_psk_encryption")
 </tr>
 <tr>
 <td>Data</td>
-<td><a href="http://www.oss.com/asn1/resources/books-whitepapers-pubs/Overview%20of%20OER.pdf">OER Variable-Length Octet String</a></td>
+<td><a class="external-link" href="http://www.oss.com/asn1/resources/books-whitepapers-pubs/Overview%20of%20OER.pdf" target="_blank">OER Variable-Length Octet String <i aria-hidden="true" class="fa fa-external-link"></i></a></td>
 <td>User data carried along with the payment. Note this data is encrypted and authenticated</td>
 </tr>
 <tr>
@@ -337,7 +340,7 @@ encryption_key = hmac_sha256(shared_secret, "ilp_psk_encryption")
 </tr>
 <tr>
 <td>Data</td>
-<td><a href="http://www.oss.com/asn1/resources/books-whitepapers-pubs/Overview%20of%20OER.pdf">OER Variable-Length Octet String</a></td>
+<td><a class="external-link" href="http://www.oss.com/asn1/resources/books-whitepapers-pubs/Overview%20of%20OER.pdf" target="_blank">OER Variable-Length Octet String <i aria-hidden="true" class="fa fa-external-link"></i></a></td>
 <td>User data carried along with the payment. Note this data is encrypted and authenticated</td>
 </tr>
 <tr>
@@ -404,8 +407,8 @@ fulfillment = hmac_sha256(hmac_key, data)
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>

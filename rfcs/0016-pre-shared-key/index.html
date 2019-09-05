@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -96,11 +99,11 @@
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
         <h1 id="pre-shared-key-transport-protocol-psk">Pre-Shared Key Transport Protocol (PSK)</h1>
-<p>The Pre-Shared Key (PSK) protocol is an end-to-end transport protocol, used by the sender and receiver of an ILP payment to decide on a condition and fulfillment for a payment. By default, the protocol also encrypts any additional data sent along with the payment, using <a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode">AES-256-GCM</a>. The full ILP payment is authenticated through an <a href="https://en.wikipedia.org/wiki/Hash-based_message_authentication_code">HMAC-SHA-256</a> which is used to generate the fulfillment of a PSK payment. The entirety of the PSK data, including public headers, encrypted private headers, and encrypted private data, is encoded into an octet-stream that forms the data portion of the <a href="https://interledger.org/rfcs/0003-interledger-protocol/draft-4.html#specification">ILP Packet</a>. The PSK data is authenticated via AES-256-GCM in addition to the HMAC-SHA-256 which authenticates the full ILP payment.</p>
+<p>The Pre-Shared Key (PSK) protocol is an end-to-end transport protocol, used by the sender and receiver of an ILP payment to decide on a condition and fulfillment for a payment. By default, the protocol also encrypts any additional data sent along with the payment, using <a class="external-link" href="https://en.wikipedia.org/wiki/Galois/Counter_Mode" target="_blank">AES-256-GCM <i aria-hidden="true" class="fa fa-external-link"></i></a>. The full ILP payment is authenticated through an <a class="external-link" href="https://en.wikipedia.org/wiki/Hash-based_message_authentication_code" target="_blank">HMAC-SHA-256 <i aria-hidden="true" class="fa fa-external-link"></i></a> which is used to generate the fulfillment of a PSK payment. The entirety of the PSK data, including public headers, encrypted private headers, and encrypted private data, is encoded into an octet-stream that forms the data portion of the <a class="external-link" href="https://interledger.org/rfcs/0003-interledger-protocol/draft-4.html#specification" target="_blank">ILP Packet <i aria-hidden="true" class="fa fa-external-link"></i></a>. The PSK data is authenticated via AES-256-GCM in addition to the HMAC-SHA-256 which authenticates the full ILP payment.</p>
 <p>Pseudocode for this protocol can be read <a href="#pseudocode">at the bottom of this spec</a>.</p>
-<p>As the name suggests, PSK relies on a pre-shared secret key. In application-layer protocols like <a href="https://github.com/interledger/rfcs/blob/master/0009-simple-payment-setup-protocol/0009-simple-payment-setup-protocol.md">SPSP</a>, the receiver generates the shared key and shares it with the sender over an end-to-end secure communication channel such as HTTPS. Alternatively, a <a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange">Diffie-Hellman key exchange</a> could be used directly to generate the shared secret key.</p>
+<p>As the name suggests, PSK relies on a pre-shared secret key. In application-layer protocols like <a class="external-link" href="https://github.com/interledger/rfcs/blob/master/0009-simple-payment-setup-protocol/0009-simple-payment-setup-protocol.md" target="_blank">SPSP <i aria-hidden="true" class="fa fa-external-link"></i></a>, the receiver generates the shared key and shares it with the sender over an end-to-end secure communication channel such as HTTPS. Alternatively, a <a class="external-link" href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange" target="_blank">Diffie-Hellman key exchange <i aria-hidden="true" class="fa fa-external-link"></i></a> could be used directly to generate the shared secret key.</p>
 <p>An advantage of PSK is that the pre-shared secret key only needs to be shared once. As long as both parties possess this key and are listening for transfers, they can send payments between one another.</p>
-<p>A disadvantage of PSK is that it is repudiable. Although the sender does get cryptographic proof that the recipient received the payment, that proof cannot be used to convince 3rd parties that the sender did indeed send the funds, because the sender could have generated the fulfillment themselves. However, simple proof for the sender that the recipient got the funds is sufficient in many applications. The <a href="https://github.com/interledger/rfcs/blob/master/0011-interledger-payment-request/0011-interledger-payment-request.md">Interledger Payment Request</a> transport protocol should be used instead in cases where non-repudiable proof is required.</p>
+<p>A disadvantage of PSK is that it is repudiable. Although the sender does get cryptographic proof that the recipient received the payment, that proof cannot be used to convince 3rd parties that the sender did indeed send the funds, because the sender could have generated the fulfillment themselves. However, simple proof for the sender that the recipient got the funds is sufficient in many applications. The <a class="external-link" href="https://github.com/interledger/rfcs/blob/master/0011-interledger-payment-request/0011-interledger-payment-request.md" target="_blank">Interledger Payment Request <i aria-hidden="true" class="fa fa-external-link"></i></a> transport protocol should be used instead in cases where non-repudiable proof is required.</p>
 <h2 id="flow">Flow</h2>
 <ol>
 <li>The pre-shared secret key (also referred to as <code>shared_secret</code>) is shared out of band.</li>
@@ -108,7 +111,7 @@
 <li>The sender constructs the PSK data:<ol>
 <li>The sender starts with the PSK status line: <code>PSK/1.0\n</code></li>
 <li>The sender appends the <a href="#public-headers">public headers</a> (including the nonce), followed by <code>\n\n</code>.</li>
-<li>If the public <code>Encryption</code> header starts with <code>aes-256-gcm</code>, then the remainder of the PSK data after the public headers (padded with <a href="https://en.wikipedia.org/wiki/Padding_(cryptography)#PKCS7">PKCS</a>) will be encrypted using AES-256-GCM with the PSK encryption key, using the nonce as the initialization vector. The 16-byte AES-256-GCM authentication tag is attached to the <code>Encryption</code> header, encoded in base64url. The PSK encryption key is the HMAC of the string <code>'ilp_key_encryption'</code> with the pre-shared secret key. Note: The ciphertext is raw binary data, and is not base64 encoded. If the public <code>Encryption</code> header is set to <code>none</code>, then the remainder of the PSK data will be appended in unaltered cleartext.</li>
+<li>If the public <code>Encryption</code> header starts with <code>aes-256-gcm</code>, then the remainder of the PSK data after the public headers (padded with <a class="external-link" href="https://en.wikipedia.org/wiki/Padding_(cryptography)#PKCS7" target="_blank">PKCS <i aria-hidden="true" class="fa fa-external-link"></i></a>) will be encrypted using AES-256-GCM with the PSK encryption key, using the nonce as the initialization vector. The 16-byte AES-256-GCM authentication tag is attached to the <code>Encryption</code> header, encoded in base64url. The PSK encryption key is the HMAC of the string <code>'ilp_key_encryption'</code> with the pre-shared secret key. Note: The ciphertext is raw binary data, and is not base64 encoded. If the public <code>Encryption</code> header is set to <code>none</code>, then the remainder of the PSK data will be appended in unaltered cleartext.</li>
 <li>The sender appends the <a href="#private-headers">private headers</a>, followed by <code>\n\n</code>.</li>
 <li>The sender appends the application data (in its raw binary format).</li>
 </ol>
@@ -123,8 +126,8 @@
 <li>The receiver fulfills the incoming transfer with the HMAC of the ILP packet, using the same PSK condition key as the sender, derived from the shared secret.</li>
 </ol>
 <h2 id="data-format">Data Format</h2>
-<p>The PSK details are divided into two sets of headers. Each set of headers is formatted like those found in <a href="https://tools.ietf.org/html/rfc7230#section-3.2">HTTP Requests</a> and follows the format <code>Header-Name: Header-Value</code>. Note that implementations have to validate inputs before using it as part of <code>Header-Name</code> or <code>Header-Value</code>. </p>
-<p><strong>PSK Headers MUST NOT contain any line feed characters such as <code>\n</code></strong>. Implementations failing to enforce this requirement may be vulnerable to <a href="https://en.wikipedia.org/wiki/HTTP_header_injection">Header Injection Attacks</a>.</p>
+<p>The PSK details are divided into two sets of headers. Each set of headers is formatted like those found in <a class="external-link" href="https://tools.ietf.org/html/rfc7230#section-3.2" target="_blank">HTTP Requests <i aria-hidden="true" class="fa fa-external-link"></i></a> and follows the format <code>Header-Name: Header-Value</code>. Note that implementations have to validate inputs before using it as part of <code>Header-Name</code> or <code>Header-Value</code>. </p>
+<p><strong>PSK Headers MUST NOT contain any line feed characters such as <code>\n</code></strong>. Implementations failing to enforce this requirement may be vulnerable to <a class="external-link" href="https://en.wikipedia.org/wiki/HTTP_header_injection" target="_blank">Header Injection Attacks <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <p>Application data is appended to the private headers, after a blank line. This object is then encrypted and appended to the public headers as binary data, after a blank line. Both private and public headers are parsed in the exact same way as HTTP headers. All strings are UTF-8 encoded.</p>
 <h3 id="nonce">Nonce</h3>
 <p>Every PSK payment must generate a random 16-byte (128-bit) nonce. A cryptographically secure source of randomness <strong>MUST</strong> be used.</p>
@@ -144,7 +147,7 @@ Header: data_everyone_can_see
 <p>PSK payments use an HMAC of the PSK details as a fulfillment, to prove that the contents are unmodified. The pre-shared secret key is the key used in the HMAC.</p>
 <p>The data attached to these headers is an encrypted binary blob. This encrypted blob contains the private PSK headers.</p>
 <p>Despite the fact that connectors can read the public headers' data, connectors should not be required to do so, nor should they rely on PSK details being present on all transfers. This information is only intended for the initial sender and final receiver of a payment.</p>
-<p>The decryption key is derived from the pre-shared secret key, and the AES-256-GCM initialization vector is set to the value of the <code>Nonce</code> header (<code>fpwpAhlN588</code> in the above example). The nonce MUST be generated with cryptographically-secure randomness. <strong>If the nonce is reused with the same shared secret, it could leak unencrypted data or allow money to be stolen by malicious parties.</strong> The 16-byte AES-256-GCM authentication tag used for decryption is attached to the <code>Encryption</code> header, encoded in base64url (<code>58EowcXBk3qBIvJ0kmvdCh</code> in the above example). The encryption MUST use <a href="https://en.wikipedia.org/wiki/Padding_(cryptography)#PKCS7">PKCS</a> for padding.</p>
+<p>The decryption key is derived from the pre-shared secret key, and the AES-256-GCM initialization vector is set to the value of the <code>Nonce</code> header (<code>fpwpAhlN588</code> in the above example). The nonce MUST be generated with cryptographically-secure randomness. <strong>If the nonce is reused with the same shared secret, it could leak unencrypted data or allow money to be stolen by malicious parties.</strong> The 16-byte AES-256-GCM authentication tag used for decryption is attached to the <code>Encryption</code> header, encoded in base64url (<code>58EowcXBk3qBIvJ0kmvdCh</code> in the above example). The encryption MUST use <a class="external-link" href="https://en.wikipedia.org/wiki/Padding_(cryptography)#PKCS7" target="_blank">PKCS <i aria-hidden="true" class="fa fa-external-link"></i></a> for padding.</p>
 <table>
 <thead>
 <tr>
@@ -155,7 +158,7 @@ Header: data_everyone_can_see
 <tbody>
 <tr>
 <td><code>Nonce</code></td>
-<td><em>(Required)</em> A <a href="https://en.wikipedia.org/wiki/Base64#URL_applications">base64url-encoded</a> nonce, used to generate ensure uniqueness of the PSK data and as an initialization vector (IV) for AES-256-GCM encryption. The nonce <strong>MUST</strong> be 16 bytes, and <strong>MUST</strong> be generated with cryptographically-secure randomness.</td>
+<td><em>(Required)</em> A <a class="external-link" href="https://en.wikipedia.org/wiki/Base64#URL_applications" target="_blank">base64url-encoded <i aria-hidden="true" class="fa fa-external-link"></i></a> nonce, used to generate ensure uniqueness of the PSK data and as an initialization vector (IV) for AES-256-GCM encryption. The nonce <strong>MUST</strong> be 16 bytes, and <strong>MUST</strong> be generated with cryptographically-secure randomness.</td>
 </tr>
 <tr>
 <td><code>Encryption</code></td>
@@ -163,7 +166,7 @@ Header: data_everyone_can_see
 </tr>
 <tr>
 <td><code>Key</code></td>
-<td><em>(Optional)</em> The algorithm by which the receiver generates the shared secret. In the normal use of PSK 1.0 described in this spec, the secret is generated by the receiver only and the sender does not know the algorithm used. In other cases, for example using <a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange">Diffie-Hellman</a>, the sender would include the algorithm and a sender-specified key for the recipient to use to derive the shared secret. If the receiver does not understand the <code>Key</code> value, the receiver MUST reject the incoming payment with the error message <code>S06: UnexpectedPayment</code>.</td>
+<td><em>(Optional)</em> The algorithm by which the receiver generates the shared secret. In the normal use of PSK 1.0 described in this spec, the secret is generated by the receiver only and the sender does not know the algorithm used. In other cases, for example using <a class="external-link" href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange" target="_blank">Diffie-Hellman <i aria-hidden="true" class="fa fa-external-link"></i></a>, the sender would include the algorithm and a sender-specified key for the recipient to use to derive the shared secret. If the receiver does not understand the <code>Key</code> value, the receiver MUST reject the incoming payment with the error message <code>S06: UnexpectedPayment</code>.</td>
 </tr>
 <tr>
 <td>...</td>
@@ -193,15 +196,15 @@ Content-Type: application/json
 <tbody>
 <tr>
 <td><code>Expires-At</code></td>
-<td><em>(Optional)</em> An <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601 UTC timestamp</a>, after which this PSK payment has expired.</td>
+<td><em>(Optional)</em> An <a class="external-link" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO8601 UTC timestamp <i aria-hidden="true" class="fa fa-external-link"></i></a>, after which this PSK payment has expired.</td>
 </tr>
 <tr>
 <td><code>Content-Type</code></td>
-<td><em>(Optional)</em> The <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">media type</a> of the data in the message body</td>
+<td><em>(Optional)</em> The <a class="external-link" href="http://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">media type <i aria-hidden="true" class="fa fa-external-link"></i></a> of the data in the message body</td>
 </tr>
 <tr>
 <td>...</td>
-<td><em>(Optional)</em> Additional arbitrary headers. Where appropriate, it is RECOMMENDED to match the headers defined for HTTP messages (<a href="https://tools.ietf.org/html/rfc7230#section-3.2">RFC7230</a>)</td>
+<td><em>(Optional)</em> Additional arbitrary headers. Where appropriate, it is RECOMMENDED to match the headers defined for HTTP messages (<a class="external-link" href="https://tools.ietf.org/html/rfc7230#section-3.2" target="_blank">RFC7230 <i aria-hidden="true" class="fa fa-external-link"></i></a>)</td>
 </tr>
 </tbody>
 </table>
@@ -415,8 +418,8 @@ shared_secret = hmac_sha_256(shared_secret_generator, token)
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>

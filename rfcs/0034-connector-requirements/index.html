@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -199,7 +202,7 @@
 <h2 id="ilp-addresses">ILP Addresses</h2>
 <p>An ILP packet is addressed using an ILP Address. The ILP Addressing scheme is similar to the IP addressing scheme (both IPv4 and IPv6) in that the scheme is a hierarchical address space where routing is done based on (primarily) longest prefix match of a destination address against the address range prefixes in the node's routing table.</p>
 <p>Unlike IP addresses, ILP addresses are variable in size and encoded as IA7 (ASCII) strings of dot (<code>.</code>) separated segments. The valid characters in an address segment are alphanumeric plus Underscore (<code>_</code>), Tilde (<code>~</code>) and Hyphen (<code>-</code>) and are case sensitive which allows base64 encoded data to be encoded into address segments.</p>
-<p>More details on ILP Addresses are in <a href="https://interledger.org/rfcs/0015-ilp-addresses/">ILP RFC 15</a>.</p>
+<p>More details on ILP Addresses are in <a class="external-link" href="https://interledger.org/rfcs/0015-ilp-addresses/" target="_blank">ILP RFC 15 <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <h2 id="amounts">Amounts</h2>
 <p>Amounts in ILP are simple and are represented as 64-bit unsigned integers. As such an amount will have an associated currency and scale which specifies how the integer representation can be converted to a more user friendly decimal form when required.</p>
 <p>For example a link between two peers on the network may be settled in US dollars and the peers may decide they wish to allow precision up to 100ths of a cent. In this case the link will be configured by both peers to use the currency USD and the scale of 4. An ILP packet with an amount of 12345 is $1.23,45 or one dollar and twenty-three point four five cents.</p>
@@ -207,14 +210,14 @@
 <h2 id="links">Links</h2>
 <p>A node must have one or more links to peer nodes with whom it will exchange ILP packets. These links can use any protocol to exchange the packets as long as both peers are able to <strong>correctly correlate which packets are responses to a specific previous request</strong>.</p>
 <p>When two peers establish a link they must <strong>agree on the settlement currency and scale for packets exchanged over that link</strong>. The amount in an ILP packet is an unsigned 64-bit number, therefor when a node receives a packet it must infer the currency and scale of the amount from the link on which it was received.</p>
-<p>An example of a protocol that can be used between nodes is the <a href="https://interledger.org/rfcs/0023-bilateral-transfer-protocol/">Bilateral Transfer Protocol (BTP)</a>.</p>
+<p>An example of a protocol that can be used between nodes is the <a class="external-link" href="https://interledger.org/rfcs/0023-bilateral-transfer-protocol/" target="_blank">Bilateral Transfer Protocol (BTP) <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <h2 id="link-relations">Link Relations</h2>
 <p>Each link will have one of three relation types which reflect how the node is related to the peer on the other side of the link, these are <strong>peer</strong>, <strong>parent</strong> or <strong>child</strong>. The network graph is organized in a tiered hierarchy, similar to the Internet, reflecting these relationships. Large, high volume nodes are peered with one another to form the backbone of the network. Smaller nodes will have links to these "tier 1" nodes and the link will be of type child from the perspective of the tier 1 node and of type parent from the perspective of the smaller node.</p>
 <p>A node MUST only have one link of type parent or, if it has multiple, only one configured to use the IL-DCP protocol upon establishing the link, to request an address from the parent.</p>
 <p>A node that has links of type child must host an IL-DCP service to allow the nodes on those links to request addresses. Generally these will be sub-addresses of the node's own address however this is not a requirement.</p>
 <h2 id="routing">Routing</h2>
 <p>A node must maintain routing information that allows it to determine where to forward incoming packets. Packets arrive on one link and the node must forward the packet out on another link. The logic required to make this determination is not specified but the node SHOULD attempt to forward a packet such that it has the highest probability of being delivered to the node identified by the destination address packet header.</p>
-<p>Generally a node will prefer to route packets to a child, over a peer, over a parent as this will likely be the most lucrative for the node. (See <a href="https://people.eecs.berkeley.edu/~sylvia/cs268-2016/papers/gao-rexford.pdf">Gao-Rexford</a>)</p>
+<p>Generally a node will prefer to route packets to a child, over a peer, over a parent as this will likely be the most lucrative for the node. (See <a class="external-link" href="https://people.eecs.berkeley.edu/~sylvia/cs268-2016/papers/gao-rexford.pdf" target="_blank">Gao-Rexford <i aria-hidden="true" class="fa fa-external-link"></i></a>)</p>
 <p>Most nodes will maintain a routing table that tracks its <strong>links</strong>, the <strong>address-spaces</strong> that can be delivered to over those links (identified by an address prefix) and the <strong>link relation</strong> of the link. They will attempt to match the destination address of incoming packets with an address prefix in the table to determine the link to forward the packet over. The data in the table is maintained through exchange of routing data by the node with all of its peers.</p>
 <p>When a node's routing data changes in such a way that it is necessary to notify its peers the node will broadcast the changes to all peers. Likewise, the node will continuously be processing incoming updates from its peers.</p>
 <h2 id="special-addresses">Special Addresses</h2>
@@ -222,7 +225,7 @@
 <p>Routing data updates, IL-DCP and other peer-to-peer protocols use ILP packets where the destination address is in the <code>peer.*</code> address-space. Nodes that receive packets in the peer.* address-space MUST NOT forward these packets to another node.</p>
 <p><strong><code>test.*</code>, <code>test1.*</code>, <code>test2.*</code>, and <code>test3.*</code></strong></p>
 <p>A node MUST run either in a test network or on the live network but never on both. If a node is running on the test network it MUST reject all packets in the global address-space, <code>g.*</code>. Likewise, if node is running on the live netw    ork it MUST reject any packets with addresses in the <code>test.*</code>, <code>test1.*</code>, <code>test2.*</code>, or <code>test3.*</code> address-spaces.</p>
-<p>There are some more special addresses, refer to <a href="https://github.com/interledger/rfcs/blob/master/0015-ilp-addresses/0015-ilp-addresses.md">ILP Addresses - v2.0.0</a>.</p>
+<p>There are some more special addresses, refer to <a class="external-link" href="https://github.com/interledger/rfcs/blob/master/0015-ilp-addresses/0015-ilp-addresses.md" target="_blank">ILP Addresses - v2.0.0 <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <h2 id="settlement">Settlement</h2>
 <p>When a node routes a packet it is accepting an offer, from the requesting peer, to pay for proof-of-delivery of that packet. When it returns a valid response to the requesting peer (an ILP Fulfill packet with the correct fulfillment) before the expiry of the request, this creates an obligation between the peers. The requesting peer now owes the forwarding peer the amount specified in the request packet.</p>
 <p>According to an agreed schedule the two peers will reconcile and settle the obligations created between them as a result of successfully forwarding ILP packets. It is important to note that this process is a bi-lateral concern and does not impact the settlement of obligations between other nodes involved in forwarding that packet.</p>
@@ -281,8 +284,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>

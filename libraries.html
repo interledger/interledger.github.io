@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -98,13 +101,13 @@
         <h1 id="main-page-header">Libraries &amp; Tools</h1>
         <p class="blurb">Build Interledger applications.</p>
         <h2 id="spsp">SPSP</h2>
-<p>Build Interledger payments into your apps with the <a href="https://github.com/interledgerjs/ilp-protocol-spsp">ILP SPSP Client</a>. This library can connect to any SPSP receiver for account discovery and payment detail negotation. For more information on how to use SPSP, read <a href="https://medium.com/interledger-blog/spsp-simple-payment-setup-protocol-2028292e6925">"SPSP: Simple Payment Setup Protocol"</a> on the Interledger Blog. </p>
+<p>Build Interledger payments into your apps with the <a class="external-link" href="https://github.com/interledgerjs/ilp-protocol-spsp" target="_blank">ILP SPSP Client <i aria-hidden="true" class="fa fa-external-link"></i></a>. This library can connect to any SPSP receiver for account discovery and payment detail negotation. For more information on how to use SPSP, read <a class="external-link" href="https://medium.com/interledger-blog/spsp-simple-payment-setup-protocol-2028292e6925" target="_blank">"SPSP: Simple Payment Setup Protocol" <i aria-hidden="true" class="fa fa-external-link"></i></a> on the Interledger Blog. </p>
 <h2 id="koa-ilp">Koa ILP</h2>
-<p>If you use the <a href="http://koajs.com/">Koa framework</a> in Node.js, this library will allow you to monetize your API in only a few lines of code. For more information, <a href="https://github.com/interledgerjs/koa-ilp">check out our Github</a> and <a href="https://medium.com/interledger-blog/http-ilp-paid-api-calls-with-interledger-fda53643a2eb">our blog post about it.</a></p>
+<p>If you use the <a class="external-link" href="http://koajs.com/" target="_blank">Koa framework <i aria-hidden="true" class="fa fa-external-link"></i></a> in Node.js, this library will allow you to monetize your API in only a few lines of code. For more information, <a class="external-link" href="https://github.com/interledgerjs/koa-ilp" target="_blank">check out our Github <i aria-hidden="true" class="fa fa-external-link"></i></a> and <a class="external-link" href="https://medium.com/interledger-blog/http-ilp-paid-api-calls-with-interledger-fda53643a2eb" target="_blank">our blog post about it. <i aria-hidden="true" class="fa fa-external-link"></i></a></p>
 <h2 id="ilp-fetch">ILP Fetch</h2>
-<p>You can use <a href="https://github.com/interledgerjs/ilp-fetch">ILP Fetch</a> as a client to HTTP-ILP. ILP Fetch follows the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a>, but allows the client to send payments. You can use it to interact with paid APIs on Interledger.</p>
+<p>You can use <a class="external-link" href="https://github.com/interledgerjs/ilp-fetch" target="_blank">ILP Fetch <i aria-hidden="true" class="fa fa-external-link"></i></a> as a client to HTTP-ILP. ILP Fetch follows the <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">Fetch API <i aria-hidden="true" class="fa fa-external-link"></i></a>, but allows the client to send payments. You can use it to interact with paid APIs on Interledger.</p>
 <h2 id="moneyd-xrp">Moneyd XRP</h2>
-<p><a href="https://github.com/interledgerjs/moneyd-xrp">Moneyd-XRP</a> allows you to connect to the Interledger network via XRP. It can be used on the livenet or the testnet with minimal configuration. We also have "Moneyd-ETH" and "Moneyd-Lightning" in the works.</p>
+<p><a class="external-link" href="https://github.com/interledgerjs/moneyd-xrp" target="_blank">Moneyd-XRP <i aria-hidden="true" class="fa fa-external-link"></i></a> allows you to connect to the Interledger network via XRP. It can be used on the livenet or the testnet with minimal configuration. We also have "Moneyd-ETH" and "Moneyd-Lightning" in the works.</p>
 <h2 id="more-tools-coming-soon">More tools coming soon!</h2>
     </div>
   </article>
@@ -134,8 +137,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>

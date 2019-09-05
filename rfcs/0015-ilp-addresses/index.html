@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -99,7 +102,7 @@
 <p><em>ILP addresses</em> provide a way to <a href="#routing">route</a> ILP packets to their intended destination through a series of hops, including any number of ILP Connectors. (This happens after address lookup using a higher-level protocol such as <a href="/rfcs/0009-simple-payment-setup-protocol/">SPSP</a>.) Addresses are not meant to be user-facing, but allow several ASCII characters for easy debugging.</p>
 <h2 id="routing">Routing</h2>
 <p>Connectors maintain a <em>routing table</em>, mapping all of their peer connectors to one or more ILP addresses and address prefixes. </p>
-<p>When a connector receives a prepare packet that is not addressed to itself, it finds the <a href="https://en.wikipedia.org/wiki/Longest_prefix_match">longest prefix match</a> in its routing table for the destination address. </p>
+<p>When a connector receives a prepare packet that is not addressed to itself, it finds the <a class="external-link" href="https://en.wikipedia.org/wiki/Longest_prefix_match" target="_blank">longest prefix match <i aria-hidden="true" class="fa fa-external-link"></i></a> in its routing table for the destination address. </p>
 <p>The connector determines the appropriate information to put in the <em>prepare</em> packet it forwards to the peer that it matched from the routing table. Later on, the connector expects to get a <em>fulfill</em> or <em>reject</em> packet from its peer. The connector MUST be able to match the prepare packet with this response.</p>
 <p>This process continues at the next peer until either some peer accepts the packet and returns a <em>fulfill</em> packet, or a peer rejects the packet by sending a <em>reject</em> packet. If a connector cannot find a more specific match in its routing table, it replies with a <em>reject</em> packet. (There are also other reasons to reject a payment.)</p>
 <p>For more detail on the lifecycle and contents of the packets, see the <a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol v4 spec</a>.</p>
@@ -152,12 +155,12 @@ segment     = 1*( ALPHA / DIGIT / "_" / "~" / "-" )
 <tr>
 <td align="left"><code>private.</code></td>
 <td align="left">Private allocation</td>
-<td align="left">For ILP addresses that only have meaning in a private subnet or intranet. Analogous to the <a href="https://en.wikipedia.org/wiki/Private_network">192.168.0.0/16 range in IPv4</a>.</td>
+<td align="left">For ILP addresses that only have meaning in a private subnet or intranet. Analogous to the <a class="external-link" href="https://en.wikipedia.org/wiki/Private_network" target="_blank">192.168.0.0/16 range in IPv4 <i aria-hidden="true" class="fa fa-external-link"></i></a>.</td>
 </tr>
 <tr>
 <td align="left"><code>example.</code></td>
 <td align="left">Examples</td>
-<td align="left">For "non-real" addresses that are used as examples or in documentation. Analogous to <a href="https://en.wikipedia.org/wiki/555_%28telephone_number%29">"555 phone numbers"</a> in the USA.</td>
+<td align="left">For "non-real" addresses that are used as examples or in documentation. Analogous to <a class="external-link" href="https://en.wikipedia.org/wiki/555_%28telephone_number%29" target="_blank">"555 phone numbers" <i aria-hidden="true" class="fa fa-external-link"></i></a> in the USA.</td>
 </tr>
 <tr>
 <td align="left"><code>test.</code>, <code>test1.</code>, <code>test2.</code>, <code>test3.</code></td>
@@ -167,7 +170,7 @@ segment     = 1*( ALPHA / DIGIT / "_" / "~" / "-" )
 <tr>
 <td align="left"><code>local.</code></td>
 <td align="left">Connector-local</td>
-<td align="left">For addresses that are only valid in the context of a local connector. Analogous to <a href="https://en.wikipedia.org/wiki/Link-local_address">link-local addresses</a> in IP. Connectors can use addresses with the <code>local.</code> prefix to exchange packets within their own administrative domain, e.g. among a cluster of connectors operated by the same entity.</td>
+<td align="left">For addresses that are only valid in the context of a local connector. Analogous to <a class="external-link" href="https://en.wikipedia.org/wiki/Link-local_address" target="_blank">link-local addresses <i aria-hidden="true" class="fa fa-external-link"></i></a> in IP. Connectors can use addresses with the <code>local.</code> prefix to exchange packets within their own administrative domain, e.g. among a cluster of connectors operated by the same entity.</td>
 </tr>
 <tr>
 <td align="left"><code>peer.</code></td>
@@ -195,7 +198,7 @@ segment     = 1*( ALPHA / DIGIT / "_" / "~" / "-" )
 <p><em>Neighborhoods</em> are leading segments with no specific meaning, whose purpose is to help route to the right area. At this time, there is no official list of neighborhoods, but the following list of examples should illustrate what might constitute a neighborhood:</p>
 <ul>
 <li><code>crypto.</code> for ledgers related to decentralized crypto-currencies such as Bitcoin, Ethereum, or XRP.</li>
-<li><code>sepa.</code> for ledgers in the <a href="https://en.wikipedia.org/wiki/Single_Euro_Payments_Area">Single Euro Payments Area</a>.</li>
+<li><code>sepa.</code> for ledgers in the <a class="external-link" href="https://en.wikipedia.org/wiki/Single_Euro_Payments_Area" target="_blank">Single Euro Payments Area <i aria-hidden="true" class="fa fa-external-link"></i></a>.</li>
 <li><code>dev.</code> for Interledger Protocol development and early adopters</li>
 </ul>
 <p>The goal of neighborhoods is to group connectors and ledgers that know about each other, so that routing is more efficient. If a neighborhood is too large or not well-connected, it can be further subdivided into nested sub-neighborhoods. For example, if the <code>dev.</code> neighborhood contains too many routes to store efficiently, or if the ledgers in that neighborhood tend only to be connected to other ledgers from the same country, development ledgers hosted in Luxembourg might choose <code>dev.luxembourg.</code> as a more closely-knit neighborhood.</p>
@@ -251,8 +254,8 @@ segment     = 1*( ALPHA / DIGIT / "_" / "~" / "-" )
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>

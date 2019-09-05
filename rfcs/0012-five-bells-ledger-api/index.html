@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -134,12 +137,12 @@
 <li>Look up transfers by account or by <a href="#crypto-conditions">Crypto-Condition</a></li>
 </ul>
 <h2 id="conventions">Conventions</h2>
-<p>The API is designed to be <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a>, extensible, and modular. By design, every resource type contains links to other methods, so you can "naturally" discover other API paths by starting from any object. Clients SHOULD NOT hardcode any <a href="#urls">URL</a> other than the path to the <a href="#get-ledger-metadata">Get Ledger Metadata</a> method. A ledger MAY host different objects and API methods at different hostnames or base URLs, as long as all client applications can dereference the URLs in the usual way.</p>
+<p>The API is designed to be <a class="external-link" href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">RESTful <i aria-hidden="true" class="fa fa-external-link"></i></a>, extensible, and modular. By design, every resource type contains links to other methods, so you can "naturally" discover other API paths by starting from any object. Clients SHOULD NOT hardcode any <a href="#urls">URL</a> other than the path to the <a href="#get-ledger-metadata">Get Ledger Metadata</a> method. A ledger MAY host different objects and API methods at different hostnames or base URLs, as long as all client applications can dereference the URLs in the usual way.</p>
 <h3 id="json">JSON</h3>
-<p>All methods communicate both ways using <a href="http://www.json.org/">JavaScript Object Notation (JSON)</a> unless otherwise specified. A ledger MUST use the <code>Content-Type: application/json</code> header in responses to indicate that the message body contains JSON. A ledger MAY honor the <code>Accept</code> header of the request and return the data in other formats if the client requests them. A ledger MAY interpret the message bodies of requests (PUT and POST methods) as JSON, even if the <code>Content-Type</code> header is missing or indicates a different format. The Five Bells Ledger API uses HTTP status codes to indicate the status of API operations; if the ledger encounters an error processing a request, it MUST NOT return an HTTP status code in the 200-299 range even if communication was successful.</p>
+<p>All methods communicate both ways using <a class="external-link" href="http://www.json.org/" target="_blank">JavaScript Object Notation (JSON) <i aria-hidden="true" class="fa fa-external-link"></i></a> unless otherwise specified. A ledger MUST use the <code>Content-Type: application/json</code> header in responses to indicate that the message body contains JSON. A ledger MAY honor the <code>Accept</code> header of the request and return the data in other formats if the client requests them. A ledger MAY interpret the message bodies of requests (PUT and POST methods) as JSON, even if the <code>Content-Type</code> header is missing or indicates a different format. The Five Bells Ledger API uses HTTP status codes to indicate the status of API operations; if the ledger encounters an error processing a request, it MUST NOT return an HTTP status code in the 200-299 range even if communication was successful.</p>
 <p>Field names in the JSON objects defined by this API never contain literal period (<code>.</code>) characters. By convention, this documentation uses the <code>.</code> character to indicate fields nested inside other Object-type fields. In some cases, field values contain literal period (<code>.</code>) characters. Additionally, this field contains some objects that can hold arbitrary data. Arbitrary-data objects can contain any legal JSON, including field names with literal period (<code>.</code>) characters. Arbitrary-data objects SHOULD NOT contain duplicate keys.</p>
 <h3 id="amounts">Amounts</h3>
-<p>The Five Bells Ledger API represents numeric currency amounts as strings rather than native JSON numbers. This is because many standard libraries automatically decode numbers to a <a href="https://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 double precision floating point</a> representation. Using IEEE 754 double floats can introduce a loss of precision and rounding errors that are unacceptable for financial services, depending on the range and use cases needed. (In particular, digital assets that are natively represented as 64-bit unsigned integers do not fit properly into IEEE 754 double precision floats.) Amounts in the Five Bells Ledger API MUST match the following regular expression:</p>
+<p>The Five Bells Ledger API represents numeric currency amounts as strings rather than native JSON numbers. This is because many standard libraries automatically decode numbers to a <a class="external-link" href="https://en.wikipedia.org/wiki/IEEE_floating_point" target="_blank">IEEE 754 double precision floating point <i aria-hidden="true" class="fa fa-external-link"></i></a> representation. Using IEEE 754 double floats can introduce a loss of precision and rounding errors that are unacceptable for financial services, depending on the range and use cases needed. (In particular, digital assets that are natively represented as 64-bit unsigned integers do not fit properly into IEEE 754 double precision floats.) Amounts in the Five Bells Ledger API MUST match the following regular expression:</p>
 <p><code>^[-+]?[0-9]*[.]?[0-9]+([eE][-+]?[0-9]+)?$</code></p>
 <p>Client applications can decode numeric strings to whatever representation provides sufficient precision for their specific needs. The ledger MUST report information about the precision it uses in the <a href="#get-ledger-metadata">Get Ledger Metadata</a> response.</p>
 <h3 id="assets-and-currency">Assets and Currency</h3>
@@ -160,12 +163,12 @@
 <li>An administrator MAY create an "issuer" account whose balance can be negative. To give a positive balance to an account, execute a transfer from the issuer account. If you use this technique exclusively, the issuer account's total balance is equal to the negative of all balances in the ledger summed together.</li>
 </ul>
 <h3 id="scope">Scope</h3>
-<p>The Five Bells Ledger API defines one way to implement sufficient functionality to operate a ledger. It is not intended to be an optimal or ideal ledger, especially since such a thing is subjective or at least hard to quantify. (Indeed, Interledger itself was conceived from the conclusion that no one ledger can serve the needs of every person in existence.) In general, this specification reflects to the existing <a href="https://github.com/interledgerjs/five-bells-ledger">Five Bells Ledger reference implementation</a> so that others may implement compatible software.</p>
+<p>The Five Bells Ledger API defines one way to implement sufficient functionality to operate a ledger. It is not intended to be an optimal or ideal ledger, especially since such a thing is subjective or at least hard to quantify. (Indeed, Interledger itself was conceived from the conclusion that no one ledger can serve the needs of every person in existence.) In general, this specification reflects to the existing <a class="external-link" href="https://github.com/interledgerjs/five-bells-ledger" target="_blank">Five Bells Ledger reference implementation <i aria-hidden="true" class="fa fa-external-link"></i></a> so that others may implement compatible software.</p>
 <h3 id="authorization-and-authentication">Authorization and Authentication</h3>
 <p>The ledger MUST authenticate API clients. The RECOMMENDED method of authentication is <strong>Token Authentication</strong>, with tokens being served by the <a href="#get-auth-token">Get Auth Token</a> method. The Get Auth Token method SHOULD be strictly rate limited and authenticated with a secondary authentication mechanism, such as:</p>
 <ul>
-<li><a href="https://tools.ietf.org/html/rfc2617#section-2">HTTP Basic Auth</a></li>
-<li><a href="https://tools.ietf.org/html/rfc5246#section-7.4.6">TLS Client Certificates</a></li>
+<li><a class="external-link" href="https://tools.ietf.org/html/rfc2617#section-2" target="_blank">HTTP Basic Auth <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+<li><a class="external-link" href="https://tools.ietf.org/html/rfc5246#section-7.4.6" target="_blank">TLS Client Certificates <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
 </ul>
 <p>The ledger MUST authenticate <a href="#websocket">WebSocket</a> connections with token-based authentication.</p>
 <p>A ledger MAY allow clients to authenticate HTTPS methods other than the Get Auth Token method using HTTP Basic Auth or TLS Client Certificates. This is NOT RECOMMENDED, especially if the ledger faces the public internet, because it makes it easier for unauthorized clients to put load on (that is, DDoS) the ledger.</p>
@@ -192,7 +195,7 @@
 <tr>
 <td align="left"><code>id</code></td>
 <td align="left"><a href="#urls">URL</a></td>
-<td align="left">Client-provided ID for this resource, including a <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>, in the format of the <a href="#get-transfer">Get Transfer</a> URL. MUST be unique within the ledger. See <a href="#transfer-ids">Transfer IDs</a> for more information.</td>
+<td align="left">Client-provided ID for this resource, including a <a class="external-link" href="http://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID <i aria-hidden="true" class="fa fa-external-link"></i></a>, in the format of the <a href="#get-transfer">Get Transfer</a> URL. MUST be unique within the ledger. See <a href="#transfer-ids">Transfer IDs</a> for more information.</td>
 </tr>
 <tr>
 <td align="left"><code>credits</code></td>
@@ -301,8 +304,8 @@
 <p><strong>Note:</strong> Ledgers MUST implement the <code>memo</code> field. ILP clients use this field to store the ILP Packet object. Specifically, the reference ILP Client puts the ILP Packet as a base64url-encoded string in the the <code>ilp</code> field of the <code>memo</code> of the credit to the Connector. To support any possible ILP Packet, the maximum size of the <code>memo</code> field MUST be at least <strong>46 kilobytes</strong>.</p>
 <h4 id="transfer-ids">Transfer IDs</h4>
 <p>The transfer's <code>id</code> field is one of the main ways of identifying the transfer; it is unique across the ledger, so implementations MAY use it as a primary unique key in a database. The client applications, not the ledger, generate the <code>id</code>, so the ledger SHOULD require that the field match the proper form. If a client attempts to create a transfer with an <code>id</code> that already exists, the attempt MUST fail. (This protects clients from accidentally submitting the same transfer twice or more.)</p>
-<p>The form for a transfer ID is the ledger's <code>transfer</code> <a href="#urls">URL</a>, with a <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> in canonical form as the <code>{id}</code> parameter. The UUID MUST be formatted as 32 lowercase hexadecimal digits separated by hyphens into groups of 8-4-4-4-12.</p>
-<p>Depending on what algorithm clients use to generate UUIDs, it may be possible for other account owners to guess in advance which UUIDs might be used, and could preemptively claim <code>id</code> values that other account owners might use. A ledger MAY discourage this "squatting" behavior by imposing a limit on how many new transfers an account can generate within a fixed period of time, or with other similar limits. (A ledger could also address this issue in other ways, such as charging a fee for preparing transfers.) Client applications SHOULD use a sufficiently hard-to-predict system for generating UUIDs, such as the random algorithm described in <a href="https://www.ietf.org/rfc/rfc4122">RFC4122</a>. Client applications SHOULD NOT use the same ID to indicate related transfers in multiple ledgers: such behavior can be easily exploited by third parties who claim an ID in a ledger as soon as it gets used in a different ledger.</p>
+<p>The form for a transfer ID is the ledger's <code>transfer</code> <a href="#urls">URL</a>, with a <a class="external-link" href="http://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID <i aria-hidden="true" class="fa fa-external-link"></i></a> in canonical form as the <code>{id}</code> parameter. The UUID MUST be formatted as 32 lowercase hexadecimal digits separated by hyphens into groups of 8-4-4-4-12.</p>
+<p>Depending on what algorithm clients use to generate UUIDs, it may be possible for other account owners to guess in advance which UUIDs might be used, and could preemptively claim <code>id</code> values that other account owners might use. A ledger MAY discourage this "squatting" behavior by imposing a limit on how many new transfers an account can generate within a fixed period of time, or with other similar limits. (A ledger could also address this issue in other ways, such as charging a fee for preparing transfers.) Client applications SHOULD use a sufficiently hard-to-predict system for generating UUIDs, such as the random algorithm described in <a class="external-link" href="https://www.ietf.org/rfc/rfc4122" target="_blank">RFC4122 <i aria-hidden="true" class="fa fa-external-link"></i></a>. Client applications SHOULD NOT use the same ID to indicate related transfers in multiple ledgers: such behavior can be easily exploited by third parties who claim an ID in a ledger as soon as it gets used in a different ledger.</p>
 <h4 id="transfer-states">Transfer States</h4>
 <p>The following state diagram shows the possible transitions between a transfer's <code>state</code> values:</p>
 <p><a href="5BL-transfer-states.png"><img alt="Transfer state diagram" src="5BL-transfer-states.png"/></a></p>
@@ -400,7 +403,7 @@
 </tbody>
 </table>
 <h3 id="crypto-conditions">Crypto-Conditions</h3>
-<p>The <a href="https://github.com/interledger/rfcs/tree/master/0002-crypto-conditions">Crypto-Conditions spec</a> defines standard formats for <em>conditions</em> and <em>fulfillments</em>.</p>
+<p>The <a class="external-link" href="https://github.com/interledger/rfcs/tree/master/0002-crypto-conditions" target="_blank">Crypto-Conditions spec <i aria-hidden="true" class="fa fa-external-link"></i></a> defines standard formats for <em>conditions</em> and <em>fulfillments</em>.</p>
 <p>Conditions are distributable event descriptions, and fulfillments are cryptographically verifiable messages that prove an event occurred. If you transmit a fulfillment, then everyone who has the corresponding condition can agree that the condition has been met.</p>
 <p>Crypto-conditions control the execution of conditional transfers. The Five Bells Ledger API supports conditions and fulfillments in string format.</p>
 <p>The Crypto-Conditions specification anticipates that it will need to expand to keep up with changes in the field of cryptography, so conditions always define which rules and algorithms are necessary to verify the fulfillment. Implementations can use the condition's feature list to determine if they can properly process the fulfillment, without having seen the fulfillment itself.</p>
@@ -410,11 +413,11 @@
 <p>Example fulfillment in string format (a PREIMAGE-SHA-256 fulfillment is the preimage string serialized):</p>
 <pre><code>oAKAAA
 </code></pre>
-<p>The <a href="https://github.com/interledgerjs/five-bells-condition">five-bells-condition</a> library provides a JavaScript implementation of Crypto-Conditions. For custom implementations, consider the latest version of the <a href="https://tools.ietf.org/html/draft-thomas-crypto-conditions-03">IETF crypto-conditions spec</a> as the source of truth.</p>
+<p>The <a class="external-link" href="https://github.com/interledgerjs/five-bells-condition" target="_blank">five-bells-condition <i aria-hidden="true" class="fa fa-external-link"></i></a> library provides a JavaScript implementation of Crypto-Conditions. For custom implementations, consider the latest version of the <a class="external-link" href="https://tools.ietf.org/html/draft-thomas-crypto-conditions-03" target="_blank">IETF crypto-conditions spec <i aria-hidden="true" class="fa fa-external-link"></i></a> as the source of truth.</p>
 <p><strong>Note:</strong> The rest of the Interledger reference implementations have dropped support for the full range of Crypto-Conditions in favor of using SHA-256 hashlocks everywhere. For compatibility with all Interledger software, Five Bells Ledger transfers should use PREIMAGE-SHA-256 crypto-conditions only.</p>
 <h3 id="urls">URLs</h3>
-<p>The Five Bells Ledger API uses URLs as the main way of identifying and looking up resources in the API. These URLs should be formatted as valid <em>absolute URLs</em> in accordance with the <a href="https://url.spec.whatwg.org/">WHATWG URL Living Standard</a>. The URLs SHOULD use the <code>https:</code> scheme, except for some <a href="#websocket">WebSocket</a> paths that use the <code>wss:</code> scheme instead. In development or private subnetworks, <code>http:</code> and <code>ws:</code> are acceptable instead.</p>
-<p>The <code>urls</code> field of the <a href="#get-ledger-metadata">Get Ledger Metadata</a> method returns a list of paths to other API methods. Each member of the <code>urls</code> field describes one path, which MUST be an HTTP(S)-formatted URL unless otherwise specified. Some paths contain <a href="https://tools.ietf.org/html/rfc6570">RFC6570</a>-formatted variable sections in curly braces. The <code>urls</code> field MUST include all of the following:</p>
+<p>The Five Bells Ledger API uses URLs as the main way of identifying and looking up resources in the API. These URLs should be formatted as valid <em>absolute URLs</em> in accordance with the <a class="external-link" href="https://url.spec.whatwg.org/" target="_blank">WHATWG URL Living Standard <i aria-hidden="true" class="fa fa-external-link"></i></a>. The URLs SHOULD use the <code>https:</code> scheme, except for some <a href="#websocket">WebSocket</a> paths that use the <code>wss:</code> scheme instead. In development or private subnetworks, <code>http:</code> and <code>ws:</code> are acceptable instead.</p>
+<p>The <code>urls</code> field of the <a href="#get-ledger-metadata">Get Ledger Metadata</a> method returns a list of paths to other API methods. Each member of the <code>urls</code> field describes one path, which MUST be an HTTP(S)-formatted URL unless otherwise specified. Some paths contain <a class="external-link" href="https://tools.ietf.org/html/rfc6570" target="_blank">RFC6570 <i aria-hidden="true" class="fa fa-external-link"></i></a>-formatted variable sections in curly braces. The <code>urls</code> field MUST include all of the following:</p>
 <table>
 <thead>
 <tr>
@@ -452,7 +455,7 @@
 </tbody>
 </table>
 <p>The <code>urls</code> field of the metadata MAY also contain other methods provided by the ledger.</p>
-<p>Some resources also contain fields whose values are URLs pointing to other methods. These URLs MUST NOT contain <a href="https://tools.ietf.org/html/rfc6570">RFC6570</a>-formatted variable sections. The following table maps URL fields to the API methods that can be accessed at those paths:</p>
+<p>Some resources also contain fields whose values are URLs pointing to other methods. These URLs MUST NOT contain <a class="external-link" href="https://tools.ietf.org/html/rfc6570" target="_blank">RFC6570 <i aria-hidden="true" class="fa fa-external-link"></i></a>-formatted variable sections. The following table maps URL fields to the API methods that can be accessed at those paths:</p>
 <table>
 <thead>
 <tr>
@@ -502,7 +505,7 @@
 </tbody>
 </table>
 <h3 id="date-time">Date-Time</h3>
-<p>All dates and times should be expressed in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date-time format with precision to the second or millisecond. The time zone offset should always be <code>Z</code>, for no offset. In other words, the date-time should be a <strong>string</strong> matching the one of the following formats:</p>
+<p>All dates and times should be expressed in <a class="external-link" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 <i aria-hidden="true" class="fa fa-external-link"></i></a> date-time format with precision to the second or millisecond. The time zone offset should always be <code>Z</code>, for no offset. In other words, the date-time should be a <strong>string</strong> matching the one of the following formats:</p>
 <table>
 <thead>
 <tr>
@@ -543,7 +546,7 @@
 <tr>
 <td align="left"><code>currency_code</code></td>
 <td align="left">String</td>
-<td align="left">Three-letter (<a href="http://www.xe.com/iso4217.php">ISO 4217</a>) code of the currency this ledger tracks.</td>
+<td align="left">Three-letter (<a class="external-link" href="http://www.xe.com/iso4217.php" target="_blank">ISO 4217 <i aria-hidden="true" class="fa fa-external-link"></i></a>) code of the currency this ledger tracks.</td>
 </tr>
 <tr>
 <td align="left"><code>currency_symbol</code></td>
@@ -553,7 +556,7 @@
 <tr>
 <td align="left"><code>ilp_prefix</code></td>
 <td align="left">String</td>
-<td align="left">The ILP Address Prefix of the ledger. This must match the definition from <a href="https://github.com/interledger/rfcs/blob/master/0015-ilp-addresses/0015-ilp-addresses.md">IL-RFC-15: ILP Addresses</a>.</td>
+<td align="left">The ILP Address Prefix of the ledger. This must match the definition from <a class="external-link" href="https://github.com/interledger/rfcs/blob/master/0015-ilp-addresses/0015-ilp-addresses.md" target="_blank">IL-RFC-15: ILP Addresses <i aria-hidden="true" class="fa fa-external-link"></i></a>.</td>
 </tr>
 <tr>
 <td align="left"><code>connectors</code></td>
@@ -660,7 +663,7 @@
 <tr>
 <td align="left"><code>id</code></td>
 <td align="left"><a href="#urls">URL</a></td>
-<td align="left">A new <a href="#transfer-ids">Transfer ID</a> URL, including a <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>.</td>
+<td align="left">A new <a href="#transfer-ids">Transfer ID</a> URL, including a <a class="external-link" href="http://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID <i aria-hidden="true" class="fa fa-external-link"></i></a>.</td>
 </tr>
 </tbody>
 </table>
@@ -751,7 +754,7 @@ Content-Type: application/json
 <li><a href="#insufficientfundserror">InsufficientFundsError</a> - A debited account would go below its <code>minimum_allowed_balance</code> if this transfer were executed</li>
 <li><a href="#unprocessableentityerror">UnprocessableEntityError</a> - The request is formatted properly but contains an otherwise-unspecified semantic problem.</li>
 <li><a href="#alreadyexistserror">AlreadyExistsError</a> - The <code>id</code> supplied is already used by another transfer.</li>
-<li><a href="#invaliduriparametererror">InvalidUriParameterError</a> - One of the <a href="#urls">URL</a> or <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> parameters was not formatted properly.</li>
+<li><a href="#invaliduriparametererror">InvalidUriParameterError</a> - One of the <a href="#urls">URL</a> or <a class="external-link" href="http://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID <i aria-hidden="true" class="fa fa-external-link"></i></a> parameters was not formatted properly.</li>
 <li><a href="#invalidbodyerror">InvalidBodyError</a> - The request body was not properly-formatted JSON, did not match the Content-Type provided, or did not match the schema for the requested resource type.</li>
 <li><a href="#unsupportedcryptoconditionerror">UnsupportedCryptoConditionError</a> - The transfer included an <code>execution_condition</code> whose feature bitstring requires functionality not implemented by this ledger.</li>
 </ul>
@@ -888,7 +891,7 @@ BlacklistedSender
 <h4 id="errors_4">Errors</h4>
 <ul>
 <li><a href="#notfounderror">NotFoundError</a> - No transfer with a matching ID was found.</li>
-<li><a href="#invaliduriparametererror">InvalidUriParameterError</a> - The transfer ID from the request was not a valid <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>.</li>
+<li><a href="#invaliduriparametererror">InvalidUriParameterError</a> - The transfer ID from the request was not a valid <a class="external-link" href="http://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID <i aria-hidden="true" class="fa fa-external-link"></i></a>.</li>
 </ul>
 <h3 id="get-transfer-fulfillment">Get Transfer Fulfillment</h3>
 <p>Retrieve the fulfillment for a transfer that has been executed or rejected. This is separate from the <a href="#transfer-resource">Transfer resource</a> because it can be very large.</p>
@@ -910,7 +913,7 @@ BlacklistedSender
 <tr>
 <td align="left"><code>id</code></td>
 <td align="left">UUID</td>
-<td align="left">The <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> of the Transfer whose fulfillment to retrieve.</td>
+<td align="left">The <a class="external-link" href="http://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID <i aria-hidden="true" class="fa fa-external-link"></i></a> of the Transfer whose fulfillment to retrieve.</td>
 </tr>
 </tbody>
 </table>
@@ -1069,7 +1072,7 @@ Content-Type: application/json
 <p>Depending on the <a href="#authorization-and-authentication">authentication mechanism</a> used by this ledger, the ledger MAY require the HTTP <code>Auth</code> header with a valid username and password, or the ledger may require a different method of authentication.</p>
 <p><strong><a href="#urls">Metadata URL Name</a>:</strong> <code>auth_token</code>.</p>
 <h4 id="response-format_9">Response Format</h4>
-<p>A successful response uses the HTTP response code <strong>200 OK</strong> and contains a JSON object with a token that can be used for subsequent requests. The ledger can generate the token with <a href="https://jwt.io/">JWT</a> or any similar system.</p>
+<p>A successful response uses the HTTP response code <strong>200 OK</strong> and contains a JSON object with a token that can be used for subsequent requests. The ledger can generate the token with <a class="external-link" href="https://jwt.io/" target="_blank">JWT <i aria-hidden="true" class="fa fa-external-link"></i></a> or any similar system.</p>
 <h4 id="example_9">Example</h4>
 <p>Request:</p>
 <pre><code>GET /auth_token
@@ -1090,7 +1093,7 @@ Content-Type: application/json
 </ul>
 <h2 id="websocket">WebSocket</h2>
 <p><strong><a href="#urls">Metadata URL Name</a>:</strong> <code>websocket</code>. Suggested generic path: <code>/websocket</code> (with <code>wss://</code> protocol)</p>
-<p>Clients can subscribe to live, read-only notifications of ledger activity by opening a <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSocket</a> connection to this path and sending a subscription request.</p>
+<p>Clients can subscribe to live, read-only notifications of ledger activity by opening a <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" target="_blank">WebSocket <i aria-hidden="true" class="fa fa-external-link"></i></a> connection to this path and sending a subscription request.</p>
 <h3 id="websocket-authentication">WebSocket Authentication</h3>
 <p>Clients MUST authenticate themselves with a token from the <a href="#get-auth-token">Get Auth Token</a> method. This token can be supplied in one of two ways:</p>
 <ul>
@@ -1117,7 +1120,7 @@ Upgrade: websocket
 <p>The authentication you use when opening the connection applies to all subscriptions made in the connection.</p>
 <p>A ledger MUST support multiple independent WebSocket connections with the same authentication. (This provides connection redundancy for notifications, which is helpful for ILP Connectors.)</p>
 <h3 id="websocket-messages">WebSocket Messages</h3>
-<p>After the connection is established, the client and ledger communicate by passing <a href="http://www.jsonrpc.org/specification">JSON-RPC 2.0</a> messages back and forth. Both the client application and ledger can take the roles of "client" and "server" in JSON-RPC terms. The client application can submit requests to subscribe or unsubscribe from specific categories of message. The ledger responds directly to the client's requests with confirmation messages, and also sends "notification" requests to the client application. (Notifications are identified by the <code>id</code> value <code>null</code>.)</p>
+<p>After the connection is established, the client and ledger communicate by passing <a class="external-link" href="http://www.jsonrpc.org/specification" target="_blank">JSON-RPC 2.0 <i aria-hidden="true" class="fa fa-external-link"></i></a> messages back and forth. Both the client application and ledger can take the roles of "client" and "server" in JSON-RPC terms. The client application can submit requests to subscribe or unsubscribe from specific categories of message. The ledger responds directly to the client's requests with confirmation messages, and also sends "notification" requests to the client application. (Notifications are identified by the <code>id</code> value <code>null</code>.)</p>
 <p>A ledger MUST support the following subscription command:</p>
 <ul>
 <li><a href="#subscribe-to-account">Subscribe to Account</a></li>
@@ -1328,7 +1331,7 @@ Upgrade: websocket
 <tr>
 <td align="left"><code>params.id</code></td>
 <td align="left"><a href="#urls">URL</a></td>
-<td align="left"><em>(Optional)</em> A <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> to uniquely identify this notification.</td>
+<td align="left"><em>(Optional)</em> A <a class="external-link" href="http://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID <i aria-hidden="true" class="fa fa-external-link"></i></a> to uniquely identify this notification.</td>
 </tr>
 <tr>
 <td align="left"><code>params.resource</code></td>
@@ -1428,7 +1431,7 @@ Upgrade: websocket
 }
 </code></pre>
 <h3 id="invaliduriparametererror">InvalidUriParameterError</h3>
-<p>At least one provided <a href="#urls">URL</a> or <a href="http://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a> parameter was invalid.</p>
+<p>At least one provided <a href="#urls">URL</a> or <a class="external-link" href="http://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID <i aria-hidden="true" class="fa fa-external-link"></i></a> parameter was invalid.</p>
 <p><strong>HTTP Status Code:</strong> 400 Bad Request</p>
 <pre><code class="json">HTTP/1.1 400 Bad Request
 
@@ -1633,8 +1636,8 @@ Upgrade: websocket
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>

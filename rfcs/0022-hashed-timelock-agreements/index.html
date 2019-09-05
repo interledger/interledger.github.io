@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -118,12 +121,12 @@
 </ol>
 <hr/>
 <h2 id="background-on-hashed-timelock-contracts-htlcs">Background on Hashed-Timelock Contracts (HTLCs)</h2>
-<p>A <a href="https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts">Hashed-Timelock Contract (HTLC)</a> is a conditional transfer where the condition is enforced by the ledger. It is a concept from the Bitcoin community that is used in the <a href="https://lightning.network">Lightning Network</a>.</p>
+<p>A <a class="external-link" href="https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts" target="_blank">Hashed-Timelock Contract (HTLC) <i aria-hidden="true" class="fa fa-external-link"></i></a> is a conditional transfer where the condition is enforced by the ledger. It is a concept from the Bitcoin community that is used in the <a class="external-link" href="https://lightning.network" target="_blank">Lightning Network <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <p>When the transfer is "prepared", the sender's funds are put on hold by the ledger, pending the fulfillment of a predefined condition. The condition is a hashlock, or the digest of a cryptographic hash function, such as SHA-256 in Lightning and Interledger. The "contract" stipulates that the recipient may claim the funds by presenting a valid preimage of the hash digest before a given timeout. After the timeout, the funds are automatically returned to the sender. This is the Hashed-Timelock Contract.</p>
 <p>HTLCs are enforced by the ledger, so the parties transacting only need to trust the ledger to correctly execute the contract. However, this mechanism requires support from the ledger and only works with ledgers that implement hashlocks and timeouts.</p>
 <p>Interledger is designed to work with all ledgers, so it must support both ledgers with and without support for hashlocks and timeouts.</p>
 <h2 id="hashed-timelock-agreements-htlas_1">Hashed-Timelock Agreements (HTLAs)</h2>
-<p>A contract is a certain type of agreement that is enforced by a third party. Hashed-Timelock Agreements (HTLAs) generalize the idea of HTLCs to include agreements that are enforced by a ledger. The principle has been in use in Interledger since the project was started but the HTLA term was proposed more recently in <a href="https://lists.w3.org/Archives/Public/public-interledger/2017Jun/0009.html">this thread on the Interledger mailing list</a>.</p>
+<p>A contract is a certain type of agreement that is enforced by a third party. Hashed-Timelock Agreements (HTLAs) generalize the idea of HTLCs to include agreements that are enforced by a ledger. The principle has been in use in Interledger since the project was started but the HTLA term was proposed more recently in <a class="external-link" href="https://lists.w3.org/Archives/Public/public-interledger/2017Jun/0009.html" target="_blank">this thread on the Interledger mailing list <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <p>HTLAs enable secure Interledger payments through all types of ledgers, including those that do not support conditional transfers.</p>
 <h2 id="htlas-without-ledger-support">HTLAs Without Ledger Support</h2>
 <p>Two parties using an HTLA over a ledger that does not support hashlocks and timeouts could proceed in the following manner. The sender would send a message to the recipient telling them that they want to "prepare" a transfer with a given hashlock and timeout. The parties agree that if the recipient presents the preimage of the hash before the timeout, the transfer is executed and the sender owes the recipient the money. Debts are settled using simple transfers on the ledger.</p>
@@ -153,7 +156,7 @@ Alice --(Blockchain A)--&gt; Connector 1 --(Blockchain B)--&gt; Connector 2 --(B
 </ol>
 <p>One way to think of this is that HTLAs abstract away what it means to "get paid". That is just an agreement between two parties and no one else cares how that is structured. All that matters is that each individual is happy with the agreements they're directly a part of. Since all of the hashlocks will be the same, either all of the transfers will happen or none of them will (barring the connector fulfillment failure).</p>
 <p>For more details on the Interledger protocol suite and security, see <a href="/rfcs/0001-interledger-architecture/">IL-RFC 1: Interledger Architecture</a>.</p>
-<p><em>Internet "hat tip": the importance of being able to integrate <strong>any</strong> type of network was demonstrated by <a href="https://tools.ietf.org/html/rfc1149">RFC 1149: A Standard for the Transmission of IP Datagrams on Avian Carriers</a>.</em></p>
+<p><em>Internet "hat tip": the importance of being able to integrate <strong>any</strong> type of network was demonstrated by <a class="external-link" href="https://tools.ietf.org/html/rfc1149" target="_blank">RFC 1149: A Standard for the Transmission of IP Datagrams on Avian Carriers <i aria-hidden="true" class="fa fa-external-link"></i></a>.</em></p>
 <h2 id="spectrum-of-htla-types">Spectrum of HTLA Types</h2>
 <p>The various types of HTLAs present a tradeoffs between complexity and risk. The more functionality a ledger provides, the less the users of that ledger need to trust one another.</p>
 <table>
@@ -195,7 +198,7 @@ Alice --(Blockchain A)--&gt; Connector 1 --(Blockchain B)--&gt; Connector 2 --(B
 <li><strong>Ledger Features Required:</strong> Payment Channels with HTLC Updates</li>
 <li><strong>Non-Functional Ledger Requirements:</strong> Fast*</li>
 <li><strong>Money at Risk:</strong> None</li>
-<li><strong>Examples:</strong> <a href="https://lightning.network">Lightning-Style Channels</a>*</li>
+<li><strong>Examples:</strong> <a class="external-link" href="https://lightning.network" target="_blank">Lightning-Style Channels <i aria-hidden="true" class="fa fa-external-link"></i></a>*</li>
 </ul>
 <p>With conditional payment channels, participants set up the channel by depositing funds in a shared, temporary account on the ledger. When a conditional transfer is prepared, the sender sends the recipient a signed update to the channel that includes a hashlock and timeout. The recipient may redeem the transfer amount if and only if they can present the hash preimage before the timeout. If the sender and recipient agree that the preimage was delivered before the timeout, they can exchange signed statements with the newly agreed upon channel balance. If there is a dispute, the recipient can present the last claim and the hashlock preimage to the ledger and the ledger will determine whether the preimage is valid and was submitted before the timeout.</p>
 <p>Using conditional payment channels, the sender and recipient can transact without any funds being at risk, because all disputes will be mediated by the ledger. This can be used as a mechanism to enable a greater volume of payments "through" a ledger than the ledger can natively support.</p>
@@ -205,7 +208,7 @@ Alice --(Blockchain A)--&gt; Connector 1 --(Blockchain B)--&gt; Connector 2 --(B
 <li><strong>Ledger Features Required:</strong> Transfers with HTLCs</li>
 <li><strong>Non-Functional Ledger Requirements:</strong> Fast, Low Fees, High Throughput</li>
 <li><strong>Money at Risk:</strong> None</li>
-<li><strong>Examples:</strong> <a href="https://github.com/interledgerjs/ilp-plugin-ethereum">Ethereum Escrow Contract</a>, <a href="https://ripple.com/build/transactions/#escrowcreate">XRP Escrow</a></li>
+<li><strong>Examples:</strong> <a class="external-link" href="https://github.com/interledgerjs/ilp-plugin-ethereum" target="_blank">Ethereum Escrow Contract <i aria-hidden="true" class="fa fa-external-link"></i></a>, <a class="external-link" href="https://ripple.com/build/transactions/#escrowcreate" target="_blank">XRP Escrow <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
 </ul>
 <p>If a ledger provides support for HTLCs and is fast and inexpensive enough, participants can send all Interledger payments directly through the ledger. The sender prepares the conditional transfer by putting funds into a ledger-provided hold account pending a given hashlock and timeout. If the recipient presents the hash preimage before the timeout, the ledger executes the transfer and deposits the funds into the recipient's account automatically. If the timeout is reached, the ledger returns the funds to the sender.</p>
 <p>Using ledger-provided conditional transfers enables parties to transact with no risk, but the ledger must be capable of processing a high volume of payments quickly and with low fees.</p>
@@ -214,19 +217,19 @@ Alice --(Blockchain A)--&gt; Connector 1 --(Blockchain B)--&gt; Connector 2 --(B
 <li><strong>Ledger Features Required:</strong> Unconditional, Unidirectional Payment Channels</li>
 <li><strong>Non-Functional Ledger Requirements:</strong> N/A</li>
 <li><strong>Money at Risk:</strong> Total Prepared/Fulfilled Without Claims</li>
-<li><strong>Examples:</strong> <a href="https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki">Bitcoin CLTV Channels</a>, <a href="https://ripple.com/build/payment-channels-tutorial/">XRP PayChan</a></li>
+<li><strong>Examples:</strong> <a class="external-link" href="https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki" target="_blank">Bitcoin CLTV Channels <i aria-hidden="true" class="fa fa-external-link"></i></a>, <a class="external-link" href="https://ripple.com/build/payment-channels-tutorial/" target="_blank">XRP PayChan <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
 </ul>
 <p>Simple payment channels allow parties to send a greater volume of payments than the ledger can process itself. To set up a simple, unidirectional payment channel the sender puts funds into a temporary account on the ledger shared with the recipient. Funds can only be withdrawn from the ledger by presenting a claim signed by both parties that specifies the portion of the funds that will be transferred to the recipient and amount that will be returned to the sender. The sender effectively pays the recipient by sending signed claims to the recipient (not the ledger) that entitle the recipient to withdraw a greater portion of the channel's funds.</p>
 <p>To use a simple payment channel in an HTLA, the sender "prepares" the conditional transfer simply by sending a message to the recipient (including the hashlock and timeout). If the recipient presents the hash preimage before the timeout, the sender sends a new signed claim to the recipient to cover the total amount of the transfers sent thus far.</p>
 <p>The agreement between the sender and recipient dictates how disputes are handled, including cases in which the recipient thinks they submitted the preimage in time and the sender thinks otherwise. Both parties should enforce their own view of the timeout, rather than deferring to the other party.</p>
 <p>In this post-funded model, the recipient must trust the sender for the total amount of the prepared or executed transfers that is not yet covered by payment channel claims. The recipient limits their risk by capping the amount of the transfers they are willing to accept from the sender without the corresponding claims. The risk could be flipped from the recipient to the sender by making the sender pre-fund each transfer by the claim along with the message to prepare the transfer. Pre-funding with simple payment channels is slightly more complex because the recipient needs to send another payment channel update back to the sender if the transfer is rolled back.</p>
-<p>The functionality necessary for simple payment channels is present in nearly all major blockchains today, including Bitcoin (even without <a href="https://en.bitcoin.it/wiki/Segregated_Witness">SegWit</a>), Ethereum, XRP, Zcash, and Chain.</p>
+<p>The functionality necessary for simple payment channels is present in nearly all major blockchains today, including Bitcoin (even without <a class="external-link" href="https://en.bitcoin.it/wiki/Segregated_Witness" target="_blank">SegWit <i aria-hidden="true" class="fa fa-external-link"></i></a>), Ethereum, XRP, Zcash, and Chain.</p>
 <h3 id="trustlines">Trustlines</h3>
 <ul>
 <li><strong>Ledger Features Required:</strong> Transfers Between Accounts</li>
 <li><strong>Non-Functional Ledger Requirements:</strong> N/A</li>
 <li><strong>Money at Risk:</strong> Total Trustline Balance</li>
-<li><strong>Examples:</strong> <a href="https://github.com/interledgerjs/ilp-plugin-virtual"><code>ilp-plugin-virtual</code></a></li>
+<li><strong>Examples:</strong> <a class="external-link" href="https://github.com/interledgerjs/ilp-plugin-virtual" target="_blank"><code>ilp-plugin-virtual</code> <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
 </ul>
 <p>When a ledger does not provide any support for Interledger, parties can still connect to the Interledger using trustlines. The sender prepares the transfer by sending the recipient a message including the hashlock and timeout. If the recipient produces the hash preimage before the timeout, the sender's debt is increased by the transfer amount. Like with simple payment channels, the participants must agree on how to solve disputes, including disagreements about whether a hash preimage was submitted in time. The sender can continue sending payments until they reach the maximum balance allowed by the recipient. At that point, the sender settles their balance by making a transfer on the ledger.</p>
 <p>In this model, one of the parties must trust the other for the full outstanding balance of the trustline. This may be suitable in cases where the sender and recipient are friends or have a long-standing business relationship.</p>
@@ -284,8 +287,8 @@ Alice --(Blockchain A)--&gt; Connector 1 --(Blockchain B)--&gt; Connector 2 --(B
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>

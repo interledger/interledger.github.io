@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -124,7 +127,7 @@
 <p>This flow refers to the user's <strong>browser</strong> and the user's <strong>provider</strong>, <a href="#terminology">defined above</a>.</p>
 <ul>
 <li>The user's browser navigates to a webpage.</li>
-<li>The user's browser sets <code>document.monetization</code> to an Object which implements <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget">EventTarget</a>.</li>
+<li>The user's browser sets <code>document.monetization</code> to an Object which implements <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget" target="_blank">EventTarget <i aria-hidden="true" class="fa fa-external-link"></i></a>.</li>
 <li>The user's browser sets <code>document.monetization.state</code> to <code>pending</code>.</li>
 <li>The user's browser observes the <code>&lt;head&gt;</code> and looks for a Web Monetization <code>&lt;meta name="monetization"&gt;</code> tag (<a href="#meta-tags-set">specified below</a>).</li>
 <li>There MUST be only one <code>&lt;meta name="monetization"&gt;</code> tag at any given time</li>
@@ -163,7 +166,7 @@
 <h3 id="payment-handler-flow">Payment Handler Flow</h3>
 <p>A provider can be implemented as a Payment Handler supporting the 'webmonetization' payment method (The payment method specification for this payment method is still under development.). Communication between the browser and the provider would use this flow.</p>
 <ul>
-<li>After parsing the <code>&lt;meta&gt;</code> Tags Set, the browser creates a new <a href="https://www.w3.org/TR/payment-request/#paymentrequest-interface">PaymentRequest</a> object with the following <a href="https://www.w3.org/TR/payment-request/#dom-paymentmethoddata">PaymentMethodData</a> argument.</li>
+<li>After parsing the <code>&lt;meta&gt;</code> Tags Set, the browser creates a new <a class="external-link" href="https://www.w3.org/TR/payment-request/#paymentrequest-interface" target="_blank">PaymentRequest <i aria-hidden="true" class="fa fa-external-link"></i></a> object with the following <a class="external-link" href="https://www.w3.org/TR/payment-request/#dom-paymentmethoddata" target="_blank">PaymentMethodData <i aria-hidden="true" class="fa fa-external-link"></i></a> argument.</li>
 </ul>
 <pre><code class="json">{
   "supportedMethods": "webmonetization",
@@ -173,8 +176,8 @@
 }
 </code></pre>
 <ul>
-<li>The user's browser calls <code>.show()</code> on this PaymentRequest, triggering the <a href="https://www.w3.org/TR/payment-handler/">PaymentHandler</a> for <code>webmonetization</code>. This PaymentHandler is how the browser communicates to the provider.</li>
-<li>The return value of <code>.show()</code> MUST return a Promise, and must also implement the <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget">EventTarget</a> interface. The provider will emit <a href="#monetizationstart">MonetizationStart</a> and <a href="#monetizationprogress">MonetizationProgress</a> events from this Promise to communicate to the browser when payment occurs. The Promise MUST NOT resolve, because Web Monetization continues for the entire lifetime of a given meta tag. The Promise MAY reject if there is an error preventing the provider from paying and no retries will occur.</li>
+<li>The user's browser calls <code>.show()</code> on this PaymentRequest, triggering the <a class="external-link" href="https://www.w3.org/TR/payment-handler/" target="_blank">PaymentHandler <i aria-hidden="true" class="fa fa-external-link"></i></a> for <code>webmonetization</code>. This PaymentHandler is how the browser communicates to the provider.</li>
+<li>The return value of <code>.show()</code> MUST return a Promise, and must also implement the <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget" target="_blank">EventTarget <i aria-hidden="true" class="fa fa-external-link"></i></a> interface. The provider will emit <a href="#monetizationstart">MonetizationStart</a> and <a href="#monetizationprogress">MonetizationProgress</a> events from this Promise to communicate to the browser when payment occurs. The Promise MUST NOT resolve, because Web Monetization continues for the entire lifetime of a given meta tag. The Promise MAY reject if there is an error preventing the provider from paying and no retries will occur.</li>
 <li>This PaymentHandler MUST NOT require any UI or confirmation to proceed with payment.</li>
 </ul>
 <h2 id="specification">Specification</h2>
@@ -215,7 +218,7 @@ document.monetization.state: string
 <li><code>started</code> - Indicates that monetization has started (i.e. the <code>monetizationstart</code> event has been fired).</li>
 </ul>
 <h3 id="browser-events">Browser Events</h3>
-<p>These events are dispatched on <code>document.monetization</code>. Web Monetization events MAY be implemented as <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent"><code>CustomEvent</code></a>s, or as their own Event class.</p>
+<p>These events are dispatched on <code>document.monetization</code>. Web Monetization events MAY be implemented as <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent" target="_blank"><code>CustomEvent</code> <i aria-hidden="true" class="fa fa-external-link"></i></a>s, or as their own Event class.</p>
 <h4 id="monetizationstart"><code>monetizationstart</code></h4>
 <p>Dispatched once the first ILP packet with a non-zero amount has been fulfilled by the page's SPSP receiver. MUST be dispatched at least once if payment occurs.</p>
 <pre><code class="ts">{
@@ -284,8 +287,8 @@ document.monetization.state: string
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>

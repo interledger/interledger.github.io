@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -732,7 +735,7 @@ left undefined (but not any other false-y value) if unused.</p>
 <p>An integer amount, represented as a string of base-ten digits. MUST be <code>&gt;= 0</code> and <code>&lt; 2^64</code>.</p>
 <h4 id="transferilp">Transfer#ilp</h4>
 <p><code><strong>ilp</strong>:String</code></p>
-<p>An <a href="https://interledger.org/rfcs/0003-interledger-protocol/draft-4.html#specification">ILP packet</a>, denoting the payment's final destination.</p>
+<p>An <a class="external-link" href="https://interledger.org/rfcs/0003-interledger-protocol/draft-4.html#specification" target="_blank">ILP packet <i aria-hidden="true" class="fa fa-external-link"></i></a>, denoting the payment's final destination.</p>
 <p>If the <code>ilp</code> data is too large, the ledger plugin MUST reject with a <code>MaximumIlpDataSizeExceededError</code>.</p>
 <h4 id="transfernotetoself-optional">Transfer#noteToSelf (OPTIONAL)</h4>
 <p><code><strong>noteToSelf</strong>:Object</code></p>
@@ -826,7 +829,7 @@ left undefined (but not any other false-y value) if unused.</p>
 <p>The ILP Prefix of the ledger being used to transfer the message.</p>
 <h4 id="messageilp">Message#ilp</h4>
 <p><code><strong>ilp</strong>:String</code></p>
-<p>An <a href="https://interledger.org/rfcs/0003-interledger-protocol/draft-4.html#specification">ILP packet</a>, used for communication among ledger participants.
+<p>An <a class="external-link" href="https://interledger.org/rfcs/0003-interledger-protocol/draft-4.html#specification" target="_blank">ILP packet <i aria-hidden="true" class="fa fa-external-link"></i></a>, used for communication among ledger participants.
 Include either this field, or the <code>custom</code> field, or both.</p>
 <p>If the <code>ilp</code> data is too large, the ledger plugin MUST reject with a <code>MaximumIlpDataSizeExceededError</code>.</p>
 <h4 id="messagecustom-optional">Message#custom (OPTIONAL)</h4>
@@ -864,7 +867,7 @@ Include either this field, or the <code>custom</code> field, or both.</p>
 <tr>
 <td align="left"><code>String</code></td>
 <td align="left"><a href="#ledgerinfocurrencycode">currencyCode</a></td>
-<td align="left"><a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> three-letter currency code</td>
+<td align="left"><a class="external-link" href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217 <i aria-hidden="true" class="fa fa-external-link"></i></a> three-letter currency code</td>
 </tr>
 <tr>
 <td align="left"><code>Number</code></td>
@@ -892,10 +895,10 @@ Include either this field, or the <code>custom</code> field, or both.</p>
 <h4 id="ledgerinfoprefix">LedgerInfo#prefix</h4>
 <p><code><strong>prefix</strong>:String</code></p>
 <p>The ledger plugin's ILP address prefix. This is used to determine whether a given ILP address is local to this ledger plugin and thus can be reached using this plugin's <code>sendTransfer</code> method.</p>
-<p>The prefix may be configured, automatically detected, or hard-coded, depending on the ledger. For example, a Bitcoin ledger plugin may have the address hard-coded, while a <a href="https://github.com/interledger/five-bells-ledger"><code>five-bells-ledger</code></a> would use an API call to get the prefix.</p>
+<p>The prefix may be configured, automatically detected, or hard-coded, depending on the ledger. For example, a Bitcoin ledger plugin may have the address hard-coded, while a <a class="external-link" href="https://github.com/interledger/five-bells-ledger" target="_blank"><code>five-bells-ledger</code> <i aria-hidden="true" class="fa fa-external-link"></i></a> would use an API call to get the prefix.</p>
 <h4 id="ledgerinfocurrencycode">LedgerInfo#currencyCode</h4>
 <p><code><strong>currencyCode</strong>:String</code></p>
-<p>The <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code (if any) used by the ledger. A custom all-caps three-letter code, not used by ISO 4217, otherwise.
+<p>The <a class="external-link" href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217 <i aria-hidden="true" class="fa fa-external-link"></i></a> currency code (if any) used by the ledger. A custom all-caps three-letter code, not used by ISO 4217, otherwise.
 Ledger administrators who choose a custom currency code MAY request a custom currency symbol for their chosen currency code be listed by software modules that map currency codes to currency symbols,
 for instance on node package manager (npm) in the case of JavaScript.
 To translate an integer amount or balance from the ledger, the currencyCode by itself is not enough. It has to be used in combination with the currencyScale (below) to determine how many
@@ -1087,8 +1090,8 @@ If <code>Infinity</code>, there is no timeout.</p>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>

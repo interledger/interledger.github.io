@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -112,7 +115,10 @@
 <li><a href="#4-life-of-a-connection">4. Life of a Connection</a></li>
 <li><a href="#41-setup">4.1. Setup</a></li>
 <li><a href="#42-matching-packets-to-connections">4.2. Matching Packets to Connections</a></li>
-<li><a href="#43-client-address-communication-and-connection-migration">4.3. Client Address Communication and Connection Migration</a></li>
+<li><a href="#43-client-address-communication-and-connection-migration">4.3. Client Address Communication and Connection Migration</a><ul>
+<li><a href="#431-connection-asset-details">4.3.1. Connection Asset Details</a></li>
+</ul>
+</li>
 <li><a href="#44-streams">4.4. Streams</a><ul>
 <li><a href="#441-opening-new-streams">4.4.1. Opening New Streams</a></li>
 <li><a href="#442-sending-money">4.4.2. Sending Money</a></li>
@@ -128,6 +134,7 @@
 <li><a href="#511-encryption-envelope">5.1.1. Encryption Envelope</a></li>
 <li><a href="#512-encryption-pseudocode">5.1.2. Encryption Pseudocode</a></li>
 <li><a href="#513-maximum-number-of-packets-per-connection">5.1.3. Maximum Number of Packets Per Connection</a></li>
+<li><a href="#514-maximum-varuint-size">5.1.4. Maximum <code>VarUInt</code> Size</a></li>
 </ul>
 </li>
 <li><a href="#52-stream-packet">5.2. STREAM Packet</a></li>
@@ -145,6 +152,7 @@
 <li><a href="#5311-streamdata-frame">5.3.11. <code>StreamData</code> Frame</a></li>
 <li><a href="#5312-streammaxdata-frame">5.3.12. <code>StreamMaxData</code> Frame</a></li>
 <li><a href="#5313-streamdatablocked-frame">5.3.13. <code>StreamDataBlocked</code> Frame</a></li>
+<li><a href="#5314-connectionassetdetails-frame">5.3.14. <code>ConnectionAssetDetails</code> Frame</a></li>
 </ul>
 </li>
 <li><a href="#54-error-codes">5.4. Error Codes</a></li>
@@ -169,9 +177,9 @@
 <li>Generating and fulfilling ILP packet conditions</li>
 <li>Connection migration</li>
 </ul>
-<p>STREAM is a successor to the <a href="/rfcs/0025-pre-shared-key-2/">Pre-Shared Key V2 (PSK2)</a> Transport Protocol and also takes significant inspiration from the <a href="https://tools.ietf.org/html/draft-ietf-quic-transport-10">QUIC</a> Internet Transport Protocol. Like PSK2, STREAM uses a shared secret to authenticate and encrypt multiple packets, as well as to generate the conditions and fulfillments. In addition, STREAM enables sending money and data in both directions between the two endpoints and automatically determines how much money and data can be sent in each ILP packet. STREAM borrows heavily from QUIC's packet format, stream multiplexing, and approach to flow control (see <a href="#appendix-a-similarities-and-differences-with-quic">Appendix A</a> for similarities and differences with QUIC).</p>
+<p>STREAM is a successor to the <a href="/rfcs/0025-pre-shared-key-2/">Pre-Shared Key V2 (PSK2)</a> Transport Protocol and also takes significant inspiration from the <a class="external-link" href="https://tools.ietf.org/html/draft-ietf-quic-transport-10" target="_blank">QUIC <i aria-hidden="true" class="fa fa-external-link"></i></a> Internet Transport Protocol. Like PSK2, STREAM uses a shared secret to authenticate and encrypt multiple packets, as well as to generate the conditions and fulfillments. In addition, STREAM enables sending money and data in both directions between the two endpoints and automatically determines how much money and data can be sent in each ILP packet. STREAM borrows heavily from QUIC's packet format, stream multiplexing, and approach to flow control (see <a href="#appendix-a-similarities-and-differences-with-quic">Appendix A</a> for similarities and differences with QUIC).</p>
 <h2 id="2-conventions-and-definitions">2. Conventions and Definitions</h2>
-<p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in BCP 14 <a href="https://tools.ietf.org/html/rfc2119">RFC2119</a> <a href="https://tools.ietf.org/html/rfc8174">RFC8174</a> when, and only when, they appear in all capitals, as shown here.</p>
+<p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in BCP 14 <a class="external-link" href="https://tools.ietf.org/html/rfc2119" target="_blank">RFC2119 <i aria-hidden="true" class="fa fa-external-link"></i></a> <a class="external-link" href="https://tools.ietf.org/html/rfc8174" target="_blank">RFC8174 <i aria-hidden="true" class="fa fa-external-link"></i></a> when, and only when, they appear in all capitals, as shown here.</p>
 <p>Definitions of terms that are used in this document:</p>
 <ul>
 <li><strong>Client</strong> - The endpoint initiating a STREAM connection</li>
@@ -195,7 +203,7 @@
 <p>In an application that uses an ongoing flow of money, an endpoint can open a single stream and continue sending money on it for the duration of some paid interaction.</p>
 <p>In another application, an endpoint can open a stream, send a specific amount of money through it, and then close the stream to indicate the payment is complete. In this case, the stream abstraction provides a mechanism to "frame" a payment or message that may be split across multiple packets. New streams can be opened and closed on the same connection to send multiple messages.</p>
 <p>STREAM uses bidirectional streams, which can be used for request/response flows or one-way messages.</p>
-<p>The choice of streams as the key abstraction is inspired by <a href="https://quicwg.github.io/base-drafts/draft-ietf-quic-transport.html#rfc.section.9">QUIC</a> and the earlier <a href="http://www.brynosaurus.com/pub/net/sst.pdf">Structured Streams Transport (SST)</a>.</p>
+<p>The choice of streams as the key abstraction is inspired by <a class="external-link" href="https://quicwg.github.io/base-drafts/draft-ietf-quic-transport.html#rfc.section.9" target="_blank">QUIC <i aria-hidden="true" class="fa fa-external-link"></i></a> and the earlier <a class="external-link" href="http://www.brynosaurus.com/pub/net/sst.pdf" target="_blank">Structured Streams Transport (SST) <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <h3 id="33-multiplexed-streams">3.3. Multiplexed Streams</h3>
 <p>Each connection can include multiple streams, each of which is used to send money and/or data.</p>
 <p>Streams are given numerical IDs. Client-initiated streams are given odd numbers starting with 1 and server-initiated streams are given even numbers starting with 2 (this is used to avoid collisions if both endpoints open streams at the same time).</p>
@@ -225,7 +233,7 @@
 <h3 id="43-client-address-communication-and-connection-migration">4.3. Client Address Communication and Connection Migration</h3>
 <p>When a client connects to a server, they MUST communicate their ILP address to the server using a <code>ConnectionNewAddress</code> frame.</p>
 <p>Either endpoint MAY change their ILP address at any point during a connection by sending a <code>ConnectionNewAddress</code> frame. To ensure the new address is received and acknowledged, implementations MAY choose to send these frames only in ILP Prepare packets.</p>
-<p>Implementations SHOULD wait for a valid response (encrypted with the same shared secret) from the new address to validate the new path. STREAM uses the authenticated request/response packets in lieu of <a href="https://quicwg.github.io/base-drafts/draft-ietf-quic-transport.html#rfc.section.6.7">QUIC's explicit Path Validation</a>. Implementations SHOULD refrain from sending large numbers of packets or large amounts of data to a new ILP address before validating the path to avoid being tricked into participating in a Denial of Service (DoS) attack on a third-party endpoint.</p>
+<p>Implementations SHOULD wait for a valid response (encrypted with the same shared secret) from the new address to validate the new path. STREAM uses the authenticated request/response packets in lieu of <a class="external-link" href="https://quicwg.github.io/base-drafts/draft-ietf-quic-transport.html#rfc.section.6.7" target="_blank">QUIC's explicit Path Validation <i aria-hidden="true" class="fa fa-external-link"></i></a>. Implementations SHOULD refrain from sending large numbers of packets or large amounts of data to a new ILP address before validating the path to avoid being tricked into participating in a Denial of Service (DoS) attack on a third-party endpoint.</p>
 <h4 id="431-connection-asset-details">4.3.1. Connection Asset Details</h4>
 <p>Each endpoint MAY expose their asset details by sending a <code>ConnectionAssetDetails</code> frame.</p>
 <h3 id="44-streams">4.4. Streams</h3>
@@ -238,7 +246,7 @@
 <h4 id="443-sending-data">4.4.3. Sending Data</h4>
 <p>Data can be sent for a given stream by sending an ILP Prepare packet with a <code>StreamData</code> frame in the STREAM packet. A single ILP Prepare can carry data destined for multiple streams.</p>
 <h4 id="444-stream-level-flow-control">4.4.4. Stream-Level Flow Control</h4>
-<p>Each endpoint can limit the amount of money and data they are willing to receive on a particular stream. STREAM uses a credit-based flow control scheme inspired by <a href="https://quicwg.github.io/base-drafts/draft-ietf-quic-transport.html#rfc.section.10">QUIC</a>. Each endpoint advertises the maximum amount of money they are willing to receive, using <code>StreamMaxMoney</code> frames, as well as the maximum number of bytes each stream can receive, using <code>StreamMaxData</code> frames.</p>
+<p>Each endpoint can limit the amount of money and data they are willing to receive on a particular stream. STREAM uses a credit-based flow control scheme inspired by <a class="external-link" href="https://quicwg.github.io/base-drafts/draft-ietf-quic-transport.html#rfc.section.10" target="_blank">QUIC <i aria-hidden="true" class="fa fa-external-link"></i></a>. Each endpoint advertises the maximum amount of money they are willing to receive, using <code>StreamMaxMoney</code> frames, as well as the maximum number of bytes each stream can receive, using <code>StreamMaxData</code> frames.</p>
 <p>Endpoints MAY advertise larger offsets at any point by sending new <code>StreamMaxMoney</code> or <code>StreamMaxData</code> frames. An endpoint MUST NOT renege on an advertisement. Once an endpoint advertises a given maximum receive amount or maximum byte offset, they MUST NOT advertise a smaller value later. The sending endpoint could receive the frames out of order and so they MUST ignore flow control offsets that do not increase the window.</p>
 <p>The receiving endpoint MUST close the connection with a <code>FlowControlError</code> if the sender violates the advertised stream limits.</p>
 <p>Senders SHOULD send <code>StreamMoneyBlocked</code> and <code>StreamDataBlocked</code> frames when they have more money or data to send that would exceed the other endpoint's advertised limits. These are primarily intended for debugging purposes.</p>
@@ -253,9 +261,9 @@
 <p><code>ConnectionClose</code> frames are used to communicate both normal connection closes as well as errors.</p>
 <h2 id="5-packet-and-frame-specification">5. Packet and Frame Specification</h2>
 <p>STREAM packets are encrypted and attached to ILP Prepare, Fulfill, and Reject packets as the <code>data</code> field.</p>
-<p>STREAM uses the <a href="http://www.oss.com/asn1/resources/books-whitepapers-pubs/Overview_of_OER.pdf">Octet Encoding Rules (OER)</a> to encode packet fields.</p>
+<p>STREAM uses the <a class="external-link" href="http://www.oss.com/asn1/resources/books-whitepapers-pubs/Overview_of_OER.pdf" target="_blank">Octet Encoding Rules (OER) <i aria-hidden="true" class="fa fa-external-link"></i></a> to encode packet fields.</p>
 <h3 id="51-encryption">5.1. Encryption</h3>
-<p>All STREAM packets are encrypted using <a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode">AES-256-GCM</a> with a 12-byte Initialization Vector (IV) and a 16-Byte Authentication Tag.</p>
+<p>All STREAM packets are encrypted using <a class="external-link" href="https://en.wikipedia.org/wiki/Galois/Counter_Mode" target="_blank">AES-256-GCM <i aria-hidden="true" class="fa fa-external-link"></i></a> with a 12-byte Initialization Vector (IV) and a 16-Byte Authentication Tag.</p>
 <p>If subsequent versions support additional encryption algorithms, those details should be exchanged between the sender and receiver when they establish the shared secret. If a receiver attempts to decrypt an incoming packet but is unable to (perhaps because the sender is using an unsupported cipher), the receiver SHOULD reject the incoming transfer with an <code>F06: Unexpected Payment</code> error.</p>
 <h4 id="511-encryption-envelope">5.1.1. Encryption Envelope</h4>
 <p>See the <a href="/rfcs/asn1/Stream.asn.html">ASN.1 definition</a> for the formal encryption envelope specification.</p>
@@ -293,8 +301,8 @@ var encryption_key = hmac_sha256(shared_secret, "ilp_stream_encryption");
 var { ciphertext, auth_tag } = aes_256_gcm(encryption_key, iv, data);
 </code></pre>
 <h4 id="513-maximum-number-of-packets-per-connection">5.1.3. Maximum Number of Packets Per Connection</h4>
-<p>Implementations MUST close the connection once either endpoint has sent 2^31 packets. According to <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf">NIST</a>, it is unsafe to use AES-GCM for more than 2^32 packets using the same encryption key. (STREAM uses the limit of 2^31 because both endpoints encrypt packets with the same key.)</p>
-<h4 id="514-maximum-varuint-size">5.1.4. Maximum VarUInt Size</h4>
+<p>Implementations MUST close the connection once either endpoint has sent 2^31 packets. According to <a class="external-link" href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf" target="_blank">NIST <i aria-hidden="true" class="fa fa-external-link"></i></a>, it is unsafe to use AES-GCM for more than 2^32 packets using the same encryption key. (STREAM uses the limit of 2^31 because both endpoints encrypt packets with the same key.)</p>
+<h4 id="514-maximum-varuint-size">5.1.4. Maximum <code>VarUInt</code> Size</h4>
 <p>Implementations MAY NOT support <code>VarUInt</code>s larger than <code>MaxUInt64</code> (for performance reasons).</p>
 <p>If an implementation does not support larger <code>VarUInt</code>s, it MUST:</p>
 <ul>
@@ -882,8 +890,8 @@ var fulfillment = hmac_sha256(hmac_key, data);
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>

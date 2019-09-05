@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -97,7 +100,7 @@
     <div class="content doc-content">
         <h1 id="interledger-protocol-ilp">Interledger Protocol (ILP)</h1>
 <h2 id="preface">Preface</h2>
-<p>This document specifies the Interledger Protocol (ILP). It draws heavily from the definition of the Internet Protocol (IP) defined in <a href="https://tools.ietf.org/html/rfc791">RFC 791</a>. The interledger protocol is the culmination of more than a decade of research in decentralized payment protocols. This work was started in 2004 by Ryan Fugger, augmented by the development of Bitcoin in 2008 and has involved numerous contributors since then.</p>
+<p>This document specifies the Interledger Protocol (ILP). It draws heavily from the definition of the Internet Protocol (IP) defined in <a class="external-link" href="https://tools.ietf.org/html/rfc791" target="_blank">RFC 791 <i aria-hidden="true" class="fa fa-external-link"></i></a>. The interledger protocol is the culmination of more than a decade of research in decentralized payment protocols. This work was started in 2004 by Ryan Fugger, augmented by the development of Bitcoin in 2008 and has involved numerous contributors since then.</p>
 <h2 id="introduction">Introduction</h2>
 <h3 id="motivation">Motivation</h3>
 <p>Payment networks today are siloed and disconnected. Payments are relatively easy within one country or if the sender and recipient have accounts on the same network or ledger. However, sending from one ledger to another is often impossible. Where connections do exist, they are manual, slow, or expensive.</p>
@@ -111,7 +114,7 @@
 <h3 id="operation">Operation</h3>
 <p>The central functions of the interledger protocol are addressing hosts and securing payments across different ledgers.</p>
 <p>Each host sending and receiving interledger payments has an interledger module that uses the addresses in the interledger header to transmit interledger payments toward their destinations. Interledger modules share common rules for interpreting addresses. The modules (especially in connectors) also have procedures for making routing decisions and other functions.</p>
-<p>The interledger protocol uses transfer holds to ensure that senders' funds are either delivered to the destination account or returned to the sender's account. This mechanism is described in greater detail in the <a href="#overview">Overview</a> and the <a href="https://interledger.org/interledger.pdf">Interledger Whitepaper</a>.</p>
+<p>The interledger protocol uses transfer holds to ensure that senders' funds are either delivered to the destination account or returned to the sender's account. This mechanism is described in greater detail in the <a href="#overview">Overview</a> and the <a class="external-link" href="https://interledger.org/interledger.pdf" target="_blank">Interledger Whitepaper <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <p>The interledger protocol treats each interledger payment as an independent entity unrelated to any other interledger payment. There are no connections or channels (virtual or otherwise).</p>
 <p>Interledger payments do not carry a dedicated time-to-live or remaining-hops field. Instead, the amount field acts as an implicit time-to-live: Each time the payment is forwarded, the forwarding connector will take some fee out of the inbound amount. Once a connector recognizes that the inbound amount is worth less (though not necessarily numerically smaller) than the destination amount in the ILP header, it will refuse to forward the payment.</p>
 <p>See <a href="/rfcs/0019-glossary/">IL-RFC 19</a> for definitions of terms like Transfer, Ledger, Connector, and Payment.</p>
@@ -202,7 +205,7 @@ Interledger Module    Interledger Module    Interledger Module
 <p>The purpose of the interledger protocol is to enable hosts to route payments through an interconnected set of ledgers. This is done by passing the payments from one interledger module to another until the destination is reached. The interledger modules reside in hosts and connectors in the interledger system. The payments are routed from one interledger module to another through individual ledgers based on the interpretation of an interledger address. Thus, a central component of the interledger protocol is the interledger address.</p>
 <p>When routing payments with relatively large amounts, the connectors and the intermediary ledgers they choose in the routing process may not be trusted. Holds provided by underlying ledgers MAY be used to protect the sender and receivers from this risk. In this case, the ILP packet contains a cryptographic condition and expiration date.</p>
 <h4 id="addressing">Addressing</h4>
-<p>As with the <a href="https://tools.ietf.org/html/rfc791#section-2.3">internet protocol</a>, interledger distinguishes between names, addresses, and routes.</p>
+<p>As with the <a class="external-link" href="https://tools.ietf.org/html/rfc791#section-2.3" target="_blank">internet protocol <i aria-hidden="true" class="fa fa-external-link"></i></a>, interledger distinguishes between names, addresses, and routes.</p>
 <blockquote>
 <p>"A name indicates what we seek. An address indicates where it is. A route indicates how to get there. The internet protocol deals primarily with addresses. It is the task of higher level (i.e., end-to-end or application) protocols to make the mapping from names to addresses."</p>
 </blockquote>
@@ -556,7 +559,7 @@ Address ::= IA5String
 <p>Protocols built on top of ILP that define behavior for certain errors SHOULD specify the encoding format of error <code>data</code>.</p>
 <p>Unless otherwise specified, <code>data</code> SHOULD be encoded as UTF-8.</p>
 <h3 id="ilp-error-codes">ILP Error Codes</h3>
-<p>Inspired by <a href="https://tools.ietf.org/html/rfc2616#section-10">HTTP Status Codes</a>, ILP errors are categorized based on the intended behavior of the caller when they get the given error.</p>
+<p>Inspired by <a class="external-link" href="https://tools.ietf.org/html/rfc2616#section-10" target="_blank">HTTP Status Codes <i aria-hidden="true" class="fa fa-external-link"></i></a>, ILP errors are categorized based on the intended behavior of the caller when they get the given error.</p>
 <h4 id="f__-final-error">F__ - Final Error</h4>
 <p>Final errors indicate that the payment is invalid and should not be retried unless the details are changed.</p>
 <table>
@@ -884,8 +887,8 @@ the resulting ILP packet would look like this:</p>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>

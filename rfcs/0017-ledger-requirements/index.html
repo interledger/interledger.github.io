@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -113,7 +116,7 @@
 <li>Executed -- The transfer has completed.</li>
 <li>Rejected -- The transfer has been canceled (and funds returned to the sender.)</li>
 </ul>
-<p><span class="show alert alert-info"><strong>Hint:</strong> Authorization holds are the financial equivalent of a <a href="http://foldoc.org/two-phase%20commit">two-phase commit</a>.</span></p>
+<p><span class="show alert alert-info"><strong>Hint:</strong> Authorization holds are the financial equivalent of a <a class="external-link" href="http://foldoc.org/two-phase%20commit" target="_blank">two-phase commit <i aria-hidden="true" class="fa fa-external-link"></i></a>.</span></p>
 <p>The ledger MUST be able to release the held funds to the receiver upon receiving a 32-byte preimage whose SHA-256 hash matches a value provided by the sender. The ledger MUST accept ONLY 32 byte preimages or support specifying the fulfillment length when the transfer is prepared.</p>
 <p>The ledger MUST support releasing held funds back to the sender after a timeout.</p>
 <p>The ledger MUST support attaching a short message or <em>memo</em> to each transfer.</p>
@@ -129,10 +132,10 @@
 <h2 id="example-protocols">Example Protocols</h2>
 <h3 id="five-bells-ledger-protocol-5blp">Five Bells Ledger Protocol (5BLP)</h3>
 <p>Five Bells Ledger Protocol (5BLP) is a RESTful, JSON-based protocol that was developed specifically to provide the minimum functionality required for full Interledger support.</p>
-<p>A reference implementation of a ledger using 5BLP can be found <a href="https://github.com/interledger/five-bells-ledger">here</a>.</p>
+<p>A reference implementation of a ledger using 5BLP can be found <a class="external-link" href="https://github.com/interledger/five-bells-ledger" target="_blank">here <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <h3 id="blockchain-protocols-eg-bitcoin">Blockchain Protocols (e.g. Bitcoin)</h3>
 <p>Blockchains are distributed, peer-to-peer systems that provide consensus over a single shared state. Any blockchain that supports escrowed funds transfers is in principle capable of acting as a ledger connected to the Interledger.</p>
-<p>For example, Bitcoin supports SHA-256 hashlocked escrow transfers which means it can participate in ILP Interledger transactions. Bitcoin's <a href="https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki">BIP-65</a> proposal provided the timeouts required for Basic level support.</p>
+<p>For example, Bitcoin supports SHA-256 hashlocked escrow transfers which means it can participate in ILP Interledger transactions. Bitcoin's <a class="external-link" href="https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki" target="_blank">BIP-65 <i aria-hidden="true" class="fa fa-external-link"></i></a> proposal provided the timeouts required for Basic level support.</p>
 <h3 id="legacy-protocols-eg-ach-iso-20022">Legacy Protocols (e.g. ACH, ISO 20022)</h3>
 <p>Legacy protocols often do not provide escrow functionality. In this case, the protocol can either be upgraded, or a highly trusted participant (e.g. a bank) can act as an escrow provider.</p>
 <h3 id="proprietary-wallet-protocols-eg-paypal-api">Proprietary Wallet Protocols (e.g. PayPal API)</h3>
@@ -189,8 +192,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>

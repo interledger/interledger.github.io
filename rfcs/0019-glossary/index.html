@@ -20,6 +20,9 @@
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -35,7 +38,7 @@
 
   <!-- <div class="container"> -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
-            <div class="navbar-leftbg"><a href="/index.html" class="navbar-brand"><img src="/assets/img/ilp_logo.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
               <span class="navbar-toggler-icon"></span>
@@ -67,7 +70,7 @@
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a href="https://medium.com/interledger-blog">Blog &amp; Tutorials</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
@@ -86,7 +89,7 @@
         <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
         <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
         <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
 
       </ul>
     </div>        </aside>
@@ -120,7 +123,7 @@ When part of an account's balance is not readily usable, it is up to the ledger 
 <p>A large payment which is split into smaller chunks that are then sent sequentially. Chunked payments reduce the total amount of money in-flight at a given time, which can reduce certain risks and costs.</p>
 <h2 id="conditional-transfer">Conditional Transfer</h2>
 <p>Each local transfer is first <em>prepared</em> and then either <em>executed</em> or <em>rejected</em>. When a transfer is prepared, the ledger puts the funds of the source account on hold with a <em>cryptographic condition</em> and <em>timeout</em>. If the condition is fulfilled before the timeout, the transfer is executed and the funds are transferred. If the timeout is reached, the transfer expires and the ledger returns the funds to the source account automatically.
-Inspired by the <a href="http://lightning.network">Lightning Network</a>, Interledger uses the digest of the <a href="https://en.wikipedia.org/wiki/SHA-2">SHA-256</a> hash function as the condition for transfers. The fulfillment is a valid 32-byte preimage for the hash specified when the transfer was prepared. Ledgers are responsible for validating fulfillments. <a href="#transport-layer">Transport Layer</a> protocols are used by the sender and receiver to generate the condition for a particular payment.</p>
+Inspired by the <a class="external-link" href="http://lightning.network" target="_blank">Lightning Network <i aria-hidden="true" class="fa fa-external-link"></i></a>, Interledger uses the digest of the <a class="external-link" href="https://en.wikipedia.org/wiki/SHA-2" target="_blank">SHA-256 <i aria-hidden="true" class="fa fa-external-link"></i></a> hash function as the condition for transfers. The fulfillment is a valid 32-byte preimage for the hash specified when the transfer was prepared. Ledgers are responsible for validating fulfillments. <a href="#transport-layer">Transport Layer</a> protocols are used by the sender and receiver to generate the condition for a particular payment.</p>
 <h2 id="connector">Connector</h2>
 <p>A party who chains one transfer to the next in an interledger payment.
 A connector receives a local transfer on one ledger in exchange for making another local transfer on a different ledger. A single interledger payment may include multiple connectors and may traverse any number of ledgers.
@@ -166,7 +169,7 @@ If the transfer is rejected, the money is no longer on hold either, but is inste
 Likewise, 'best hop', as used in the ilp-connector source code when making routing decisions, is best interpreted as 'best next transfer'.</p>
 <h2 id="il-rfc">IL-RFC</h2>
 <p>Interledger request for comments. A document describing a part of the protocol stack, or a topic related to it, such as this glossary. The official list of IL-RFCs is maintained in
-<a href="https://github.com/interledgers/rfcs">gh:interledger/rfcs</a>.</p>
+<a class="external-link" href="https://github.com/interledgers/rfcs" target="_blank">gh:interledger/rfcs <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <h2 id="incoming-transfer-ledger-amount">Incoming (Transfer, Ledger, Amount)</h2>
 <p>The transfer/ledger/amount, relative to the party who plays the 'receiver' role. See also <a href="#outgoing-transfer-ledger-amount">Outgoing</a>.</p>
 <h2 id="interledger-in-lets-use-interledger-for-that">Interledger (in "Let's use Interledger for that!")</h2>
@@ -176,7 +179,7 @@ Likewise, 'best hop', as used in the ilp-connector source code when making routi
 The adjective 'interledger' is also sometimes used to simply refer to transactions that cross multiple ledgers, even if ILP is not used (similar to
 'international' meaning 'across multiple nations').</p>
 <h2 id="interledger-in-the-interledger">Interledger (in "The Interledger")</h2>
-<p>The main public network of ledgers connected via the Interledger protocol stack. See <a href="https://connector.land">ConnectorLand</a> for statistics about it.</p>
+<p>The main public network of ledgers connected via the Interledger protocol stack. See <a class="external-link" href="https://connector.land" target="_blank">ConnectorLand <i aria-hidden="true" class="fa fa-external-link"></i></a> for statistics about it.</p>
 <h2 id="interledger-addresses">Interledger Addresses</h2>
 <p>Interledger addresses provide a ledger-agnostic way to address ledgers and accounts. Interledger addresses are dot-separated strings that contain prefixes to group ledgers. An example address might look like <code>g.us.acmebank.acmecorp.sales.199</code> or <code>g.crypto.bitcoin.1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2</code>.
 When initiating an Interledger payment, the sender attaches an ILP packet to the local transfer to the connector. The packet is relayed by connectors and attached to each transfer that comprises the payment. In some cases, ledger protocols may define alternative ways to communicate the packet.
@@ -231,14 +234,14 @@ it may be paying a debt, or a purchase, it may be a pull payment or a push payme
 context and link it to real-world interactions, contracts, and motivations between parties make a transaction into a payment. A
 <a href="#cyclic-transaction">cyclic transaction</a> is generally not considered a payment, because the sending party of such a transaction is also the receiving party.</p>
 <h2 id="payment-channel">Payment channel</h2>
-<p>A method used by two parties on the same ledger to make multiple transfers such that the ledger enforces the final net positions without the ledger being informed of each individual transfer. One or both parties will generally escrow some of their assets on the ledger and transfers are made by exchanging "claims" that update the net balance. When one of the parties wishes to close the channel, they submit the final balance to the ledger. Different implementations have different rules about which party is allowed to close the channel, the consequences of doing so, and the mechanisms for settling disputes. For more details see <a href="https://en.bitcoin.it/wiki/Payment_channels">Bitcoin Payment Channels</a>. Note that payment channels are similar to <a href="#trustlines">trustlines</a> except the ledger is used to escrow one or both parties' assets and provide clear resolution mechanisms for disputes over the final net positions.</p>
+<p>A method used by two parties on the same ledger to make multiple transfers such that the ledger enforces the final net positions without the ledger being informed of each individual transfer. One or both parties will generally escrow some of their assets on the ledger and transfers are made by exchanging "claims" that update the net balance. When one of the parties wishes to close the channel, they submit the final balance to the ledger. Different implementations have different rules about which party is allowed to close the channel, the consequences of doing so, and the mechanisms for settling disputes. For more details see <a class="external-link" href="https://en.bitcoin.it/wiki/Payment_channels" target="_blank">Bitcoin Payment Channels <i aria-hidden="true" class="fa fa-external-link"></i></a>. Note that payment channels are similar to <a href="#trustlines">trustlines</a> except the ledger is used to escrow one or both parties' assets and provide clear resolution mechanisms for disputes over the final net positions.</p>
 <h2 id="peer-balance">Peer balance</h2>
 <p>See <a href="#trustline">trustline</a>.</p>
 <h2 id="peering">Peering</h2>
 <p>Connectors "peer" with one another to exchange information used to determine the best route for a payment, and to route it (connect its chain of
 transfers during the <a href="#preparation-phase">preparation phase</a> and <a href="#execution-phase">execution phase</a>.
 A peering relationship is usually implemented using either a <a href="#trustline">trustline</a> or a <a href="#payment-channel">payment channel</a>..</p>
-<p>This is similar to <a href="https://en.wikipedia.org/wiki/Peering">how internet service providers peer with each other</a>.</p>
+<p>This is similar to <a class="external-link" href="https://en.wikipedia.org/wiki/Peering" target="_blank">how internet service providers peer with each other <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <h2 id="preparation-phase">Preparation Phase</h2>
 <p>The first phase of an ILP payment, in which the ILP packet is passed from the sender, via the connector(s), to the receiver.
 Also, money is put <a href="#hold">on hold</a> during this phase.</p>
@@ -249,7 +252,7 @@ Also, money is put <a href="#hold">on hold</a> during this phase.</p>
 In Pre-Shared Key (PSK) protocol, the sender and receiver use a shared secret to generate the payment condition, authenticate the ILP packet, and encrypt application data. Using PSK, the sender is guaranteed that fulfillment of their transfer indicates the receiver got the payment, provided that no one aside from the sender and receiver have the secret and the sender did not submit the fulfillment. See <a href="/rfcs/0016-pre-shared-key/">IL-RFC 16</a>.</p>
 <h2 id="proposed">Proposed</h2>
 <p>[DEPRECATED] The 'proposed' state of a payment is no longer used in practice; nowadays, payments skip this state, and are immediately created in their 'prepared' state.
-The official <a href="https://interledger.org/interledger.pdf">Interledger whitepaper</a> still describes it, though.</p>
+The official <a class="external-link" href="https://interledger.org/interledger.pdf" target="_blank">Interledger whitepaper <i aria-hidden="true" class="fa fa-external-link"></i></a> still describes it, though.</p>
 <h2 id="receiver">Receiver</h2>
 <p>The party who is the beneficiary (payee) of a transfer or a payment (transaction).
 When Alice sends a payment through a connector to Bob,
@@ -270,7 +273,7 @@ the outgoing is the destination transfer).</p>
 <h2 id="sender">Sender</h2>
 <p>The party who is the initiator (payer) of a transfer or a payment (transaction).</p>
 <h2 id="simple-payment-setup-protocol-spsp">Simple Payment Setup Protocol (SPSP)</h2>
-<p>SPSP uses Webfinger (<a href="https://tools.ietf.org/html/rfc7033">RFC 7033</a>) and an HTTPS-based protocol for communicating account, amount, and Pre-Shared Key details from the receiver to the sender.
+<p>SPSP uses Webfinger (<a class="external-link" href="https://tools.ietf.org/html/rfc7033" target="_blank">RFC 7033 <i aria-hidden="true" class="fa fa-external-link"></i></a>) and an HTTPS-based protocol for communicating account, amount, and Pre-Shared Key details from the receiver to the sender.
 See <a href="/rfcs/0009-simple-payment-setup-protocol/">IL-RFC 9</a>.</p>
 <h2 id="source-transfer-ledger-amount">Source (transfer, ledger, amount)</h2>
 <p>The transfer/ledger/amount directly adjacent to the sender.</p>
@@ -377,8 +380,8 @@ in which each keep track of their own balance.</p>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-sm-9 col-xs-12 float-left">
-                    <img src="/assets/img/footerlogo.png">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
                 </div>
                 <div class="col-sm-3 col-xs-12 float-right">
                     <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>
