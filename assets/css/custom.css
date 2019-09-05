@@ -432,11 +432,11 @@ h2.simple {
 }
 
 #sidenav .external-link .fa-external-link {
-  padding-left: 5px;
+  padding-left: 25px;
 }
 
 #sidenav .external-link:hover .fa-external-link {
-  padding-left: 10px;
+  padding-left: 30px;
 }
 
 
@@ -936,6 +936,9 @@ footer a {
   position: sticky;
   /* max-height: 85vh; */
 }
+.sidebar ul {
+  padding-left: 0;
+}
 
 .sidebar_pagelist {
   margin-bottom: 12px;
@@ -946,6 +949,7 @@ footer a {
 }
 .sidebar_indent {
   margin-top: 10px;
+  padding-left: 20px;
   border-left: 5px solid #4D5B61;
 }
 .sidebar_indent li {
@@ -955,13 +959,13 @@ footer a {
 .sidebar_indent .active {
   margin-left: -25px;
   border-left: 5px solid #7AB4B0;
-  padding-left: 20px;
+  padding-left: 40px !important;
 }
 
 .sidebar_indent a:hover {
   margin-left: -25px;
   border-left: 5px solid #7AB4B0;
-  padding-left: 20px;
+  padding-left: 40px !important;
 }
 .tree_nav #sidenav a:active {
   color: #7AB4B0;
@@ -973,6 +977,10 @@ footer a {
   line-height: 200%;
   color: #FFFEFD;
   font-size: 16px;
+  display: block;
+
+  text-indent: -20px;
+  padding-left: 20px;
 }
 #sidenav a.active-parent {
   font-weight: 700;
