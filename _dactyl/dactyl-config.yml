@@ -4,6 +4,8 @@ template_path: templates
 template_static_path: ../assets
 default_template: template-doc.html
 # default_pdf_template: template-pdf.html
+filter_paths: 
+    - filters
 
 
 cover_page:
@@ -19,6 +21,7 @@ targets:
         filters:
             - demote_headers
             - link_replacement
+            - external_links
         demote_headers_pdf_only: true
         link_re_subs: 
             {"../([0-9]{4}-[a-z0-9-]+)/([0-9]{4}-[a-z0-9-]+).md": "/rfcs/\\1/",
