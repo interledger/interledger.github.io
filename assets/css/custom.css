@@ -1124,10 +1124,24 @@ footer a {
 .right-sidebar .separator {
   font-weight: 900;
   line-height: 200%;
+  font-size: 19px;
 }
 .right-sidebar .level-2,
 .right-sidebar .method {
   margin-left: 0;
+  margin-top: 20px
+}
+
+.right-sidebar .level-2 a,
+.right-sidebar .separator {
+  font-weight: bold;
+  line-height: 200%;
+  font-size: 17px;
+}
+
+.right-sidebar .level-3 a,
+.right-sidebar .separator {
+  font-size: 16px;
 }
 
 .sidebar {
