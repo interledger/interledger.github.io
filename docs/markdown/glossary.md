@@ -181,6 +181,7 @@ See also: [Incoming](#incoming-transfer-ledger-amount)
 
 A large payment which is split into smaller packets that are then sent sequentially. Packetized payments reduce the total amount of money in-flight at a given time, which can reduce certain risks and costs.                                                                      
 
+See also: Streaming Payments
 ## Payment 
 
 In the context of ILPv4, a payment is understood to mean the transfer of value from the sender (payer) to the receiver (payee). Higher-level protocols may execute a "payment" by sending a series of ILP Packets whose sum is equal to the desired payment value.                                                                      
