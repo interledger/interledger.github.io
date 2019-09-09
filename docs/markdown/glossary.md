@@ -111,6 +111,8 @@ See also: [IL-RFC 1](https://github.com/interledger/rfcs/blob/master/0001-interl
 
 The second layer of the Interledger protocol stack, consisting of the Interledger Protocol version 4 (ILPv4). This layer is concerned with currency amounts, routing, and whether each step in a payment arrives in time or expires. This protocol finds a path to connect a sender and receiver using any number of intermediaries.                                                                     
 
+See also: [IL-RFC 1](https://github.com/interledger/rfcs/blob/master/0001-interledger-architecture/0001-interledger-architecture.md#interledger-protocol)
+
 ## Interledger Packet  
 
 Also known as the ILP Packet.
