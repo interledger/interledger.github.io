@@ -198,7 +198,7 @@ A payment pointer resolves to an HTTPS URL that provides the location of a payme
 
 ## Peer    
 
-A router with which another router holds an account.                                                                        
+A router with which another router holds an account and exchanges routing information via the Interledger routing protocol.                                                                        
 
 ## Peering 
 
