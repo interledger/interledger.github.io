@@ -22,7 +22,7 @@ The practice of doing cyclic transactions which start and end on the same ledger
 
 ## Asset
 
-Something you can own. Can be a physical and unique item, a quantity of a physical substance, a specific physical collection of coins and banknotes, a non-physical quantity of currency, a non-physical claim to a resource, a reputation for keeping one's word, someone else's intention to obey the terms of a contract, etc. Some types of assets can be more easily traded on a ledger than others. Also, for some asset pairs it is easier to determine a fair exchange rate than for others.                                                                       
+Something you can own that is fungible. Can be a physical item; a quantity of a physical substance; a specific physical collection of coins or banknotes; a non-physical quantity of currency; a non-physical claim to a resource; a reputation for keeping one's word; someone else's intention to obey the terms of a contract; etc. Some types of assets can be more easily traded on a ledger than others. For some asset pairs it is easier to determine a fair exchange rate than for others.                                                                       
 
 ## Balance 
 
