@@ -52,7 +52,7 @@ The account of the receiver whose address is included in the Interledger packet.
 
 ## Destination Amount  
 
-The amount to be received by the receiver through ILP.                                                                      
+The amount to be received by the receiver through [ILP](#interledger-protocol-ilp).                                                                      
 
 ## Distributed Ledger
 
@@ -64,7 +64,7 @@ The price of one ledger's asset in terms of another ledger's asset. Routers may 
 
 ## Fulfillment 
 
-Also known as the "preimage" or "hash preimage", fulfillment is  a 32-byte value used to trigger the execution of a transfer. In most Interledger payments, the fulfillment is known only to the receiver (or in the case of the STREAM protocol it is known to the sender and the receiver).                                                                        
+Also known as the "preimage" or "hash preimage", a fulfillment is  a 32-byte value used to trigger the execution of a transfer. In most Interledger payments, the fulfillment is known only to the receiver (or in the case of the STREAM protocol it is known to the sender and the receiver).                                                                        
 
 ## Hop 
 
