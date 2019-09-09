@@ -142,7 +142,11 @@ See also: [IL-RFC 27](https://github.com/interledger/rfcs/blob/master/0027-inter
 
 ## Interledger Protocol Stack  
 
-The stack consisting of the link layer, Interledger layer, a choice of transport layer protocols, and the application layer.                                                                        
+The stack consisting of the link layer, Interledger layer, a choice of transport layer protocols, and the application layer.
+
+## ILPv4
+
+See instead: [Interledger Protocol](#interledger-protocol-ilp)                                                                    
 
 ## Intermediate (transfer, ledger, amount) 
 
@@ -244,7 +248,9 @@ The transfer/ledger/amount directly adjacent to the sender.
 
 ## STREAM  
 
-A Transport Protocol designed to be used with ILPv4. Application Layer protocols can use STREAM to send money and data between endpoints.                                                                       
+A Transport Protocol designed to be used with ILPv4. Application Layer protocols can use STREAM to send money and data between endpoints.
+
+See also: [IL-RFC 29](https://github.com/interledger/rfcs/blob/master/0029-stream/0029-stream.md)                                                                   
 
 ## Streaming Payment   
 
