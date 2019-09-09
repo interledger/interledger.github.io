@@ -112,7 +112,9 @@ See also: [IL-RFC 15](https://github.com/interledger/rfcs/blob/master/0015-ilp-a
 
 ## Interledger Architecture    
 
-The Interledger protocol stack and the design principles behind it.                                                                        
+The Interledger protocol stack and the design principles behind it.
+
+See also: [IL-RFC 1](https://github.com/interledger/rfcs/blob/master/0001-interledger-architecture/0001-interledger-architecture.md)                                                                       
 
 ## Interledger Layer   
 
@@ -134,7 +136,9 @@ ILPv4 has three packet types: Prepare, Fulfill, and Reject, which roughly corres
 
 The set of rules that define how Interledger nodes should communicate with each other. 
 
-Colloquially, the whole Interledger stack is sometimes referred to as ILP. Technically, however, the Interledger Protocol is only one layer in the Interledger protocol stack.                                                                      
+Colloquially, the whole Interledger stack is sometimes referred to as ILP. Technically, however, the Interledger Protocol is only one layer in the Interledger protocol stack.
+
+See also: [IL-RFC 27](https://github.com/interledger/rfcs/blob/master/0027-interledger-protocol-4/0027-interledger-protocol-4.md)                                                             
 
 ## Interledger Protocol Stack  
 
@@ -178,7 +182,7 @@ A payment channel is a medium used by two parties to perform multiple value tran
 
 A payment pointer is a standardized identifier for accounts that can receive payments. It is like an email address, but for sending/receiving value.
 
-A payment pointer resolves to an HTTPS URL that provides the location of a payment setup service endpoint at which a sender can initiate a payment to the receiver.                                                                      
+A payment pointer resolves to an HTTPS URL that provides the location of a payment setup service endpoint at which a sender can initiate a payment to the receiver.                                                                  
 
 ## Peer    
 
@@ -256,7 +260,7 @@ The movement of assets from one peer to another. Multiple transfers can be chain
 
 ## Transport Layer 
 
-The transport layer transports payment data between two parties, using the STREAM protocol. Transport Layer is the middle layer of the Interledger protocol stack, which determines the condition and encoding of the data in the ILP Packet. It also determines what details the sender and receiver need to discuss beforehand.                                                                      
+The transport layer transports payment data between two parties, using the [STREAM](https://github.com/interledger/rfcs/blob/master/0029-stream/0029-stream.md) protocol. Transport Layer is the middle layer of the Interledger protocol stack, which determines the condition and encoding of the data in the ILP Packet. It also determines what details the sender and receiver need to discuss beforehand.                                                                      
 
 ## Value   
 
