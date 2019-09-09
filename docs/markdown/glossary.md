@@ -205,7 +205,7 @@ Routers "peer" (establish an account) with one another to exchange information u
 
 ## Prepare Phase   
 
-The first phase of an ILP payment, in which the ILP packet is passed from the sender, via the router(s), to the receiver. Also, money is put on hold during this phase.                                                                         
+The first phase of an ILP payment, in which the ILP packet is passed from the sender, via the router(s), to the receiver. This represents an intent to pay, so long as the Fulfillment is delivered before the expiry.                                                                   
 
 ## Prepared    
 
