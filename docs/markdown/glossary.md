@@ -4,8 +4,7 @@ This glossary provides definitions for key terms in the Interledger ecosystem.
 
 ## Account
    
-An accounting relationship between two Interledger participants. 
-In Interledger, two participants establish an account with one another to track the current obligations they hold with one another.                                                                         
+An accounting relationship between two Interledger participants. In Interledger, two participants establish an account with one another to track the current obligations they hold with one another.                                                                         
 
 ## Address
 
@@ -45,7 +44,7 @@ See instead: [Router](#router)
 
 ## Cyclic Transaction  
 
-A transaction where the destination account is the same account, on the same ledger, as the source account. This can be useful when rebalancing liquidity (to enable future payments), or when rebalancing stored value (to spread risk, or to take advantage of changing exchange rates).                                                                      
+A transaction where the destination account is the same account on the ledger as the source account. This can be useful when rebalancing liquidity (to enable future payments), or when rebalancing stored value (to spread risk, or to take advantage of changing exchange rates).                                                                      
 
 ## Destination Account 
 
@@ -53,7 +52,7 @@ The account of the receiver whose address is included in the Interledger packet.
 
 ## Destination Amount  
 
-The amount to be received by the receiver.                                                                      
+The amount to be received by the receiver through ILP.                                                                      
 
 ## Distributed Ledger
 
@@ -61,11 +60,11 @@ A ledger that is operated by a group of entities and runs on multiple servers. T
 
 ## Exchange Rate
 
-The price of one ledger's asset in terms of another ledger's asset. Routers may generate revenue from the difference in value between incoming and outgoing transfers. The exchange rate between source and destination is determined by the product of exchange rates at each hop.                                                                         
+The price of one ledger's asset in terms of another ledger's asset. Routers may generate revenue from the difference in value between incoming and outgoing transfers. The exchange rate between a sender and a receiver is determined by the product of exchange rates at each hop.                                                                         
 
 ## Fulfillment 
 
-A 32-byte value used to trigger the execution of a transfer. In most Interledger payments, the fulfillment is known only to the receiver (or in the case of the STREAM protocol it is known to the sender and the receiver).                                                                        
+Also known as the "preimage" or "hash preimage", fulfillment is  a 32-byte value used to trigger the execution of a transfer. In most Interledger payments, the fulfillment is known only to the receiver (or in the case of the STREAM protocol it is known to the sender and the receiver).                                                                        
 
 ## Hop 
 
@@ -96,6 +95,8 @@ The public network of ledgers connected via the Interledger protocol stack.
 An Interledger address provides a way to route ILP packets to their intended destination through a series of hops, including any number of ILP routers. 
 
 An Interledger address is a dot-separated string that contains prefixes to group ledgers. An example address might look like `g.us.acmebank.acmecorp.sales.199` or `g.crypto.bitcoin.1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2`. 
+
+
 Note that anyone can claim to have a certain Interledger address, there is no registry of them. Whether or not a payment ends up at the intended receiver is ultimately safeguarded by the hashlock condition, not by enforcement of address ownership. 
 
 See also: [IL-RFC 15](https://github.com/interledger/rfcs/blob/master/0015-ilp-addresses/0015-ilp-addresses.md)                                                                      
@@ -140,14 +141,18 @@ See instead: [Interledger Protocol](#interledger-protocol-ilp)
 
 ## Ledger  
 
-Stateful systems that are used for clearing, settlement, and tracking the ownership of assets. Ledgers contain buckets of assets known as accounts and record transfers between them. Each account has a balance, which is the amount of the ledger's assets the account holds. Account balances may be positive or negative, representing assets or liabilities.                                                                       
+Stateful systems that are used for settlement and tracking the ownership of assets. Ledgers contain buckets of assets known as accounts and record transfers between them. Each account has a balance, which is the amount of the ledger's assets the account holds. Account balances may be positive or negative, representing assets or liabilities.                                                                       
 
 In Interledger v1, all Interledger packets were sent through ledgers. In Interledger v4, ledgers are primarily used as Settlement Systems to settle Balances accrued between nodes.
 
 
 ## Link    
 
-A communication path between two Interledger nodes to exchange ILP packets over an HTTPS or a WebSocket connection.                                                                        
+A communication path between two Interledger nodes to exchange ILP packets over an HTTPS or a WebSocket connection.
+
+## Money Bandwidth
+
+See instead: [Bandwidth](#bandwidth)                                                                     
 
 ## Node
 
@@ -162,6 +167,10 @@ See also: Streaming Payments
 
 In the context of ILPv4, a payment is understood to mean the transfer of value from the sender (payer) to the receiver (payee). Higher-level protocols may execute a "payment" by sending a series of ILP Packets whose sum is equal to the desired payment value.                                                                      
 
+## Payment Bandwidth
+
+See instead: [Bandwidth](#bandwidth) 
+
 ## Payment Channel 
 
 A payment channel is a medium used by two parties to perform multiple value transactions amongst them, without sending these transactions to the underlying ledger. One or both parties will generally transfer some of their value assets on the ledger to the payment channel. Value transfers are then made between the two parties by exchanging "claims" that update their balance. When one of the parties wishes to close the channel, they submit the final balance to the ledger.                                                                      
@@ -170,7 +179,11 @@ A payment channel is a medium used by two parties to perform multiple value tran
 
 A payment pointer is a standardized identifier for accounts that can receive payments. It is like an email address, but for sending/receiving value.
 
-A payment pointer resolves to an HTTPS URL that provides the location of a payment setup service endpoint at which a sender can initiate a payment to the receiver.                                                                  
+A payment pointer resolves to an HTTPS URL that provides the location of a payment setup service endpoint at which a sender can initiate a payment to the receiver.
+
+For example, a pointer pointer such as `$example.com/bob` will resolve to `https://example.com/bob` endpoint URL.
+
+See also: [IL-RFC 26](https://github.com/interledger/rfcs/blob/master/0026-payment-pointers/0026-payment-pointers.md)                                                              
 
 ## Peer    
 
@@ -194,7 +207,7 @@ A (final) transfer state whereby funds have been returned to the sender.
 
 ## Route   
 
-A set of transfers chained together by the routers between them. The route is the path a payment has taken, or a future payment could take.                                                                         
+The path a payment has taken or a future payment could take.                                                                         
 
 ## Router  
 
