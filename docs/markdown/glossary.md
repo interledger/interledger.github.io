@@ -48,7 +48,7 @@ A transaction where the destination account is the same account on the ledger as
 
 ## Destination Account 
 
-The account of the receiver whose address is included in the Interledger packet. Note that anyone can claim to have a certain Interledger address; address ownership is not enforced.                                                                       
+The account of the receiver whose address is included in the Interledger packet.                                                                       
 
 ## Destination Amount  
 
