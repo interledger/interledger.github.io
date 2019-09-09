@@ -67,23 +67,13 @@ The price of one ledger's asset in terms of another ledger's asset. Routers may 
 
 A 32-byte value used to trigger the execution of a transfer. In most Interledger payments, the fulfillment is known only to the receiver (or in the case of the STREAM protocol it is known to the sender and the receiver).                                                                        
 
-## Hold    
-
-Part of the sender's, router's, and/or receiver's account balance is put "on hold" to reserve that balance for a specific ILP payment and is temporarily unavailable for use in other payments. The money is on hold while the ILP transfer is in the prepared state. If the transfer is executed, the money is no longer on hold, and added to the balance of the receiver of the transfer. If the transfer is rejected, the money is no longer on hold either, but is instead returned to the balance of the sender of the transfer.                                                                      
-
 ## Hop 
 
 The movement of an ILP packet from one router to another as it travels through the Interledger network to reach its destination.                                                                         
 
 ## IL-RFC  
 
-Interledger request for comments. A document describing a part of the protocol stack, or a topic related to it, such as this glossary. The official list of IL-RFCs is maintained in gh:interledger/rfcs.                                                                       
-
-## Incoming (Transfer, Ledger, Amount) 
-
-The transfer/ledger/amount relative to the participant who plays the 'receiver' role. 
-
-See also: [Outgoing](#outgoing-transfer-ledger-amount)                                                         
+Interledger request for comments. A document describing a part of the protocol stack, or a topic related to it, such as this glossary. The official list of IL-RFCs is maintained in gh:interledger/rfcs.                                                                                                                               
 
 ## Interledger (in "Let's use Interledger for that!")  
 
@@ -118,11 +108,7 @@ See also: [IL-RFC 1](https://github.com/interledger/rfcs/blob/master/0001-interl
 
 ## Interledger Layer   
 
-The second layer of the Interledger protocol stack, consisting of the Interledger Protocol version 4 (ILPv4). This layer is concerned with currency amounts, routing, and whether each step in a payment arrives in time or expires. This protocol finds a path to connect a sender and receiver using any number of intermediaries.                                                                        
-
-## Interledger Module  
-
-The part of a software application that processes ILP payments. Analogous to the network card of an internet-connected computer.                                                                       
+The second layer of the Interledger protocol stack, consisting of the Interledger Protocol version 4 (ILPv4). This layer is concerned with currency amounts, routing, and whether each step in a payment arrives in time or expires. This protocol finds a path to connect a sender and receiver using any number of intermediaries.                                                                     
 
 ## Interledger Packet  
 
@@ -152,10 +138,6 @@ The stack consisting of the link layer, Interledger layer, a choice of transport
 
 See instead: [Interledger Protocol](#interledger-protocol-ilp)                                                                    
 
-## Intermediate (transfer, ledger, amount) 
-
-Any transfer/ledger/amount that is neither directly adjacent to the sender nor the receiver.                                                                        
-
 ## Ledger  
 
 Stateful systems that are used for clearing, settlement, and tracking the ownership of assets. Ledgers contain buckets of assets known as accounts and record transfers between them. Each account has a balance, which is the amount of the ledger's assets the account holds. Account balances may be positive or negative, representing assets or liabilities.                                                                       
@@ -169,13 +151,7 @@ A communication path between two Interledger nodes to exchange ILP packets over 
 
 ## Node
 
-A node is a participant in the Interledger network. It can be a sender, router, or receiver, which has an accounting relationship with one or more participants.                                                                        
-
-## Outgoing (Transfer, Ledger, Amount)
-
-The transfer/ledger/amount relative to the party who plays the sender role. 
-
-See also: [Incoming](#incoming-transfer-ledger-amount)                                                                 
+A node is a participant in the Interledger network. It can be a sender, router, or receiver, which has an accounting relationship with one or more participants.                                                                
 
 ## Packetized Payment
 
@@ -206,11 +182,7 @@ Routers "peer" (establish an account) with one another to exchange information u
 
 ## Prepare Phase   
 
-The first phase of an ILP payment, in which the ILP packet is passed from the sender, via the router(s), to the receiver. This represents an intent to pay, so long as the Fulfillment is delivered before the expiry.                                                                   
-
-## Prepared    
-
-The state of a transfer in which the source account's funds are put on hold by the ledger until either the expiry is reached or the condition is fulfilled.                                                                         
+The first phase of an ILP payment, in which the ILP packet is passed from the sender, via the router(s), to the receiver. This represents an intent to pay, so long as the Fulfillment is delivered before the expiry.                                                                                                                                            
 
 ## Receiver    
 
@@ -248,11 +220,7 @@ An application layer protocol for exchanging payment information - destination a
 
 SPSP uses the STREAM as transport layer protocol. 
 
-See also: [IL-RFC 9](https://github.com/interledger/rfcs/blob/master/0009-simple-payment-setup-protocol/0009-simple-payment-setup-protocol.md)                                                                        
-
-## Source (transfer, ledger, amount)   
-
-The transfer/ledger/amount directly adjacent to the sender.                                                                         
+See also: [IL-RFC 9](https://github.com/interledger/rfcs/blob/master/0009-simple-payment-setup-protocol/0009-simple-payment-setup-protocol.md)                                                                                                                                                
 
 ## STREAM  
 
@@ -266,11 +234,7 @@ An ongoing payment where small amounts of money are sent over time to pay for so
 
 ## Transaction 
 
-See instead: [Payment](#payment)                                                                     
-
-## Transfer    
-
-The movement of assets from one peer to another. Multiple transfers can be chained together into one multi-hop payment.                                                                         
+See instead: [Payment](#payment)                                                                                                                                             
 
 ## Transport Layer 
 
