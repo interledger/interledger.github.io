@@ -31,7 +31,7 @@ An account balance is the net total of the amounts on any packets "successfully"
 
 ## Bandwidth
 
-The limit, set by a router, to the total value of ILP packets an account can send during a given period. The limit may either be based on how much the router trusts the account-holder, or it may be used to prevent one account from tying up all of the router's bandwidth with its peers.                                                                       
+The limit, set by a router, to the total value of ILP packets an account can send during a given time period. The limit may either be based on how much the router trusts the account-holder, or it may be used to prevent one account from tying up all of the router's bandwidth with its peers.                                                                       
 
 ## Clearing    
 
