@@ -160,6 +160,9 @@ Any transfer/ledger/amount that is neither directly adjacent to the sender nor t
 
 Stateful systems that are used for clearing, settlement, and tracking the ownership of assets. Ledgers contain buckets of assets known as accounts and record transfers between them. Each account has a balance, which is the amount of the ledger's assets the account holds. Account balances may be positive or negative, representing assets or liabilities.                                                                       
 
+In Interledger v1, all Interledger packets were sent through ledgers. In Interledger v4, ledgers are primarily used as Settlement Systems to settle Balances accrued between nodes.
+
+
 ## Link    
 
 A communication path between two Interledger nodes to exchange ILP packets over an HTTPS or a WebSocket connection.                                                                        
