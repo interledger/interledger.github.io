@@ -27,7 +27,7 @@ Something you can own. Can be a physical and unique item, a quantity of a physic
 
 ## Balance 
 
-An account balance is the net total of the amounts on any packets "successfully" routed between the peers. When a node sends an ILP Prepare packet to a peer, and receives a valid ILP Fulfill response, before the expiry of the ILP Prepare, their balance with that peer decreases.When a node receives an ILP Prepare packet and returns a valid ILP Fulfill response, before the expiry of the ILP Prepare, their balance with that peer increases.                                                                        
+An account balance is the net total of the amounts on any packets "successfully" routed between the peers. When a node sends an ILP Prepare packet to a peer, and receives a valid ILP Fulfill response, before the expiry of the ILP Prepare, their balance with that peer decreases. When a node receives an ILP Prepare packet and returns a valid ILP Fulfill response, before the expiry of the ILP Prepare, their balance with that peer increases.                                                                        
 
 ## Bandwidth
 
