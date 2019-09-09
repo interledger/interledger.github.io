@@ -126,7 +126,11 @@ The part of a software application that processes ILP payments. Analogous to the
 
 ## Interledger Packet  
 
-The binary data packet that is forwarded along all hops from sender to receiver. 
+Also known as the ILP Packet.
+
+This is the binary data packet that is routed across all hops from sender to receiver in all Interledger payments. ILPv4 has three packet types: Prepare, Fulfill, and Reject, which roughly correspond to request, response, and error messages.
+
+The ILP Prepare packet contains the details of the Interledger transaction, including the destination ILP Address, the amount to be sent, an expiration timestamp, a Condition, and data for the receiver. The ILP Fulfill packet contains the Fulfillment and data from the receiver for the sender. The ILP Reject packet contains an error code and message, as well as the ILP Address of the node that produced the error.                                                                                                                                 
 
 The packet includes metadata which the receiver may need before fulfilling the payment. It also includes metadata (such as destination account and amount) that routers use to determine what path to take. Alternatively, if the incoming amount is not large enough, compared to the destination amount in the ILP packet, the router may choose not to route the payment at all.
 
