@@ -1183,7 +1183,7 @@ li.nav-label {
 
 
 .nav-sidebar>li>a {
-  color: #FFFEFD;
+  /* color: #FFFEFD; */
   font-size: 16px;
   padding: 0px 15px;
 }
