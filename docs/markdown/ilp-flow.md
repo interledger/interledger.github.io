@@ -8,7 +8,7 @@ The Interledger payment system consists of four main components:
 - Sender - Initiates a value transfer.
 - Router - Applies currency exchange and forwards packets of value.
 - Receiver - Receives the value.
-- ILP Packet - ILPv4 has three packet types: Prepare, Fulfill, and Reject, which roughly correspond to request, response, and error messages.
+- ILP Packet - A binary data packet, which contains necessary information required for an ILP payment. ILPv4 has three packet types: Prepare, Fulfill, and Reject, which roughly correspond to request, response, and error messages.
 
 In the following scenario, the sender sends a Prepare packet to the connecting router. The routers forward the packet until it reaches the receiver. The receiver then accepts or rejects the packet by sending a Fulfill packet or a Reject packet.
  
@@ -18,6 +18,7 @@ In the following scenario, the sender sends a Prepare packet to the connecting r
  
 ### Prerequisites
 
+To understand the Interledger payment flow, let's assume the following:
 1. The sender and receiver have accounts with at least one router on the Interledger network.
 2. The sender knows the receiver's payment pointer, which is required for exchanging necessary payment information.
  
