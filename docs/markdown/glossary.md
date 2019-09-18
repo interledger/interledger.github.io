@@ -15,6 +15,7 @@ See instead: [Interledger Address](#interledger-address)
 The set of protocols built upon the [Transport Layer](#transport-layer) that communicate payment details between [senders](#sender) and [receivers](#receiver). 
 
 Application Layer protocols specify all of the data and methods required to set up a payment for a specific category of use cases or applications. For example, the [Simple Payment Setup Protocol](#simple-payment-setup-protocol-spsp) uses HTTPS for account detail lookup.                                                                       
+
 ## Arbitrage
 
 The practice of doing [cyclic transactions](#cyclic-transaction) which start and end on the same currency, or groups of simultaneous transactions which add up to one cyclic transaction. The goal is to achieve a destination amount which is higher than the source amount by taking advantage of fluctuations in exchange rates.                                                                       
@@ -48,6 +49,7 @@ A transaction that is sent out from some sender's account and is received to ano
 ## Destination Account 
 
 The account of the receiver whose address is included in the Interledger packet.                                                                       
+
 ## Destination Amount  
 
 The amount the receiver ends up receiving through [ILP](#interledger-protocol-ilp). The destination amount maybe different from the amount that the sender sends because each router, participating in the transaction, may apply their exchange rate and adjust the amount.
@@ -59,6 +61,7 @@ A ledger that is operated by a group of entities and runs on multiple servers. T
 ## Exchange Rate
 
 The price of one ledger's asset in terms of another ledger's asset. Routers may generate revenue from the difference in value between incoming and outgoing transfers. The exchange rate between a sender and a receiver is determined by the product of exchange rates at each hop.                                                                         
+
 ## Expiry 
 
 The date and time when the [Prepare packet](#interledger-packet) expires. Each router changes the value of this field to set the expiry to an earlier time, before forwarding the packet.
@@ -85,7 +88,6 @@ A network of two or more ledgers that use the Interledger protocol stack.
 See also: [Interledger (The)](#interledger-in-the-interledger) 
 
 The adjective 'interledger' is also sometimes used to refer to transactions that cross multiple ledgers, even if ILP is not used (similar to 'international' meaning 'across multiple nations').                                                                         
-
 ## Interledger (in "The Interledger")  
 
 The public network of ledgers connected via the Interledger protocol stack.                                                                         
@@ -94,17 +96,18 @@ The public network of ledgers connected via the Interledger protocol stack.
 
 An Interledger address provides a way to route ILP packets to their intended destination through a series of hops, including any number of ILP routers. 
 
-An Interledger address is a dot-separated string that contains prefixes to group ledgers. An example address might look like `g.us.acmebank.acmecorp.sales.199` or `g.crypto.bitcoin.1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2`. 
-
+An Interledger address is a dot-separated string that is built up of segments which represent routers. An example address might look like `g.alice`, where `alice` would be the name of a router,  or `g.alice.dave`, where `dave` is an account held with the router `alice`.
 
 Note that anyone can claim to have a certain Interledger address, there is no registry of them. Whether or not a payment ends up at the intended receiver is ultimately safeguarded by the hashlock condition, not by enforcement of address ownership. 
 
 See also: [IL-RFC 15](https://github.com/interledger/rfcs/blob/master/0015-ilp-addresses/0015-ilp-addresses.md)                                                                      
+
 ## Interledger Architecture    
 
 The Interledger protocol stack and the design principles behind it.
 
 See also: [IL-RFC 1](https://github.com/interledger/rfcs/blob/master/0001-interledger-architecture/0001-interledger-architecture.md)                                                                       
+
 ## Interledger Layer   
 
 The second layer of the Interledger protocol stack, consisting of the Interledger Protocol version 4 (ILPv4). This layer is concerned with currency amounts and whether each step in a payment arrives in time or expires. This protocol layer finds a path to connect a sender and receiver using any number of intermediaries.                                                                     
@@ -117,9 +120,7 @@ Also known as the ILP Packet.
 
 This is the binary data packet that is routed across all hops from sender to receiver in all Interledger payments. ILPv4 has three packet types: Prepare, Fulfill, and Reject, which roughly correspond to request, response, and error messages.
 
-The ILP Prepare packet contains the details of the Interledger transaction, including the destination ILP Address, the amount to be sent, an expiration timestamp, a Condition, and data for the receiver. The ILP Fulfill packet contains the Fulfillment and data from the receiver for the sender. The ILP Reject packet contains an error code and message, as well as the ILP Address of the node that produced the error.                                                                                                                                 
-
-The packet includes metadata which the receiver may need before fulfilling the payment. It also includes metadata (such as destination account and amount) that routers use to determine what path to take. Alternatively, if the incoming amount is not large enough, compared to the destination amount in the ILP packet, the router may choose not to route the payment at all.                                                                  
+The ILP Prepare packet contains the details of the Interledger transaction, including the destination ILP Address, the amount to be sent, an expiration timestamp, a Condition, and data for the receiver. The ILP Fulfill packet contains the Fulfillment and data from the receiver for the sender. The ILP Reject packet contains an error code and message, as well as the ILP Address of the node that produced the error.                                                                                  
 
 ## Interledger Protocol (ILP)  
 
@@ -128,6 +129,7 @@ The set of rules that define how Interledger nodes should communicate with each 
 Colloquially, the whole Interledger stack is sometimes referred to as ILP. Technically, however, the Interledger Protocol is only one layer in the Interledger protocol stack.
 
 See also: [IL-RFC 27](https://github.com/interledger/rfcs/blob/master/0027-interledger-protocol-4/0027-interledger-protocol-4.md)                                                             
+
 ## Interledger Protocol Stack  
 
 The stack consisting of the link layer, Interledger layer, a choice of transport layer protocols, and the application layer.
@@ -157,12 +159,12 @@ A node is a participant in the Interledger network. It can be a sender, router, 
 ## Packetized Payment
 
 A large payment which is split into smaller packets that are then sent sequentially. Packetized payments reduce the total amount of money in-flight at a given time, which can reduce certain risks and costs.                                                                      
-
-See also: Streaming Payments
+See also: [Streaming Payment](#streaming-payment)
 
 ## Payment 
 
 In the context of ILPv4, a payment is understood to mean the transfer of value from the sender (payer) to the receiver (payee). Higher-level protocols may execute a "payment" by sending a series of ILP Packets whose sum is equal to the desired payment value.                                                                      
+
 ## Payment Bandwidth
 
 See instead: [Bandwidth](#bandwidth) 
@@ -170,7 +172,6 @@ See instead: [Bandwidth](#bandwidth)
 ## Payment Channel 
 
 A payment channel is a medium used by two parties to perform multiple value transactions amongst them, without sending these transactions to the underlying ledger. One or both parties will generally transfer some of their value assets on the ledger to the payment channel. Value transfers are then made between the two parties by exchanging "claims" that update their balance. When one of the parties wishes to close the channel, they submit the final balance to the ledger.                                                                      
-
 ## Payment Pointer 
 
 A payment pointer is a standardized identifier for accounts that can receive payments. It is like an email address, but for sending/receiving value.
@@ -184,6 +185,7 @@ See also: [IL-RFC 26](https://github.com/interledger/rfcs/blob/master/0026-payme
 ## Peer    
 
 A router with which another router holds an account and exchanges routing information via the Interledger routing protocol.                                                                        
+
 ## Peering 
 
 Routers "peer" (establish an account) with one another to exchange information used to determine the best route for a payment, and to route it. This is similar to how internet service providers peer with each other (https://en.wikipedia.org/wiki/Peering).                                                                         
@@ -241,10 +243,7 @@ An ongoing payment where small amounts of money are sent over time to pay for so
 ## Transaction 
 
 See instead: [Payment](#payment)                                                                                                                                             
+
 ## Transport Layer 
 
 The transport layer transports payment data between two parties, using the [STREAM](https://github.com/interledger/rfcs/blob/master/0029-stream/0029-stream.md) protocol. Transport Layer is the middle layer of the Interledger protocol stack, which determines the condition and encoding of the data in the ILP Packet. It also determines what details the sender and receiver need to discuss beforehand.                                                                      
-
-## Value   
-
-A financial asset that represents currency. It can be fiat (such as USD, EUR, JPY, etc.) or digital (such as  BTC, ETH, XRP, etc.). 
