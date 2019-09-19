@@ -73,10 +73,12 @@ See also: [Conditions and Fulfillments](https://github.com/interledger/rfcs/blob
 
 ## Hop 
 
-A colloquial term for the manner in which value can move between two peers in the network. [ILP packets](#interledger-packet) travel from one router "hop" to another as they make their way through the Interledger network.                                                                         
+A colloquial term for the manner in which value can move between two peers in the network. [ILP packets](#interledger-packet) travel from one router "hop" to another as they make their way through the Interledger network.
+                                        
 ## IL-RFC  
 
-Interledger request for comments. A document describing a part of the protocol stack, or a topic related to it, such as this glossary. The official list of IL-RFCs is maintained in gh:interledger/rfcs.                                                                                                                               
+Interledger request for comments. A document describing a part of the protocol stack, or a topic related to it, such as this glossary. The official list of IL-RFCs is maintained in gh:interledger/rfcs.
+                    
 ## Interledger (in "Let's use Interledger for that!")  
 
 The Interledger protocol stack.                                                                         
@@ -87,7 +89,8 @@ A network of two or more ledgers that use the Interledger protocol stack.
 
 See also: [Interledger (The)](#interledger-in-the-interledger) 
 
-The adjective 'interledger' is also sometimes used to refer to transactions that cross multiple ledgers, even if ILP is not used (similar to 'international' meaning 'across multiple nations').                                                                         
+The adjective 'interledger' is also sometimes used to refer to transactions that cross multiple ledgers, even if ILP is not used (similar to 'international' meaning 'across multiple nations').
+           
 ## Interledger (in "The Interledger")  
 
 The public network of ledgers connected via the Interledger protocol stack.                                                                         
@@ -171,7 +174,8 @@ See instead: [Bandwidth](#bandwidth)
 
 ## Payment Channel 
 
-A payment channel is a medium used by two parties to perform multiple value transactions amongst them, without sending these transactions to the underlying ledger. One or both parties will generally transfer some of their value assets on the ledger to the payment channel. Value transfers are then made between the two parties by exchanging "claims" that update their balance. When one of the parties wishes to close the channel, they submit the final balance to the ledger.                                                                      
+A payment channel is a medium used by two parties to perform multiple value transactions amongst them, without sending these transactions to the underlying ledger. One or both parties will generally transfer some of their value assets on the ledger to the payment channel. Value transfers are then made between the two parties by exchanging "claims" that update their balance. When one of the parties wishes to close the channel, they submit the final balance to the ledger.
+                                      
 ## Payment Pointer 
 
 A payment pointer is a standardized identifier for accounts that can receive payments. It is like an email address, but for sending/receiving value.
@@ -188,7 +192,8 @@ A router with which another router holds an account and exchanges routing inform
 
 ## Peering 
 
-Routers "peer" (establish an account) with one another to exchange information used to determine the best route for a payment, and to route it. This is similar to how internet service providers peer with each other (https://en.wikipedia.org/wiki/Peering).                                                                         
+Routers "peer" (establish an account) with one another to exchange information used to determine the best route for a payment, and to route it. This is similar to how the internet service providers peer with each other (https://en.wikipedia.org/wiki/Peering).
+                                                                      
 ## Prepare Phase   
 
 The first phase of an ILP payment, in which the ILP packet is passed from the sender, via the router(s), to the receiver. This represents an intent to pay, so long as the Fulfillment is delivered before the expiry.  
@@ -229,7 +234,8 @@ An application layer protocol for exchanging payment information - destination a
 
 SPSP uses the STREAM as transport layer protocol. 
 
-See also: [IL-RFC 9](https://github.com/interledger/rfcs/blob/master/0009-simple-payment-setup-protocol/0009-simple-payment-setup-protocol.md)                                                                                                                                                
+See also: [IL-RFC 9](https://github.com/interledger/rfcs/blob/master/0009-simple-payment-setup-protocol/0009-simple-payment-setup-protocol.md)
+                               
 ## STREAM  
 
 A Transport Protocol designed to be used with ILPv4. Application Layer protocols can use STREAM to send money and data between endpoints.
