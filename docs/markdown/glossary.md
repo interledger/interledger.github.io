@@ -30,7 +30,7 @@ An account balance is the net total of the amounts on any packets "successfully"
 
 ## Bandwidth
 
-The limit, set by a [router](#router), to the total value of ILP packets an account can send during a given time period. The limit may either be based on how much the router trusts the account-holder, or it may be used to prevent one account from tying up all of the router's bandwidth with its peers.                                                                       
+The limit, set by a [router](#router), of the total value an account can have pending, or "in-flight" at any given moment in time. The limit may either be based on how much the router trusts the account-holder, or it may be used to prevent one account from tying up all of the router's liquidity with its peers.                                                                       
 
 ## Clearing    
 
@@ -69,7 +69,8 @@ The date and time when the [Prepare packet](#interledger-packet) expires. Each r
 ## Fulfillment 
 
 Also known as the "preimage" or "hash preimage", a fulfillment is  a 32-byte value used to trigger the execution of a transfer. In most Interledger payments, the fulfillment is known only to the receiver (or in the case of the STREAM protocol it is known to the sender and the receiver).       
-See also: [Conditions and Fulfillments](https://github.com/interledger/rfcs/blob/master/0001-interledger-architecture/0001-interledger-architecture.md#conditions-and-fulfillments)                                                                 
+
+See also: [Conditions and Fulfillments](https://github.com/interledger/rfcs/blob/master/0001-interledger-architecture/0001-interledger-architecture.md#conditions-and-fulfillments) 
 
 ## Hop 
 
@@ -113,7 +114,7 @@ See also: [IL-RFC 1](https://github.com/interledger/rfcs/blob/master/0001-interl
 
 ## Interledger Layer   
 
-The second layer of the Interledger protocol stack, consisting of the Interledger Protocol version 4 (ILPv4). This layer is concerned with currency amounts and whether each step in a payment arrives in time or expires. This protocol layer finds a path to connect a sender and receiver using any number of intermediaries.                                                                     
+The layer of the Interledger protocol stack, consisting of the Interledger Protocol version 4 (ILPv4). This layer is concerned with currency amounts and whether each step in a payment arrives in time or expires. This protocol layer finds a path to connect a sender and receiver using any number of intermediaries.                                                                     
 
 See also: [IL-RFC 1](https://github.com/interledger/rfcs/blob/master/0001-interledger-architecture/0001-interledger-architecture.md#interledger-protocol)
 
@@ -218,7 +219,7 @@ A router may generate revenue from spreads on currency conversion, through subsc
                             
 ## Routing Table   
 
-A lookup table used by a router to decide who its outgoing receiver should be (the next hop, which can be another router or the destination receiver).                                                                         
+A lookup table used by a router to decide who its outgoing receiver should be (the next hop, which can be another router or the destination receiver). 
 
 ## Sender  
 
