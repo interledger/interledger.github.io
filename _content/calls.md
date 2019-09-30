@@ -2,6 +2,14 @@
 <p>The calls are held every 2 weeks at 5pm UTC. The agenda and calendar invite (with dial in details) is sent out via the mailing list.</p>
          <ul class="list-group">
           <li class="list-group-item">
+            <span class="label label-default label-pill float-right">Sep 18</span>
+            <a class="external-link" href="https://coil.zoom.us/recording/share/WdlLBgreEK9ZF4Od4HU1jy-2_s_lpdg3fHLfVRzHnn6wIumekTziMw">Recording</a>
+          </li>
+          <li class="list-group-item">
+            <span class="label label-default label-pill float-right">Sep 04</span>
+            <a class="external-link" href="https://coil.zoom.us/recording/share/gSUoTzOwIHydf7esPGjS3ka1hDYkKNHznmBaR7QcqSqwIumekTziMw">Recording</a>
+          </li>
+          <li class="list-group-item">
             <span class="label label-default label-pill float-right">Aug 21</span>
             <a target="_blank" href="https://coil.zoom.us/recording/share/QrZN4yttqn2Xj6ajeH6BPMDmPU68ODxBOOSA6eEttpCwIumekTziMw">Recording</a>
           </li>
