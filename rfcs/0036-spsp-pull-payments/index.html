@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The protocol for connecting blockchains and other ledgers">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles -->
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900|Droid+Sans+Mono|Titillium+Web:400,300,600,900' rel='stylesheet' type='text/css'>
+
+    <link href="/assets/favicon.png" rel="icon" type="image/x-icon">
+
+    <!--  highlight js -->
+    <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
+
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+</head>
+
+<body class="sidebar-primary ">
+
+  <!-- <div class="container"> -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarHolder">
+              <ul class="nav navbar-nav">
+                    <li class="nav-item" ><a class="nav-link" href="/overview.html">Docs</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/libraries.html">Tools</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/interledger">Edit on Github</a></li>
+                    <li class="nav-item"><a class="nav-link cornerlink" href="/getting-started.html">Get Started</a></li>
+              </ul><!-- /.navbar-nav -->
+              <div class="cornerbox"></div>
+            </div>
+            <div class="menu-overlay"></div>
+        </nav>
+    <!-- </div> -->
+
+    <div class="container-fluid" role="document" id="main_content_wrapper">
+        <div class="row">
+
+        <aside class="sidebar col-md-4 col-lg-3 p-0 order-md-1" role="complementary">
+
+    <div id="sidenav" class="tree_nav">
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Quick Start</li>
+        <li><a href="/overview.html">Overview</a></li>
+        <li><a href="/getting-started.html">Getting Started</a></li>
+      </ul>
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Community Resources</li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+        <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
+        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
+      </ul>
+
+      <div class="sidebar-nav-header">Specs</div>
+      <ul class=" sidebar_pagelist sidebar_indent">
+        <!--    <li><a href="/rfcs/0001-interledger-architecture/">Interledger Architecture</a></li> -->
+        <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+        <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+        <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+        <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+        <li><a href="/rfcs/0026-payment-pointers/">Payment Pointers</a></li>
+        <li><a href="/rfcs/0028-web-monetization/">Web Monetization</a></li>
+        <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+        <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+        <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+        <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+        <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+
+      </ul>
+    </div>        </aside>
+
+          <!-- main column -->
+        <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
+  <article class="pt-3 p-md-3">
+    <div class="content doc-content">
+        <h1 id="spsp-pull-payments">SPSP Pull Payments</h1>
+<h2 id="preface">Preface</h2>
+<p>This document describes how to conduct Pull Payments via <a href="/rfcs/0029-stream/">STREAM</a> once the payment details have been exchanged via the <a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol</a> (SPSP).</p>
+<h2 id="introduction">Introduction</h2>
+<h3 id="pull-payments">Pull Payments</h3>
+<p>In contrast to a push payment, where the Payer (sender) actively sends (pushes) units of value to the Payee (receiver), Pull Payments shift the active part from the Payer to the Payee. With the Payer's consent, the Payee can pull units of value directly from the Payer's account to their own account. The only active engagement of the Payer is required during the negotiation phase of the Pull Payment Agreement. </p>
+<h3 id="motivation">Motivation</h3>
+<p>The <a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol</a> (SPSP) only describes how the details required for a STREAM connection are exchanged and how a simple push payment is made. However, it lacks a detailed explanation of how a Pull Payment is conducted using this connection. </p>
+<h3 id="scope">Scope</h3>
+<p>This document specifies how to conduct a Pull Payment once a STREAM connection has been set up. It is intended for wallet providers and merchants.</p>
+<h3 id="definitions">Definitions</h3>
+<ul>
+<li><strong>Payer</strong> - The entity that units of value are pulled from by the Payee. It is running the <a href="/rfcs/0009-simple-payment-setup-protocol/#Definitions">SPSP Server</a>.</li>
+<li><strong>Payee</strong> - The entity that is pulling units of value from the Payer. It is running the <a href="/rfcs/0009-simple-payment-setup-protocol/#Definitions">SPSP Client</a>.</li>
+<li><strong>Pull Payment</strong> - The process of pulling units of value from one account into another account.</li>
+<li><strong>Pull Payment Agreement</strong> - An agreement between the Payer and the Payee that specifies how much value can be pulled how often and for how long. </li>
+<li><strong>Pull Payment Pointer</strong> - A <a href="/rfcs/0026-payment-pointers/">Payment Pointer</a> that includes a unique and opaque string and represents a Pull Payment Agreement. The SPSP Client uses it to query the <a href="/rfcs/0009-simple-payment-setup-protocol/#Definitions">SPSP Endpoint</a> on the SPSP Server. </li>
+</ul>
+<h3 id="operation-overview">Operation Overview</h3>
+<p>The Payee's SPSP Client will set up a <a href="/rfcs/0029-stream/">STREAM</a> connection to the Payer's SPSP Server using the Pull Payment Pointer, as described by the <a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol</a>. On connection, the SPSP Client tries to pull value from the SPSP server, staying within the terms of the Pull Payment Agreement.</p>
+<h2 id="model-of-operation">Model of Operation</h2>
+<h3 id="negotiating-the-pull-payment-agreement">Negotiating the Pull Payment Agreement</h3>
+<p>Prior to a Pull Payment, the Payer and the Payee have to negotiate a Pull Payment Agreement. This agreement SHOULD be comprised of the parameters defined in the <code>agreement</code>-object within the <a href="#Response-Body">Response Body</a>. The Payer's SPSP Server SHOULD store the negotiated Pull Payment Agreement parameters.</p>
+<p>The result of the negotiation is a Pull Payment Pointer representing the Pull Payment Agreement. The Pull Payment Pointer is required by the Payee's SPSP Client to connect to the Payer's SPSP server. </p>
+<p>Implementations MAY try to parse the Pull Payment Pointer, however, it MUST support totally opaque Pull Payment Pointers. </p>
+<h3 id="conducting-the-pull-payment">Conducting the Pull Payment</h3>
+<p>The Payee's SPSP Client opens a <a href="/rfcs/0029-stream/">STREAM</a> connection to the Payer's SPSP Server as described in the <a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol</a>. </p>
+<p>Once this connection is established, the process continues as follows: </p>
+<p>The SPSP Server begins sending ILP packets to complete the Pull Payment.
+  1. The SPSP Server will adjust their <code>sendMax</code> to reflect the amount they're willing to send.
+      * <code>sendMax</code> SHOULD be derived from the Pull Payment Agreement parameters, i.e., <code>sendMax</code> SHOULD be equal to <code>pull.balance.available</code>, converted to the SPSP Server's operating asset, taking exchange rate fluctuations into account.
+  2. The SPSP Client will adjust their <code>receiveMax</code> to reflect the amount they're willing to receive.
+      * <code>receiveMax</code> MAY be <code>Infinity</code>.
+  3. The SPSP Client's and Server's <a href="/rfcs/0009-simple-payment-setup-protocol/#Definitions">STREAM Modules</a> will move as much value as possible while staying inside these bounds.
+  4. If the SPSP Server reaches their <code>sendMax</code>, they end the stream and the connection. If the SPSP Client reaches their <code>receiveMax</code>, they will end the stream and the connection.</p>
+<p>The STREAM parameters - <code>sendMax</code> and <code>receiveMax</code> - are defined in <a href="/rfcs/0029-stream/#53-frames">STREAM's frame encoding</a>.</p>
+<p>Note that if there are multiple open streams (via one or more STREAM connections) to the <code>destination_account</code> the Pull Payment Pointer is resolving to, the SPSP Server MUST only set one <code>sendMax</code> at a time.</p>
+<h2 id="specification">Specification</h2>
+<h3 id="query-get-ltspsp-endpointgt">Query (<code>GET &lt;SPSP Endpoint&gt;</code>)</h3>
+<p>The SPSP Client queries the SPSP Endpoint to get information about the SPSP Server:</p>
+<h4 id="request">Request</h4>
+<pre><code class="http">GET /0f09dc92-84ad-401b-a7c9-441bc6173f4e HTTP/1.1
+Host: alice.com
+Accept: application/spsp4+json
+</code></pre>
+<h4 id="response">Response</h4>
+<pre><code class="http">HTTP/1.1 200 OK
+Content-Type: application/spsp4+json
+
+{
+  "destination_account": "alice.ilpdemo.red.0f09dc92-84ad-401b-a7c9-441bc6173f4e",
+  "shared_secret": "k5nubgM6zpb88NPGVnI/tVjRdgpUh+JvMueRFEMvPcY=",
+  "pull": {
+    "balance": {
+      "total": "5000",
+      "interval": "1000",
+      "available": "1000"
+    },
+    "cycle": 3,
+    "agreement": {
+      "amount": "2000",
+      "start": "2019-01-01T08:00Z",
+      "expiry": "2021-01-02T00:00Z", 
+      "interval": "P0Y1M0DT0H0M0S",
+      "cycles": 12,
+      "cap": false,
+      "asset": {
+        "code": "USD",
+        "scale": 2
+      }
+    }
+  }
+}
+</code></pre>
+<h5 id="response-body">Response Body</h5>
+<p>The response body is a JSON object that includes basic account details necessary for setting up a STREAM connection as well as optional parameters for displaying purposes. The fields are defined in the following: </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>destination_account</code></td>
+<td><a href="/rfcs/0015-ilp-addresses/">ILP Address</a></td>
+<td>(see <a href="/rfcs/0009-simple-payment-setup-protocol/#Response-Body">Simple Payment Setup Protocol</a>)</td>
+</tr>
+<tr>
+<td><code>shared_secret</code></td>
+<td>32 bytes, <a class="external-link" href="https://en.wikipedia.org/wiki/Base64" target="_blank">base64 encoded <i aria-hidden="true" class="fa fa-external-link"></i></a> (including padding)</td>
+<td>(see <a href="/rfcs/0009-simple-payment-setup-protocol/#Response-Body">Simple Payment Setup Protocol</a>)</td>
+</tr>
+<tr>
+<td><code>pull</code></td>
+<td>Object</td>
+<td><em>(OPTIONAL)</em> Details of this Pull Payment Pointer.</td>
+</tr>
+<tr>
+<td><code>pull.balance</code></td>
+<td>Object</td>
+<td><em>(OPTIONAL)</em> Details of this Pull Payment Pointer's balance.</td>
+</tr>
+<tr>
+<td><code>pull.balance.total</code></td>
+<td>Integer String</td>
+<td><em>(OPTIONAL)</em> Total amount, denoted in <code>pull.agreement.asset.code</code>, which has been pulled by the client since <code>pull.agreement.start</code> to date. It is the sum of all outgoing chunks.</td>
+</tr>
+<tr>
+<td><code>pull.balance.interval</code></td>
+<td>Integer String</td>
+<td><em>(OPTIONAL)</em> Amount, denoted in <code>pull.agreement.asset.code</code>, which has been pulled by the client since the start of the current <code>pull.cycle</code>. It is the sum of all outgoing chunks.</td>
+</tr>
+<tr>
+<td><code>pull.balance.available</code></td>
+<td>Integer String</td>
+<td><em>(OPTIONAL)</em> Amount, denoted in <code>pull.agreement.asset.code</code>, which is still available to be pulled by the client until the end of the current <code>pull.agreement.cycle</code>.</td>
+</tr>
+<tr>
+<td><code>pull.cycle</code></td>
+<td>Integer</td>
+<td><em>(OPTIONAL)</em> Current interval cycle out of a total of <code>pull.agreement.cycles</code>.</td>
+</tr>
+<tr>
+<td><code>pull.agreement</code></td>
+<td>Object</td>
+<td><em>(OPTIONAL)</em> Details of the Pull Payment Agreement.</td>
+</tr>
+<tr>
+<td><code>pull.agreement.amount</code></td>
+<td>Integer String</td>
+<td><em>(OPTIONAL)</em> Amount, denoted in <code>pull.agreement.asset.code</code>, which can pulled by the client each <code>pull.agreement.interval</code>.</td>
+</tr>
+<tr>
+<td><code>pull.agreement.start</code></td>
+<td>String</td>
+<td><em>(OPTIONAL)</em> <a class="external-link" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 <i aria-hidden="true" class="fa fa-external-link"></i></a> UTC timestamp, e.g. <code>"2019-01-01T08:00Z"</code>, representing the start of the Pull Payment Agreement.</td>
+</tr>
+<tr>
+<td><code>pull.agreement.expiry</code></td>
+<td>String</td>
+<td><em>(OPTIONAL)</em> <a class="external-link" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 <i aria-hidden="true" class="fa fa-external-link"></i></a> UTC timestamp, e.g. <code>"2021-01-02T00:00Z"</code>, representing the expiry of the Pull Payment Agreement. It is the time when the SPSP endpoint is destroyed, i.e. remaining funds cannot be pulled after that point in time.</td>
+</tr>
+<tr>
+<td><code>pull.agreement.interval</code></td>
+<td>String</td>
+<td><em>(OPTIONAL)</em> <a class="external-link" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 <i aria-hidden="true" class="fa fa-external-link"></i></a> duration, e.g. <code>"P0Y1M0DT0H0M0S"</code> = 1 month, which describes how often <code>pull.agreement.amount</code> can be pulled.</td>
+</tr>
+<tr>
+<td><code>pull.agreement.cycles</code></td>
+<td>Integer</td>
+<td><em>(OPTIONAL)</em> Number of times that <code>pull.agreement.interval</code> is applied, starting at <code>pull.agreement.start</code>. If <code>pull.agreement.interval</code> is 1 month and <code>pull.agreement.cycles</code> is 12, then <code>pull.agreement.amount</code> can be pulled 12 times within the year starting at <code>pull.agreement.start</code>.</td>
+</tr>
+<tr>
+<td><code>pull.agreement.cap</code></td>
+<td>Boolean</td>
+<td><em>(OPTONAL)</em> Defines whether any balance not pulled before the start of the next interval cycle is accumulated or expires. If <code>pull.agreement.cap = true</code>, the maximum pullable amount per <code>pull.agreement.interval</code> is <code>pull.agreement.amount</code>. If <code>pull.agreement.cap = false</code>, the maximum pullable amount per <code>pull.agreement.interval</code> is <code>pull.agreement.amount</code> plus any remaining funds accumulated but not pulled over the last interval cycles.</td>
+</tr>
+<tr>
+<td><code>pull.agreement.asset</code></td>
+<td>Object</td>
+<td><em>(OPTIONAL)</em> Details of the agreement's asset.</td>
+</tr>
+<tr>
+<td><code>pull.agreement.asset.code</code></td>
+<td>String</td>
+<td><em>(OPTIONAL)</em> Asset code to identify the agreement's currency. Currencies that have <a class="external-link" href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">ISO 4217 <i aria-hidden="true" class="fa fa-external-link"></i></a> codes should use those.</td>
+</tr>
+<tr>
+<td><code>pull.agreement.asset.scale</code></td>
+<td>Integer</td>
+<td><em>(OPTIONAL)</em> The scale of the amounts <code>pull.balance.total</code>, <code>pull.balance.interval</code>, and <code>pull.balance.available</code> are stated in (e.g. an amount of <code>"1000"</code> with a scale of <code>2</code> translates to <code>10.00</code> units of the server's asset/currency)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Currency amounts are denominated as integer strings instead of native JSON numbers to avoid losing precision during JSON parsing. Applications MUST represent these numbers in a data type that has precision equal or greater than an unsigned 64-bit integer.</p>
+<h5 id="errors">Errors</h5>
+<h6 id="pointer-does-not-exist">Pointer Does Not Exist</h6>
+<pre><code class="http">HTTP/1.1 404 Not Found
+Content-Type: application/spsp4+json
+
+{
+  "id": "InvalidPointerError",
+  "message": "Pointer does not exist."
+}
+</code></pre>
+    </div>
+  </article>
+        </main>
+
+        <aside class="right-sidebar col-lg-3 order-lg-4 p-0" role="complementary">
+  <div class="card" id="page-toc-wrapper">
+    <div class="card-header">
+      <h4>On This Page</h4>
+    </div>
+    <ul class="card-body">
+      <li class="level-1"><a href="#spsp-pull-payments">SPSP Pull Payments</a></li>
+<li class="level-2"><a href="#preface">Preface</a></li>
+<li class="level-2"><a href="#introduction">Introduction</a></li>
+<li class="level-3"><a href="#pull-payments">Pull Payments</a></li>
+<li class="level-3"><a href="#motivation">Motivation</a></li>
+<li class="level-3"><a href="#scope">Scope</a></li>
+<li class="level-3"><a href="#definitions">Definitions</a></li>
+<li class="level-3"><a href="#operation-overview">Operation Overview</a></li>
+<li class="level-2"><a href="#model-of-operation">Model of Operation</a></li>
+<li class="level-3"><a href="#negotiating-the-pull-payment-agreement">Negotiating the Pull Payment Agreement</a></li>
+<li class="level-3"><a href="#conducting-the-pull-payment">Conducting the Pull Payment</a></li>
+<li class="level-2"><a href="#specification">Specification</a></li>
+<li class="level-3"><a href="#query-get-ltspsp-endpointgt">Query ( GET &lt;SPSP Endpoint&gt; )</a></li>
+
+    </ul>
+  </div>
+        </aside>
+
+        </div><!--/.row (main layout)-->
+      </div>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
+                </div>
+                <div class="col-sm-3 col-xs-12 float-right">
+                    <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>
+                    <a href="https://communityinviter.com/apps/interledger/interledger-working-groups-slack"><img src="/assets/img/Slack.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/highlight.pack.js"></script>
+<script src="/assets/js/custom.js"></script>
+<!-- <script src="/assets/js/home.js"></script> -->
+<!-- <script type="text/javascript" src="/assets/js/svg-animation.js"></script> -->
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68500608-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

@@ -1,33 +1,204 @@
----
-layout: page
-title: "Getting Started | Interledger"
-body-class: "getting-started"
-active-nav: "Docs"
-active-sub-nav: "Getting Started"
----
-    <!-- docs getting started section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The protocol for connecting blockchains and other ledgers">
 
-    <div class="container docs-wrapper">
-      <div class="row">
-        {% include docs-sidebar.html %}
-        <div class="col-sm-8 wrapper">
-          <h1 class="page-header">Getting Started</h1>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-          <h2>Sending Your First Interledger Payment</h2>
+    <!-- Custom styles -->
+    <link href="/assets/css/custom.css" rel="stylesheet">
 
-          <p class="intro">Follow our tutorials to start sending Interledger payments in under 3 minutes.</p>
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900|Droid+Sans+Mono|Titillium+Web:400,300,600,900' rel='stylesheet' type='text/css'>
 
-          <p>First, follow "<a href="https://medium.com/interledger-blog/using-moneyd-to-join-the-ilp-testnet-ba64bd42bb14">Using Moneyd to Join the ILP Testnet</a>" to get connected to the Interledger testnet. The "Testnet of Testnets," as we call it, connects different blockchain testnets together. We use it to test new protocols and tools in the Interledger stack.</p>
+    <link href="/assets/favicon.png" rel="icon" type="image/x-icon">
 
-          <p>Next, follow "<a href="https://medium.com/interledger-blog/streaming-money-and-data-over-ilp-fabd76fc991e">STREAMing Money and Data Over ILP
-          </a>" to send your first Interledger payment.</p>
+    <!--  highlight js -->
+    <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
 
-          <p>Congratulations, you've sent your first Interledger payment!</p>
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
 
-          <h2>Next Steps</h2>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-          Check out the rest of our <a href="https://medium.com/interledger-blog">Interledger Blog</a> for tutorials on the latest developer tools.</p>
 
+
+
+</head>
+
+<body class="sidebar-primary ">
+
+  <!-- <div class="container"> -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarHolder">
+              <ul class="nav navbar-nav">
+                    <li class="nav-item" ><a class="nav-link" href="/overview.html">Docs</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/libraries.html">Tools</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/interledger">Edit on Github</a></li>
+                    <li class="nav-item"><a class="nav-link cornerlink" href="/getting-started.html">Get Started</a></li>
+              </ul><!-- /.navbar-nav -->
+              <div class="cornerbox"></div>
+            </div>
+            <div class="menu-overlay"></div>
+        </nav>
+    <!-- </div> -->
+
+    <div class="container-fluid" role="document" id="main_content_wrapper">
+        <div class="row">
+
+        <aside class="sidebar col-md-4 col-lg-3 p-0 order-md-1" role="complementary">
+
+    <div id="sidenav" class="tree_nav">
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Quick Start</li>
+        <li><a href="/overview.html">Overview</a></li>
+        <li><a href="/getting-started.html">Getting Started</a></li>
+      </ul>
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Community Resources</li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+        <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
+        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
+      </ul>
+
+      <div class="sidebar-nav-header">Specs</div>
+      <ul class=" sidebar_pagelist sidebar_indent">
+        <!--    <li><a href="/rfcs/0001-interledger-architecture/">Interledger Architecture</a></li> -->
+        <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+        <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+        <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+        <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+        <li><a href="/rfcs/0026-payment-pointers/">Payment Pointers</a></li>
+        <li><a href="/rfcs/0028-web-monetization/">Web Monetization</a></li>
+        <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+        <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+        <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+        <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+        <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+
+      </ul>
+    </div>        </aside>
+
+          <!-- main column -->
+        <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
+  <article class="pt-3 p-md-3">
+    <div class="content doc-content">
+        <h1 id="main-page-header">Getting Started</h1>
+        <p class="blurb">This tutorial will help you start an Interledger node locally on your computer and create a local ILP test network.</p>
+        <p>This tutorial describes how to:</p>
+<ol>
+<li>Install <a class="external-link" href="https://github.com/interledgerjs/moneyd" target="_blank"><code>moneyd</code> <i aria-hidden="true" class="fa fa-external-link"></i></a> on your system</li>
+<li>Start an <a class="external-link" href="https://github.com/interledgerjs/ilp-connector" target="_blank">Interledger node <i aria-hidden="true" class="fa fa-external-link"></i></a> on a local test network using moneyd</li>
+<li>Send and receive value using the <a class="external-link" href="https://github.com/interledgerjs/ilp-protocol-spsp" target="_blank">SPSP <i aria-hidden="true" class="fa fa-external-link"></i></a> (Simple Payment Setup Protocol) API</li>
+</ol>
+<h2 id="before-you-begin">Before you begin</h2>
+<p>Install a stable version of <a class="external-link" href="https://nodejs.org/en/" target="_blank">Node.js <i aria-hidden="true" class="fa fa-external-link"></i></a> (10.16.0 LTS is recommended)</p>
+<p><strong>Note:</strong> For this tutorial you <em>do not</em> need to use any cryptocurrency. Since you will be running ILP 
+on a local test network, settlement (moving real money) does not take place. </p>
+<h2 id="installing-moneyd">Installing moneyd</h2>
+<p>To install <code>moneyd</code>, open a terminal and run the following command:</p>
+<pre><code class="shell">$ npm install -g moneyd
+</code></pre>
+<h2 id="starting-moneyd">Starting moneyd</h2>
+<p>After you’ve installed <code>moneyd</code>, run the following command to start your local node:</p>
+<pre><code class="shell">$ moneyd local
+</code></pre>
+<p>Running the above command creates an Interledger node that listens on port 7768.</p>
+<h2 id="sending-and-receiving-value">Sending and receiving value</h2>
+<p>Once you have <code>moneyd</code> running, you can send and receive value over ILP using the SPSP API. For this tutorial, 
+we’ll use the SPSP command line tool.</p>
+<h3 id="installing-the-spsp-client-and-server">Installing the SPSP client and server</h3>
+<p>To install an SPSP client and server, open a new terminal and run:</p>
+<pre><code class="shell">$ npm install -g ilp-spsp ilp-spsp-server
+</code></pre>
+<h3 id="starting-the-spsp-server">Starting the SPSP server</h3>
+<p>By default, the SPSP server uses <a class="external-link" href="https://localtunnel.github.io/www/" target="_blank">localtunnel <i aria-hidden="true" class="fa fa-external-link"></i></a> to create an HTTP endpoint. 
+Alternatively, you can set up the server on <code>localhost</code> and <code>port</code> by disabling localtunnel.</p>
+<p>To receive value, start the SPSP server using the following command:</p>
+<pre><code class="shell">$ ilp-spsp-server --localtunnel false --port 8080
+</code></pre>
+<p>The above command will create <code>http://localhost:8080</code> as your HTTP endpoint. </p>
+<h3 id="sending-value">Sending value</h3>
+<p>Now, to send value, open another terminal and run:</p>
+<pre><code class="shell">$ ilp-spsp send --amount 10 --receiver 'http://localhost:8080'
+</code></pre>
+<p>You should see <code>sent!</code> on the sending terminal and <code>got packet for 10 units</code> on the receiving terminal confirming 
+that you have successfully sent and received value through the Interledger protocol. You are now ready to <a href="sending-value-programmatically.html">use 
+SPSP in your applications.</a></p>
+    </div>
+  </article>
+        </main>
+
+        <aside class="right-sidebar col-lg-3 order-lg-4 p-0" role="complementary">
+  <div class="card" id="page-toc-wrapper">
+    <div class="card-header">
+      <h4>On This Page</h4>
+    </div>
+    <ul class="card-body">
+      <li class="level-2"><a href="#before-you-begin">Before you begin</a></li>
+<li class="level-2"><a href="#installing-moneyd">Installing moneyd</a></li>
+<li class="level-2"><a href="#starting-moneyd">Starting moneyd</a></li>
+<li class="level-2"><a href="#sending-and-receiving-value">Sending and receiving value</a></li>
+<li class="level-3"><a href="#installing-the-spsp-client-and-server">Installing the SPSP client and server</a></li>
+<li class="level-3"><a href="#starting-the-spsp-server">Starting the SPSP server</a></li>
+<li class="level-3"><a href="#sending-value">Sending value</a></li>
+
+    </ul>
+  </div>
+        </aside>
+
+        </div><!--/.row (main layout)-->
       </div>
-      </div>
-    </div> <!-- /container -->
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
+                </div>
+                <div class="col-sm-3 col-xs-12 float-right">
+                    <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>
+                    <a href="https://communityinviter.com/apps/interledger/interledger-working-groups-slack"><img src="/assets/img/Slack.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/highlight.pack.js"></script>
+<script src="/assets/js/custom.js"></script>
+<!-- <script src="/assets/js/home.js"></script> -->
+<!-- <script type="text/javascript" src="/assets/js/svg-animation.js"></script> -->
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68500608-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

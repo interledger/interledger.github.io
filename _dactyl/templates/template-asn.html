@@ -1,0 +1,40 @@
+{% extends "template-base.html" %}
+{% block head %}
+
+
+{% endblock %}
+
+{% block topnavclass %}nav-innerpage{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block main %}
+  <article class="pt-3 p-md-3">
+    <div class="content nohighlight">
+        <pre>
+            <code class="nohighlight">
+                {{ content }}
+            </code>
+        </pre>
+    </div>
+  </article>
+{% endblock %}
+
+
+{% block right_sidebar %}
+  <div class="card" id="page-toc-wrapper">
+    <div class="card-header">
+      <h4>ASN Modules</h4>
+    </div>
+    <ul class="card-body">
+
+    {% for page in pages|selectattr("doc_type", 'defined_and_equalto', "ASN") %}
+        {% if loop.index != 1 %}
+            <li class="level-2"><a href="/{{page.html}}">{{page.name}}</a></li>
+        {% endif %}
+    {% endfor %}
+
+    </ul>
+  </div>
+{% endblock %}
+
