@@ -61,7 +61,7 @@ pages:
         targets:
             - en
 
-    -   name: Connecting to a Testnet
+    -   name: Connect to an ILP Testnet
         funnel: Docs
         doc_type: Getting Started
         html: connect-ilp-testnet.html
