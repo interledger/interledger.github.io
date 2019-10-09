@@ -67,11 +67,15 @@
         <li class="nav-label">Quick Start</li>
         <li><a href="/overview.html">Overview</a></li>
         <li><a href="/getting-started.html">Getting Started</a></li>
+            <ul>
+                <li><a href="/sending-value-programmatically.html">Sending Value Programmatically</a></li>
+                <li><a href="/connect-ilp-testnet.html">Connect to an ILP Tesnet</a></li>
+            </ul>
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
-        <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog and Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+        <li><a href="/libraries.html">Libraries and Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
 
@@ -98,7 +102,11 @@
         <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
-        <h1 id="introduction">Introduction</h1>
+        <hr/>
+<p>title: Notes on OER Encoding
+draft: 3</p>
+<hr/>
+<h1 id="introduction">Introduction</h1>
 <p>The Interledger stack consists of a collection of different protocols. In order to keep some consistency between these separate, but related protocols, the Interledger team has decided to use some common choices for encoding formats across at least those protocols we control.</p>
 <p>These choices will not be applicable for all protocols in the Interledger ecosystem. For example, we used a binary encoding while a text-based encoding may be more suitable. We used an encoding with a fixed schema, while a schema-less encoding may be easier to extend by third-parties.</p>
 <p>Nevertheless, designers of new Interledger protocols SHOULD consider staying within the boundaries set by this document. Deviations from these norms should be carefully considered. This is intended to minimize the load on implementors who should be able to write components such as date encoding and decoding once and reuse it across protocols.</p>

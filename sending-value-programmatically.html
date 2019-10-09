@@ -67,11 +67,15 @@
         <li class="nav-label">Quick Start</li>
         <li><a href="/overview.html">Overview</a></li>
         <li><a href="/getting-started.html">Getting Started</a></li>
+            <ul>
+                <li><a href="/sending-value-programmatically.html">Sending Value Programmatically</a></li>
+                <li><a href="/connect-ilp-testnet.html">Connect to an ILP Tesnet</a></li>
+            </ul>
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
-        <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog and Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+        <li><a href="/libraries.html">Libraries and Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
 
@@ -99,12 +103,12 @@
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
         <h1 id="main-page-header">Sending Value Programmatically</h1>
-        <p class="blurb">This tutorial shows how to send value over ILP using the SPSP API.</p>
+        <p class="blurb">Send value over ILP using the SPSP API.</p>
         <h2 id="before-you-begin">Before you begin</h2>
-<p>This tutorial assumes that you’re running <code>moneyd</code> and SPSP server on your computer. 
-If you're not set up, you can learn how to <a href="getting-started.html">set up moneyd and SPSP here.</a></p>
+<p>This tutorial assumes that you’re running <code>moneyd</code> and SPSP server on your computer.
+If you're not set up, you can learn how to <a href="getting-started.html">set up <code>moneyd</code> and SPSP here.</a></p>
 <h2 id="sending-value">Sending value</h2>
-<p>To send value programmatically, you need to install <code>ilp-protocol-spsp</code> and <code>ilp-plugin</code> modules. 
+<p>To send value programmatically, you need to install <code>ilp-protocol-spsp</code> and <code>ilp-plugin</code> modules.
 Open a command line and use the following commands:</p>
 <pre><code class="shell">$ mkdir ilp-getting-started
 $ cd ilp-getting-started
@@ -129,7 +133,7 @@ run().catch(e =&gt; console.error(e))
 <p>Finally, run the code using the command:</p>
 <pre><code class="shell">$ node index.js
 </code></pre>
-<p>You should see <code>paid!</code> on the sending terminal and <code>got packet for 10 units</code> on the receiving terminal confirming 
+<p>You should see <code>paid!</code> on the sending terminal and <code>got packet for 10 units</code> on the receiving terminal confirming
 that you have successfully sent and received value through the Interledger protocol.</p>
     </div>
   </article>

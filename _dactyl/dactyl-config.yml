@@ -4,7 +4,7 @@ template_path: templates
 template_static_path: ../assets
 default_template: template-doc.html
 # default_pdf_template: template-pdf.html
-filter_paths: 
+filter_paths:
     - filters
 
 
@@ -23,7 +23,7 @@ targets:
             - link_replacement
             - external_links
         demote_headers_pdf_only: true
-        link_re_subs: 
+        link_re_subs:
             {"../([0-9]{4}-[a-z0-9-]+)/([0-9]{4}-[a-z0-9-]+).md": "/rfcs/\\1/",
              "..(/asn1/.*?.asn)": "/rfcs\\1.html"}
 
@@ -39,7 +39,7 @@ pages:
         template: template-doc.html
         blurb: Interledger enables the seamless exchange of value across different payment networks.
         targets:
-            - en            
+            - en
 
     -   name: Getting Started
         funnel: Docs
@@ -47,17 +47,27 @@ pages:
         html: getting-started.html
         md: getting-started.md
         template: template-doc.html
-        blurb: This tutorial will help you start an Interledger node locally on your computer and create a local ILP test network.
+        blurb: Start an Interledger node locally and create a local ILP test network.
         targets:
             - en
 
     -   name: Sending Value Programmatically
         funnel: Docs
-        doc_type: Overview
+        doc_type: Getting Started
         html: sending-value-programmatically.html
         md: sending-value-programmatically.md
         template: template-doc.html
-        blurb: This tutorial shows how to send value over ILP using the SPSP API.
+        blurb: Send value over ILP using the SPSP API.
+        targets:
+            - en
+
+    -   name: Connect to an ILP Testnet
+        funnel: Docs
+        doc_type: Getting Started
+        html: connect-ilp-testnet.html
+        md: connect-ilp-testnet.md
+        template: template-doc.html
+        blurb: Connect an Interledger node to an ILP Testnet.
         targets:
             - en
 
@@ -70,9 +80,9 @@ pages:
         md: community.md
         template: template-doc.html
         targets:
-            - en  
+            - en
 
-    -   name: Libraries &amp; Tools
+    -   name: Libraries and Tools
         funnel: Docs
         doc_type: Community Resources
         html: libraries.html
@@ -80,7 +90,7 @@ pages:
         template: template-doc.html
         blurb: Build Interledger applications.
         targets:
-            - en            
+            - en
 
     -   name: ILP Summit 2019 Videos
         funnel: Docs
@@ -90,7 +100,7 @@ pages:
         template: template-doc.html
         blurb: The 2019 summit brought together developers, entrepreneurs, and researchers in San Francisco for two days of sharing, building, and learning. Here you can find the recordings of the sessions and talks. Enjoy!
         targets:
-            - en  
+            - en
 
     -   name: Interledger Community Calls
         funnel: Docs
@@ -101,7 +111,7 @@ pages:
         sidebar: left_only
         blurb: Here you can find the links to the recordings of previous community conference calls (since 27 June 2018).
         targets:
-            - en 
+            - en
 
     -   name: Interledger News
         funnel: Docs
@@ -112,8 +122,8 @@ pages:
         sidebar: left_only
         blurb: Here you can find the latest Interledger developments and community announcements.
         targets:
-            - en            
-            
+            - en
+
 
 # Specs ---------------------------------------------------------------------
 
@@ -124,7 +134,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0027-interledger-protocol-4/0027-interledger-protocol-4.md
         template: template-spec.html
         targets:
-            - en   
+            - en
 
     -   name: ILP Addresses
         funnel: Docs
@@ -133,7 +143,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0015-ilp-addresses/0015-ilp-addresses.md
         template: template-spec.html
         targets:
-            - en   
+            - en
 
     -   name: STREAM
         funnel: Docs
@@ -142,7 +152,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0029-stream/0029-stream.md
         template: template-spec.html
         targets:
-            - en   
+            - en
 
     -   name: Simple Payment Setup Protocol (SPSP)
         funnel: Docs
@@ -151,7 +161,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0009-simple-payment-setup-protocol/0009-simple-payment-setup-protocol.md
         template: template-spec.html
         targets:
-            - en 
+            - en
 
     -   name: Payment Pointers
         funnel: Docs
@@ -160,7 +170,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0026-payment-pointers/0026-payment-pointers.md
         template: template-spec.html
         targets:
-            - en 
+            - en
 
     -   name: Web Monetization
         funnel: Docs
@@ -169,9 +179,9 @@ pages:
         md: 0028-web-monetization.md
         template: template-spec.html
         targets:
-            - en 
-            
-# TODO: file has jinja like code. Breaks dactyl proccessing. Using temp local file above until fixed 
+            - en
+
+# TODO: file has jinja like code. Breaks dactyl proccessing. Using temp local file above until fixed
     # -   name: Web Monetization
     #     funnel: Docs
     #     doc_type: Specs
@@ -179,7 +189,7 @@ pages:
     #     md: https://raw.githubusercontent.com/interledger/rfcs/master/0028-web-monetization/0028-web-monetization.md
     #     template: template-spec.html
     #     targets:
-    #         - en 
+    #         - en
 
     -   name: Notes on OER Encoding
         funnel: Docs
@@ -188,7 +198,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0030-notes-on-oer-encoding/0030-notes-on-oer-encoding.md
         template: template-spec.html
         targets:
-            - en 
+            - en
 
     -   name: Dynamic Configuration Protocol (ILDCP)
         funnel: Docs
@@ -197,7 +207,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0031-dynamic-configuration-protocol/0031-dynamic-configuration-protocol.md
         template: template-spec.html
         targets:
-            - en 
+            - en
 
     -   name: Peering, Clearing and Settling
         funnel: Docs
@@ -206,7 +216,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0032-peering-clearing-settlement/0032-peering-clearing-settlement.md
         template: template-spec.html
         targets:
-            - en 
+            - en
 
     -   name: ILP Over HTTP
         funnel: Docs
@@ -215,7 +225,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0035-ilp-over-http/0035-ilp-over-http.md
         template: template-spec.html
         targets:
-            - en             
+            - en
 
     -   name: SPSP Pull Payments
         funnel: Docs
@@ -224,7 +234,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0036-spsp-pull-payments/0036-spsp-pull-payments.md
         template: template-spec.html
         targets:
-            - en      
+            - en
 
 
 # Specs other ---------------------------------------------------------------------
@@ -236,7 +246,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0001-interledger-architecture/0001-interledger-architecture.md
         template: template-spec.html
         targets:
-            - en  
+            - en
 
     -   name: Paid HTTP APIs
         funnel: Docs
@@ -245,7 +255,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0014-paid-http-apis/0014-paid-http-apis.md
         template: template-spec.html
         targets:
-            - en            
+            - en
 
     -   name: Connector Risk Mitigations
         funnel: Docs
@@ -254,7 +264,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0018-connector-risk-mitigations/0018-connector-risk-mitigations.md
         template: template-spec.html
         targets:
-            - en   
+            - en
 
     -   name: Glossary
         funnel: Docs
@@ -263,7 +273,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0019-glossary/0019-glossary.md
         template: template-spec.html
         targets:
-            - en 
+            - en
 
     -   name: Bilateral Transfer Protocol 2.0 (BTP/2.0)
         funnel: Docs
@@ -282,7 +292,7 @@ pages:
         template: template-spec.html
         targets:
             - en
-            
+
     -   name: avascript Ledger Plugin Interface Version 2
         funnel: Docs
         doc_type: Specs
@@ -290,7 +300,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0024-ledger-plugin-interface-2/0024-ledger-plugin-interface-2.md
         template: template-spec.html
         targets:
-            - en 
+            - en
 
     -   name: Relationship between Protocols
         funnel: Docs
@@ -299,7 +309,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0033-relationship-between-protocols/0033-relationship-between-protocols.md
         template: template-spec.html
         targets:
-            - en             
+            - en
 
     -   name: Interledger Node - Requirements Specification
         funnel: Docs
@@ -308,7 +318,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0034-connector-requirements/0034-connector-requirements.md
         template: template-spec.html
         targets:
-            - en    
+            - en
 
     -   name: SPSP Invoices
         funnel: Docs
@@ -317,7 +327,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/0037-spsp-invoices/0037-spsp-invoices.md
         template: template-spec.html
         targets:
-            - en  
+            - en
 
 
 # ASN ---------------------------------------------------------------------
@@ -329,7 +339,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/asn1/README.md
         template: template-spec.html
         targets:
-            - en  
+            - en
 
     -   name: BilateralTransferProtocol.asn
         funnel: Docs
@@ -338,7 +348,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/asn1/BilateralTransferProtocol.asn
         template: template-asn.html
         targets:
-            - en              
+            - en
 
     -   name: DynamicConfigurationProtocol.asn
         funnel: Docs
@@ -347,7 +357,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/asn1/DynamicConfigurationProtocol.asn
         template: template-asn.html
         targets:
-            - en  
+            - en
 
     -   name: GenericTypes.asn
         funnel: Docs
@@ -356,7 +366,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/asn1/GenericTypes.asn
         template: template-asn.html
         targets:
-            - en 
+            - en
 
     -   name: InterledgerErrorData.asn
         funnel: Docs
@@ -365,7 +375,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/asn1/InterledgerErrorData.asn
         template: template-asn.html
         targets:
-            - en 
+            - en
 
     -   name: InterledgerPacket.asn
         funnel: Docs
@@ -374,7 +384,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/asn1/InterledgerPacket.asn
         template: template-asn.html
         targets:
-            - en 
+            - en
 
     -   name: InterledgerPaymentRequest.asn
         funnel: Docs
@@ -383,7 +393,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/asn1/InterledgerPaymentRequest.asn
         template: template-asn.html
         targets:
-            - en 
+            - en
 
     -   name: InterledgerProtocol.asn
         funnel: Docs
@@ -392,7 +402,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/asn1/InterledgerProtocol.asn
         template: template-asn.html
         targets:
-            - en 
+            - en
 
     -   name: InterledgerQuotingProtocol.asn
         funnel: Docs
@@ -401,7 +411,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/asn1/InterledgerQuotingProtocol.asn
         template: template-asn.html
         targets:
-            - en 
+            - en
 
     -   name: InterledgerTypes.asn
         funnel: Docs
@@ -410,7 +420,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/asn1/InterledgerTypes.asn
         template: template-asn.html
         targets:
-            - en 
+            - en
 
     -   name: LegacyInterledgerProtocol.asn
         funnel: Docs
@@ -428,7 +438,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/asn1/PreSharedKeyV2.asn
         template: template-asn.html
         targets:
-            - en            
+            - en
 
     -   name: Stream.asn
         funnel: Docs
@@ -450,7 +460,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0002-crypto-conditions/0002-crypto-conditions.md
         template: template-spec.html
         targets:
-            - en  
+            - en
 
     -   name: Interledger Protocol (ILP)
         funnel: Docs
@@ -459,8 +469,8 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0003-interledger-protocol/0003-interledger-protocol.md
         template: template-spec.html
         targets:
-            - en         
-            
+            - en
+
     -   name: Javascript Ledger Plugin Interface
         funnel: Docs
         doc_type: Deprecated
@@ -495,7 +505,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0007-atomic-transport-protocol/0007-atomic-transport-protocol.md
         template: template-spec.html
         targets:
-            - en            
+            - en
 
     -   name: Interledger Quoting Protocol
         funnel: Docs
@@ -531,7 +541,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0012-five-bells-ledger-api/0012-five-bells-ledger-api.md
         template: template-spec.html
         targets:
-            - en            
+            - en
 
     -   name: Pre-Shared Key Transport Protocol (PSK)
         funnel: Docs
@@ -540,7 +550,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0016-pre-shared-key/0016-pre-shared-key.md
         template: template-spec.html
         targets:
-            - en 
+            - en
 
     -   name: Ledger Layer Requirements
         funnel: Docs
@@ -549,7 +559,7 @@ pages:
         md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0017-ledger-requirements/0017-ledger-requirements.md
         template: template-spec.html
         targets:
-            - en 
+            - en
 
     -   name: Explain Like I'm Five (ELI5)
         funnel: Docs
@@ -582,4 +592,3 @@ pages:
 # -------------------- Style Checker Rules ------------------------
 word_substitutions_file: plainlanguage_words.yaml
 phrase_substitutions_file: plainlanguage_phrases.yaml
-

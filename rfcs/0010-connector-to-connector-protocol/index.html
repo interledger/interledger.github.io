@@ -67,11 +67,15 @@
         <li class="nav-label">Quick Start</li>
         <li><a href="/overview.html">Overview</a></li>
         <li><a href="/getting-started.html">Getting Started</a></li>
+            <ul>
+                <li><a href="/sending-value-programmatically.html">Sending Value Programmatically</a></li>
+                <li><a href="/connect-ilp-testnet.html">Connect to an ILP Tesnet</a></li>
+            </ul>
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
-        <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog and Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+        <li><a href="/libraries.html">Libraries and Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
 
@@ -98,7 +102,12 @@
         <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
-        <p><strong>A well-defined standard for automatic discovery of peers has not been taken up in the network. As such this spec has been deprecated to avoid confusion.</strong></p>
+        <hr/>
+<p>title: The Connector to Connector protocol
+draft: FINAL
+deprecated: true</p>
+<hr/>
+<p><strong>A well-defined standard for automatic discovery of peers has not been taken up in the network. As such this spec has been deprecated to avoid confusion.</strong></p>
 <h1 id="connector-to-connector-protocol">Connector to Connector protocol</h1>
 <h2 id="discovery">Discovery</h2>
 <p>Connectors discover their peers through out-of-band communication, or by looking at https://connector.land and contacting the administrator of another connector.</p>
@@ -118,13 +127,13 @@ WebFinger can help with that.</p>
 <h3 id="webfinger-based-discovery">WebFinger-based discovery</h3>
 <p>In WebFinger-based discovery, both peers still need some out-of-band communication channel (e.g. talking in person or over email/chat), over which one
 prospective peer tells the other:
-<em> their intent, "Let's peer using WebFinger!"
-</em> their own hostname
-<em> the currency code they propose for the peer ledger
-</em> the ledger scale they propose for the peer ledger</p>
+* their intent, "Let's peer using WebFinger!"
+* their own hostname
+* the currency code they propose for the peer ledger
+* the ledger scale they propose for the peer ledger</p>
 <p>And the other peer response with:
-<em> their agreement, "OK, let's peer using WebFinger for discover, and using that currency code and scale for the peer ledger!"
-</em> their own hostname</p>
+* their agreement, "OK, let's peer using WebFinger for discover, and using that currency code and scale for the peer ledger!"
+* their own hostname</p>
 <p>Now, both peers look up each other's host resource, for instance:</p>
 <ul>
 <li>the server wallet1.com looks up https://wallet2.com/.well-known/webfinger?resource=https://wallet2.com</li>
@@ -134,19 +143,19 @@ prospective peer tells the other:
 as implemented in <a class="external-link" href="https://github.com/interledgerjs/ilp-kit" target="_blank">ilp-kit <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <h3 id="discovery-without-webfinger">Discovery without WebFinger</h3>
 <p>When the two connectors do their discovery without WebFinger, the first peer tells the other:
-<em> their intent, "Let's peer without WebFinger!"
-</em> a BTP URI for the other connector to use
-<em> a BTP version to use (currently 'BTP/1.0')
-</em> the currency code they propose for the peer ledger
+* their intent, "Let's peer without WebFinger!"
+* a BTP URI for the other connector to use
+* a BTP version to use (currently 'BTP/1.0')
+* the currency code they propose for the peer ledger
 * the ledger scale they propose for the peer ledger</p>
 <p>And the other peer responds by connecting to the WebSocket indicated by the BTP URI and the protocol version. A BTP URI has one of the following formats:
-<em> <code>btp+&lt;protocol&gt;://&lt;auth_username&gt;:&lt;auth_token&gt;@&lt;url&gt;</code>
-</em> <code>btp+&lt;protocol&gt;://&lt;auth_username&gt;@&lt;url&gt;</code> // <code>auth_token === ''</code> is implied
+* <code>btp+&lt;protocol&gt;://&lt;auth_username&gt;:&lt;auth_token&gt;@&lt;url&gt;</code>
+* <code>btp+&lt;protocol&gt;://&lt;auth_username&gt;@&lt;url&gt;</code> // <code>auth_token === ''</code> is implied
 * <code>btp+&lt;protocol&gt;://&lt;url&gt;</code> // <code>auth_username === ''</code> and <code>auth_token === ''</code> are implied</p>
 <p>The <code>&lt;protocol&gt;</code> is either 'ws' or 'wss'. The <code>&lt;url&gt;</code> needs to contain a hostname, and may contain a port identifier and path part.</p>
 <p>Examples:
-<em> 'btp+ws://localhost:8000'
-</em> 'btp+wss://someUsername:someToken@amundsen.michielbdejong.com/api/17q3'</p>
+* 'btp+ws://localhost:8000'
+* 'btp+wss://someUsername:someToken@amundsen.michielbdejong.com/api/17q3'</p>
 <p>Both connector-to-connector messages and ledger updates will then be transported over the BTP WebSocket.</p>
 <p>Note that one peer will play the role of WebSocket server, and the other peer will play the role of WebSocket client. Often, but not necessarily, the peer
 playing the server role will also administer the peer ledger, and the peer playing the client role will only keep a shadow ledger.</p>

@@ -67,11 +67,15 @@
         <li class="nav-label">Quick Start</li>
         <li><a href="/overview.html">Overview</a></li>
         <li><a href="/getting-started.html">Getting Started</a></li>
+            <ul>
+                <li><a href="/sending-value-programmatically.html">Sending Value Programmatically</a></li>
+                <li><a href="/connect-ilp-testnet.html">Connect to an ILP Tesnet</a></li>
+            </ul>
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
-        <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog and Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+        <li><a href="/libraries.html">Libraries and Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
 
@@ -98,7 +102,12 @@
         <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
-        <p><strong>The Interledger network, since adopting v4 of the protocol, has moved to a model where individual payments are almost always broken up into multiple smaller packets making it impractical to use IPR. As such this spec has been deprecated.</strong></p>
+        <hr/>
+<p>title: Interledger Payment Requests (IPR)
+draft: FINAL
+deprecated: true</p>
+<hr/>
+<p><strong>The Interledger network, since adopting v4 of the protocol, has moved to a model where individual payments are almost always broken up into multiple smaller packets making it impractical to use IPR. As such this spec has been deprecated.</strong></p>
 <h1 id="interledger-payment-request-ipr">Interledger Payment Request (IPR)</h1>
 <p>The Interledger Payment Request (IPR) transport protocol is an end-to-end protocol in which the receiver of an Interledger payment first communicates a request for payment to the sender. This document also recommends a method for receivers to generate payment requests such that they can verify incoming payments without storing all outstanding requests.</p>
 <h2 id="introduction">Introduction</h2>
@@ -137,8 +146,8 @@
 <h3 id="alternative-methods-and-general-best-practices">Alternative Methods and General Best Practices</h3>
 <p>Receivers MAY use any method they choose for generating the condition, such as using a random fulfillment for each request. The receiver MUST be able to identify and verify the ILP Packet for every outstanding payment and produce the corresponding fulfillment. A PSK implementation handles these requirements without storing every fulfillment and packet in a database, by using the condition as a Message Authentication Code (MAC) of the payment request.</p>
 <p>Receivers SHOULD follow these guidelines if implementing a custom system:
-<em> Receivers SHOULD include a payment request-specific nonce in the ILP packet to ensure that conditions are unique even when multiple payments would otherwise have identical packets.
-</em> Receivers SHOULD include an expiry date so that they do not accept incoming payments that are paid too long after their creation.</p>
+* Receivers SHOULD include a payment request-specific nonce in the ILP packet to ensure that conditions are unique even when multiple payments would otherwise have identical packets.
+* Receivers SHOULD include an expiry date so that they do not accept incoming payments that are paid too long after their creation.</p>
 <h2 id="interledger-payment-request-format">Interledger Payment Request Format</h2>
 <p>Here is a summary of the fields in the Interledger Payment Request format:</p>
 <table>
