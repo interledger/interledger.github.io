@@ -1,4 +1,4 @@
-# Connecting to an ILP Testnet
+# Connect to an ILP Testnet
 
 This tutorial will help you start [`moneyd`](https://github.com/interledgerjs/moneyd) locally on your computer and connect it to an [ILP router](https://github.com/interledgerjs/ilp-connector) on the [Testnet](https://xpring.io/ilp-testnet).
 

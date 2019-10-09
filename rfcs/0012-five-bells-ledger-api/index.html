@@ -67,11 +67,15 @@
         <li class="nav-label">Quick Start</li>
         <li><a href="/overview.html">Overview</a></li>
         <li><a href="/getting-started.html">Getting Started</a></li>
+            <ul>
+                <li><a href="/sending-value-programmatically.html">Sending Value Programmatically</a></li>
+                <li><a href="/connect-ilp-testnet.html">Connect to an ILP Tesnet</a></li>
+            </ul>
       </ul>
       <ul class=" sidebar_pagelist">
         <li class="nav-label">Community Resources</li>
-        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog &amp; Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
-        <li><a href="/libraries.html">Libraries &amp; Tools</a></li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog and Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+        <li><a href="/libraries.html">Libraries and Tools</a></li>
         <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
       </ul>
 
@@ -98,7 +102,12 @@
         <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
-        <p><strong>Since ILPv4 it has been unneccassry to standardize the interface to ledger directly. Settlement functions for a specific ledger are now dealt with in plugins or similar constructs.</strong></p>
+        <hr/>
+<p>title: Five Bells Ledger API
+draft: FINAL
+deprecated: 0024-ledger-plugin-interface-2</p>
+<hr/>
+<p><strong>Since ILPv4 it has been unneccassry to standardize the interface to ledger directly. Settlement functions for a specific ledger are now dealt with in plugins or similar constructs.</strong></p>
 <h1 id="five-bells-ledger-api">Five Bells Ledger API</h1>
 <p>The Five Bells Ledger API is a RESTful API served by a ledger (or an adapter), which provides functionality necessary for ILP compatibility. The Five Bells Ledger API provides a single standard API that a ledger can serve in order to ease integration with other Interledger Protocol components and applications, such as the reference ILP Client and ILP Connector. This is not the only way a ledger can become ILP-enabled, but it provides a template that minimizes the integration work necessary for compatibility with ILP software.</p>
 <h2 id="overview">Overview</h2>
