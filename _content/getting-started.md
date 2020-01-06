@@ -14,7 +14,7 @@ Install a stable version of [Node.js](https://nodejs.org/en/) (10.16.0 LTS is re
 on a local test network, settlement (moving real money) does not take place. 
 
 
-## Installing moneyd
+## Install moneyd
 
 To install `moneyd`, open a terminal and run the following command:
 
@@ -22,7 +22,7 @@ To install `moneyd`, open a terminal and run the following command:
 $ npm install -g moneyd
 ```
 
-## Starting moneyd
+## Start moneyd
 After you’ve installed `moneyd`, run the following command to start your local node:
 
 ```shell
@@ -31,12 +31,12 @@ $ moneyd local
 Running the above command creates an Interledger node that listens on port 7768.
 
 
-## Sending and receiving value
+## Send and receive value
 
 Once you have `moneyd` running, you can send and receive value over ILP using the SPSP API. For this tutorial, 
 we’ll use the SPSP command line tool.
 
-### Installing the SPSP client and server
+### Install the SPSP client and server
 
 To install an SPSP client and server, open a new terminal and run:
 
@@ -44,7 +44,7 @@ To install an SPSP client and server, open a new terminal and run:
 $ npm install -g ilp-spsp ilp-spsp-server
 ```
 
-### Starting the SPSP server
+### Start the SPSP server
 
 By default, the SPSP server uses [localtunnel](https://localtunnel.github.io/www/) to create an HTTP endpoint. 
 Alternatively, you can set up the server on `localhost` and `port` by disabling localtunnel.
@@ -56,7 +56,7 @@ $ ilp-spsp-server --localtunnel false --port 8080
 ```
 The above command will create `http://localhost:8080` as your HTTP endpoint. 
 
-### Sending value
+### Send value
 
 Now, to send value, open another terminal and run:
 
