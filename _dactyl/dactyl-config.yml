@@ -51,7 +51,7 @@ pages:
         targets:
             - en
 
-    -   name: Sending Value Programmatically
+    -   name: Send Value Programmatically
         funnel: Docs
         doc_type: Getting Started
         html: sending-value-programmatically.html
@@ -293,7 +293,7 @@ pages:
         targets:
             - en
 
-    -   name: avascript Ledger Plugin Interface Version 2
+    -   name: Javascript Ledger Plugin Interface Version 2
         funnel: Docs
         doc_type: Specs
         html: rfcs/0024-ledger-plugin-interface-2/index.html
