@@ -68,7 +68,7 @@
         <li><a href="/overview.html">Overview</a></li>
         <li><a href="/getting-started.html">Getting Started</a></li>
             <ul>
-                <li><a href="/sending-value-programmatically.html">Sending Value Programmatically</a></li>
+                <li><a href="/sending-value-programmatically.html">Send Value Programmatically</a></li>
                 <li><a href="/connect-ilp-testnet.html">Connect to an ILP Testnet</a></li>
             </ul>
       </ul>
@@ -76,37 +76,31 @@
         <li class="nav-label">Community Resources</li>
         <li><a class="external-link" href="https://medium.com/interledger-blog">Blog and Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries and Tools</a></li>
-        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
+        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>   
       </ul>
 
       <div class="sidebar-nav-header">Specs</div>
       <ul class=" sidebar_pagelist sidebar_indent">
-        <!--    <li><a href="/rfcs/0001-interledger-architecture/">Interledger Architecture</a></li> -->
-        <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
-        <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
-        <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
-        <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
-        <li><a href="/rfcs/0026-payment-pointers/">Payment Pointers</a></li>
-        <li><a href="/rfcs/0028-web-monetization/">Web Monetization</a></li>
-        <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
-        <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
-        <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
-        <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
-        <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
-
-      </ul>
+            <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+            <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+            <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+            <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+            <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+            <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+            <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+            <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+            <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+            <li><a class="external-link" target="_blank" href="https://paymentpointers.org">Payment Pointers</a></li>
+            <li><a class="external-link" target="_blank" href="https://webmonetization.org">Web Monetization</a></li>
+            <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        </ul>
     </div>        </aside>
 
           <!-- main column -->
         <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
-        <hr/>
-<p>title: Interledger Architecture
-draft: 6</p>
-<hr/>
-<h1 id="interledger-architecture">Interledger Architecture</h1>
+        <h1 id="interledger-architecture">Interledger Architecture</h1>
 <p>Interledger provides for secure payments across multiple assets on different ledgers. The architecture consists of a conceptual model for interledger payments, a mechanism for securing payments, and a suite of protocols that implement this design.</p>
 <p>The <a href="#interledger-layer">Interledger Protocol (ILP)</a> is the core of the Interledger protocol suite. Colloquially, the whole Interledger stack is sometimes referred to as "ILP". Technically, however, the Interledger Protocol is only one layer in the stack.</p>
 <p>Interledger is not a blockchain, a token, nor a central service. Interledger is a standard way of bridging financial systems. The Interledger architecture is heavily inspired by the Internet architecture described in <a class="external-link" href="https://tools.ietf.org/html/rfc1122" target="_blank">RFC 1122 <i aria-hidden="true" class="fa fa-external-link"></i></a>, <a class="external-link" href="https://tools.ietf.org/html/rfc1123" target="_blank">RFC 1123 <i aria-hidden="true" class="fa fa-external-link"></i></a> and <a class="external-link" href="https://tools.ietf.org/html/rfc1009" target="_blank">RFC 1009 <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
@@ -126,7 +120,6 @@ draft: 6</p>
 <blockquote>
 <p><strong>Aside:</strong> Not pictured in the diagram are configuration protocols including <a href="/rfcs/0031-dynamic-configuration-protocol/">IL-RFC-31: Interledger Dynamic Configuration Protocol</a> and <strong>Route Broadcasting Protocol</strong>. These protocols are built on top of the Interledger Protocol layer and support it, but are not considered to be transport or application-layer protocols.</p>
 </blockquote>
-<!-- TODO: Add a link to [RBP](https://github.com/interledger/rfcs/pull/455)'s final location. -->
 <p>The following sections describe the general functions of each layer in the protocol suite. For an alternate explanation with detailed depictions of the protocols' data formats, see <a href="/rfcs/0033-relationship-between-protocols/">IL-RFC-33: Relationship Between Protocols</a>.</p>
 <h4 id="ledger-protocols">Ledger Protocols</h4>
 <p>The Interledger protocol suite sits atop a level which we call "ledger protocols". This level represents the existing money systems that Interledger connects. Even though they are not strictly part of the Interledger protocol suite, they are an indispensable part of the Interledger model.</p>
@@ -136,7 +129,7 @@ draft: 6</p>
 <p><strong>Settlement for one account MUST NOT depend on the status of any other accounts.</strong></p>
 <p>If settlement of one account in the Interledger is contingent on the status of another account or relationship, this could create the threat of cascading risks and failures, similar to problems that occurred during the 2008 global financial crisis. Nodes can protect themselves from such risks by choosing to use settlement technologies such as collateralized payment channels where available. These types of arrangements can provide high-speed settlement without a risk that the other side may not pay. For more information on different ledger types and settlement strategies, see <a href="/rfcs/0022-hashed-timelock-agreements/">IL-RFC-22: Hashed Timelock Agreements</a>.</p>
 <p>Nodes can also choose never to settle their obligations. This configuration may be useful when several nodes representing different pieces of software or devices are all owned by the same person or business, and all their traffic with the outside world goes through a single "home router" connector. This is the model of <a class="external-link" href="https://github.com/interledgerjs/moneyd" target="_blank">moneyd <i aria-hidden="true" class="fa fa-external-link"></i></a>, one of the current implementations of Interledger.</p>
-<p>Most implementations of Interledger use a plugin architecture to settle obligations automatically while abstracting the differences between different ledger layer protocols. For an example of this, see <a href="/rfcs/0024-ledger-plugin-interface-2/">IL-RFC-24: JavaScript Ledger Plugin Interface version 2</a>.</p>
+<p>Implementations of Interledger are recommended to use settlement engines as defined in <a href="/rfcs/0038-settlement-engines/">IL-RFC-00: Settlement Engines</a> to settle obligations automatically while abstracting the differences between different settlement systems and ledgers.</p>
 <h4 id="link-protocols">Link Protocols</h4>
 <p>Peers in the Interledger Protocol require a way to communicate securely with one another. Since most existing ledgers do not implement two-way authenticated communication between account holders, we need Link protocols to provide this functionality. Link protocols generally convey two types of information:</p>
 <ul>

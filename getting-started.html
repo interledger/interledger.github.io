@@ -68,7 +68,7 @@
         <li><a href="/overview.html">Overview</a></li>
         <li><a href="/getting-started.html">Getting Started</a></li>
             <ul>
-                <li><a href="/sending-value-programmatically.html">Sending Value Programmatically</a></li>
+                <li><a href="/sending-value-programmatically.html">Send Value Programmatically</a></li>
                 <li><a href="/connect-ilp-testnet.html">Connect to an ILP Testnet</a></li>
             </ul>
       </ul>
@@ -76,26 +76,24 @@
         <li class="nav-label">Community Resources</li>
         <li><a class="external-link" href="https://medium.com/interledger-blog">Blog and Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries and Tools</a></li>
-        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
+        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>   
       </ul>
 
       <div class="sidebar-nav-header">Specs</div>
       <ul class=" sidebar_pagelist sidebar_indent">
-        <!--    <li><a href="/rfcs/0001-interledger-architecture/">Interledger Architecture</a></li> -->
-        <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
-        <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
-        <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
-        <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
-        <li><a href="/rfcs/0026-payment-pointers/">Payment Pointers</a></li>
-        <li><a href="/rfcs/0028-web-monetization/">Web Monetization</a></li>
-        <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
-        <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
-        <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
-        <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
-        <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
-
-      </ul>
+            <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+            <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+            <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+            <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+            <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+            <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+            <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+            <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+            <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+            <li><a class="external-link" target="_blank" href="https://paymentpointers.org">Payment Pointers</a></li>
+            <li><a class="external-link" target="_blank" href="https://webmonetization.org">Web Monetization</a></li>
+            <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        </ul>
     </div>        </aside>
 
           <!-- main column -->
@@ -114,30 +112,30 @@
 <p>Install a stable version of <a class="external-link" href="https://nodejs.org/en/" target="_blank">Node.js <i aria-hidden="true" class="fa fa-external-link"></i></a> (10.16.0 LTS is recommended)</p>
 <p><strong>Note:</strong> For this tutorial you <em>do not</em> need to use any cryptocurrency. Since you will be running ILP 
 on a local test network, settlement (moving real money) does not take place. </p>
-<h2 id="installing-moneyd">Installing moneyd</h2>
+<h2 id="install-moneyd">Install moneyd</h2>
 <p>To install <code>moneyd</code>, open a terminal and run the following command:</p>
 <pre><code class="shell">$ npm install -g moneyd
 </code></pre>
-<h2 id="starting-moneyd">Starting moneyd</h2>
+<h2 id="start-moneyd">Start moneyd</h2>
 <p>After you’ve installed <code>moneyd</code>, run the following command to start your local node:</p>
 <pre><code class="shell">$ moneyd local
 </code></pre>
 <p>Running the above command creates an Interledger node that listens on port 7768.</p>
-<h2 id="sending-and-receiving-value">Sending and receiving value</h2>
+<h2 id="send-and-receive-value">Send and receive value</h2>
 <p>Once you have <code>moneyd</code> running, you can send and receive value over ILP using the SPSP API. For this tutorial, 
 we’ll use the SPSP command line tool.</p>
-<h3 id="installing-the-spsp-client-and-server">Installing the SPSP client and server</h3>
+<h3 id="install-the-spsp-client-and-server">Install the SPSP client and server</h3>
 <p>To install an SPSP client and server, open a new terminal and run:</p>
 <pre><code class="shell">$ npm install -g ilp-spsp ilp-spsp-server
 </code></pre>
-<h3 id="starting-the-spsp-server">Starting the SPSP server</h3>
+<h3 id="start-the-spsp-server">Start the SPSP server</h3>
 <p>By default, the SPSP server uses <a class="external-link" href="https://localtunnel.github.io/www/" target="_blank">localtunnel <i aria-hidden="true" class="fa fa-external-link"></i></a> to create an HTTP endpoint. 
 Alternatively, you can set up the server on <code>localhost</code> and <code>port</code> by disabling localtunnel.</p>
 <p>To receive value, start the SPSP server using the following command:</p>
 <pre><code class="shell">$ ilp-spsp-server --localtunnel false --port 8080
 </code></pre>
 <p>The above command will create <code>http://localhost:8080</code> as your HTTP endpoint. </p>
-<h3 id="sending-value">Sending value</h3>
+<h3 id="send-value">Send value</h3>
 <p>Now, to send value, open another terminal and run:</p>
 <pre><code class="shell">$ ilp-spsp send --amount 10 --receiver 'http://localhost:8080'
 </code></pre>
@@ -155,12 +153,12 @@ SPSP in your applications.</a></p>
     </div>
     <ul class="card-body">
       <li class="level-2"><a href="#before-you-begin">Before you begin</a></li>
-<li class="level-2"><a href="#installing-moneyd">Installing moneyd</a></li>
-<li class="level-2"><a href="#starting-moneyd">Starting moneyd</a></li>
-<li class="level-2"><a href="#sending-and-receiving-value">Sending and receiving value</a></li>
-<li class="level-3"><a href="#installing-the-spsp-client-and-server">Installing the SPSP client and server</a></li>
-<li class="level-3"><a href="#starting-the-spsp-server">Starting the SPSP server</a></li>
-<li class="level-3"><a href="#sending-value">Sending value</a></li>
+<li class="level-2"><a href="#install-moneyd">Install moneyd</a></li>
+<li class="level-2"><a href="#start-moneyd">Start moneyd</a></li>
+<li class="level-2"><a href="#send-and-receive-value">Send and receive value</a></li>
+<li class="level-3"><a href="#install-the-spsp-client-and-server">Install the SPSP client and server</a></li>
+<li class="level-3"><a href="#start-the-spsp-server">Start the SPSP server</a></li>
+<li class="level-3"><a href="#send-value">Send value</a></li>
 
     </ul>
   </div>

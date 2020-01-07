@@ -68,7 +68,7 @@
         <li><a href="/overview.html">Overview</a></li>
         <li><a href="/getting-started.html">Getting Started</a></li>
             <ul>
-                <li><a href="/sending-value-programmatically.html">Sending Value Programmatically</a></li>
+                <li><a href="/sending-value-programmatically.html">Send Value Programmatically</a></li>
                 <li><a href="/connect-ilp-testnet.html">Connect to an ILP Testnet</a></li>
             </ul>
       </ul>
@@ -76,37 +76,31 @@
         <li class="nav-label">Community Resources</li>
         <li><a class="external-link" href="https://medium.com/interledger-blog">Blog and Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
         <li><a href="/libraries.html">Libraries and Tools</a></li>
-        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
+        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>   
       </ul>
 
       <div class="sidebar-nav-header">Specs</div>
       <ul class=" sidebar_pagelist sidebar_indent">
-        <!--    <li><a href="/rfcs/0001-interledger-architecture/">Interledger Architecture</a></li> -->
-        <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
-        <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
-        <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
-        <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
-        <li><a href="/rfcs/0026-payment-pointers/">Payment Pointers</a></li>
-        <li><a href="/rfcs/0028-web-monetization/">Web Monetization</a></li>
-        <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
-        <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
-        <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
-        <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
-        <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
-
-      </ul>
+            <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+            <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+            <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+            <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+            <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+            <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+            <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+            <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+            <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+            <li><a class="external-link" target="_blank" href="https://paymentpointers.org">Payment Pointers</a></li>
+            <li><a class="external-link" target="_blank" href="https://webmonetization.org">Web Monetization</a></li>
+            <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        </ul>
     </div>        </aside>
 
           <!-- main column -->
         <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
-        <hr/>
-<p>title: STREAM - A Multiplexed Money and Data Transport for ILP
-draft: 7</p>
-<hr/>
-<h1 id="stream-a-multiplexed-money-and-data-transport-for-ilp">STREAM: A Multiplexed Money and Data Transport for ILP</h1>
+        <h1 id="stream-a-multiplexed-money-and-data-transport-for-ilp">STREAM: A Multiplexed Money and Data Transport for ILP</h1>
 <h2 id="abstract">Abstract</h2>
 <p>This document specifies the STREAM Interledger Transport protocol, which provides for reliably sending money and data over ILP. STREAM is designed to be used in applications that involve streaming payments or data, as well as those that require sending larger discrete payments and messages. A virtual connection is established between a "client" and a "server" and can be used to send authenticated ILP packets between them.</p>
 <p><strong>Table of Contents:</strong></p>
@@ -243,7 +237,8 @@ draft: 7</p>
 <p>Either endpoint MAY change their ILP address at any point during a connection by sending a <code>ConnectionNewAddress</code> frame. To ensure the new address is received and acknowledged, implementations MAY choose to send these frames only in ILP Prepare packets.</p>
 <p>Implementations SHOULD wait for a valid response (encrypted with the same shared secret) from the new address to validate the new path. STREAM uses the authenticated request/response packets in lieu of <a class="external-link" href="https://quicwg.github.io/base-drafts/draft-ietf-quic-transport.html#rfc.section.6.7" target="_blank">QUIC's explicit Path Validation <i aria-hidden="true" class="fa fa-external-link"></i></a>. Implementations SHOULD refrain from sending large numbers of packets or large amounts of data to a new ILP address before validating the path to avoid being tricked into participating in a Denial of Service (DoS) attack on a third-party endpoint.</p>
 <h4 id="431-connection-asset-details">4.3.1. Connection Asset Details</h4>
-<p>Each endpoint MAY expose their asset details by sending a <code>ConnectionAssetDetails</code> frame.</p>
+<p>Each endpoint MAY expose their asset details by sending a <code>ConnectionAssetDetails</code> frame. This frame is optional because some use-cases do not require it.</p>
+<p>Asset details exposed by this frame MUST not change during the lifetime of a Connection.</p>
 <h3 id="44-streams">4.4. Streams</h3>
 <p>Once a connection is established, either endpoint can create streams to send money or data.</p>
 <h4 id="441-opening-new-streams">4.4.1. Opening New Streams</h4>
@@ -767,6 +762,7 @@ StreamData { StreamID: 1, Offset: 15, Data: "67890" }
 </tr>
 </tbody>
 </table>
+<p>Asset details exposed by this frame MUST NOT change during the lifetime of a Connection.</p>
 <h3 id="54-error-codes">5.4. Error Codes</h3>
 <p>Error codes are sent in <code>StreamClose</code> and <code>ConnectionClose</code> frames to indicate what caused the stream or connection to be closed.</p>
 <table>
