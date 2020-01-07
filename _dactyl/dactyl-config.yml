@@ -293,14 +293,14 @@ pages:
         targets:
             - en
 
-    -   name: Javascript Ledger Plugin Interface Version 2
-        funnel: Docs
-        doc_type: Specs
-        html: rfcs/0024-ledger-plugin-interface-2/index.html
-        md: https://raw.githubusercontent.com/interledger/rfcs/master/0024-ledger-plugin-interface-2/0024-ledger-plugin-interface-2.md
-        template: template-spec.html
-        targets:
-            - en
+    # -   name: Javascript Ledger Plugin Interface Version 2
+    #     funnel: Docs
+    #     doc_type: Specs
+    #     html: rfcs/0024-ledger-plugin-interface-2/index.html
+    #     md: https://raw.githubusercontent.com/interledger/rfcs/master/0024-ledger-plugin-interface-2/0024-ledger-plugin-interface-2.md
+    #     template: template-spec.html
+    #     targets:
+    #         - en
 
     -   name: Relationship between Protocols
         funnel: Docs
