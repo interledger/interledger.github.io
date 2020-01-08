@@ -111,18 +111,18 @@
 </ul>
 <h3 id="design-goals">Design Goals</h3>
 <ul>
-<li>Should be extremely simple for webmasters to use in their site.</li>
-<li>Backend infrastructure should be optional; should be usable on a static site.</li>
+<li>Should be extremely simple for webmasters to use in their sites.</li>
+<li>Back-end infrastructure should be optional, and should be usable on a static site.</li>
 <li>Should not require any interaction with the user.</li>
-<li>Should give user's browser a choice about how much to spend, and which sites to support.</li>
+<li>Should give the user's browser a choice about how much to spend, and which sites to support.</li>
 <li>Should give advanced webmasters a way to associate payments with their users, in order to unlock premium experiences.</li>
 <li>Should pay continuously as the user consumes content.</li>
 <li>Should be compatible with existing application and transport protocols on Interledger.</li>
 </ul>
 <h3 id="relation-to-other-protocols">Relation to Other Protocols</h3>
-<p>The W3C have published two payments related APIs for browsers, the Payment Request API and the Payment Handler API.</p>
-<p>The reason this API is not using the Payment Request API directly is that Web Monetization is intended for continuous payments rather than discrete payments. It is also not designed to have any user interaction. It is intended to provide a direct alternative to advertisements, rather than an alternative to existing checkout methods.</p>
-<p>Some changes will be required to Payment Request and Payment Handler to fully support Web Monetization in future, however this API brings the necessary features to the browser in a way that allows for tighter integration in the future.</p>
+<p>The W3C has published two payments-related APIs for browsers, the Payment Request API and the Payment Handler API.</p>
+<p>The reason this Web Monetization API is not using the Payment Request API directly is that Web Monetization is intended for continuous payments rather than discrete payments. It is also not designed to have any user interaction. It is intended to provide a direct alternative to advertisements, rather than an alternative to existing checkout methods.</p>
+<p>Some changes will be required to Payment Request and Payment Handler to fully support Web Monetization in the future, however this API brings the necessary features to the browser in a way that allows for tighter integration in the future.</p>
 <p>With advertisements, the user's browser decides whether to display the ads and the user decides whether to engage with the ads. With Web Monetization, the user's provider decides whether to pay the site and, if so, how much to pay.</p>
 <p>Web Monetization makes use of <a href="/rfcs/0009-simple-payment-setup-protocol/">SPSP</a> on top of <a href="/rfcs/0029-stream/">ILP/STREAM</a> to provide a high-level way to send money and data, while still providing tremendous flexibility.</p>
 <h2 id="flow">Flow</h2>
@@ -132,10 +132,10 @@
 <li>The user's browser sets <code>document.monetization</code> to an Object which implements <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget" target="_blank">EventTarget <i aria-hidden="true" class="fa fa-external-link"></i></a>.</li>
 <li>The user's browser sets <code>document.monetization.state</code> to <code>pending</code>.</li>
 <li>The user's browser observes the <code>&lt;head&gt;</code> and looks for a Web Monetization <code>&lt;meta name="monetization"&gt;</code> tag (<a href="#meta-tags-set">specified below</a>).</li>
-<li>There MUST be only one <code>&lt;meta name="monetization"&gt;</code> tag at any given time</li>
+<li>There MUST be only one <code>&lt;meta name="monetization"&gt;</code> tag at any given time.</li>
 <li>The <code>&lt;meta&gt;</code> Tags Set MUST be in the <code>&lt;head&gt;</code> of the document.</li>
 <li>
-<p>The <code>&lt;meta&gt;</code> Tags Set MUST be in the top level window (i.e. not inside an iframe)</p>
+<p>The <code>&lt;meta&gt;</code> Tags Set MUST be in the top level window (i.e., not inside an iframe)</p>
 </li>
 <li>
 <p>Below is repeated for every semantically (consider <code>meta.content = meta.content</code>) new  <code>&lt;meta name="monetization"&gt;</code> tag seen for the life of the page:</p>
@@ -158,10 +158,10 @@
 </ul>
 </li>
 <li>Payment continues for the lifetime of a given meta tag (or semantically equivalent)<ul>
-<li>The provider MAY decide to stop/start payment at any time, e.g. if the user is idle, backgrounds the page, or instructs the browser to do so.</li>
+<li>The provider MAY decide to stop/start payment at any time, such as if the user is idle, backgrounds the page, or instructs the browser to do so.</li>
 <li>If the STREAM connection is severed, the provider will redo the SPSP query to the same Payment Setup Endpoint as before with the same Monetization ID. The user's browser MUST NOT re-process the <code>&lt;meta&gt;</code> Tags Set.</li>
 <li>Each time a packet with a nonzero amount is fulfilled, the provider notifies the browser, and the browser emits an event on <code>document.monetization</code>. The event's type is <code>monetizationprogress</code>. The event has a <code>detail</code> field containing the details of the packet (<a href="#monetizationprogress">specified below</a>). If there are no listeners the event MAY NOT be emitted.</li>
-<li>When a stream is closed the <code>document.monetization.state</code> MUST be set back to 'pending'</li>
+<li>When a stream is closed, the <code>document.monetization.state</code> MUST be set back to 'pending'</li>
 </ul>
 </li>
 </ul>
@@ -185,7 +185,7 @@
 <h2 id="specification">Specification</h2>
 <h3 id="meta-tags-set">Meta Tags Set</h3>
 <p>The <code>&lt;meta&gt;</code> Tags Set MUST be in the document's <code>&lt;head&gt;</code>. The <code>&lt;meta&gt;</code> Tags Set allows the user's browser to pay a site via Web Monetization by specifying a <a href="/rfcs/0026-payment-pointers/">Payment Pointer</a> or <a href="../0009-simple-payment-setup-protocol">SPSP</a> url.</p>
-<p>The <code>name</code> of the <code>&lt;meta&gt;</code> tags all start with <code>monetization</code>. The table below lists the different <code>name</code>s and the formats of their <code>content</code>. Currently there is only one tag, but this may be expanded in the future so care MUST be given to altering a Tags Set such that <code>&lt;meta name="monetization"&gt;</code> is the last one modified.   </p>
+<p>The <code>name</code> of the <code>&lt;meta&gt;</code> tags all start with <code>monetization</code>. The table below lists the different <code>name</code> values and the formats of their <code>content</code>. Currently there is only one tag, but this may be expanded in the future so care MUST be given to altering a Tags Set such that <code>&lt;meta name="monetization"&gt;</code> is the last one modified.   </p>
 <table>
 <thead>
 <tr>

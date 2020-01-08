@@ -104,14 +104,14 @@
         <p class="blurb">Start an Interledger node locally and create a local ILP test network.</p>
         <p>This tutorial describes how to:</p>
 <ol>
-<li>Install <a class="external-link" href="https://github.com/interledgerjs/moneyd" target="_blank"><code>moneyd</code> <i aria-hidden="true" class="fa fa-external-link"></i></a> on your system</li>
-<li>Start an <a class="external-link" href="https://github.com/interledgerjs/ilp-connector" target="_blank">Interledger node <i aria-hidden="true" class="fa fa-external-link"></i></a> on a local test network using moneyd</li>
-<li>Send and receive value using the <a class="external-link" href="https://github.com/interledgerjs/ilp-protocol-spsp" target="_blank">SPSP <i aria-hidden="true" class="fa fa-external-link"></i></a> (Simple Payment Setup Protocol) API</li>
+<li>Install <a class="external-link" href="https://github.com/interledgerjs/moneyd" target="_blank"><code>moneyd</code> <i aria-hidden="true" class="fa fa-external-link"></i></a> on your system.</li>
+<li>Start an <a class="external-link" href="https://github.com/interledgerjs/ilp-connector" target="_blank">Interledger node <i aria-hidden="true" class="fa fa-external-link"></i></a> on a local test network using moneyd.</li>
+<li>Send and receive value using the <a class="external-link" href="https://github.com/interledgerjs/ilp-protocol-spsp" target="_blank">SPSP <i aria-hidden="true" class="fa fa-external-link"></i></a> (Simple Payment Setup Protocol) API.</li>
 </ol>
 <h2 id="before-you-begin">Before you begin</h2>
-<p>Install a stable version of <a class="external-link" href="https://nodejs.org/en/" target="_blank">Node.js <i aria-hidden="true" class="fa fa-external-link"></i></a> (10.16.0 LTS is recommended)</p>
-<p><strong>Note:</strong> For this tutorial you <em>do not</em> need to use any cryptocurrency. Since you will be running ILP 
-on a local test network, settlement (moving real money) does not take place. </p>
+<p>Install a stable version of <a class="external-link" href="https://nodejs.org/en/" target="_blank">Node.js <i aria-hidden="true" class="fa fa-external-link"></i></a> (10.16.0 LTS is recommended).</p>
+<p><strong>Note:</strong> For this tutorial you <em>do not</em> need to use any cryptocurrency. Since you will be running ILP
+on a local test network, settlement (moving real money) does not take place.</p>
 <h2 id="install-moneyd">Install moneyd</h2>
 <p>To install <code>moneyd</code>, open a terminal and run the following command:</p>
 <pre><code class="shell">$ npm install -g moneyd
@@ -122,25 +122,25 @@ on a local test network, settlement (moving real money) does not take place. </p
 </code></pre>
 <p>Running the above command creates an Interledger node that listens on port 7768.</p>
 <h2 id="send-and-receive-value">Send and receive value</h2>
-<p>Once you have <code>moneyd</code> running, you can send and receive value over ILP using the SPSP API. For this tutorial, 
+<p>Once you have <code>moneyd</code> running, you can send and receive value over ILP using the SPSP API. For this tutorial,
 we’ll use the SPSP command line tool.</p>
 <h3 id="install-the-spsp-client-and-server">Install the SPSP client and server</h3>
 <p>To install an SPSP client and server, open a new terminal and run:</p>
 <pre><code class="shell">$ npm install -g ilp-spsp ilp-spsp-server
 </code></pre>
 <h3 id="start-the-spsp-server">Start the SPSP server</h3>
-<p>By default, the SPSP server uses <a class="external-link" href="https://localtunnel.github.io/www/" target="_blank">localtunnel <i aria-hidden="true" class="fa fa-external-link"></i></a> to create an HTTP endpoint. 
+<p>By default, the SPSP server uses <a class="external-link" href="https://localtunnel.github.io/www/" target="_blank">localtunnel <i aria-hidden="true" class="fa fa-external-link"></i></a> to create an HTTP endpoint.
 Alternatively, you can set up the server on <code>localhost</code> and <code>port</code> by disabling localtunnel.</p>
 <p>To receive value, start the SPSP server using the following command:</p>
 <pre><code class="shell">$ ilp-spsp-server --localtunnel false --port 8080
 </code></pre>
-<p>The above command will create <code>http://localhost:8080</code> as your HTTP endpoint. </p>
+<p>The above command will create <code>http://localhost:8080</code> as your HTTP endpoint.</p>
 <h3 id="send-value">Send value</h3>
 <p>Now, to send value, open another terminal and run:</p>
 <pre><code class="shell">$ ilp-spsp send --amount 10 --receiver 'http://localhost:8080'
 </code></pre>
-<p>You should see <code>sent!</code> on the sending terminal and <code>got packet for 10 units</code> on the receiving terminal confirming 
-that you have successfully sent and received value through the Interledger protocol. You are now ready to <a href="sending-value-programmatically.html">use 
+<p>You should see <code>sent!</code> on the sending terminal and <code>got packet for 10 units</code> on the receiving terminal confirming
+that you have successfully sent and received value through the Interledger protocol. You are now ready to <a href="sending-value-programmatically.html">use
 SPSP in your applications.</a></p>
     </div>
   </article>
