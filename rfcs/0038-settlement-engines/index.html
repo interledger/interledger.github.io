@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The protocol for connecting blockchains and other ledgers">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles -->
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900|Droid+Sans+Mono|Titillium+Web:400,300,600,900' rel='stylesheet' type='text/css'>
+
+    <link href="/assets/favicon.png" rel="icon" type="image/x-icon">
+
+    <!--  highlight js -->
+    <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
+
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+</head>
+
+<body class="sidebar-primary ">
+
+  <!-- <div class="container"> -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarHolder">
+              <ul class="nav navbar-nav">
+                    <li class="nav-item" ><a class="nav-link" href="/overview.html">Docs</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/libraries.html">Tools</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/interledger">Edit on Github</a></li>
+                    <li class="nav-item"><a class="nav-link cornerlink" href="/getting-started.html">Get Started</a></li>
+              </ul><!-- /.navbar-nav -->
+              <div class="cornerbox"></div>
+            </div>
+            <div class="menu-overlay"></div>
+        </nav>
+    <!-- </div> -->
+
+    <div class="container-fluid" role="document" id="main_content_wrapper">
+        <div class="row">
+
+        <aside class="sidebar col-md-4 col-lg-3 p-0 order-md-1" role="complementary">
+
+    <div id="sidenav" class="tree_nav">
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Quick Start</li>
+        <li><a href="/overview.html">Overview</a></li>
+        <li><a href="/getting-started.html">Getting Started</a></li>
+            <ul>
+                <li><a href="/sending-value-programmatically.html">Sending Value Programmatically</a></li>
+                <li><a href="/connect-ilp-testnet.html">Connect to an ILP Testnet</a></li>
+            </ul>
+      </ul>
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Community Resources</li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog and Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+        <li><a href="/libraries.html">Libraries and Tools</a></li>
+        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
+      </ul>
+
+      <div class="sidebar-nav-header">Specs</div>
+      <ul class=" sidebar_pagelist sidebar_indent">
+            <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+            <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+            <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+            <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+            <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+            <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+            <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+            <li><a href="/rfcs/0038-settlement-engines/">Settlement Engines</a></li>
+            <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+            <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+            <li>&nbsp;</li>
+            <li><a class="external-link" target="_blank" href="https://paymentpointers.org">Payment Pointers</a></li>
+            <li><a class="external-link" target="_blank" href="https://webmonetization.org">Web Monetization</a></li>
+            <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        </ul>
+    </div>        </aside>
+
+          <!-- main column -->
+        <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
+  <article class="pt-3 p-md-3">
+    <div class="content doc-content">
+        <h1 id="settlement-engines">Settlement Engines</h1>
+<h2 id="conventions">Conventions</h2>
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a class="external-link" href="https://tools.ietf.org/html/rfc2119" target="_blank">RFC 2119 <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
+<h2 id="overview">Overview</h2>
+<h3 id="clearing">Clearing</h3>
+<p>In the <a href="/rfcs/0001-interledger-architecture/">Interledger protocol</a>, connectors maintain <strong>peers</strong>, or counterparty connectors whom they transact with. Connectors clear and fulfill ILP packets with their peers, representing conditional IOUs which affect financial accounting balances—<strong>accounts</strong>—between them.</p>
+<p>A connector may extend a given peer a limited line of credit, or none at all, depending upon their trustworthiness. As the connector receives incoming ILP Prepare packets from a peer, forwards them, and returns corresponding ILP Fulfill packets, that peer's liabilities to the connector accrue. If the peer's liabilities exceed the credit limit assigned to it, the connector may reject and decline to forward additional packets.</p>
+<h3 id="settlement">Settlement</h3>
+<p>In order to continue transacting, the peer must settle their liabilities. In most cases, this is accomplished through sending a payment on a settlement system that both peers have agreed to use. The connector should credit the incoming payment, irrevocably discharging a sum the peer owed to it, which enables it to clear subsequent Interledger packets from the peer.</p>
+<p>A <strong>settlement</strong> is the irrevocable discharge of a liability via an unconditional transfer of an asset or financial instrument. Settlements may occur on a <strong>settlement system</strong>, or medium for exchanging value. Some settlements may transfer funds on a <strong>ledger</strong>, or registry of account balances and/or transactions, which is a type of settlement system. (Although not all settlement systems are ledgers, here, the terms are sometimes used interchangeably.)</p>
+<p>Examples of systems that settle Interledger credit relationships may include:</p>
+<ul>
+<li>Traditional banking infrastructure</li>
+<li>Cryptocurrencies and distributed ledgers</li>
+<li>Payment channels and layer 2 networks</li>
+<li>Money transfer services</li>
+<li>Mobile money services</li>
+<li>Cash or physical delivery of assets</li>
+</ul>
+<h3 id="settlement-engines_1">Settlement Engines</h3>
+<p><em>Settlement engines</em> are services operated by two Interledger peers that facilitate sending and receiving settlements between them. Since an Interledger connector may have many peers that settle over the same system, a single settlement engine may manage multiple accounts, to settle with many different peers.</p>
+<p>This specification defines a standardized HTTP API for Interledger connectors to interface with their settlement engines, and vice versa. Connectors trigger the settlement engine to perform settlements, and settlement engines trigger the connector to adjust accounting balances when incoming settlements are received, like so:</p>
+<p><img alt="Settlement architecture" src="../shared/graphs/settlement-architecture.svg"/></p>
+<h2 id="motivation">Motivation</h2>
+<p>Settlement engines supercede the <a href="../deprecated/0024-ledger-plugin-interface-2/0024-ledger-plugin-interface-2.md">Ledger Plugin Interface (LPIv2)</a> as an abstraction for settlement integrations with Interledger. This new model addresses these issues:</p>
+<ol>
+<li>Multi-account plugins necessitated non-trivial connector logic for handling ILP packets.</li>
+<li>Plugin implementations were tightly coupled with a single bilateral communication mechanism.</li>
+<li>JavaScript plugins limited interoperability with non-JavaScript connector implementations.</li>
+<li>Plugins operated in the same process as the connector, which prevented scaling the two services independently.</li>
+</ol>
+<h2 id="concepts">Concepts</h2>
+<h3 id="accounting">Accounting</h3>
+<p>In a financial accounting context, an <strong>account</strong> represents amounts received (credits) and amounts owed (debits) for a set of transactions between counterparties. The <strong>balance</strong> of an account is the net difference between these credits and debits. All the balances and transactions of an account are denominated in a single, fungible asset.</p>
+<p>Interledger connectors are RECOMMENDED to operate an <strong>accounting system</strong> which keeps a record of two accounts for each peer:</p>
+<ul>
+<li><strong>Accounts payable</strong>, the amount owed by the connector to its peer for packets its peer has fulfilled.</li>
+<li>Positive amount indicates the connector is indebted to its peer (a <em>liability</em> for the connector).</li>
+<li>Negative amount indicates the connector has sent a pre-payment to its peer.</li>
+<li><strong>Accounts receivable</strong>, the amount owed to the connector by its peer for packets the connector has fulfilled.</li>
+<li>Positive amount indicates its peer is indebted to the connector (an <em>asset</em> to the connector).</li>
+<li>Negative amount indicates its peer has sent a pre-payment to the connector.</li>
+</ul>
+<p>Thus, a given connector's accounts payable balance should mirror its peer's accounts receivable balance. Likewise, a connector's accounts receivable balance should mirror its peer's accounts payable balance.</p>
+<p>Together, a settlement engine and an accounting system interface with one another to perform double-entry bookkeeping with eventual consistency. To ensure accurate, balanced double-entry bookkeeping, settlement engine and accounting system implementations MUST enforce several invariants:</p>
+<h4 id="account-for-outgoing-settlements">Account for outgoing settlements</h4>
+<p>The accounting system is responsible for triggering outgoing settlements. For example, when the accounts payable reaches a particular threshold, the accounting system could trigger a settlement reducing the amount owed to the peer to a predefined, lesser amount.</p>
+<p>When the accounting system triggers a settlement, it MUST debit the accounts payable, subtracting the amount of the settlement, and then send a request to the settlement engine to settle the amount.</p>
+<h4 id="account-for-incoming-settlements">Account for incoming settlements</h4>
+<p>If the settlement engine instructs the accounting system an incoming settlement was received, the accounting system MUST credit the accounts receivable, subtracting the amount of the settlement.</p>
+<h3 id="settlement-symmetry">Settlement symmetry</h3>
+<p>The fundamental expected behavior of a settlement engine implementation is the sum of amounts one instance is instructed to settle eventually equals the sum of amounts the recipient instance instructs its accounting system to credit as incoming settlements.</p>
+<p>As long as the instructed settlements do not equal the acknowledged settlements, the double-entry bookkeeping is out-of-balance. Settlement engines SHOULD minimize the time that the bookkeeping is unbalanced.</p>
+<p>The purpose of the settlement engine interface is to enable and account for automated settlements. Settlement engines are not designed to enforce or guarantee that counterparties settle their liabilities or honor incoming payments. Accordingly, malicious counterparties or peers operating incompatible settlement engine implementations break any settlement symmetry.</p>
+<h4 id="settlement-delay">Settlement delay</h4>
+<p>When the accounting system triggers a settlement, the accounting system preemptively debits the accounts payable balance before any settlement has been initiated. During this time, the accounts payable balance of the settlement sender will be inconsistent with the accounts receivable balance of the settlement recipient.</p>
+<p>Settlement engine implementations necessarily incur settlement delay, or time until an instructed settlement is credited by the counterparty, due to network latency between peers or the time to finalize settlements on an underlying ledger or system.</p>
+<h4 id="retrying-failed-settlements">Retrying failed settlements</h4>
+<p>If an outgoing settlement fails, such as due to network connectivity issues, the settlement engine MUST track the amount of the settlement and retry it later.</p>
+<p>An intentional design decision was to hide failures from the accounting system rather than refunding failed settlements back to the accounts payable. Since the settlement engine tracks these failed amounts, if the settlement engine is able to settle later, a new settlement attempt may safely begin immediately.</p>
+<p>Refunding failed settlements would enable the peer's accounting system balances to appear synchronized. However, if settlement continues to fail, the credit limit would eventually be breached and prevent the peers from transacting, negating this utility.</p>
+<h3 id="exchanging-messages">Exchanging messages</h3>
+<p>In order to settle or receive settlements with a peer, a settlement engine may first need to retrieve or communicate information with the peer's settlement engine. Two peered settlement engine instances may send and receive settlement-related messages among themselves, such as identifiers for their ledger accounts.</p>
+<p>To support multiple interoperable settlement engine implementations for a particular settlement system, implementors may standardize the schema and type of messages their settlement engines use to communicate with one another. This work is out-of-scope of this RFC.</p>
+<p>Interledger connectors use network transports, such as HTTP or WebSockets, to send and receive ILP packets with peers. Settlement engine implementations SHOULD proxy all messages through its Interledger connector's existing transport like so:</p>
+<ol>
+<li>Origin settlement engine sends a request to its connector with the settlement-related message to forward.</li>
+<li>Origin connector encodes the raw message within an ILP Prepare packet (described below), which is sent to the peer's connector using its existing transport.</li>
+<li>Peer connector receives the message within the ILP Prepare, identifies which settlement engine instance the account is associated with, and sends a request to its settlement engine to handle the message. The peer connector MUST NOT forward the ILP Prepare to any other connectors.</li>
+<li>Peer settlement engine processes the message and responds with its own message.</li>
+<li>Peer connector sends the response message back across the transport to the origin connector within an ILP Fulfill or ILP Reject, depending upon the code of the response (described below). If the peer connector was unable to process the request, it MUST respond with an ILP Reject.</li>
+<li>Origin connector sends the response message back to the origin settlement engine.</li>
+</ol>
+<h4 id="ilp-prepare">ILP Prepare</h4>
+<ul>
+<li><code>amount</code>: <code>0</code></li>
+<li><code>expiresAt</code>: <em>Determined by connector</em></li>
+<li><code>executionCondition</code>: <code>e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code></li>
+<li><code>destination</code>: <code>peer.settle</code></li>
+<li><code>data</code>: <em>Request message from sender settlement engine</em></li>
+</ul>
+<h4 id="ilp-fulfill">ILP Fulfill</h4>
+<ul>
+<li><code>fulfillment</code>: <code>0000000000000000000000000000000000000000000000000000000000000000</code></li>
+<li><code>data</code>: <em>Response message from recipient settlement engine</em></li>
+</ul>
+<h4 id="ilp-reject">ILP Reject</h4>
+<ul>
+<li><code>code</code>: <em>Determined by connector from HTTP status of forwarded request</em></li>
+<li><code>triggeredBy</code>: <code>peer.settle</code></li>
+<li><code>message</code>: <em>Determined by connector</em></li>
+<li><code>data</code>: <em>Response message from recipient settlement engine, or empty if antecedent failure</em></li>
+</ul>
+<h3 id="accounts-and-identifiers">Accounts and identifiers</h3>
+<p>Each account MUST be identified by a unique, <a class="external-link" href="https://tools.ietf.org/html/rfc3986#section-2.3" target="_blank">URL-safe <i aria-hidden="true" class="fa fa-external-link"></i></a> string, immutable for the lifetime of the account.</p>
+<p>The settlement engine MUST be responsible for correlating an account identifier to the peer's identity on the shared ledger or settlement system, if required. To prevent tight coupling, the accounting system is NOT RECOMMENDED to have knowledge of the peer's identity on the shared settlement system.</p>
+<h3 id="units-and-quantities">Units and quantities</h3>
+<p>Asset amounts may be represented using any arbitrary denomination. For example, one U.S. dollar may be represented as \$1 or 100 cents, each of which is equivalent in value. Likewise, one Bitcoin may be represented as 1 BTC or 100,000,000 satoshis.</p>
+<p>A <strong>standard unit</strong> is the typical unit of value for a particular asset, such as \$1 in the case of U.S. dollars, or 1 BTC in the case of Bitcoin.</p>
+<p>A <strong>fractional unit</strong> represents some unit smaller than the standard unit, but with greater precision. Examples of fractional monetary units include one cent (\$0.01 USD), or 1 satoshi (0.00000001 BTC).</p>
+<p>An <strong>asset scale</strong> is the difference in orders of magnitude between the standard unit and a corresponding fractional unit. More formally, the asset scale is a non-negative integer (0, 1, 2, …) such that one standard unit equals the value of <code>10^(scale)</code> corresponding fractional units. If the fractional unit equals the standard unit, then the asset scale is 0.</p>
+<p>For example, one cent represents an asset scale of 2 in the case of USD, whereas one satoshi represents an asset scale of 8 in the case of Bitcoin.</p>
+<h4 id="selecting-scales">Selecting scales</h4>
+<p>Account balances in the accounting system SHOULD be denominated in a scale corresponding to the unit settlements are denominated in, but MAY be denominated in a different scale. For example, micropayments may require more precision than can actually be settled, or databases may limit precision to less than the settlement system is capable of.</p>
+<h4 id="quantity-object"><strong><code>Quantity</code></strong> object</h4>
+<p>An amount denominated in some unit of a single, fungible asset. (Since each account is denominated in a single asset, the type of asset is implied.)</p>
+<h5 id="attributes">Attributes</h5>
+<ul>
+<li><strong><code>amount</code></strong> — string</li>
+<li>Amount of the unit, which is a non-negative integer.</li>
+<li>This amount is encoded as a string to ensure no precision is lost on platforms that don't natively support arbitrary precision integers.</li>
+<li><strong><code>scale</code></strong> — number</li>
+<li>Asset scale of the unit, between <code>0</code> and the maximum 8-bit unsigned integer, <code>255</code> (inclusive).</li>
+</ul>
+<h5 id="example">Example</h5>
+<p>To represent $2.54 in units of cents, where the amount is a multiple of $0.01:</p>
+<pre><code class="json">{
+  "amount": "254",
+  "scale": 2
+}
+</code></pre>
+<h4 id="scale-conversions">Scale conversions</h4>
+<p>If the settlement engine receives a request with a <strong><a href="#quantity-object"><code>Quantity</code></a></strong> denominated in a unit more precise than it is capable of settling, it MUST persist the leftover amount. The leftover amounts MUST be settled later after they accumulate to a unit feasible for settlement.</p>
+<h2 id="settlement-engine-http-api">Settlement Engine HTTP API</h2>
+<p><em>Connector → settlement engine</em></p>
+<p>HTTP/2 is RECOMMENDED for performance reasons, although HTTP/1.1 MAY also be used. Implementations SHOULD support HTTP version negotiation via Application Protocol Negotiation (ALPN).</p>
+<h3 id="setup-an-account">Setup an account</h3>
+<p>Informs the settlement engine that a new account was created within the accounting system using the given <a href="#accounts-and-identifiers">account identifier</a>. The settlement engine MAY perform tasks as a prerequisite to settle with the account. For example, a settlement engine implementation might send messages to the peer to exchange ledger identifiers or to negotiate settlement-related fees.</p>
+<h4 id="request">Request</h4>
+<pre><code class="http">POST /accounts HTTP/1.1
+Content-Type: application/json
+</code></pre>
+<pre><code class="json">{
+  "id": "&lt;id&gt;"
+}
+</code></pre>
+<h4 id="response">Response</h4>
+<pre><code class="http">HTTP/1.1 201 Created
+</code></pre>
+<h3 id="delete-an-account">Delete an account</h3>
+<p>Instructs the settlement engine that an account was deleted.</p>
+<h4 id="request_1">Request</h4>
+<pre><code class="http">DELETE /accounts/:id HTTP/1.1
+</code></pre>
+<h4 id="response_1">Response</h4>
+<pre><code class="http">HTTP/1.1 204 No-Content
+</code></pre>
+<h3 id="perform-outgoing-settlement">Perform outgoing settlement</h3>
+<p>Asynchronously send an outgoing settlement. The accounting system sends this request and <a href="#account-for-outgoing-settlements">accounts for outgoing settlements</a>.</p>
+<h4 id="request_2">Request</h4>
+<pre><code class="http">POST /accounts/:id/settlements HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Idempotency-Key: &lt;key&gt;
+</code></pre>
+<blockquote>
+<p><strong><a href="#quantity-object"><code>Quantity</code></a></strong> to settle</p>
+</blockquote>
+<h4 id="response_2">Response</h4>
+<pre><code class="http">HTTP/1.1 201 Created
+Content-Type: application/json
+</code></pre>
+<h3 id="handle-incoming-message">Handle incoming message</h3>
+<p>Process and respond to an incoming message from the peer's settlement engine. The connector sends this request when it receives an incoming settlement message from the peer, and returns the response message back to the peer.</p>
+<h4 id="request_3">Request</h4>
+<pre><code class="http">POST /accounts/:id/messages HTTP/1.1
+Accept: application/octet-stream
+Content-Type: application/octet-stream
+</code></pre>
+<blockquote>
+<p><em>&lt;raw bytes of message&gt;</em></p>
+</blockquote>
+<h4 id="response_3">Response</h4>
+<pre><code class="http">HTTP/1.1 201 Created
+Content-Type: application/octet-stream
+</code></pre>
+<blockquote>
+<p><em>&lt;raw bytes of response&gt;</em></p>
+</blockquote>
+<h2 id="accounting-system-http-api">Accounting System HTTP API</h2>
+<p><em>Settlement engine → connector</em></p>
+<p>HTTP/2 is RECOMMENDED for performance reasons, although HTTP/1.1 MAY also be used. Implementations SHOULD support HTTP version negotiation via Application Protocol Negotiation (ALPN).</p>
+<h3 id="credit-incoming-settlement">Credit incoming settlement</h3>
+<p><a href="#account-for-incoming-settlements">Account for an incoming settlement</a>. The settlement engine sends this request as it receives incoming settlements in in order to ensure <a href="#settlement-symmetry">settlement symmetry</a>.</p>
+<h4 id="request_4">Request</h4>
+<pre><code class="http">POST /accounts/:id/settlements HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Idempotency-Key: &lt;key&gt;
+</code></pre>
+<blockquote>
+<p><strong><a href="#quantity-object"><code>Quantity</code></a></strong> to be credited to the account as an incoming settlement</p>
+</blockquote>
+<h4 id="response_4">Response</h4>
+<pre><code class="http">HTTP/1.1 201 Created
+Content-Type: application/json
+</code></pre>
+<h3 id="send-outgoing-message">Send outgoing message</h3>
+<p>Send the message to the given peer's settlement engine and return its response. The connector handles <a href="#exchanging-messages">proxying the message</a> through the peer's connector.</p>
+<h4 id="request_5">Request</h4>
+<pre><code class="http">POST /accounts/:id/messages HTTP/1.1
+Accept: application/octet-stream
+Content-Type: application/octet-stream
+</code></pre>
+<blockquote>
+<p><em>&lt;raw bytes of message&gt;</em></p>
+</blockquote>
+<h4 id="response_5">Response</h4>
+<pre><code class="http">HTTP/1.1 201 Created
+Content-Type: application/octet-stream
+</code></pre>
+<blockquote>
+<p><em>&lt;raw bytes of response&gt;</em></p>
+</blockquote>
+<h2 id="idempotence">Idempotence</h2>
+<p>Idempotent requests ensure each side effect only happens once, even though the same request may be called multiple times. For example, if a request to perform a settlement fails due to a network connection error, <a class="external-link" href="https://en.wikipedia.org/wiki/Idempotence" target="_blank">idempotence <i aria-hidden="true" class="fa fa-external-link"></i></a> prevents a client from accidentally triggering multiple settlements when it retries the request.</p>
+<h3 id="performing-idempotent-requests">Performing idempotent requests</h3>
+<p>Requests to settle or requests to credit incoming settlements MUST include an idempotency key, or globally unique string, within an <code>Idempotency-Key: &lt;key&gt;</code> header. To avoid collisions, this key MUST be derived from a cryptographically secure source of randomness.</p>
+<h3 id="retry-behavior">Retry behavior</h3>
+<p>This retry behavior ensures the client and server are eventually consistent and never perform any unsafe balance rollbacks that could result in lost funds or double payments.</p>
+<p>If the client receives no response or an HTTP error, the client MUST retry the request with the same idempotency key.</p>
+<p>To prevent overwhelming the server, the client SHOULD exponentially backoff after each failed retry attempt and add random "jitter" to vary the retry interval. The maximum retry interval MUST be no greater than 1 hour. Clients also MUST retry indefinitely until they have received an acknowledgment from the server that the request was processed or failed.</p>
+<h3 id="handling-idempotent-requests">Handling idempotent requests</h3>
+<p>Endpoints to settle and endpoints to credit incoming settlements MUST support idempotency keys.</p>
+<p>Before an endpoint responds to the request with a new idempotency key (one it hasn't seen before), the endpoint should persist the idempotency key and the state of its response. If a subsequent request is encountered with the same idempotency key, the endpoint should use the state from the initial request to return the same response.</p>
+<p>For safety, endpoints MUST persist idempotency keys and response state for at least 24 hours since the most recent request with the same idempotency key.</p>
+    </div>
+  </article>
+        </main>
+
+        <aside class="right-sidebar col-lg-3 order-lg-4 p-0" role="complementary">
+  <div class="card" id="page-toc-wrapper">
+    <div class="card-header">
+      <h4>On This Page</h4>
+    </div>
+    <ul class="card-body">
+      <li class="level-1"><a href="#settlement-engines">Settlement Engines</a></li>
+<li class="level-2"><a href="#conventions">Conventions</a></li>
+<li class="level-2"><a href="#overview">Overview</a></li>
+<li class="level-3"><a href="#clearing">Clearing</a></li>
+<li class="level-3"><a href="#settlement">Settlement</a></li>
+<li class="level-3"><a href="#settlement-engines_1">Settlement Engines</a></li>
+<li class="level-2"><a href="#motivation">Motivation</a></li>
+<li class="level-2"><a href="#concepts">Concepts</a></li>
+<li class="level-3"><a href="#accounting">Accounting</a></li>
+<li class="level-3"><a href="#settlement-symmetry">Settlement symmetry</a></li>
+<li class="level-3"><a href="#exchanging-messages">Exchanging messages</a></li>
+<li class="level-3"><a href="#accounts-and-identifiers">Accounts and identifiers</a></li>
+<li class="level-3"><a href="#units-and-quantities">Units and quantities</a></li>
+<li class="level-2"><a href="#settlement-engine-http-api">Settlement Engine HTTP API</a></li>
+<li class="level-3"><a href="#setup-an-account">Setup an account</a></li>
+<li class="level-3"><a href="#delete-an-account">Delete an account</a></li>
+<li class="level-3"><a href="#perform-outgoing-settlement">Perform outgoing settlement</a></li>
+<li class="level-3"><a href="#handle-incoming-message">Handle incoming message</a></li>
+<li class="level-2"><a href="#accounting-system-http-api">Accounting System HTTP API</a></li>
+<li class="level-3"><a href="#credit-incoming-settlement">Credit incoming settlement</a></li>
+<li class="level-3"><a href="#send-outgoing-message">Send outgoing message</a></li>
+<li class="level-2"><a href="#idempotence">Idempotence</a></li>
+<li class="level-3"><a href="#performing-idempotent-requests">Performing idempotent requests</a></li>
+<li class="level-3"><a href="#retry-behavior">Retry behavior</a></li>
+<li class="level-3"><a href="#handling-idempotent-requests">Handling idempotent requests</a></li>
+
+    </ul>
+  </div>
+        </aside>
+
+        </div><!--/.row (main layout)-->
+      </div>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
+                </div>
+                <div class="col-sm-3 col-xs-12 float-right">
+                    <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>
+                    <a href="https://communityinviter.com/apps/interledger/interledger-working-groups-slack"><img src="/assets/img/Slack.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/highlight.pack.js"></script>
+<script src="/assets/js/custom.js"></script>
+<!-- <script src="/assets/js/home.js"></script> -->
+<!-- <script type="text/javascript" src="/assets/js/svg-animation.js"></script> -->
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68500608-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
