@@ -12,8 +12,7 @@ This tutorial describes how to:
 
 For this tutorial you will need to:
 
-1. Install `moneyd` and SPSP. You can learn how to install `moneyd`
-and SPSP from the [Getting Started](getting-started.html) tutorial.
+1. Install `moneyd` and SPSP. You can learn how to install `moneyd` and SPSP from the [Getting Started](getting-started.html) tutorial.
 2. Install the [moneyd XRP uplink](https://github.com/interledgerjs/moneyd#uplinks) using the command:
 
         npm install -g moneyd-uplink-xrp
@@ -38,7 +37,7 @@ To configure `moneyd`:
         js1.xpring.dev
 
 
-3. Press enter for all other default options.
+3. Press Enter for all other default options.
 
 
 ## Starting moneyd

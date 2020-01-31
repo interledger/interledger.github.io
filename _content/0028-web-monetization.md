@@ -17,21 +17,21 @@ Web Monetization is a proposed browser API that uses ILP micropayments to moneti
 
 ### Design Goals
 
-- Should be extremely simple for webmasters to use in their site.
-- Backend infrastructure should be optional; should be usable on a static site.
+- Should be extremely simple for webmasters to use in their sites.
+- Back-end infrastructure should be optional, and should be usable on a static site.
 - Should not require any interaction with the user.
-- Should give user's browser a choice about how much to spend, and which sites to support.
+- Should give the user's browser a choice about how much to spend, and which sites to support.
 - Should give advanced webmasters a way to associate payments with their users, in order to unlock premium experiences.
 - Should pay continuously as the user consumes content.
 - Should be compatible with existing application and transport protocols on Interledger.
 
 ### Relation to Other Protocols
 
-The W3C have published two payments related APIs for browsers, the Payment Request API and the Payment Handler API.
+The W3C has published two payments-related APIs for browsers, the Payment Request API and the Payment Handler API.
 
-The reason this API is not using the Payment Request API directly is that Web Monetization is intended for continuous payments rather than discrete payments. It is also not designed to have any user interaction. It is intended to provide a direct alternative to advertisements, rather than an alternative to existing checkout methods.
+The reason this Web Monetization API is not using the Payment Request API directly is that Web Monetization is intended for continuous payments rather than discrete payments. It is also not designed to have any user interaction. It is intended to provide a direct alternative to advertisements, rather than an alternative to existing checkout methods.
 
-Some changes will be required to Payment Request and Payment Handler to fully support Web Monetization in future, however this API brings the necessary features to the browser in a way that allows for tighter integration in the future.
+Some changes will be required to Payment Request and Payment Handler to fully support Web Monetization in the future, however this API brings the necessary features to the browser in a way that allows for tighter integration in the future.
 
 With advertisements, the user's browser decides whether to display the ads and the user decides whether to engage with the ads. With Web Monetization, the user's provider decides whether to pay the site and, if so, how much to pay.
 
@@ -45,9 +45,9 @@ This flow refers to the user's **browser** and the user's **provider**, [defined
 - The user's browser sets `document.monetization` to an Object which implements [EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget).
 - The user's browser sets `document.monetization.state` to `pending`.
 - The user's browser observes the `<head>` and looks for a Web Monetization `<meta name="monetization">` tag ([specified below](#meta-tags-set)).
-  - There MUST be only one `<meta name="monetization">` tag at any given time
+  - There MUST be only one `<meta name="monetization">` tag at any given time.
   - The `<meta>` Tags Set MUST be in the `<head>` of the document.
-  - The `<meta>` Tags Set MUST be in the top level window (i.e. not inside an iframe)
+  - The `<meta>` Tags Set MUST be in the top level window (i.e., not inside an iframe)
 
 - Below is repeated for every semantically (consider `meta.content = meta.content`) new  `<meta name="monetization">` tag seen for the life of the page:
   - If any of the Web Monetization `<meta>` Tags Set are malformed, the browser will stop here. The user's browser SHOULD report a warning via the console.
@@ -64,10 +64,10 @@ This flow refers to the user's **browser** and the user's **provider**, [defined
     - This event has a `detail` field with an object containing the Payment Setup Endpoint and the Monetization ID ([specified below](#monetizationstart)).
     - The user's browser also emits a `monetizationprogress` ([specified below](#monetizationprogress)) event from `document.monetization`, corresponding to this first packet. If there are no listeners the event MAY NOT be emitted.
   - Payment continues for the lifetime of a given meta tag (or semantically equivalent)
-    - The provider MAY decide to stop/start payment at any time, e.g. if the user is idle, backgrounds the page, or instructs the browser to do so.
+    - The provider MAY decide to stop/start payment at any time, such as if the user is idle, backgrounds the page, or instructs the browser to do so.
     - If the STREAM connection is severed, the provider will redo the SPSP query to the same Payment Setup Endpoint as before with the same Monetization ID. The user's browser MUST NOT re-process the `<meta>` Tags Set.
     - Each time a packet with a nonzero amount is fulfilled, the provider notifies the browser, and the browser emits an event on `document.monetization`. The event's type is `monetizationprogress`. The event has a `detail` field containing the details of the packet ([specified below](#monetizationprogress)). If there are no listeners the event MAY NOT be emitted.
-    - When a stream is closed the `document.monetization.state` MUST be set back to 'pending'
+    - When a stream is closed, the `document.monetization.state` MUST be set back to 'pending'
 
 ### Payment Handler Flow
 
@@ -94,7 +94,7 @@ A provider can be implemented as a Payment Handler supporting the 'webmonetizati
 
 The `<meta>` Tags Set MUST be in the document's `<head>`. The `<meta>` Tags Set allows the user's browser to pay a site via Web Monetization by specifying a [Payment Pointer](../0026-payment-pointers/0026-payment-pointers.md) or [SPSP](../0009-simple-payment-setup-protocol) url.
 
-The `name` of the `<meta>` tags all start with `monetization`. The table below lists the different `name`s and the formats of their `content`. Currently there is only one tag, but this may be expanded in the future so care MUST be given to altering a Tags Set such that `<meta name="monetization">` is the last one modified.   
+The `name` of the `<meta>` tags all start with `monetization`. The table below lists the different `name` values and the formats of their `content`. Currently there is only one tag, but this may be expanded in the future so care MUST be given to altering a Tags Set such that `<meta name="monetization">` is the last one modified.   
 
 
 | Name | Required? | Format | Description |

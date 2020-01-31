@@ -15,7 +15,7 @@
     <!-- Google fonts -->
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900|Droid+Sans+Mono|Titillium+Web:400,300,600,900' rel='stylesheet' type='text/css'>
 
-    <link href="/assets/favicon.png" rel="icon" type="image/x-icon">
+    <link href="/assets/img/favicon.png" rel="icon" type="image/x-icon">
 
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
@@ -81,33 +81,28 @@
 
       <div class="sidebar-nav-header">Specs</div>
       <ul class=" sidebar_pagelist sidebar_indent">
-        <!--    <li><a href="/rfcs/0001-interledger-architecture/">Interledger Architecture</a></li> -->
-        <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
-        <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
-        <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
-        <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
-        <li><a href="/rfcs/0026-payment-pointers/">Payment Pointers</a></li>
-        <li><a href="/rfcs/0028-web-monetization/">Web Monetization</a></li>
-        <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
-        <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
-        <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
-        <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
-        <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
-
-      </ul>
+            <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+            <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+            <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+            <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+            <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+            <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+            <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+            <li><a href="/rfcs/0038-settlement-engines/">Settlement Engines</a></li>
+            <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+            <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+            <li>&nbsp;</li>
+            <li><a class="external-link" target="_blank" href="https://paymentpointers.org">Payment Pointers</a></li>
+            <li><a class="external-link" target="_blank" href="https://webmonetization.org">Web Monetization</a></li>
+            <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        </ul>
     </div>        </aside>
 
           <!-- main column -->
         <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
-        <hr/>
-<p>title: Five Bells Ledger API
-draft: FINAL
-deprecated: 0024-ledger-plugin-interface-2</p>
-<hr/>
-<p><strong>Since ILPv4 it has been unneccassry to standardize the interface to ledger directly. Settlement functions for a specific ledger are now dealt with in plugins or similar constructs.</strong></p>
+        <p><strong>Since ILPv4 it has been unneccassry to standardize the interface to ledger directly. Settlement functions for a specific ledger are now dealt with in plugins or similar constructs.</strong></p>
 <h1 id="five-bells-ledger-api">Five Bells Ledger API</h1>
 <p>The Five Bells Ledger API is a RESTful API served by a ledger (or an adapter), which provides functionality necessary for ILP compatibility. The Five Bells Ledger API provides a single standard API that a ledger can serve in order to ease integration with other Interledger Protocol components and applications, such as the reference ILP Client and ILP Connector. This is not the only way a ledger can become ILP-enabled, but it provides a template that minimizes the integration work necessary for compatibility with ILP software.</p>
 <h2 id="overview">Overview</h2>

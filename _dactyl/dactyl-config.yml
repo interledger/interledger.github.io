@@ -51,7 +51,7 @@ pages:
         targets:
             - en
 
-    -   name: Sending Value Programmatically
+    -   name: Send Value Programmatically
         funnel: Docs
         doc_type: Getting Started
         html: sending-value-programmatically.html
@@ -293,11 +293,12 @@ pages:
         targets:
             - en
 
-    -   name: avascript Ledger Plugin Interface Version 2
+
+    -   name: Settlement API
         funnel: Docs
         doc_type: Specs
-        html: rfcs/0024-ledger-plugin-interface-2/index.html
-        md: https://raw.githubusercontent.com/interledger/rfcs/master/0024-ledger-plugin-interface-2/0024-ledger-plugin-interface-2.md
+        html: rfcs/0038-settlement-engines/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/0038-settlement-engines/0038-settlement-engines.md
         template: template-spec.html
         targets:
             - en
@@ -476,6 +477,15 @@ pages:
         doc_type: Deprecated
         html: rfcs/0004-ledger-plugin-interface/index.html
         md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0004-ledger-plugin-interface/0004-ledger-plugin-interface.md
+        template: template-spec.html
+        targets:
+            - en
+
+    -   name: Javascript Ledger Plugin Interface Version 2
+        funnel: Docs
+        doc_type: Deprecated
+        html: rfcs/0024-ledger-plugin-interface-2/index.html
+        md: https://raw.githubusercontent.com/interledger/rfcs/master/deprecated/0024-ledger-plugin-interface-2/0024-ledger-plugin-interface-2.md
         template: template-spec.html
         targets:
             - en

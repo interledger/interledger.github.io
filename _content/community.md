@@ -15,7 +15,7 @@ The official Interledger community forum can be found [forum.interledger.org][4]
 
 ## Bi-Weekly Calls
 
-We have open community calls **every other Wednesday at 4pm UTC** to discuss the latest in Interledger spec development, the implementations, and to answer any questions people have. Agendas are sent out via the mailing list and anyone can suggest an agenda item by adding to the [topic][5] created for that purpose in the forum. 
+We have open community calls **every other Wednesday at 4pm UTC** to discuss the latest in Interledger spec development, the implementations, and to answer any questions people have. Agendas are sent out via the mailing list and anyone can suggest an agenda item by adding to the [topic][5] created for that purpose in the forum.
 
 Recordings of previous calls are available [here][6].
 
@@ -25,7 +25,7 @@ Recordings of previous calls are available [here][6].
 
 All announcements, including about upcoming in-person meetings, and many technical discussions are done through the W3C Interledger Community Group Mailing List. Have ideas to share or just want to keep up with the latest developments? [Join the Community Group][7].
 
-The mailing list archive is available [here][8]. 
+The mailing list archive is available [here][8].
 
 ### IETF
 
@@ -33,7 +33,7 @@ Since presenting the Interledger project at IETF Berlin, the IETF have establish
 
 ## Slack
 
-Want to chat about Interledger or have a question to ask? [Join on Slack][10]
+Want to chat about Interledger or have a question to ask? [Join on Slack][10].
 
 ## Twitter
 

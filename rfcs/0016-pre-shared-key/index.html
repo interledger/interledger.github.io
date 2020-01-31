@@ -15,7 +15,7 @@
     <!-- Google fonts -->
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900|Droid+Sans+Mono|Titillium+Web:400,300,600,900' rel='stylesheet' type='text/css'>
 
-    <link href="/assets/favicon.png" rel="icon" type="image/x-icon">
+    <link href="/assets/img/favicon.png" rel="icon" type="image/x-icon">
 
     <!--  highlight js -->
     <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
@@ -81,33 +81,28 @@
 
       <div class="sidebar-nav-header">Specs</div>
       <ul class=" sidebar_pagelist sidebar_indent">
-        <!--    <li><a href="/rfcs/0001-interledger-architecture/">Interledger Architecture</a></li> -->
-        <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
-        <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
-        <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
-        <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
-        <li><a href="/rfcs/0026-payment-pointers/">Payment Pointers</a></li>
-        <li><a href="/rfcs/0028-web-monetization/">Web Monetization</a></li>
-        <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
-        <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
-        <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
-        <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
-        <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
-        <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
-
-      </ul>
+            <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+            <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+            <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+            <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+            <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+            <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+            <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+            <li><a href="/rfcs/0038-settlement-engines/">Settlement Engines</a></li>
+            <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+            <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+            <li>&nbsp;</li>
+            <li><a class="external-link" target="_blank" href="https://paymentpointers.org">Payment Pointers</a></li>
+            <li><a class="external-link" target="_blank" href="https://webmonetization.org">Web Monetization</a></li>
+            <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        </ul>
     </div>        </aside>
 
           <!-- main column -->
         <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
-        <hr/>
-<p>title: The Pre-Shared Key Transport Protocol (PSK)
-draft: FINAL
-deprecated: 0025-pre-shared-key-2</p>
-<hr/>
-<h1 id="pre-shared-key-transport-protocol-psk">Pre-Shared Key Transport Protocol (PSK)</h1>
+        <h1 id="pre-shared-key-transport-protocol-psk">Pre-Shared Key Transport Protocol (PSK)</h1>
 <p>The Pre-Shared Key (PSK) protocol is an end-to-end transport protocol, used by the sender and receiver of an ILP payment to decide on a condition and fulfillment for a payment. By default, the protocol also encrypts any additional data sent along with the payment, using <a class="external-link" href="https://en.wikipedia.org/wiki/Galois/Counter_Mode" target="_blank">AES-256-GCM <i aria-hidden="true" class="fa fa-external-link"></i></a>. The full ILP payment is authenticated through an <a class="external-link" href="https://en.wikipedia.org/wiki/Hash-based_message_authentication_code" target="_blank">HMAC-SHA-256 <i aria-hidden="true" class="fa fa-external-link"></i></a> which is used to generate the fulfillment of a PSK payment. The entirety of the PSK data, including public headers, encrypted private headers, and encrypted private data, is encoded into an octet-stream that forms the data portion of the <a class="external-link" href="https://interledger.org/rfcs/0003-interledger-protocol/draft-4.html#specification" target="_blank">ILP Packet <i aria-hidden="true" class="fa fa-external-link"></i></a>. The PSK data is authenticated via AES-256-GCM in addition to the HMAC-SHA-256 which authenticates the full ILP payment.</p>
 <p>Pseudocode for this protocol can be read <a href="#pseudocode">at the bottom of this spec</a>.</p>
 <p>As the name suggests, PSK relies on a pre-shared secret key. In application-layer protocols like <a class="external-link" href="https://github.com/interledger/rfcs/blob/master/0009-simple-payment-setup-protocol/0009-simple-payment-setup-protocol.md" target="_blank">SPSP <i aria-hidden="true" class="fa fa-external-link"></i></a>, the receiver generates the shared key and shares it with the sender over an end-to-end secure communication channel such as HTTPS. Alternatively, a <a class="external-link" href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange" target="_blank">Diffie-Hellman key exchange <i aria-hidden="true" class="fa fa-external-link"></i></a> could be used directly to generate the shared secret key.</p>

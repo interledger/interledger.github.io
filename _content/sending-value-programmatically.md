@@ -4,9 +4,9 @@ This tutorial assumes that you’re running `moneyd` and SPSP server on your com
 If you're not set up, you can learn how to [set up `moneyd` and SPSP here.](getting-started.html)
 
 
-## Sending value
+## Send value
 
-To send value programmatically, you need to install `ilp-protocol-spsp` and `ilp-plugin` modules.
+To send value programmatically, you must install `ilp-protocol-spsp` and `ilp-plugin` modules.
 Open a command line and use the following commands:
 
 ```shell
