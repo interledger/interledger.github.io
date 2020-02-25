@@ -3,10 +3,10 @@
 This tutorial describes how to use the command line and test XRP to:
 
 1. Create an account in the Xpring.io Interledger Testnet.
-2. Fund your account using the TestNet Rainmaker \(our version of a "faucet"\).
-3. Check your balance.
-4. Pay a friend.
-5. Get paid.
+2. Add test XRP to your account using the TestNet Rainmaker \(our version of a "faucet"\).
+3. Check your account balance.
+4. Send test XRP to another payment pointer.
+5. Receive test XRP.
 
 To do the same with a GUI-based interface, refer to [setup-wallets.md].
 
@@ -24,11 +24,7 @@ Create a new account with this command:
 }'
 ```
 
-{% hint style="info" %}
-Anyone can create an account on Testnet.
-{% endhint %}
-
-The above request returns a payload that contains your `accountId`, an auth token which you will then use to authenticate to the connector, as well as a [Payment Pointer](https://paymentpointers.org/) that can be used to receive value in your test account.
+This request returns a payload that contains your `accountId`, an auth token which you will then use to authenticate to the connector, as well as a [Payment Pointer](https://paymentpointers.org/) that can be used to receive value in your test account.
 
 Here's an example response payload for reference. Keep track of the generated `accountId` at `accountId`, and your generated auth token at `"customSettings" -> "ilpOverHttp.incoming.simple.auth_token", for use in subsequent steps.
 
@@ -70,7 +66,7 @@ Here's an example response payload for reference. Keep track of the generated `a
 
 ### 2. Add test XRP to your account
 
-The Testnet has a rainmaker account that you can use to populate your account with test XRP, so you can then use this account to send test XRP to other accounts. To add test XRP to your account, use the following command. Make sure to replace `{your-account-id}` with your own `accountId` created in the previous account.
+The Testnet has a rainmaker account that you can use to populate your account with test XRP, so you can then use this account to send test XRP to other accounts. To add test XRP to your account, use the following command. Make sure to replace `{your-account-id}` with your own `accountId` created in Step 1.
 
 ```
 > curl --location --request POST \
@@ -128,18 +124,18 @@ This request returns a JSON response similar to the following:
 }
 ```
 
-**`originalAmount`** is the amount that you wanted to send.
+- **`originalAmount`** is the amount that you wanted to send.
 
-**`amountDelivered`** is the amount your friend actually received.
+- **`amountDelivered`** is the amount your friend actually received.
 
-**`amountSent`** is the amount that actually got sent to your friend.
+- **`amountSent`** is the amount that actually got sent to your friend.
 
 In this example, all three values are the same.
 
 ### 5. Receive test XRP
 
-Set up a xpring.io Testnet account and a rafiki.money account so you have two destination pointers to work with. Experiment with sending and receiving test XRP in both directions. Check your balance to make sure that the money has arrived in your account.
+Set up a Xpring Testnet account and a rafiki.money account so you have two destination pointers to work with. Experiment with sending and receiving test XRP in both directions. Check your balance to make sure that the money has arrived in your account.
 
 ### Combine GUI and commmand-line interaction
 
-If you log in to your accounts at [rafiki.money](https://rafiki.money) and [https://wallet.ilpv4.dev](https://wallet.ilpv4.dev), you can directly see the results of the commands you perform. 
+If you log in to your accounts at [rafiki.money](https://rafiki.money) and [https://wallet.ilpv4.dev](https://wallet.ilpv4.dev), you can directly see the results of the commands you perform.
