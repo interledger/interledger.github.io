@@ -2,7 +2,7 @@
 
 <!-- Will have to find all references to files that are being pulled, such as in https://xpring.io/ilp-testnet, and replace them with the new files. -->
 
-When you create an [Interledger](overview.html) account on Testnet, you create an address to send and receive test XRP. Testnet is a network set up specifically to allow users to practice sending and receiving test XRP.
+When you create an [Interledger](overview.html) account on the Interledger Testnet, you create an address to send and receive test currency values. Testnet is a network set up specifically to allow users to practice sending and receiving test currency values. This tutorial demonstrates sending and receiving test XRP
 
 You can create an Interledger account to send and receive test XRP in two ways:
 
@@ -46,7 +46,7 @@ The amount of XRP in the lower left adjusts to the new value. To add more value 
 
 ### Create an account at rafiki.money
 
-The [rafiki.money](https://rafiki.money) site is an implementation of Rafiki, which is an Interledger connector. You can [read more](https://medium.com/interledger-blog/introducing-rafiki-e3de4710d3de) about why Rafiki was created.
+The [rafiki.money](https://rafiki.money) site is 
 
 For your current purposes, you can use rafiki.money to create an Interledger account that is similar to the Interledger account you create when you first sign in to Xpring.
 
