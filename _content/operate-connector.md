@@ -261,7 +261,7 @@ bob-cli accounts create alice \
   --ilp-over-http-incoming-token alice_password \
   --ilp-over-http-outgoing-token bob_password \
   --ilp-over-http-url http://alice-node:7770/accounts/bob/ilp \
-  --min-balance 150000 \
+  --min-balance -150000 \
   --routing-relation Peer
 ```
 
@@ -278,13 +278,12 @@ bob-cli accounts create charlie \
   --ilp-over-http-incoming-token charlie_password \
   --ilp-over-http-outgoing-token bob_other_password \
   --ilp-over-http-url http://charlie-node:7770/accounts/bob/ilp \
-  --settle-threshold 1 \
+  --settle-threshold 10000 \
   --settle-to -1000000 \
-  --min-balance -1000000 \
   --routing-relation Child
 ```
 
-After 1 drop of XRP (0.000001 XRP) is fulfilled from Bob to Charlie (`settle-threshold`), Bob will settle the full liability _plus_ prepay Charlie 1 XRP (`settle-to`).
+After 0.01 XRP is fulfilled from Bob to Charlie (`settle-threshold`), Bob will settle the full liability _plus_ prepay Charlie 1 XRP (`settle-to`).
 
 ### Charlie's node
 
@@ -300,11 +299,11 @@ charlie-cli accounts create bob \
   --ilp-over-http-incoming-token bob_other_password \
   --ilp-over-http-outgoing-token charlie_password \
   --ilp-over-http-url http://bob-node:7770/accounts/charlie/ilp \
-  --min-balance 100 \
+  --min-balance -50000 \
   --routing-relation Parent
 ```
 
-Charlie enforces that Bob will not owe him greater than 0.0001 XRP (`min-balance`). After that, he must settle to send additional ILP packets.
+Charlie enforces that Bob will not owe him greater than 0.05 XRP (`min-balance`). After that, he must settle to send additional ILP packets.
 
 Lastly, create Charlie's account:
 
@@ -320,11 +319,11 @@ charlie-cli accounts create charlie \
 
 Now, send a payment from Alice to Charlie, via Bob. Specifcally, send a payment from the `alice` account on Alice's node, to the `$charlie-node:7770/accounts/charlie/spsp` payment pointer, which corresponds to the `charlie` account on Charlie's node.
 
-To specify the amount, you must use base units. Since Alice's account is denominated in ETH with precision to 9 decimal places. To send the equivalent of 1 ETH, the amount would be `1000000000`, and to send 1 gwei, which is a very small amount of ETH, the amount would be `1`.
+To specify the amount, you must use base units. Since Alice's account is denominated in ETH with precision to 9 decimal places, to send the equivalent of 1 ETH, the amount would be `1000000000`, and to send 1 gwei, which is a very small amount of ETH, the amount would be `1`. We'll send a payment for 0.0002 ETH, which STREAM will packetize into many smaller ILP packets.
 
-We'll send a payment for 0.0002 ETH, which STREAM will packetize into many smaller ILP packets.
+Note that when we perform the payment, Alice and Charlie's nodes will automatically coordinate with one another to ensure Bob doesn't take too large of spread or offer a poor exchnage rate. By checking Bob's rate against an external prices, Alice and Charlie can determine the minimum rate and maximum slippage they're willing to accept. (In this case, they also use the CoinCap API.)
 
-In order for this payment to fully complete within the credit limits set by each peer, Alice must send an ETH payment to Bob, and Bob must send an XRP payment to Charlie. Both will automatically be triggered in the background, so the payment will take approximately 5-6 seconds.
+In order for this payment to fully complete within the credit limits set by each peer, Alice must settle by sending an ETH payment to Bob, and Bob must settle by sending an XRP payment to Charlie. Both will automatically be triggered in the background, so the whole payment will take approximately 5 seconds.
 
 Now, send it!
 
@@ -335,7 +334,13 @@ alice-cli pay alice \
   --to http://charlie-node:7770/accounts/charlie/spsp
 ```
 
-TODO Show what the success output looks like :D
+If the payment is successful, you should see output like this (the delivered amount may differ since the exchange rate may change since the time of writing):
+
+```
+{"delivered_amount":192613,"destination_asset_code":"XRP","destination_asset_scale":6,"from":"example.alice","in_flight_amount":0,"sent_amount":200000,"source_amount":200000,"source_asset_code":"ETH","source_asset_scale":9,"to":"example.bob.charlie.charlie.UlyQactA51Y9Kc8wu8oBVyUq"}
+```
+
+Congratulations, you just executed a cross-currency Interledger payment with settlement!
 
 ## 8. Check balances
 
@@ -370,5 +375,3 @@ docker stop redis ethereum-testnet alice-node bob-node charlie-node alice-eth bo
 docker rm redis ethereum-testnet alice-node bob-node charlie-node alice-eth bob-eth bob-xrp charlie-xrp
 docker network rm local-ilp
 ```
-
-Congratulations, you just executed a cross-currency Interledger payment with settlement across multiple hops!
