@@ -71,6 +71,16 @@ pages:
         targets:
             - en
 
+    -   name: Operate a Connector
+        funnel: Docs
+        doc_type: Getting Started
+        html: operate-connector.html
+        md: operate-connector.md
+        template: template-doc.html
+        blurb: Send a cross-currency payment across a local test network
+        targets:
+            - en
+
 # Community & resources ---------------------------------------------------------------------
 
     -   name: Get Involved
