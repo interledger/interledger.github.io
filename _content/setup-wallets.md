@@ -46,7 +46,7 @@ The amount of XRP in the lower left adjusts to the new value. To add more value 
 
 ### Create an account at rafiki.money
 
-The [rafiki.money](https://rafiki.money) site is 
+The [rafiki.money](https://rafiki.money) site is an Interledger-enabled wallet.
 
 For your current purposes, you can use rafiki.money to create an Interledger account that is similar to the Interledger account you create when you first sign in to Xpring.
 

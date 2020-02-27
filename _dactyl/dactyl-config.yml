@@ -41,26 +41,25 @@ pages:
         targets:
             - en
 
-    -   name: Set Up and Use Interledger Accounts
+    -   name: Set Up and Use Interledger Accounts With a User Interface
         funnel: Docs
         doc_type: Getting Started
         html: setup-wallets.html
         md: setup-wallets.md
         template: template-doc.html
-        blurb: Create Interledger accounts to send and receive test XRP
+        blurb: Set up and use Interledger accounts to send and receive test funds
         targets:
             - en
 
-    -   name: Set Up and Use Interledger Accounts on the Command Line
+    -   name: Set Up and Use Interledger Accounts Programmatically
         funnel: Docs
         doc_type: Getting Started
-        html: setup-wallets-command-line.html
-        md: setup-wallets-commandline.md
+        html: setup-wallets-programmatically.html
+        md: setup-wallets-programmatically.md
         template: template-doc.html
-        blurb: Create Interledger accounts, and send and receive test XRP, on the command line
+        blurb: Set up and use Interledger accounts to send and receive test funds programmatically
         targets:
             - en
-
 
     # -   name: Getting Started
     #     funnel: Docs

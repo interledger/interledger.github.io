@@ -68,7 +68,7 @@
             <ul class=" sidebar_pagelist sidebar_indent">
                 <li><a href="/overview.html">Overview</a></li>
                 <li><a href="/setup-wallets.html">Set Up and Use Interledger Accounts with a User Interface</a></li>
-                <li><a href="/setup-wallets-command-line.html">Set Up and Use Interledger Accounts on the Command Line</a></li>
+                <li><a href="/setup-wallets-programmatically.html">Set Up and Use Interledger Accounts Programmatically</a></li>
             </ul>
       </ul>
       <ul class=" sidebar_pagelist">
@@ -101,19 +101,19 @@
         <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
-        <h1 id="main-page-header">Set Up and Use Interledger Accounts on the Command Line</h1>
-        <p class="blurb">Create Interledger accounts, and send and receive test XRP, on the command line</p>
-        <h2 id="interledger-protocol-ilp-testnet-getting-started">Interledger Protocol (ILP) TestNet: Getting Started</h2>
-<p>This tutorial describes how to use the ILP Testnet to send value programmatically.</p>
+        <h1 id="main-page-header">Set Up and Use Interledger Accounts Programmatically</h1>
+        <p class="blurb">Set up and use Interledger accounts to send and receive test funds programmatically</p>
+        <h2 id="interledger-protocol-ilp-testnet-getting-started-with-programmatic-access">Interledger Protocol (ILP) TestNet: Getting Started With Programmatic Access</h2>
+<p>This tutorial describes how to use the ILP Testnet to send value programmatically. Although this tutorial uses test XRP for simplicity, Interledger can handle transactions involving any currency pairs, as described in <a href="overview.html">Interledger Overview</a>.</p>
 <p>You will:</p>
 <ol>
-<li>Create an account on the ILP Testnet.</li>
-<li>Add test XRP to your account using the ILP TestNet Rainmaker (our version of a "faucet").</li>
-<li>Check your account balance.</li>
-<li>Send test XRP to another payment pointer.</li>
-<li>Receive test XRP.</li>
+<li><a href="#1-create-an-account">Create an account</a> on the ILP Testnet.</li>
+<li><a href="#2-add-test-xrp-to-your-account">Add test XRP</a> to your account using the ILP TestNet Rainmaker (our version of a "faucet").</li>
+<li><a href="#3-check-your-account-balance">Check your account balance</a>.</li>
+<li><a href="#4-send-test-xrp-to-another-payment-pointer">Send test XRP</a> to another payment pointer.</li>
+<li><a href="#5-receive-test-xrp">Receive test XRP</a>.</li>
 </ol>
-<p>To do the same with a GUI-based interface, refer to [setup-wallets.md].</p>
+<p>To do the same with a GUI-based interface, refer to <a href="setup-wallets.html">Set Up Interledger accounts with a user interface</a>.</p>
 <h3 id="1-create-an-account">1. Create an account</h3>
 <p>Create a new account with this command:</p>
 <pre><code>&gt; curl --location --request POST 'https://hermes-rest.ilpv4.dev/accounts' \
@@ -219,7 +219,7 @@
 <p>In this example, all three values are the same.</p>
 <h3 id="5-receive-test-xrp">5. Receive test XRP</h3>
 <p>Set up a Xpring Testnet account and a rafiki.money account so you have two destination pointers to work with. Experiment with sending and receiving test XRP in both directions. Check your balance to make sure that the money has arrived in your account.</p>
-<h3 id="combine-gui-and-commmand-line-interaction">Combine GUI and commmand-line interaction</h3>
+<h3 id="combine-gui-and-programmatic-interaction">Combine GUI and programmatic interaction</h3>
 <p>If you log in to your accounts at <a class="external-link" href="https://rafiki.money" target="_blank">rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a> and <a class="external-link" href="https://wallet.ilpv4.dev" target="_blank">https://wallet.ilpv4.dev <i aria-hidden="true" class="fa fa-external-link"></i></a>, you can directly see the results of the commands you perform.</p>
     </div>
   </article>
@@ -231,13 +231,13 @@
       <h4>On This Page</h4>
     </div>
     <ul class="card-body">
-      <li class="level-2"><a href="#interledger-protocol-ilp-testnet-getting-started">Interledger Protocol (ILP) TestNet: Getting Started</a></li>
+      <li class="level-2"><a href="#interledger-protocol-ilp-testnet-getting-started-with-programmatic-access">Interledger Protocol (ILP) TestNet: Getting Started With Programmatic Access</a></li>
 <li class="level-3"><a href="#1-create-an-account">1. Create an account</a></li>
 <li class="level-3"><a href="#2-add-test-xrp-to-your-account">2. Add test XRP to your account</a></li>
 <li class="level-3"><a href="#3-check-your-account-balance">3. Check your account balance</a></li>
 <li class="level-3"><a href="#4-send-test-xrp-to-another-payment-pointer">4. Send test XRP to another payment pointer</a></li>
 <li class="level-3"><a href="#5-receive-test-xrp">5. Receive test XRP</a></li>
-<li class="level-3"><a href="#combine-gui-and-commmand-line-interaction">Combine GUI and commmand-line interaction</a></li>
+<li class="level-3"><a href="#combine-gui-and-programmatic-interaction">Combine GUI and programmatic interaction</a></li>
 
     </ul>
   </div>

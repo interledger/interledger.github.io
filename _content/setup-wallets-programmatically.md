@@ -1,14 +1,16 @@
-## Interledger Protocol (ILP) TestNet: Getting Started
+## Interledger Protocol (ILP) TestNet: Getting Started With Programmatic Access 
 
-This tutorial describes how to use the command line and test XRP to:
+This tutorial describes how to use the ILP Testnet to send value programmatically. Although this tutorial uses test XRP for simplicity, Interledger can handle transactions involving any currency pairs, as described in [Interledger Overview](overview.html).
 
-1. Create an account in the Xpring.io Interledger Testnet.
-2. Add test XRP to your account using the TestNet Rainmaker \(our version of a "faucet"\).
-3. Check your account balance.
-4. Send test XRP to another payment pointer.
-5. Receive test XRP.
+You will:
 
-To do the same with a GUI-based interface, refer to [setup-wallets.md].
+1. [Create an account](#1-create-an-account) on the ILP Testnet.
+2. [Add test XRP](#2-add-test-xrp-to-your-account) to your account using the ILP TestNet Rainmaker \(our version of a "faucet"\).
+3. [Check your account balance](#3-check-your-account-balance).
+4. [Send test XRP](#4-send-test-xrp-to-another-payment-pointer) to another payment pointer.
+5. [Receive test XRP](#5-receive-test-xrp).
+
+To do the same with a GUI-based interface, refer to [Set Up Interledger accounts with a user interface](setup-wallets.html).
 
 ### 1. Create an account
 
@@ -24,9 +26,12 @@ Create a new account with this command:
 }'
 ```
 
-This request returns a payload that contains your `accountId` in addition to an auth token which you will then use to authenticate to the connector. The response also includes a [Payment Pointer](https://paymentpointers.org/) that can be used to receive value in your test account.
+This request returns:
+- A payload that contains your `accountId`
+- An auth token which you use to authenticate to the connector
+= A [payment pointer](https://paymentpointers.org/) that can be used to receive value in your test account.
 
-Here's an example response payload for reference. Keep track of the generated `accountId` at `accountId`, and your generated auth token at `"customSettings" -> "ilpOverHttp.incoming.simple.auth_token", for use in subsequent steps.
+Here's an example response payload for reference. Keep track of the generated `accountId` at `accountId`, and your generated auth token at `"customSettings"` -> `"ilpOverHttp.incoming.simple.auth_token"`, for use in subsequent steps.
 
 ```text
 {
@@ -66,7 +71,7 @@ Here's an example response payload for reference. Keep track of the generated `a
 
 ### 2. Add test XRP to your account
 
-The Testnet has a rainmaker account that you can use to populate your account with test XRP, so you can then use this account to send test XRP to other accounts. To add test XRP to your account, use the following command. Make sure to replace `{your-account-id}` with your own `accountId` created in Step 1.
+The ILP Testnet has a rainmaker account that you can use to populate your account with test XRP, so you can then use this account to send test XRP to other accounts. To add test XRP to your account, use the following command. Make sure to replace `{your-account-id}` with your own `accountId` created in Step 1.
 
 ```
 > curl --location --request POST \
@@ -136,6 +141,6 @@ In this example, all three values are the same.
 
 Set up a Xpring Testnet account and a rafiki.money account so you have two destination pointers to work with. Experiment with sending and receiving test XRP in both directions. Check your balance to make sure that the money has arrived in your account.
 
-### Combine GUI and commmand-line interaction
+### Combine GUI and programmatic interaction
 
 If you log in to your accounts at [rafiki.money](https://rafiki.money) and [https://wallet.ilpv4.dev](https://wallet.ilpv4.dev), you can directly see the results of the commands you perform.
