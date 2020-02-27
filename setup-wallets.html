@@ -103,31 +103,32 @@
     <div class="content doc-content">
         <h1 id="main-page-header">Set Up and Use Interledger Accounts With a User Interface</h1>
         <p class="blurb">Set up and use Interledger accounts to send and receive test funds</p>
-        <h2 id="set-up-interledger-accounts-to-send-and-receive-test-xrp-on-testnet">Set Up Interledger accounts to send and receive test XRP on Testnet</h2>
+        <h2 id="set-up-interledger-accounts-to-send-and-receive-test-xrp-on-an-ilp-testnet">Set Up Interledger accounts to send and receive test XRP on an ILP testnet</h2>
 <!-- Will have to find all references to files that are being pulled, such as in https://xpring.io/ilp-testnet, and replace them with the new files. -->
-<p>When you create an <a href="overview.html">Interledger</a> account on the Interledger Testnet, you create an address to send and receive test currency values. Testnet is a network set up specifically to allow users to practice sending and receiving test currency values. This tutorial demonstrates sending and receiving test XRP</p>
+<p>When you create an <a href="overview.html">Interledger</a> account on an ILP testnet, you create an address to send and receive test currency values. The ILP testnet used in this tutorial is a network set up specifically to allow users to practice sending and receiving test currency values. For simplicity, this tutorial demonstrates sending and receiving test XRP.</p>
 <p>You can create an Interledger account to send and receive test XRP in two ways:</p>
 <ul>
-<li>With a Xpring Testnet login</li>
-<li>By creating an account at <a class="external-link" href="https://rafiki.money" target="_blank">rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+<li>With an ILP testnet account</li>
+<li>With a <a class="external-link" href="https://rafiki.money" target="_blank">rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a> account</li>
 </ul>
 <p>Both of these types of Interledger accounts allow you to send and receive test XRP, instead of actual value, and are useful for developing and testing apps.</p>
 <p>If you want to send actual value in your app with an Interledger account, refer to the <a class="external-link" href="http://interledger.rs" target="_blank">Rust implementation of Interledger <i aria-hidden="true" class="fa fa-external-link"></i></a>, or the Java implementation of Interledger at <a class="external-link" href="https://www.hyperledger.org/projects/quilt" target="_blank">Hyperledger Quilt <i aria-hidden="true" class="fa fa-external-link"></i></a>. Because these efforts are open source, your contributions are welcome.</p>
-<h3 id="log-in-to-xpring-testnet-to-create-an-interledger-account">Log in to Xpring Testnet to create an Interledger account</h3>
+<h3 id="log-in-to-an-ilp-testnet-to-create-an-interledger-account">Log in to an ILP Testnet to create an Interledger account</h3>
+<p>These examples refer to an ILP testnet that uses a Xpring login.</p>
 <ol>
-<li>Open the Xpring Testnet login page: <a class="external-link" href="https://wallet.ilpv4.dev/" target="_blank">https://wallet.ilpv4.dev/ <i aria-hidden="true" class="fa fa-external-link"></i></a><br/>
+<li>Open the login page for this ILP testnet: <a class="external-link" href="https://wallet.ilpv4.dev/" target="_blank">https://wallet.ilpv4.dev/ <i aria-hidden="true" class="fa fa-external-link"></i></a><br/>
    Read the Terms of Use and the Privacy Policy, as linked on that page.</li>
 <li>If you agree with the specified terms and privacy policy, click <strong>Sign in</strong>.<br/>
    You are prompted to sign in with one of Facebook, Github, or Google credentials.</li>
 <li>For your login, select the option you prefer.<br/>
-   You can create multiple accounts that you control by signing in separately with other options.</li>
+   You can create multiple accounts that you control by signing in subsequently with other options.</li>
 <li>You might be prompted to log in with your credentials, or if you are already logged in, you might be prompted for further authentication.<br/>
    When you are logged in, you see a page with your payment pointer, in the format <code>$money.ilpv4.dev/&lt;your-account-name&gt;</code>.
    As indicated by the payment pointer, this wallet uses the Interledger Protocol, v4.
    Because a new account does not have any test XRP value, you will want to add value to it.</li>
 <li>Click <strong>Make it rain</strong>.<br/>
   Your account now has 10 test XRP. To add more test XRP, continue to click the button until you have as many test XRP as you want.</li>
-<li>If you want someone to send you test XRP, provide them with your payment pointer.</li>
+<li>If you want someone to send you test XRP, provide them with your payment pointer and ask them to follow the steps to send you test XRP.</li>
 <li>If you want to send test XRP to someone, request that they send you their payment pointer.<br/>
    You can readily set up multiple accounts to get different payment pointers, and therefore experiment with sending test XRP in different scenarios where you have ready access to the accounts on both sides.</li>
 </ol>
@@ -179,8 +180,8 @@
       <h4>On This Page</h4>
     </div>
     <ul class="card-body">
-      <li class="level-2"><a href="#set-up-interledger-accounts-to-send-and-receive-test-xrp-on-testnet">Set Up Interledger accounts to send and receive test XRP on Testnet</a></li>
-<li class="level-3"><a href="#log-in-to-xpring-testnet-to-create-an-interledger-account">Log in to Xpring Testnet to create an Interledger account</a></li>
+      <li class="level-2"><a href="#set-up-interledger-accounts-to-send-and-receive-test-xrp-on-an-ilp-testnet">Set Up Interledger accounts to send and receive test XRP on an ILP testnet</a></li>
+<li class="level-3"><a href="#log-in-to-an-ilp-testnet-to-create-an-interledger-account">Log in to an ILP Testnet to create an Interledger account</a></li>
 <li class="level-3"><a href="#create-an-account-at-rafikimoney">Create an account at rafiki.money</a></li>
 
     </ul>
