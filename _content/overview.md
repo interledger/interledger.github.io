@@ -75,4 +75,4 @@ used to determine in-flight balances, which are periodically settled with on-led
 For a detailed description of how this works, read the
 [Peering, Clearing, and Settlement](https://interledger.org/rfcs/0032-peering-clearing-settlement/) documentation.
 
-Next: [Getting Started](getting-started.html)
+Next: [Set Up Interledger accounts to send and receive test XRP](setup-wallets.html)

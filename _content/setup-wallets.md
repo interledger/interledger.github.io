@@ -1,21 +1,23 @@
-## Set Up Interledger accounts to send and receive test XRP on an ILP testnet
+## Set Up Interledger accounts to send and receive test XRP
 
 <!-- Will have to find all references to files that are being pulled, such as in https://xpring.io/ilp-testnet, and replace them with the new files. -->
 
-When you create an [Interledger](overview.html) account on an ILP testnet, you create an address to send and receive test currency values. The ILP testnet used in this tutorial is a network set up specifically to allow users to practice sending and receiving test currency values. For simplicity, this tutorial demonstrates sending and receiving test XRP.
+When you create an [Interledger](overview.html) account on an ILP (Interledger Protocol) testnet, you create an address to send and receive test currency values. The ILP testnet used in this tutorial is a network set up specifically to allow users to practice sending and receiving test currency values. For simplicity, this tutorial demonstrates sending and receiving test XRP.
 
 You can create an Interledger account to send and receive test XRP in two ways:
 
 - With an ILP testnet account
 - With a [rafiki.money](https://rafiki.money) account
 
-Both of these types of Interledger accounts allow you to send and receive test XRP, instead of actual value, and are useful for developing and testing apps.
+Both of these types of Interledger accounts allow you to send and receive test XRP, and are useful for developing and testing apps.
 
 If you want to send actual value in your app with an Interledger account, refer to the [Rust implementation of Interledger](http://interledger.rs), or the Java implementation of Interledger at [Hyperledger Quilt](https://www.hyperledger.org/projects/quilt). Because these efforts are open source, your contributions are welcome.
 
-### Log in to an ILP Testnet to create an Interledger account
+You can also perform these same tasks programmatically. See [Set up Interledger accounts programmaticallly to send and receive test XRP](setup-wallets-programmatically.html).
 
-These examples refer to an ILP testnet that uses a Xpring login.
+### Create an Interledger account and get your own payment pointer
+
+This section refers to a specific ILP testnet.
 
 1. Open the login page for this ILP testnet: [https://wallet.ilpv4.dev/](https://wallet.ilpv4.dev/)<br>
    Read the Terms of Use and the Privacy Policy, as linked on that page.
@@ -24,33 +26,32 @@ These examples refer to an ILP testnet that uses a Xpring login.
 3. For your login, select the option you prefer.<br>
    You can create multiple accounts that you control by signing in subsequently with other options.
 4. You might be prompted to log in with your credentials, or if you are already logged in, you might be prompted for further authentication.<br>
-   When you are logged in, you see a page with your payment pointer, in the format `$money.ilpv4.dev/<your-account-name>`.
-   As indicated by the payment pointer, this wallet uses the Interledger Protocol, v4.
-   Because a new account does not have any test XRP value, you will want to add value to it.
+   When you are logged in, you see a page with your payment pointer, in the format `$money.ilpv4.dev/<your-account-name>`.<br>
+   As indicated by the payment pointer, this wallet uses the Interledger Protocol, v4. Because a new account does not have any test funds, you will want to add value to it.
 5. Click **Make it rain**.<br>
   Your account now has 10 test XRP. To add more test XRP, continue to click the button until you have as many test XRP as you want.
-6. If you want someone to send you test XRP, provide them with your payment pointer and ask them to follow the steps to send you test XRP.
-7. If you want to send test XRP to someone, request that they send you their payment pointer.<br>
+6. If you want someone to send you test XRP, provide them with your payment pointer and ask them to use their payment pointer to send test XRP to your payment pointer.
+7. If you want to send test XRP to someone, request that they provide you with their payment pointer.<br>
    You can readily set up multiple accounts to get different payment pointers, and therefore experiment with sending test XRP in different scenarios where you have ready access to the accounts on both sides.
 
-When you subsequently log in to Xpring Testnet with the same credentials, you will see the current state of your wallet with the current amount of test XRP.   
+When you subsequently log in to this testnet again with the credentials that you used previously, you will see the current state of your wallet with the current amount of test XRP it has. Your account can receive test XRP when you are not logged in.   
 
-#### Send money with your Xpring login wallet
+#### Send money between Interledger accounts
 
 When you have test XRP in your account, you can practice sending test XRP to another account.
 
-1. Sign in to Xpring Testnet at [https://wallet.ilpv4.dev/](https://wallet.ilpv4.dev/). Look at the **Send** portion of the page on the right.
+1. Sign in to the testnet at [https://wallet.ilpv4.dev/](https://wallet.ilpv4.dev/). Look at the **Send** portion of the page on the right.
 2. Enter the number of test XRP, in integer form, that you want to send.
 3. Enter the payment pointer for the address to which you want to send test XRP.
 4. Click **Send**.
 
-The amount of XRP in the lower left adjusts to the new value. To add more value to your account, click **Make it rain**.
+The amount of test XRP in the lower left adjusts to the new value. To add more value to your account, click **Make it rain**.
 
 ### Create an account at rafiki.money
 
-The [rafiki.money](https://rafiki.money) site is an Interledger-enabled wallet.
+The [rafiki.money](https://rafiki.money) site allows you to create an Interledger-enabled wallet.
 
-For your current purposes, you can use rafiki.money to create an Interledger account that is similar to the Interledger account you create when you first sign in to Xpring.
+For your current purposes, you can use rafiki.money to create an Interledger account that is similar to the Interledger account you create when you sign in at [https://wallet.ilpv4.dev/](https://wallet.ilpv4.dev/).
 
 1. Open [rafiki.money](https://rafiki.money).
 2. Click **Create an account**.<br>
@@ -68,14 +69,14 @@ For your current purposes, you can use rafiki.money to create an Interledger acc
 
 When you next visit rafiki.money, log in to work with the accounts you have set up.
 
-#### Send money with your rafiki.money accounts
+#### Send money with your rafiki.money payment pointer
 
 With rafiki.money, a payment pointer has a default account to receive test XRP from another payment pointer. You can create additional financial accounts under the same payment pointer that can also store test XRP and be used to send test XRP.
 
-You can send and receive test XRP between rafiki.money accounts and Xpring Testnet login accounts.
+You can send and receive test XRP between rafiki.money accounts and other Interledger accounts.
 
 1. On the rafiki.money home page, click the account you want to use to send test XRP.
 2. Click **Send funds**.
 3. Enter the **Payment Pointer** to which you want to send test XRP, and the **Amount (XRP)** value.  
 
-Experiment with sending and receiving test XRP between payment pointers on different sites, adding more value to your accounts as desired. With Testnet transactions, there are no transaction costs for sending and receiving test XRP.
+Experiment with sending and receiving test XRP between payment pointers on different sites, adding more test funds to your accounts as desired. With testnet transactions, there are no transaction costs for sending and receiving test XRP.

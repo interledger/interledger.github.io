@@ -1,4 +1,4 @@
-## Interledger Protocol (ILP) TestNet: Getting Started With Programmatic Access
+## Set up Interledger accounts programmaticallly to send and receive test XRP
 
 This tutorial describes how to use an ILP testnet to send value programmatically. Although this tutorial uses test XRP for simplicity, Interledger can handle transactions involving any currency pairs, as described in [Interledger Overview](overview.html).
 
