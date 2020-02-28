@@ -1,6 +1,6 @@
 ## Hosting an Interledger node
 
-Interledger users may want to operate their own node software, rather than relying on a third party provider, just like some publishers want to host their own website.
+Interledger users may want to operate their own node software, rather than relying on a third-party provider, just like some publishers host their own websites.
 
 There are three primary implementations to operate an Interledger connector:
 
@@ -10,17 +10,21 @@ There are three primary implementations to operate an Interledger connector:
 
 ## Overview
 
-In this tutorial, we will spin up a local test network with three Interledger.rs nodes (colloquially, Alice, Bob, and Charlie) and send a cross-currency payment between them, using a local Ethereum testnet and the XRP Ledger testnet to settle with ledger transfers.
+This tutorial demonstrates how to:
+
+1. Spin up a local test network with three Interledger.rs nodes
+2. Send a cross-currency payment between them
+3. Settle the payment using a local Ethereum testnet and the XRP Ledger testnet
 
 Intermediate knowledge of the command line and interacting with APIs is recommended for this tutorial.
 
 _Estimated time: 10 minutes_
 
-## 1. Setup Docker
+## 1. Set up the environment
 
-For this tutorial, we'll be using Docker, which is a platform to run networked applications within containers. If you don't already have Docker installed, [install the Docker Engine or Docker Desktop](https://docs.docker.com/install/).
+This tutorial uses Docker, which is a platform to run networked applications within containers. If you don't already have Docker installed, [install the Docker Engine or Docker Desktop](https://docs.docker.com/install/).
 
-We'll be using the following Docker images for each service in this example:
+The services in this example use the following Docker images:
 
 - `interledgerrs/ilp-node` &mdash; Interledger.rs node
 - `interledgerrs/ilp-cli` &mdash; CLI for interacting with Interledger.rs nodes
@@ -29,15 +33,20 @@ We'll be using the following Docker images for each service in this example:
 - `interledgerjs/settlement-xrp` &mdash; XRP settlement engine
 - `redis` &mdash; Database for the node and settlement engines
 
-Pull the Docker images for each component:
+Run these commands to pull the Docker images:
 
 ```bash
-docker pull interledgerrs/ilp-node
 docker pull interledgerrs/ilp-cli
 docker pull interledgerrs/ilp-settlement-ethereum
 docker pull trufflesuite/ganache-cli
 docker pull interledgerjs/settlement-xrp
 docker pull redis
+```
+
+Run this command to build the Docker image for the Interledger.rs node, which may take a few minutes:
+
+```
+docker build -f ./docker/ilp-node.dockerfile -t interledgerrs/ilp-node --build-arg CARGO_BUILD_OPTION="--release --features monitoring --manifest-path ./crates/ilp-node/Cargo.toml" --build-arg RUST_BIN_DIR_NAME="release" https://github.com/interledger-rs/interledger-rs.git#ko-stream-reliability
 ```
 
 Next, create a local Docker network so each service can communicate with each other:
@@ -46,11 +55,7 @@ Next, create a local Docker network so each service can communicate with each ot
 docker network create local-ilp
 ```
 
-The names we assign to each container will be the hostnames used to network between them. For example, since Alice's node will be named `alice-node` and the HTTP API is bound to the port `7770`, `http://alice-node:7770` is the URL to access the API of Alice's node from other containers within this Docker network.
-
-## 2. Start shared services
-
-Next, start a Redis database instance that we'll share across all the services:
+Start a Redis database instance that will be shared across all the services:
 
 ```bash
 docker run -d \
@@ -59,7 +64,7 @@ docker run -d \
   redis
 ```
 
-(We'll use different database indices for each service so they don't conflict with one another.)
+(Each service will use a different database index so they don't conflict with one another.)
 
 Then, launch a local Ethereum testnet with 10 prefunded accounts to use as a settlement ledger between Alice and Bob:
 
@@ -74,7 +79,13 @@ docker run -d \
 
 The mnemonic after the `-m` flag is provided so the keys for Alice and Bob aren't randomized, and the `-i` flag configures the Ethereum network ID to be the same as the Ethereum mainnet.
 
-## 3. Start Alice
+## 2. Start the nodes
+
+This section walks through creating the three nodes: Alice, Bob, and Charlie.
+
+The names assigned to each container will be the hostnames used to network between them. For example, since Alice's node will be named `alice-node` and the HTTP API is bound to the port `7770`, `http://alice-node:7770` is the URL to access the API of Alice's node from other containers within the Docker network.
+
+### Start Alice's node
 
 First, start Alice's Ethereum settlement engine, which will be used to settle with Bob:
 
@@ -113,7 +124,7 @@ docker run -d \
   --exchange_rate.provider CoinCap
 ```
 
-## 4. Start Bob
+### Start Bob's node
 
 First, start Bob's Ethereum settlement engine, which will be used to credit incoming Ethereum payments from Alice:
 
@@ -167,7 +178,7 @@ docker run -d \
 
 Bob will pull exchange rates from the [CoinCap API](http://coincap.io/) for foreign exchange between ETH and XRP.
 
-## 5. Start Charlie
+### Start Charlie's node
 
 Start Charlie's XRP settlement engine to credit incoming settlements from Bob:
 
@@ -198,15 +209,15 @@ docker run -d \
   --exchange_rate.provider CoinCap
 ```
 
-## 6. Configure accounts
+## 3. Configure accounts
 
-Here, we'll create accounts which connect and peer each of the Interledger nodes together (Alice to Bob, and Bob to Charlie). Accounts track balances between the two counterparties, and are denominated and settled in an agreed currency. In this example, Alice and Bob denominate their bilateral accounts in ETH with 9 decimal places, whereas Bob and Charlie denominate their bilateral accounts in XRP with 6 decimal places.
+Next, create accounts which connect and peer each of the Interledger nodes together (Alice to Bob, and Bob to Charlie). Accounts track balances between the two counterparties, and are denominated and settled in an agreed currency. In this example, Alice and Bob denominate their bilateral accounts in ETH with 9 decimal places, whereas Bob and Charlie denominate their bilateral accounts in XRP with 6 decimal places.
 
-Every Interledger packet corresponds to a particular account on the incoming side, and is routed to a subsequent account on the outgoing side. Accounts have parameters such as the maximum allowable packet size; authentication info for incoming and outgoing ILP packets; relations for how packets are routed; and balance parameters, such credit limits and settlement thresholds.
+Every Interledger packet corresponds to a particular account on the incoming side, and is routed to a subsequent account on the outgoing side. Accounts have parameters such as the maximum allowable packet size; authentication info for incoming and outgoing ILP packets; relations for how packets are routed; and balance parameters, such as credit limits and settlement thresholds.
 
-Alice and Bob's bilateral accounts are each configured with their respective Ethereum settlement engines, and Bob and Charlie's bilateral accounts each configured with their respective XRP settlement engines.
+Alice and Bob's bilateral accounts are each configured with their respective Ethereum settlement engines, and Bob and Charlie's bilateral accounts are each configured with their respective XRP settlement engines.
 
-We'll use the `ilp-cli` tool and Docker image to interact with each Interledger node. To simplify issuing CLI commands to each node, let's first create some aliases:
+The `ilp-cli` tool and Docker image interacts with each Interledger node. To simplify issuing CLI commands to each node, create some aliases first:
 
 ```bash
 alias   alice-cli="docker run --rm --network local-ilp interledgerrs/ilp-cli --node http://alice-node:7770"
@@ -214,7 +225,7 @@ alias     bob-cli="docker run --rm --network local-ilp interledgerrs/ilp-cli --n
 alias charlie-cli="docker run --rm --network local-ilp interledgerrs/ilp-cli --node http://charlie-node:7770"
 ```
 
-### Alice's node
+### Configure Alice's accounts
 
 Create Alice's account:
 
@@ -244,9 +255,9 @@ alice-cli accounts create bob \
   --routing-relation Peer
 ```
 
-After over 0.0001 ETH is fulfilled from Alice to Bob (`settle-threshold`), Alice will settle the entire liability with Bob (`settle-to`).
+After more than 0.0001 ETH is fulfilled from Alice to Bob (`settle-threshold`), Alice will settle the entire liability with Bob (`settle-to`).
 
-### Bob's node
+### Configure Bob's accounts
 
 Create the Alice ⇋ Bob account on Bob's node (ETH, peer relation):
 
@@ -285,7 +296,7 @@ bob-cli accounts create charlie \
 
 After 0.01 XRP is fulfilled from Bob to Charlie (`settle-threshold`), Bob will settle the full liability _plus_ prepay Charlie 1 XRP (`settle-to`).
 
-### Charlie's node
+### Configure Charlie's accounts
 
 Create the Bob ⇋ Charlie account on Charlie's node (XRP, parent relation):
 
@@ -315,13 +326,13 @@ charlie-cli accounts create charlie \
   --ilp-over-http-incoming-token charlie_password
 ```
 
-## 7. Send a payment
+## 4. Send a payment
 
-Now, send a payment from Alice to Charlie, via Bob. Specifcally, send a payment from the `alice` account on Alice's node, to the `$charlie-node:7770/accounts/charlie/spsp` payment pointer, which corresponds to the `charlie` account on Charlie's node.
+Now, send a payment from Alice to Charlie, via Bob. Specifically, send a payment from the `alice` account on Alice's node, to the `$charlie-node:7770/accounts/charlie/spsp` payment pointer, which corresponds to the `charlie` account on Charlie's node.
 
-To specify the amount, you must use base units. Since Alice's account is denominated in ETH with precision to 9 decimal places, to send the equivalent of 1 ETH, the amount would be `1000000000`, and to send 1 gwei, which is a very small amount of ETH, the amount would be `1`. We'll send a payment for 0.0002 ETH, which STREAM will packetize into many smaller ILP packets.
+To specify the amount, you must use base units. Since Alice's account is denominated in ETH with precision to 9 decimal places, to send the equivalent of 1 ETH, the amount would be `1000000000`, and to send 1 gwei, which is a very small amount of ETH, the amount would be `1`. This example sends a payment for 0.0002 ETH, which STREAM will packetize into many smaller ILP packets.
 
-Note that when we perform the payment, Alice and Charlie's nodes will automatically coordinate with one another to ensure Bob doesn't take too large of spread or offer a poor exchnage rate. By checking Bob's rate against an external prices, Alice and Charlie can determine the minimum rate and maximum slippage they're willing to accept. (In this case, they also use the CoinCap API.)
+Note that when the payment is performed, Alice and Charlie's nodes will automatically coordinate with one another to ensure Bob doesn't take too large of a spread or offer a poor exchnage rate. By checking Bob's rate against an external prices, Alice and Charlie can determine the minimum rate and maximum slippage they're willing to accept. (In this case, they also use the CoinCap API.)
 
 In order for this payment to fully complete within the credit limits set by each peer, Alice must settle by sending an ETH payment to Bob, and Bob must settle by sending an XRP payment to Charlie. Both will automatically be triggered in the background, so the whole payment will take approximately 5 seconds.
 
@@ -334,15 +345,15 @@ alice-cli pay alice \
   --to http://charlie-node:7770/accounts/charlie/spsp
 ```
 
-If the payment is successful, you should see output like this (the delivered amount may differ since the exchange rate may change since the time of writing):
+If the payment is successful, you should see output like this (the delivered amount will differ since the exchange rate will change):
 
 ```
 {"delivered_amount":192613,"destination_asset_code":"XRP","destination_asset_scale":6,"from":"example.alice","in_flight_amount":0,"sent_amount":200000,"source_amount":200000,"source_asset_code":"ETH","source_asset_scale":9,"to":"example.bob.charlie.charlie.UlyQactA51Y9Kc8wu8oBVyUq"}
 ```
 
-Congratulations, you just executed a cross-currency Interledger payment with settlement!
+Congratulations, you just executed and settled a cross-currency Interledger payment!
 
-## 8. Check balances
+## 5. Check balances
 
 To print balances for each account across the 3 nodes, run these commands:
 
@@ -366,7 +377,7 @@ printf "Charlie's balance: "
 charlie-cli accounts balance charlie --auth hi_charlie
 ```
 
-## 9. Stop services
+## 6. Stop services
 
 To stop all the nodes and clean up Docker, run these commands:
 
