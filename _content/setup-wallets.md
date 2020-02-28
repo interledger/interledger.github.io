@@ -9,7 +9,7 @@ You can create an Interledger account to send and receive test XRP in two ways:
 - With an ILP testnet account
 - With a [rafiki.money](https://rafiki.money) account
 
-Both of these types of Interledger accounts allow you to send and receive test XRP, and are useful for developing and testing apps.
+Both of these types of Interledger accounts allow you to send and receive test XRP, and are useful for developing and testing apps. This type of account can also be referred to as a "wallet."
 
 If you want to send actual value in your app with an Interledger account, refer to the [Rust implementation of Interledger](http://interledger.rs), or the Java implementation of Interledger at [Hyperledger Quilt](https://www.hyperledger.org/projects/quilt). Because these efforts are open source, your contributions are welcome.
 
@@ -26,7 +26,8 @@ This section refers to a specific ILP testnet.
 3. For your login, select the option you prefer.<br>
    You can create multiple accounts that you control by signing in subsequently with other options.
 4. You might be prompted to log in with your credentials, or if you are already logged in, you might be prompted for further authentication.<br>
-   When you are logged in, you see a page with your payment pointer, in the format `$money.ilpv4.dev/<your-account-name>`.<br>
+   When you are logged in, you see a page with your payment pointer, in the following format:<br>
+   `$money.ilpv4.dev/<your-account-name>`<br>
    As indicated by the payment pointer, this wallet uses the Interledger Protocol, v4. Because a new account does not have any test funds, you will want to add value to it.
 5. Click **Make it rain**.<br>
   Your account now has 10 test XRP. To add more test XRP, continue to click the button until you have as many test XRP as you want.
@@ -36,7 +37,7 @@ This section refers to a specific ILP testnet.
 
 When you subsequently log in to this testnet again with the credentials that you used previously, you will see the current state of your wallet with the current amount of test XRP it has. Your account can receive test XRP when you are not logged in.   
 
-#### Send money between Interledger accounts
+### Send money between Interledger accounts
 
 When you have test XRP in your account, you can practice sending test XRP to another account.
 
@@ -69,7 +70,7 @@ For your current purposes, you can use rafiki.money to create an Interledger acc
 
 When you next visit rafiki.money, log in to work with the accounts you have set up.
 
-#### Send money with your rafiki.money payment pointer
+### Send money with your rafiki.money payment pointer
 
 With rafiki.money, a payment pointer has a default account to receive test XRP from another payment pointer. You can create additional financial accounts under the same payment pointer that can also store test XRP and be used to send test XRP.
 

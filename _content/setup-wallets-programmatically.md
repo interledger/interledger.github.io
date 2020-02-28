@@ -29,7 +29,7 @@ Create a new account with this command:
 This request returns:
 - A payload that contains your `accountId`
 - An auth token which you use to authenticate to the connector
-= A [payment pointer](https://paymentpointers.org/) that can be used to receive value in your test account.
+- A [payment pointer](https://paymentpointers.org/) that can be used to receive value in your test account.
 
 Here's an example response payload for reference. Keep track of the generated `accountId` at `accountId`, and your generated auth token at `"customSettings"` -> `"ilpOverHttp.incoming.simple.auth_token"`, for use in subsequent steps.
 
