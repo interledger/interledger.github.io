@@ -8,7 +8,7 @@ To get started using Interledger, we'll walk through using a test network, which
 
 This tutorial describes two ways to create an Interledger account to send and receive test funds:
 
-- With a Xpring ILP testnet account
+- With a Xpring connector account
 - With a [rafiki.money](https://rafiki.money) account
 
 Both of these types of Interledger accounts allow you to send and receive test funds, and are useful for developing and testing apps. This type of account can also be referred to as a "wallet."
@@ -21,7 +21,7 @@ You can also perform these same tasks programmatically. See [Set up Interledger 
 
 This section refers to the Xpring ILP testnet.
 
-1. Open the login page for the Xpring ILP testnet wallet:: [https://wallet.ilpv4.dev/](https://wallet.ilpv4.dev/)<br>
+1. Open the login page for the Xpring ILP testnet wallet: [https://wallet.ilpv4.dev/](https://wallet.ilpv4.dev/)<br>
    Read the Terms of Use and the Privacy Policy, as linked on that page.
 2. If you agree with the specified terms and privacy policy, click **Sign in**.<br>
    You are prompted to sign in with one of Facebook, Github, or Google credentials.
@@ -41,7 +41,7 @@ When you subsequently log in to this testnet again with the credentials that you
 
 ### Send money between Interledger accounts
 
-When you have test XRP in your account, you can send test XRP to another account.
+When you have funds in your account, you can then send funds to another account.
 
 1. Sign in to the testnet at [https://wallet.ilpv4.dev/](https://wallet.ilpv4.dev/). Look at the **Send** portion of the page on the right.
 2. Enter the number of test XRP, in integer form, that you want to send.

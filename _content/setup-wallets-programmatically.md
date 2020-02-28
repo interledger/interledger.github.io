@@ -6,7 +6,7 @@ Although this tutorial uses test XRP for simplicity, Interledger can handle tran
 
 You will:
 
-1. [Create an account](#1-create-an-account) on the Xpring testnet.
+1. [Create an account](#1-create-an-account) using the Xpring connector to the ILP testnet.
 2. [Add test XRP](#2-add-test-xrp-to-your-account) to your account using the Xpring "rainmaker", which is a "faucet" for dispensing test funds.
 3. [Check your account balance](#3-check-your-account-balance).
 4. [Send test XRP](#4-send-test-xrp-to-another-payment-pointer) to another payment pointer.
