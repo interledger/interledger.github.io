@@ -103,19 +103,20 @@
     <div class="content doc-content">
         <h1 id="main-page-header">Set Up and Use Interledger Accounts Programmatically</h1>
         <p class="blurb">Set up and use Interledger accounts to send and receive test funds programmatically</p>
-        <h2 id="set-up-interledger-accounts-programmaticallly-to-send-and-receive-test-xrp">Set up Interledger accounts programmaticallly to send and receive test XRP</h2>
-<p>This tutorial describes how to use an ILP testnet to send value programmatically. Although this tutorial uses test XRP for simplicity, Interledger can handle transactions involving any currency pairs, as described in <a href="overview.html">Interledger Overview</a>.</p>
+        <h2 id="set-up-and-use-interledger-accounts-programmaticallly">Set up and use Interledger accounts programmaticallly</h2>
+<p>To get started using Interledger, this tutorial walks through using a test network programmatically. A test network uses fake money, rather than transferring real value. This Interledger testnet is currently maintained by teams at <a class="external-link" href="https://xpring.io/" target="_blank">Xpring <i aria-hidden="true" class="fa fa-external-link"></i></a> and <a class="external-link" href="https://coil.com/" target="_blank">Coil <i aria-hidden="true" class="fa fa-external-link"></i></a>, but anyone can join.</p>
+<p>Although this tutorial uses test XRP for simplicity, Interledger can handle transactions involving any currency pairs, as described in <a href="overview.html">Interledger Overview</a>.</p>
 <p>You will:</p>
 <ol>
-<li><a href="#1-create-an-account">Create an account</a> on an ILP testnet.</li>
-<li><a href="#2-add-test-xrp-to-your-account">Add test XRP</a> to your account using the ILP TestNet Rainmaker (our version of a "faucet").</li>
+<li><a href="#1-create-an-account">Create an account</a> on the Xpring testnet.</li>
+<li><a href="#2-add-test-xrp-to-your-account">Add test XRP</a> to your account using the Xpring "rainmaker", which is a "faucet" for dispensing test funds.</li>
 <li><a href="#3-check-your-account-balance">Check your account balance</a>.</li>
 <li><a href="#4-send-test-xrp-to-another-payment-pointer">Send test XRP</a> to another payment pointer.</li>
 <li><a href="#5-receive-test-xrp">Receive test XRP</a>.</li>
 </ol>
 <p>To do the same with a GUI-based interface, refer to <a href="setup-wallets.html">Set Up Interledger accounts with a user interface</a>.</p>
 <h3 id="1-create-an-account">1. Create an account</h3>
-<p>Create a new account with this command:</p>
+<p>To create a new account, you send an HTTP request. For this tutorial, we'll use curl on the command line to make requests to the API, but you can use an HTTP client library in any language. Here's how to create an account on the command line.</p>
 <pre><code>&gt; curl --location --request POST 'https://hermes-rest.ilpv4.dev/accounts' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
@@ -164,7 +165,7 @@
 }
 </code></pre>
 <h3 id="2-add-test-xrp-to-your-account">2. Add test XRP to your account</h3>
-<p>The ILP testnet in this tutorial has a rainmaker account that you can use to populate your account with test XRP, so you can then use this account to send test XRP to other accounts. To add test XRP to your account, use the following command. Make sure to replace <code>{your-account-id}</code> with your own <code>accountId</code> created in Step 1.</p>
+<p>The Xpring testnet used in this tutorial has a rainmaker account that you can use to populate your account with test XRP, so you can then use this account to send test XRP to other accounts. To add test XRP to your account, use the following command. Make sure to replace <code>{your-account-id}</code> with your own <code>accountId</code> created in Step 1.</p>
 <pre><code>&gt; curl --location --request POST \
   'https://hermes-rest.ilpv4.dev/accounts/{your-account-id}/money'
 </code></pre>
@@ -186,8 +187,8 @@
     }
 }
 </code></pre>
-<h3 id="4-send-test-xrp-to-another-payment-pointer">4. Send test XRP to another payment pointer</h3>
-<p>You can use your account to send test XRP to a different payment pointer. This example uses a destination payment pointer on <a class="external-link" href="https://rafiki.money" target="_blank">https://rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a>. Substitute your <code>accountId</code> from Step 1. You can change the destination payment pointer if you prefer.</p>
+<h3 id="4-send-test-funds-to-another-payment-pointer">4. Send test funds to another payment pointer</h3>
+<p>You can use your account to send test funds to a different payment pointer. This example uses a destination payment pointer on <a class="external-link" href="https://rafiki.money" target="_blank">https://rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a>. Substitute your <code>accountId</code> from Step 1. You can change the destination payment pointer if you prefer.</p>
 <pre><code>&gt; curl --location --request POST 'https://hermes-rest.ilpv4.dev/accounts/{your-account-id}/pay' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
@@ -210,15 +211,15 @@
 <p><strong><code>originalAmount</code></strong> is the amount that you wanted to send.</p>
 </li>
 <li>
-<p><strong><code>amountDelivered</code></strong> is the amount your friend actually received.</p>
+<p><strong><code>amountDelivered</code></strong> is the amount received by your friend, specified in the asset and units used by your friend.</p>
 </li>
 <li>
-<p><strong><code>amountSent</code></strong> is the amount that actually got sent to your friend.</p>
+<p><strong><code>amountSent</code></strong> is the amount you sent to your friend, specified in your asset and units.</p>
 </li>
 </ul>
 <p>In this example, all three values are the same.</p>
-<h3 id="5-receive-test-xrp">5. Receive test XRP</h3>
-<p>Set up an ILP testnet account and a rafiki.money account so you have two destination pointers to work with. Experiment with sending and receiving test XRP in both directions. Check your balance to make sure that the money has arrived in your account.</p>
+<h3 id="5-receive-test-funds">5. Receive test funds</h3>
+<p>Set up a Xpring testnet account and a rafiki.money account so you have two destination pointers to work with. Experiment with sending and receiving test funds in both directions. Check your balance to make sure that the money has arrived in your account.</p>
 <h3 id="combine-gui-and-programmatic-interaction">Combine GUI and programmatic interaction</h3>
 <p>If you log in to your accounts at <a class="external-link" href="https://rafiki.money" target="_blank">rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a> and <a class="external-link" href="https://wallet.ilpv4.dev" target="_blank">https://wallet.ilpv4.dev <i aria-hidden="true" class="fa fa-external-link"></i></a>, you can directly see the results of the commands you perform.</p>
     </div>
@@ -231,12 +232,12 @@
       <h4>On This Page</h4>
     </div>
     <ul class="card-body">
-      <li class="level-2"><a href="#set-up-interledger-accounts-programmaticallly-to-send-and-receive-test-xrp">Set up Interledger accounts programmaticallly to send and receive test XRP</a></li>
+      <li class="level-2"><a href="#set-up-and-use-interledger-accounts-programmaticallly">Set up and use Interledger accounts programmaticallly</a></li>
 <li class="level-3"><a href="#1-create-an-account">1. Create an account</a></li>
 <li class="level-3"><a href="#2-add-test-xrp-to-your-account">2. Add test XRP to your account</a></li>
 <li class="level-3"><a href="#3-check-your-account-balance">3. Check your account balance</a></li>
-<li class="level-3"><a href="#4-send-test-xrp-to-another-payment-pointer">4. Send test XRP to another payment pointer</a></li>
-<li class="level-3"><a href="#5-receive-test-xrp">5. Receive test XRP</a></li>
+<li class="level-3"><a href="#4-send-test-funds-to-another-payment-pointer">4. Send test funds to another payment pointer</a></li>
+<li class="level-3"><a href="#5-receive-test-funds">5. Receive test funds</a></li>
 <li class="level-3"><a href="#combine-gui-and-programmatic-interaction">Combine GUI and programmatic interaction</a></li>
 
     </ul>

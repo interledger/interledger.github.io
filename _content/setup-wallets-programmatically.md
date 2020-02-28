@@ -1,6 +1,8 @@
 ## Set up and use Interledger accounts programmaticallly
 
-This tutorial describes how to use an ILP testnet to send value programmatically. Although this tutorial uses test XRP for simplicity, Interledger can handle transactions involving any currency pairs, as described in [Interledger Overview](overview.html).
+To get started using Interledger, this tutorial walks through using a test network programmatically. A test network uses fake money, rather than transferring real value. This Interledger testnet is currently maintained by teams at [Xpring](https://xpring.io/) and [Coil](https://coil.com/), but anyone can join.
+
+Although this tutorial uses test XRP for simplicity, Interledger can handle transactions involving any currency pairs, as described in [Interledger Overview](overview.html).
 
 You will:
 
