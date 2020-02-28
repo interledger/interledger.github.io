@@ -35,7 +35,7 @@ This section refers to the Xpring ILP testnet.
   Your account now has 10 test XRP. To add more test XRP, continue to click the button until you have as many test XRP as you want.
 6. If you want someone to pay you, provide them with your payment pointer and ask them to use their own payment pointer to send funds to your payment pointer.
 7. If you want to pay someone, request that they provide you with their payment pointer and use their payment pointer to send them funds.<br>
-   You can readily set up multiple accounts to get different payment pointers, and therefore experiment with sending test funds in different scenarios where you have ready access to the accounts on both sides.
+   You can readily set up multiple accounts to get different payment pointers, and therefore experiment with sending payments in different scenarios where you have ready access to the accounts on both sides.
 
 When you subsequently log in to this testnet again with the credentials that you used previously, you will see the current state of your wallet with the current amount of test XRP it has. Your account can receive test XRP when you are not logged in.   
 

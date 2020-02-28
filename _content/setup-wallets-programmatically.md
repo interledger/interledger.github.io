@@ -141,7 +141,7 @@ In this example, all three values are the same.
 
 ### 5. Receive test funds
 
-Set up a Xpring testnet account and a rafiki.money account so you have two destination pointers to work with. Experiment with sending and receiving test funds in both directions. Check your balance to make sure that the money has arrived in your account.
+Set up a Xpring testnet account and a rafiki.money account so you have two destination pointers to work with. Experiment with sending and receiving payments in both directions. Check your balance to make sure that the money has arrived in your account.
 
 ### Combine GUI and programmatic interaction
 
