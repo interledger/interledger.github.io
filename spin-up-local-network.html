@@ -70,7 +70,7 @@
             <ul>
                 <li><a href="/sending-value-programmatically.html">Sending Value Programmatically</a></li>
                 <li><a href="/connect-ilp-testnet.html">Connect to an ILP Testnet</a></li>
-                <li><a href="/operate-connector.html">Operate a Connector</a></li>
+                <li><a href="/spin-up-local-network.html">Start a Local ILP Network</a></li>
             </ul>
       </ul>
       <ul class=" sidebar_pagelist">
@@ -103,23 +103,23 @@
         <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
-        <h1 id="main-page-header">Operate a Connector</h1>
+        <h1 id="main-page-header">Spin Up a Local ILP Network</h1>
         <p class="blurb">Send a cross-currency payment across a local test network</p>
-        <h2 id="hosting-an-interledger-node">Hosting an Interledger node</h2>
-<p>Interledger users may want to operate their own node software, rather than relying on a third-party provider, just like some publishers host their own websites.</p>
+        <h2 id="overview">Overview</h2>
+<p>Many Interledger users may hold accounts with custodial wallets. However, some network participants may need to run their own node software, such as wallet operators, service providers that route payments, or regular users who choose to host their own nodes.</p>
 <p>There are three primary implementations to operate an Interledger connector:</p>
 <ul>
 <li><a class="external-link" href="https://github.com/interledger4j/ilpv4-connector" target="_blank">Java Connector <i aria-hidden="true" class="fa fa-external-link"></i></a> — <em>Actively maintained by Xpring and recommended for new production deployments.</em></li>
 <li><a class="external-link" href="https://github.com/interledger-rs/interledger-rs" target="_blank">Interledger.rs (Rust) <i aria-hidden="true" class="fa fa-external-link"></i></a> — <em>Not actively developed, but recommended to get started for its ease of use and featureset.</em></li>
 <li><a class="external-link" href="https://github.com/interledgerjs/ilp-connector" target="_blank"><code>ilp-connector</code> (JavaScript) <i aria-hidden="true" class="fa fa-external-link"></i></a> — <em>Battle-tested in production.</em></li>
 </ul>
-<h2 id="overview">Overview</h2>
 <p>This tutorial demonstrates how to:</p>
 <ol>
 <li>Spin up a local test network with three Interledger.rs nodes</li>
 <li>Send a cross-currency payment between them</li>
 <li>Settle the payment using a local Ethereum testnet and the XRP Ledger testnet</li>
 </ol>
+<p>Note: there are <em>many</em> considerations to deploy an Interledger node into production, and this tutorial merely scratches the surface by running nodes in a safe, local environment without real money.</p>
 <p>Intermediate knowledge of the command line and interacting with APIs is recommended for this tutorial.</p>
 <p><em>Estimated time: 10 minutes</em></p>
 <h2 id="1-set-up-the-environment">1. Set up the environment</h2>
@@ -398,8 +398,7 @@ docker network rm local-ilp
       <h4>On This Page</h4>
     </div>
     <ul class="card-body">
-      <li class="level-2"><a href="#hosting-an-interledger-node">Hosting an Interledger node</a></li>
-<li class="level-2"><a href="#overview">Overview</a></li>
+      <li class="level-2"><a href="#overview">Overview</a></li>
 <li class="level-2"><a href="#1-set-up-the-environment">1. Set up the environment</a></li>
 <li class="level-2"><a href="#2-start-the-nodes">2. Start the nodes</a></li>
 <li class="level-3"><a href="#start-alices-node">Start Alice's node</a></li>

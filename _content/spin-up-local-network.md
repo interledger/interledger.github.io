@@ -1,6 +1,6 @@
-## Spin up a local Interledger network
+## Overview
 
-Interledger users may want to operate their own node software, rather than relying on a third-party provider, just like some publishers host their own websites.
+Many Interledger users may hold accounts with custodial wallets. However, some network participants may need to run their own node software, such as wallet operators, service providers that route payments, or regular users who choose to host their own nodes.
 
 There are three primary implementations to operate an Interledger connector:
 
@@ -8,15 +8,13 @@ There are three primary implementations to operate an Interledger connector:
 - [Interledger.rs (Rust)](https://github.com/interledger-rs/interledger-rs) &mdash; _Not actively developed, but recommended to get started for its ease of use and featureset._
 - [`ilp-connector` (JavaScript)](https://github.com/interledgerjs/ilp-connector) &mdash; _Battle-tested in production._
 
-Note: this tutorial simply demonstrates operating Interledger nodes in a local testnet, and there are many other considerations to deploy an Interledger connector into production.
-
-## Overview
-
 This tutorial demonstrates how to:
 
 1. Spin up a local test network with three Interledger.rs nodes
 2. Send a cross-currency payment between them
 3. Settle the payment using a local Ethereum testnet and the XRP Ledger testnet
+
+Note: there are _many_ considerations to deploy an Interledger node into production, and this tutorial merely scratches the surface by running nodes in a safe, local environment without real money.
 
 Intermediate knowledge of the command line and interacting with APIs is recommended for this tutorial.
 

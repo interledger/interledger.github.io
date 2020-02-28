@@ -71,11 +71,11 @@ pages:
         targets:
             - en
 
-    -   name: Operate a Connector
+    -   name: Spin Up a Local ILP Network
         funnel: Docs
         doc_type: Getting Started
-        html: operate-connector.html
-        md: operate-connector.md
+        html: spin-up-local-network.html
+        md: spin-up-local-network.md
         template: template-doc.html
         blurb: Send a cross-currency payment across a local test network
         targets:
