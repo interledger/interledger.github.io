@@ -39,9 +39,7 @@ Reject packet as the response. The routers relay the response from the receiver 
 receives a Fulfill packet, it knows that the packet was successfully delivered to the receiver. The sender then
 continues to send the remaining Prepare packets until the value is fully transferred.
 
-Interledger does not rely on any single payment network for processing value transactions. You can connect with
-an ILPv4 router at any time to join the network. Furthermore, Interledger sends value as tiny data packets,
-which makes transactions fast, secure, and inexpensive.
+Interledger does not rely on any single payment network for processing value transactions. You can connect with an ILPv4 router at any time to join the network. Furthermore, Interledger sends value as tiny data packets, which makes transactions fast, secure, and inexpensive.
 
 **Tip:** For a deeper dive into how ILPv4 works, see [ILPv4 Flow](https://interledger.org/rfcs/0027-interledger-protocol-4/#prerequisites).
 
@@ -62,8 +60,7 @@ four layers: the Application, Transport, Interledger, and Link protocols. To lea
 
 ## Protocol specs and APIs
 
-To dive into the technical specs, see the [Interledger RFCs](https://github.com/interledger/rfcs). Also see the documentation for the components of the
-reference implementation.
+To dive into the technical specs, see the [Interledger RFCs](https://github.com/interledger/rfcs). Also see the documentation for the components of the reference implementation.
 
 
 ## Security
@@ -75,4 +72,4 @@ used to determine in-flight balances, which are periodically settled with on-led
 For a detailed description of how this works, read the
 [Peering, Clearing, and Settlement](https://interledger.org/rfcs/0032-peering-clearing-settlement/) documentation.
 
-Next: [Set Up Interledger accounts to send and receive test XRP](setup-wallets.html)
+Next: [Set up and use Interledger accounts](setup-wallets.html)
