@@ -1,7 +1,5 @@
 ## Set Up Interledger accounts to send and receive test funds
 
-<!-- Will have to find all references to files that are being pulled, such as in https://xpring.io/ilp-testnet, and replace them with the new files. -->
-
 To get started using Interledger, we'll walk through using a test network, which uses fake money, rather than transferring real value. This Interledger testnet is currently maintained by teams at [Xpring](https://xpring.io/) and [Coil](https://coil.com/), but anyone can join.
 
 The Xpring and Rafiki testnet connectors, both used in this tutorial, together form a network for users to practice sending and receiving test currency values.
@@ -46,7 +44,7 @@ When you subsequently log in to this testnet again with the credentials that you
 When you have funds in your account, you can then send funds to another account.
 
 1. Sign in to the testnet at [https://wallet.ilpv4.dev/](https://wallet.ilpv4.dev/). Look at the **Send** portion of the page on the right.
-2. Enter the number of test XRP, in integer form, that you want to send.
+2. Enter the number of test XRP, as a whole number, that you want to send.
 3. Enter the payment pointer for the address to which you want to send test XRP.
 4. Click **Send**.
 
