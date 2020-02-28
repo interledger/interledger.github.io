@@ -1,4 +1,4 @@
-## Hosting an Interledger node
+## Spin up a local Interledger network
 
 Interledger users may want to operate their own node software, rather than relying on a third-party provider, just like some publishers host their own websites.
 
@@ -7,6 +7,8 @@ There are three primary implementations to operate an Interledger connector:
 - [Java Connector](https://github.com/interledger4j/ilpv4-connector) &mdash; _Actively maintained by Xpring and recommended for new production deployments._
 - [Interledger.rs (Rust)](https://github.com/interledger-rs/interledger-rs) &mdash; _Not actively developed, but recommended to get started for its ease of use and featureset._
 - [`ilp-connector` (JavaScript)](https://github.com/interledgerjs/ilp-connector) &mdash; _Battle-tested in production._
+
+Note: this tutorial simply demonstrates operating Interledger nodes in a local testnet, and there are many other considerations to deploy an Interledger connector into production.
 
 ## Overview
 
