@@ -55,7 +55,7 @@
                     <li class="nav-item" ><a class="nav-link" href="/libraries.html">Tools</a></li>
                     <li class="nav-item" ><a class="nav-link" href="/community.html">Community</a></li>
                     <li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/interledger">Edit on Github</a></li>
-                    <li class="nav-item"><a class="nav-link cornerlink" href="/getting-started.html">Get Started</a></li>
+                    <li class="nav-item"><a class="nav-link cornerlink" href="/overview.html">Get Started</a></li>
               </ul><!-- /.navbar-nav -->
               <div class="cornerbox"></div>
             </div>
@@ -73,21 +73,21 @@
 <div class="jumbotron">
   <div class="container">
       <div class="row">
-          
+
       <div class="col-sm-6">
           <h1><b>Interledger</b> is an open protocol suite for sending payments across different ledgers.</h1>
           <p>Interledger is an open protocol suite for sending payments across different ledgers. Like the Internet, connectors route packets of money across independent networks. The open architecture and minimal protocol enable interoperability for any value transfer system. </p><p> Interledger is not tied to a single company, blockchain, or currency.</p>
-          
+
       </div>
       <div class="col-sm-6">
-        <p><a class="btn btn-primary btn-lg getting-started-button" href="/getting-started.html" role="button">Get Started</a></p>
+        <p><a class="btn btn-primary btn-lg getting-started-button" href="/overview.html" role="button">Get Started</a></p>
     </div>
 </div>
   </div>
 </div>
 
 <div class="container">
-  
+
   <!-- benefits section -->
   <div class="row">
         <div class='col-sm-12 col-xs-12'>
@@ -122,10 +122,10 @@
   <!-- example section -->
   <div class="example-wrapper">
         <div class="container">
-      
+
                 <div class="row ">
                     <div class='col-sm-12 col-xs-12 '>
-                      
+
                             <div class="row">
                                     <div class="mx-auto pt-sm-5 pb-sm-5">
                                       <h2>Develop for Interledger</h2>
@@ -150,7 +150,7 @@
                                               <li class="teaser"><a data-toggle="tab" href="#sh2">Command-Line</a></li>
                                               <li class="teaser"><a data-toggle="tab" href="#menu2">&#43;</a></li>
                                           </ul>
-                              
+
                                           <div class="tab-content">
                                               <div id="js2" class="tab-pane active">
 <pre><code>const plugin = require('ilp-plugin')()
@@ -166,7 +166,7 @@ fetch('http://localhost:8080/', {
     console.log('got response:', response.text)
 })</code></pre>
                                               </div>
-                              
+
                                               <div id="sh2" class="tab-pane">
 <pre><code>$ npm install -g ilp-curl moneyd
 $ moneyd configure --testnet
@@ -174,7 +174,7 @@ $ moneyd start --testnet
 $ ilp-curl -X GET http://localhost:8080/
 Hello World!</code></pre>
                                               </div>
-                              
+
                                               <div id="menu2" class="tab-pane">
 <pre><code>
 &lt;!-- Don’t see your language here? --&gt;
@@ -187,12 +187,12 @@ favorite programming language.
                                           </div>
                                   </div>
                             </div>
-                      
-                      
-          
+
+
+
                         <div class="row example-middle">
                                       <div class="col-sm-5 hidden-xs ml-5">
-                                            <img width="338px" class=" img-responsive" src="/assets/img/icn-routing2.png">                                            
+                                            <img width="338px" class=" img-responsive" src="/assets/img/icn-routing2.png">
                                       </div>
                                       <!-- <div class="col-sm-3 col-xs-12"></div> -->
                                       <div class="col-sm-5 col-xs-12 ">
@@ -202,29 +202,29 @@ favorite programming language.
                                                   href="/rfcs/0001-interledger-architecture/">learn more about how the magic works.</a>
                                           </p>
                                       </div>
-                                  
+
                         </div>
-                        
-                        
+
+
                         <div class="row">
-          
+
                               <div class="col-sm-4 col-xs-12  pt-sm-5 mt-sm-5">
                                     <svg width="103" height="48" viewBox="0 0 103 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <line y1="24.5" x2="79" y2="24.5" stroke="#7AB4B0" stroke-width="3"/>
                                         <circle cx="79" cy="24" r="24" fill="#7AB4B0"/>
                                         </svg>
 
-                                        
+
                                   <h2>Receiving Money</h2>
-                                  <p class="example-intro">Interledger allows you to receive money from any ledger, without setting up accounts on lots of different services.</p>                      
+                                  <p class="example-intro">Interledger allows you to receive money from any ledger, without setting up accounts on lots of different services.</p>
                               </div>
-          
+
                               <div class="col-sm-8 col-xs-12">
                                       <ul class="nav nav-tabs">
                                               <li class="active"><a data-toggle="tab" href="#js1">Javascript</a></li>
                                               <li class="teaser"><a data-toggle="tab" href="#menu1">&#43;</a></li>
                                           </ul>
-                            
+
                                           <div class="tab-content">
                                               <div id="js1" class="tab-pane active">
 <pre><code>const Koa = require('koa')
@@ -244,7 +244,7 @@ app
     .use(router.allowedMethods())
     .listen(8080)</code></pre>
                                               </div>
-                            
+
                                               <div id="menu1" class="tab-pane">
 <pre><code>
 &lt;!-- Don’t see your language here? --&gt;
@@ -255,17 +255,17 @@ favorite programming language.
 </code></pre>
                                               </div>
                                           </div>
-          
+
                               </div>
-          
+
                         </div>
-          
-                       
-          
+
+
+
                     </div>
-          
+
                 </div>
-          
+
             </div><!-- /container -->
 
         </div>
