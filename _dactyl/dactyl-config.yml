@@ -37,37 +37,27 @@ pages:
         html: overview.html
         md: overview.md
         template: template-doc.html
-        blurb: Interledger enables the seamless exchange of value across different payment networks.
+        blurb: Enable seamless exchange of value across payment networks.
         targets:
             - en
 
-    -   name: Getting Started
-        funnel: Docs
-        doc_type: Overview
-        html: getting-started.html
-        md: getting-started.md
-        template: template-doc.html
-        blurb: Start an Interledger node locally and create a local ILP test network.
-        targets:
-            - en
-
-    -   name: Send Value Programmatically
+    -   name: Get Started With Interledger Accounts
         funnel: Docs
         doc_type: Getting Started
-        html: sending-value-programmatically.html
-        md: sending-value-programmatically.md
+        html: setup-wallets.html
+        md: setup-wallets.md
         template: template-doc.html
-        blurb: Send value over ILP using the SPSP API.
+        blurb: Make payments on a testnet.
         targets:
             - en
 
-    -   name: Connect to an ILP Testnet
+    -   name: Manage Interledger Accounts Programmatically
         funnel: Docs
         doc_type: Getting Started
-        html: connect-ilp-testnet.html
-        md: connect-ilp-testnet.md
+        html: setup-wallets-programmatically.html
+        md: setup-wallets-programmatically.md
         template: template-doc.html
-        blurb: Connect an Interledger node to an ILP Testnet.
+        blurb: Make payments programmatically on a testnet.
         targets:
             - en
 

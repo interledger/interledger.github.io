@@ -64,13 +64,12 @@
 
     <div id="sidenav" class="tree_nav">
       <ul class=" sidebar_pagelist">
-        <li class="nav-label">Quick Start</li>
-        <li><a href="/overview.html">Overview</a></li>
-        <li><a href="/getting-started.html">Getting Started</a></li>
-            <ul>
-                <li><a href="/sending-value-programmatically.html">Sending Value Programmatically</a></li>
-                <li><a href="/connect-ilp-testnet.html">Connect to an ILP Testnet</a></li>
-                <li><a href="/spin-up-local-network.html">Start a Local ILP Network</a></li>
+        <li class="nav-label">Getting Started</li>
+            <ul class=" sidebar_pagelist sidebar_indent">
+                <li><a href="/overview.html">Overview</a></li>
+                <li><a href="/setup-wallets.html">Set Up and Use Interledger Accounts</a></li>
+                <li><a href="/setup-wallets-programmatically.html">Manage Interledger Accounts Programmatically</a></li>
+                <li><a href="/spin-up-local-network.html">Spin Up a Local ILP Network</a></li>
             </ul>
       </ul>
       <ul class=" sidebar_pagelist">
@@ -104,7 +103,7 @@
   <article class="pt-3 p-md-3">
     <div class="content doc-content">
         <h1 id="main-page-header">Interledger Overview</h1>
-        <p class="blurb">Interledger enables the seamless exchange of value across different payment networks.</p>
+        <p class="blurb">Enable seamless exchange of value across payment networks.</p>
         <p>Traditional payment networks operate independently from each other. Sending value is easy only if the sender and
 recipient have accounts on the same network, but it can be slow and expensive if they have accounts on different
 networks. Interledger makes it easy to transact in whatever currency or payment network you choose, because Interledger is
@@ -134,9 +133,7 @@ until it reaches the receiver. The receiver then accepts or rejects the packet b
 Reject packet as the response. The routers relay the response from the receiver back to the sender. When the sender
 receives a Fulfill packet, it knows that the packet was successfully delivered to the receiver. The sender then
 continues to send the remaining Prepare packets until the value is fully transferred.</p>
-<p>Interledger does not rely on any single payment network for processing value transactions. You can connect with
-an ILPv4 router at any time to join the network. Furthermore, Interledger sends value as tiny data packets,
-which makes transactions fast, secure, and inexpensive.</p>
+<p>Interledger does not rely on any single payment network for processing value transactions. You can connect with an ILPv4 router at any time to join the network. Furthermore, Interledger sends value as tiny data packets, which makes transactions fast, secure, and inexpensive.</p>
 <p><strong>Tip:</strong> For a deeper dive into how ILPv4 works, see <a class="external-link" href="https://interledger.org/rfcs/0027-interledger-protocol-4/#prerequisites" target="_blank">ILPv4 Flow <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <h2 id="building-on-interledger">Building on Interledger</h2>
 <p>Build payments into your apps or other protocols without tying yourself to a specific currency or payment network.
@@ -147,8 +144,7 @@ Check out <a href="getting-started.html">Getting Started</a> for more details.</
 four layers: the Application, Transport, Interledger, and Link protocols. To learn more, see the Interledger
 <a class="external-link" href="https://interledger.org/rfcs/0001-interledger-architecture/" target="_blank">Architecture Overview <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <h2 id="protocol-specs-and-apis">Protocol specs and APIs</h2>
-<p>To dive into the technical specs, see the <a class="external-link" href="https://github.com/interledger/rfcs" target="_blank">Interledger RFCs <i aria-hidden="true" class="fa fa-external-link"></i></a>. Also see the documentation for the components of the
-reference implementation.</p>
+<p>To dive into the technical specs, see the <a class="external-link" href="https://github.com/interledger/rfcs" target="_blank">Interledger RFCs <i aria-hidden="true" class="fa fa-external-link"></i></a>. Also see the documentation for the components of the reference implementation.</p>
 <h2 id="security">Security</h2>
 <p>Interledger enables secure, multi-hop payments using <a class="external-link" href="https://interledger.org/rfcs/0022-hashed-timelock-agreements/" target="_blank">Hashed Timelock Agreements <i aria-hidden="true" class="fa fa-external-link"></i></a>.
 As of Interledger version 4, these conditions are not enforced by the ledger, as it would be too costly and slow.
@@ -156,7 +152,7 @@ Instead, participants in the network use these hashlocks to perform accounting w
 used to determine in-flight balances, which are periodically settled with on-ledger transfers or payment channel claims.
 For a detailed description of how this works, read the
 <a class="external-link" href="https://interledger.org/rfcs/0032-peering-clearing-settlement/" target="_blank">Peering, Clearing, and Settlement <i aria-hidden="true" class="fa fa-external-link"></i></a> documentation.</p>
-<p>Next: <a href="getting-started.html">Getting Started</a></p>
+<p>Next: <a href="setup-wallets.html">Set up and use Interledger accounts</a></p>
     </div>
   </article>
         </main>

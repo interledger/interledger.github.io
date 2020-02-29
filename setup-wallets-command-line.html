@@ -67,9 +67,8 @@
         <li class="nav-label">Getting Started</li>
             <ul class=" sidebar_pagelist sidebar_indent">
                 <li><a href="/overview.html">Overview</a></li>
-                <li><a href="/setup-wallets.html">Set Up and Use Interledger Accounts</a></li>
-                <li><a href="/setup-wallets-programmatically.html">Manage Interledger Accounts Programmatically</a></li>
-                <li><a href="/spin-up-local-network.html">Spin Up a Local ILP Network</a></li>
+                <li><a href="/setup-wallets.html">Set Up and Use Interledger Accounts with a User Interface</a></li>
+                <li><a href="/setup-wallets-command-line.html">Set Up and Use Interledger Accounts on the Command Line</a></li>
             </ul>
       </ul>
       <ul class=" sidebar_pagelist">
@@ -101,108 +100,127 @@
           <!-- main column -->
         <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
   <article class="pt-3 p-md-3">
-    <div class="content nohighlight">
-        <pre>
-            <code class="nohighlight">
-                <p>InterledgerQuotingProtocol
-DEFINITIONS
-AUTOMATIC TAGS ::=
-BEGIN</p>
-<p>IMPORTS
-    UInt32,
-    UInt64
-    FROM GenericTypes</p>
-<pre><code>Address,
-LiquidityCurve
-FROM InterledgerTypes
+    <div class="content doc-content">
+        <h1 id="main-page-header">Set Up and Use Interledger Accounts on the Command Line</h1>
+        <p class="blurb">Create Interledger accounts, and send and receive test XRP, on the command line</p>
+        <h2 id="interledger-protocol-ilp-testnet-getting-started">Interledger Protocol (ILP) TestNet: Getting Started</h2>
+<p>This tutorial describes how to use the ILP Testnet to send value programmatically.</p>
+<p>You will:</p>
+<ol>
+<li>Create an account on the ILP Testnet.</li>
+<li>Add test XRP to your account using the ILP TestNet Rainmaker (our version of a "faucet").</li>
+<li>Check your account balance.</li>
+<li>Send test XRP to another payment pointer.</li>
+<li>Receive test XRP.</li>
+</ol>
+<p>To do the same with a GUI-based interface, refer to [setup-wallets.md].</p>
+<h3 id="1-create-an-account">1. Create an account</h3>
+<p>Create a new account with this command:</p>
+<pre><code>&gt; curl --location --request POST 'https://hermes-rest.ilpv4.dev/accounts' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--data-raw '{
+  "assetCode": "XRP",
+  "assetScale": "6"
+}'
 </code></pre>
-<p>;</p>
-<p>-- Request to receive liquidity information between the current ledger and the
--- destination account. This information is sufficient to locally quote any
--- amount until the curve expires.
-QuoteLiquidityRequestData ::= SEQUENCE {
-    destinationAccount Address,
-    -- How much time the receiver needs to fulfill the payment (in milliseconds)
-    destinationHoldDuration UInt32,</p>
-<pre><code>-- Enable ASN.1 Extensibility
-extensions SEQUENCE {
-    ...
+<p>This request returns:
+- A payload that contains your <code>accountId</code>
+- An auth token which you use to authenticate to the connector
+= A <a class="external-link" href="https://paymentpointers.org/" target="_blank">payment pointer <i aria-hidden="true" class="fa fa-external-link"></i></a> that can be used to receive value in your test account.</p>
+<p>Here's an example response payload for reference. Keep track of the generated <code>accountId</code> at <code>accountId</code>, and your generated auth token at <code>"customSettings"</code> -&gt; <code>"ilpOverHttp.incoming.simple.auth_token"</code>, for use in subsequent steps.</p>
+<pre><code class="text">{
+    "accountId": "user_qqGV8nij",
+    "accountRelationship": "CHILD",
+    "assetCode": "XRP",
+    "assetScale": "6",
+    "maximumPacketAmount": null,
+    "linkType": {},
+    "connectionInitiator": true,
+    "isInternal": false,
+    "sendRoutes": true,
+    "receiveRoutes": false,
+    "balanceSettings": {
+        "minBalance": null,
+        "settleThreshold": null,
+        "settleTo": "0"
+    },
+    "rateLimitSettings": {
+        "maxPacketsPerSecond": null
+    },
+    "settlementEngineDetails": null,
+    "customSettings": {
+        "ilpOverHttp.outgoing.url": "https://money.ilpv4.dev/ilp",
+        "ilpOverHttp.incoming.auth_type": "SIMPLE",
+        "ilpOverHttp.incoming.simple.auth_token": "JQBzzLkbslrsT",
+        "ilpOverHttp.outgoing.simple.auth_token": "enc:jks:crypto/crypto.p12:secret0:1:aes_gcm:AAAADDBa7b-nDvY2ydWysQQMoZL7yIOmK-7-3kLiMc9pxhzPw1Ei68OpwcZu6W-j",
+        "ilpOverHttp.outgoing.auth_type": "SIMPLE"
+    },
+    "paymentPointer": "$money.ilpv4.dev/user_qqGV8nij",
+    "parentAccount": false,
+    "childAccount": true,
+    "peerAccount": false,
+    "peerOrParentAccount": false
 }
 </code></pre>
-<p>}</p>
-<p>QuoteLiquidityResponseData ::= SEQUENCE {
-    -- Curve describing the liquidity (relationship between input and output
-    -- amounts) for the quoted route
-    liquidity LiquidityCurve,
-    -- Common prefix of all addresses for which this liquidity curve applies.
-    -- If the curve only applies to the destinationAccount requested this MUST
-    -- be set equal to that address. If the curve applies to other accounts
-    -- with a certain prefix, this value should be set to that prefix. For more
-    -- on ILP Address Prefixes, see IL-RFC-0015:
-    -- https://interledger.org/rfcs/0015-ilp-addresses/
-    appliesToPrefix Address,
-    -- How long the sender should put money on hold (in milliseconds)
-    sourceHoldDuration UInt32,
-    -- Maximum time where the connector (and any connectors after it) expects to
-    -- be able to honor this liquidity curve. Note that a quote in ILP is
-    -- non-committal, meaning that the liquidity is only likely to be available,
-    -- but not reserved and therefore not guaranteed.
-    expiresAt GeneralizedTime,</p>
-<pre><code>-- Enable ASN.1 Extensibility
-extensions SEQUENCE {
-    ...
+<h3 id="2-add-test-xrp-to-your-account">2. Add test XRP to your account</h3>
+<p>The ILP Testnet has a rainmaker account that you can use to populate your account with test XRP, so you can then use this account to send test XRP to other accounts. To add test XRP to your account, use the following command. Make sure to replace <code>{your-account-id}</code> with your own <code>accountId</code> created in Step 1.</p>
+<pre><code>&gt; curl --location --request POST \
+  'https://hermes-rest.ilpv4.dev/accounts/{your-account-id}/money'
+</code></pre>
+<h3 id="3-check-your-account-balance">3. Check your account balance</h3>
+<p>To see how much money is in your account, try the following call. Make sure to replace <strong><code>{auth_token}</code></strong> above with the auth token returned when you generated your account.</p>
+<pre><code>&gt; curl --location --request GET 'https://hermes-rest.ilpv4.dev/accounts/{your-account-id}/balance' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer {auth_token}' \
+</code></pre>
+<p>This request will return a JSON response similar to the following:</p>
+<pre><code class="text">{
+    "assetCode": "XRP",
+    "assetScale": "6",
+    "accountBalance": {
+        "accountId": "user_qqGV8nij",
+        "netBalance": "0",
+        "clearingBalance": "0",
+        "prepaidAmount": "0"
+    }
 }
 </code></pre>
-<p>}</p>
-<p>-- Quoting with a specified source amount to determine destination amount
-QuoteBySourceAmountRequestData ::= SEQUENCE {
-    destinationAccount Address,
-    sourceAmount UInt64,
-    -- How much time the receiver needs to fulfill the payment (in milliseconds)
-    destinationHoldDuration UInt32,</p>
-<pre><code>-- Enable ASN.1 Extensibility
-extensions SEQUENCE {
-    ...
+<h3 id="4-send-test-xrp-to-another-payment-pointer">4. Send test XRP to another payment pointer</h3>
+<p>You can use your account to send test XRP to a different payment pointer. This example uses a destination payment pointer on <a class="external-link" href="https://rafiki.money" target="_blank">https://rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a>. Substitute your <code>accountId</code> from Step 1. You can change the destination payment pointer if you prefer.</p>
+<pre><code>&gt; curl --location --request POST 'https://hermes-rest.ilpv4.dev/accounts/{your-account-id}/pay' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer {auth_token}' \
+--data-raw '{
+  "amount": "10",
+  "destinationPaymentPointer": "$rafiki.money/p/dfuelling"
+}'
+</code></pre>
+<p>This request returns a JSON response similar to the following:</p>
+<pre><code class="text">{
+    "originalAmount": "10",
+    "amountDelivered": "10",
+    "amountSent": "10",
+    "successfulPayment": true
 }
 </code></pre>
-<p>}</p>
-<p>QuoteBySourceAmountResponseData ::= SEQUENCE {
-    -- Amount that will arrive at the receiver
-    destinationAmount UInt64,
-    -- How long the sender should put money on hold (in milliseconds)
-    sourceHoldDuration UInt32,</p>
-<pre><code>-- Enable ASN.1 Extensibility
-extensions SEQUENCE {
-    ...
-}
-</code></pre>
-<p>}</p>
-<p>-- Quoting with a specified destination amount to determine source amount
-QuoteByDestinationAmountRequestData ::= SEQUENCE {
-    destinationAccount Address,
-    destinationAmount UInt64,
-    -- How much time the receiver needs to fulfill the payment (in milliseconds)
-    destinationHoldDuration UInt32,</p>
-<pre><code>-- Enable ASN.1 Extensibility
-extensions SEQUENCE {
-    ...
-}
-</code></pre>
-<p>}</p>
-<p>QuoteByDestinationAmountResponseData ::= SEQUENCE {
-    -- Amount the sender needs to send based on the requested destination amount
-    sourceAmount UInt64,
-    -- How long the sender should put money on hold (in milliseconds)
-    sourceHoldDuration UInt32,</p>
-<pre><code>-- Enable ASN.1 Extensibility
-extensions SEQUENCE {
-    ...
-}
-</code></pre>
-<p>}</p>
-<p>END</p>
-            </code>
-        </pre>
+<ul>
+<li>
+<p><strong><code>originalAmount</code></strong> is the amount that you wanted to send.</p>
+</li>
+<li>
+<p><strong><code>amountDelivered</code></strong> is the amount your friend actually received.</p>
+</li>
+<li>
+<p><strong><code>amountSent</code></strong> is the amount that actually got sent to your friend.</p>
+</li>
+</ul>
+<p>In this example, all three values are the same.</p>
+<h3 id="5-receive-test-xrp">5. Receive test XRP</h3>
+<p>Set up a Xpring Testnet account and a rafiki.money account so you have two destination pointers to work with. Experiment with sending and receiving test XRP in both directions. Check your balance to make sure that the money has arrived in your account.</p>
+<h3 id="combine-gui-and-commmand-line-interaction">Combine GUI and commmand-line interaction</h3>
+<p>If you log in to your accounts at <a class="external-link" href="https://rafiki.money" target="_blank">rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a> and <a class="external-link" href="https://wallet.ilpv4.dev" target="_blank">https://wallet.ilpv4.dev <i aria-hidden="true" class="fa fa-external-link"></i></a>, you can directly see the results of the commands you perform.</p>
     </div>
   </article>
         </main>
@@ -210,22 +228,16 @@ extensions SEQUENCE {
         <aside class="right-sidebar col-lg-3 order-lg-4 p-0" role="complementary">
   <div class="card" id="page-toc-wrapper">
     <div class="card-header">
-      <h4>ASN Modules</h4>
+      <h4>On This Page</h4>
     </div>
     <ul class="card-body">
-
-            <li class="level-2"><a href="/rfcs/asn1/BilateralTransferProtocol.asn.html">BilateralTransferProtocol.asn</a></li>
-            <li class="level-2"><a href="/rfcs/asn1/DynamicConfigurationProtocol.asn.html">DynamicConfigurationProtocol.asn</a></li>
-            <li class="level-2"><a href="/rfcs/asn1/GenericTypes.asn.html">GenericTypes.asn</a></li>
-            <li class="level-2"><a href="/rfcs/asn1/InterledgerErrorData.asn.html">InterledgerErrorData.asn</a></li>
-            <li class="level-2"><a href="/rfcs/asn1/InterledgerPacket.asn.html">InterledgerPacket.asn</a></li>
-            <li class="level-2"><a href="/rfcs/asn1/InterledgerPaymentRequest.asn.html">InterledgerPaymentRequest.asn</a></li>
-            <li class="level-2"><a href="/rfcs/asn1/InterledgerProtocol.asn.html">InterledgerProtocol.asn</a></li>
-            <li class="level-2"><a href="/rfcs/asn1/InterledgerQuotingProtocol.asn.html">InterledgerQuotingProtocol.asn</a></li>
-            <li class="level-2"><a href="/rfcs/asn1/InterledgerTypes.asn.html">InterledgerTypes.asn</a></li>
-            <li class="level-2"><a href="/rfcs/asn1/LegacyInterledgerProtocol.asn.html">LegacyInterledgerProtocol.asn</a></li>
-            <li class="level-2"><a href="/rfcs/asn1/PreSharedKeyV2.asn.html">PreSharedKeyV2.asn</a></li>
-            <li class="level-2"><a href="/rfcs/asn1/Stream.asn.html">Stream.asn</a></li>
+      <li class="level-2"><a href="#interledger-protocol-ilp-testnet-getting-started">Interledger Protocol (ILP) TestNet: Getting Started</a></li>
+<li class="level-3"><a href="#1-create-an-account">1. Create an account</a></li>
+<li class="level-3"><a href="#2-add-test-xrp-to-your-account">2. Add test XRP to your account</a></li>
+<li class="level-3"><a href="#3-check-your-account-balance">3. Check your account balance</a></li>
+<li class="level-3"><a href="#4-send-test-xrp-to-another-payment-pointer">4. Send test XRP to another payment pointer</a></li>
+<li class="level-3"><a href="#5-receive-test-xrp">5. Receive test XRP</a></li>
+<li class="level-3"><a href="#combine-gui-and-commmand-line-interaction">Combine GUI and commmand-line interaction</a></li>
 
     </ul>
   </div>
