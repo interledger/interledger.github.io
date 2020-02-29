@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The protocol for connecting blockchains and other ledgers">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles -->
+    <link href="/assets/css/custom.css" rel="stylesheet">
+
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700,900|Droid+Sans+Mono|Titillium+Web:400,300,600,900' rel='stylesheet' type='text/css'>
+
+    <link href="/assets/img/favicon.png" rel="icon" type="image/x-icon">
+
+    <!--  highlight js -->
+    <link rel="stylesheet" href="/assets/css/monokai-sublime.css">
+
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="/assets/fontawesome/css/font-awesome.min.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+</head>
+
+<body class="sidebar-primary ">
+
+  <!-- <div class="container"> -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav-innerpage">
+            <div class="navbar-leftbg"><a href="/" class="navbar-brand"><img src="/assets/img/ilp_logo@2x.png" class="logo"  height="44" alt="Interledger" /></a></div>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarHolder" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarHolder">
+              <ul class="nav navbar-nav">
+                    <li class="nav-item" ><a class="nav-link" href="/overview.html">Docs</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/libraries.html">Tools</a></li>
+                    <li class="nav-item" ><a class="nav-link" href="/community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" target="_blank" href="https://github.com/interledger">Edit on Github</a></li>
+                    <li class="nav-item"><a class="nav-link cornerlink" href="/getting-started.html">Get Started</a></li>
+              </ul><!-- /.navbar-nav -->
+              <div class="cornerbox"></div>
+            </div>
+            <div class="menu-overlay"></div>
+        </nav>
+    <!-- </div> -->
+
+    <div class="container-fluid" role="document" id="main_content_wrapper">
+        <div class="row">
+
+        <aside class="sidebar col-md-4 col-lg-3 p-0 order-md-1" role="complementary">
+
+    <div id="sidenav" class="tree_nav">
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Getting Started</li>
+            <ul class=" sidebar_pagelist sidebar_indent">
+                <li><a href="/overview.html">Overview</a></li>
+                <li><a href="/setup-wallets.html">Set Up and Use Interledger Accounts</a></li>
+                <li><a href="/setup-wallets-programmatically.html">Manage Interledger Accounts Programmatically</a></li>
+                <li><a href="/spin-up-local-network.html">Spin Up a Local ILP Network</a></li>
+            </ul>
+      </ul>
+      <ul class=" sidebar_pagelist">
+        <li class="nav-label">Community Resources</li>
+        <li><a class="external-link" href="https://medium.com/interledger-blog">Blog and Tutorials<i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+        <li><a href="/libraries.html">Libraries and Tools</a></li>
+        <li><a href="/summit-2019.html">ILP Summit 2019 Videos</a></li>
+      </ul>
+
+      <div class="sidebar-nav-header">Specs</div>
+      <ul class=" sidebar_pagelist sidebar_indent">
+            <li><a href="/rfcs/0027-interledger-protocol-4/">Interledger Protocol 4 (ILPv4)</a></li>
+            <li><a href="/rfcs/0015-ilp-addresses/">Interledger Addresses</a></li>
+            <li><a href="/rfcs/0029-stream/">STREAM Protocol</a></li>
+            <li><a href="/rfcs/0009-simple-payment-setup-protocol/">Simple Payment Setup Protocol (SPSP)</a></li>
+            <li><a href="/rfcs/0030-notes-on-oer-encoding/">Notes on OER encoding</a></li>
+            <li><a href="/rfcs/0031-dynamic-configuration-protocol/">Dynamic Configuration Protocol (ILDCP)</a></li>
+            <li><a href="/rfcs/0032-peering-clearing-settlement/">Peering, Clearing and Settlement</a></li>
+            <li><a href="/rfcs/0038-settlement-engines/">Settlement Engines</a></li>
+            <li><a href="/rfcs/0035-ilp-over-http/">ILP over HTTP</a></li>
+            <li><a href="/rfcs/0036-spsp-pull-payments/">SPSP Pull Payments</a></li>
+            <li>&nbsp;</li>
+            <li><a class="external-link" target="_blank" href="https://paymentpointers.org">Payment Pointers</a></li>
+            <li><a class="external-link" target="_blank" href="https://webmonetization.org">Web Monetization</a></li>
+            <li><a class="external-link" target="_blank" href="https://w3c.github.io/webpayments/proposals/interledger-payment-method.html">W3C Web Payments</a></li>
+        </ul>
+    </div>        </aside>
+
+          <!-- main column -->
+        <main class="main col-md-8  col-lg-6   order-md-3  " role="main" id="main_content_body">
+  <article class="pt-3 p-md-3">
+    <div class="content doc-content">
+        <h1 id="main-page-header">Spin Up a Local ILP Network</h1>
+        <p class="blurb">Send a cross-currency payment across a local test network</p>
+        <h2 id="overview">Overview</h2>
+<p>Many Interledger users may hold accounts with custodial wallets. However, some network participants may need to run their own node software, such as wallet operators, service providers that route payments, or regular users who choose to host their own nodes.</p>
+<p>There are three primary implementations to operate an Interledger connector:</p>
+<ul>
+<li><a class="external-link" href="https://github.com/interledger4j/ilpv4-connector" target="_blank">Java Connector <i aria-hidden="true" class="fa fa-external-link"></i></a> — <em>Actively maintained by Xpring and recommended for new production deployments.</em></li>
+<li><a class="external-link" href="https://github.com/interledger-rs/interledger-rs" target="_blank">Interledger.rs (Rust) <i aria-hidden="true" class="fa fa-external-link"></i></a> — <em>Not actively developed, but recommended to get started for its ease of use and featureset.</em></li>
+<li><a class="external-link" href="https://github.com/interledgerjs/ilp-connector" target="_blank"><code>ilp-connector</code> (JavaScript) <i aria-hidden="true" class="fa fa-external-link"></i></a> — <em>Battle-tested in production.</em></li>
+</ul>
+<p>This tutorial demonstrates how to:</p>
+<ol>
+<li>Spin up a local test network with three Interledger.rs nodes</li>
+<li>Send a cross-currency payment between them</li>
+<li>Settle the payment using a local Ethereum testnet and the XRP Ledger testnet</li>
+</ol>
+<p>Note: there are <em>many</em> considerations to deploy an Interledger node into production, and this tutorial merely scratches the surface by running nodes in a safe, local environment without real money.</p>
+<p>Intermediate knowledge of the command line and interacting with APIs is recommended for this tutorial.</p>
+<p><em>Estimated time: 10 minutes</em></p>
+<h2 id="1-set-up-the-environment">1. Set up the environment</h2>
+<p>This tutorial uses Docker, which is a platform to run networked applications within containers. If you don't already have Docker installed, <a class="external-link" href="https://docs.docker.com/install/" target="_blank">install the Docker Engine or Docker Desktop <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
+<p>The services in this example use the following Docker images:</p>
+<ul>
+<li><code>interledgerrs/ilp-node</code> — Interledger.rs node</li>
+<li><code>interledgerrs/ilp-cli</code> — CLI for interacting with Interledger.rs nodes</li>
+<li><code>interledgerrs/ilp-settlement-ethereum</code> — Ethereum settlement engine</li>
+<li><code>trufflesuite/ganache-cli</code> — Local Ethereum testnet</li>
+<li><code>interledgerjs/settlement-xrp</code> — XRP settlement engine</li>
+<li><code>redis</code> — Database for the node and settlement engines</li>
+</ul>
+<p>Run these commands to pull the Docker images:</p>
+<pre><code class="bash">docker pull interledgerrs/ilp-cli
+docker pull interledgerrs/ilp-settlement-ethereum
+docker pull trufflesuite/ganache-cli
+docker pull interledgerjs/settlement-xrp
+docker pull redis
+</code></pre>
+<p>Run this command to build the Docker image for the Interledger.rs node, which may take a few minutes:</p>
+<pre><code>docker build -f ./docker/ilp-node.dockerfile -t interledgerrs/ilp-node --build-arg CARGO_BUILD_OPTION="--release --features monitoring --manifest-path ./crates/ilp-node/Cargo.toml" --build-arg RUST_BIN_DIR_NAME="release" https://github.com/interledger-rs/interledger-rs.git#ko-stream-reliability
+</code></pre>
+<p>Next, create a local Docker network so each service can communicate with each other:</p>
+<pre><code class="bash">docker network create local-ilp
+</code></pre>
+<p>Start a Redis database instance that will be shared across all the services:</p>
+<pre><code class="bash">docker run -d \
+  --name redis \
+  --network local-ilp \
+  redis
+</code></pre>
+<p>(Each service will use a different database index so they don't conflict with one another.)</p>
+<p>Then, launch a local Ethereum testnet with 10 prefunded accounts to use as a settlement ledger between Alice and Bob:</p>
+<pre><code class="bash">docker run -d \
+  --name ethereum-testnet \
+  --network local-ilp \
+  trufflesuite/ganache-cli \
+  -m "abstract vacuum mammal awkward pudding scene penalty purchase dinner depart evoke puzzle" \
+  -i 1
+</code></pre>
+<p>The mnemonic after the <code>-m</code> flag is provided so the keys for Alice and Bob aren't randomized, and the <code>-i</code> flag configures the Ethereum network ID to be the same as the Ethereum mainnet.</p>
+<h2 id="2-start-the-nodes">2. Start the nodes</h2>
+<p>This section walks through creating the three nodes: Alice, Bob, and Charlie.</p>
+<p>The names assigned to each container will be the hostnames used to network between them. For example, since Alice's node will be named <code>alice-node</code> and the HTTP API is bound to the port <code>7770</code>, <code>http://alice-node:7770</code> is the URL to access the API of Alice's node from other containers within the Docker network.</p>
+<h3 id="start-alices-node">Start Alice's node</h3>
+<p>First, start Alice's Ethereum settlement engine, which will be used to settle with Bob:</p>
+<pre><code class="bash">docker run -d \
+  --name alice-eth \
+  --network local-ilp \
+  -e "RUST_LOG=interledger=trace" \
+  interledgerrs/ilp-settlement-ethereum \
+  --private_key 380eb0f3d505f087e438eca80bc4df9a7faa24f868e69fc0440261a0fc0567dc \
+  --confirmations 0 \
+  --poll_frequency 1000 \
+  --ethereum_url http://ethereum-testnet:8545 \
+  --connector_url http://alice-node:7771 \
+  --redis_url redis://redis:6379/0 \
+  --asset_scale 9 \
+  --settlement_api_bind_address 0.0.0.0:3000
+</code></pre>
+<p>The provided private key corresponds to a prefunded Ethereum account in the Ganache testnet.</p>
+<p>Next, start Alice's Interledger node:</p>
+<pre><code class="bash">docker run -d \
+  --name alice-node \
+  --network local-ilp \
+  -e "RUST_LOG=interledger=trace" \
+  interledgerrs/ilp-node \
+  --ilp_address example.alice \
+  --secret_seed 8852500887504328225458511465394229327394647958135038836332350604 \
+  --admin_auth_token hi_alice \
+  --redis_url redis://redis:6379/1 \
+  --http_bind_address 0.0.0.0:7770 \
+  --settlement_api_bind_address 0.0.0.0:7771 \
+  --exchange_rate.provider CoinCap
+</code></pre>
+<h3 id="start-bobs-node">Start Bob's node</h3>
+<p>First, start Bob's Ethereum settlement engine, which will be used to credit incoming Ethereum payments from Alice:</p>
+<pre><code class="bash">docker run -d \
+  --name bob-eth \
+  --network local-ilp \
+  -e "RUST_LOG=interledger=trace" \
+  interledgerrs/ilp-settlement-ethereum \
+  --private_key cc96601bc52293b53c4736a12af9130abf347669b3813f9ec4cafdf6991b087e \
+  --confirmations 0 \
+  --poll_frequency 1000 \
+  --ethereum_url http://ethereum-testnet:8545 \
+  --connector_url http://bob-node:7771 \
+  --redis_url redis://redis:6379/2 \
+  --asset_scale 9 \
+  --settlement_api_bind_address 0.0.0.0:3000
+</code></pre>
+<p>Now, start Bob's XRP settlement engine, which will be used to settle with Charlie:</p>
+<pre><code class="bash">docker run -d \
+  --name bob-xrp \
+  --network local-ilp \
+  -e "DEBUG=settlement*" \
+  -e "CONNECTOR_URL=http://bob-node:7771" \
+  -e "REDIS_URI=redis://redis:6379/3" \
+  -e "ENGINE_PORT=3001" \
+  interledgerjs/settlement-xrp
+</code></pre>
+<p>The XRP settlement engine will automatically generate a prefunded testnet account and credentials from the <a class="external-link" href="https://xrpl.org/xrp-test-net-faucet.html" target="_blank">official faucet <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
+<p>Lastly, start Bob's Interledger node:</p>
+<pre><code class="bash">docker run -d \
+  --name bob-node \
+  --network local-ilp \
+  -e "RUST_LOG=interledger=trace" \
+  interledgerrs/ilp-node \
+  --ilp_address example.bob \
+  --secret_seed 1604966725982139900555208458637022875563691455429373719368053354 \
+  --admin_auth_token hi_bob \
+  --redis_url redis://redis:6379/4 \
+  --http_bind_address 0.0.0.0:7770 \
+  --settlement_api_bind_address 0.0.0.0:7771 \
+  --exchange_rate.provider CoinCap
+</code></pre>
+<p>Bob will pull exchange rates from the <a class="external-link" href="http://coincap.io/" target="_blank">CoinCap API <i aria-hidden="true" class="fa fa-external-link"></i></a> for foreign exchange between ETH and XRP.</p>
+<h3 id="start-charlies-node">Start Charlie's node</h3>
+<p>Start Charlie's XRP settlement engine to credit incoming settlements from Bob:</p>
+<pre><code class="bash">docker run -d \
+  --name charlie-xrp \
+  --network local-ilp \
+  -e "DEBUG=settlement*" \
+  -e "CONNECTOR_URL=http://charlie-node:7771" \
+  -e "REDIS_URI=redis://redis:6379/5" \
+  -e "ENGINE_PORT=3000" \
+  interledgerjs/settlement-xrp
+</code></pre>
+<p>And lastly, start Charlie's Interledger node:</p>
+<pre><code class="bash">docker run -d \
+  --name charlie-node \
+  --network local-ilp \
+  -e "RUST_LOG=interledger=trace" \
+  interledgerrs/ilp-node \
+  --secret_seed 1232362131122139900555208458637022875563691455429373719368053354 \
+  --admin_auth_token hi_charlie \
+  --redis_url redis://redis:6379/6 \
+  --http_bind_address 0.0.0.0:7770 \
+  --settlement_api_bind_address 0.0.0.0:7771 \
+  --exchange_rate.provider CoinCap
+</code></pre>
+<h2 id="3-configure-accounts">3. Configure accounts</h2>
+<p>Next, create accounts which connect and peer each of the Interledger nodes together (Alice to Bob, and Bob to Charlie). Accounts track balances between the two counterparties, and are denominated and settled in an agreed currency. In this example, Alice and Bob denominate their bilateral accounts in ETH with 9 decimal places, whereas Bob and Charlie denominate their bilateral accounts in XRP with 6 decimal places.</p>
+<p>Every Interledger packet corresponds to a particular account on the incoming side, and is routed to a subsequent account on the outgoing side. Accounts have parameters such as the maximum allowable packet size; authentication info for incoming and outgoing ILP packets; relations for how packets are routed; and balance parameters, such as credit limits and settlement thresholds.</p>
+<p>Alice and Bob's bilateral accounts are each configured with their respective Ethereum settlement engines, and Bob and Charlie's bilateral accounts are each configured with their respective XRP settlement engines.</p>
+<p>The <code>ilp-cli</code> tool and Docker image interacts with each Interledger node. To simplify issuing CLI commands to each node, create some aliases first:</p>
+<pre><code class="bash">alias   alice-cli="docker run --rm --network local-ilp interledgerrs/ilp-cli --node http://alice-node:7770"
+alias     bob-cli="docker run --rm --network local-ilp interledgerrs/ilp-cli --node http://bob-node:7770"
+alias charlie-cli="docker run --rm --network local-ilp interledgerrs/ilp-cli --node http://charlie-node:7770"
+</code></pre>
+<h3 id="configure-alices-accounts">Configure Alice's accounts</h3>
+<p>Create Alice's account:</p>
+<pre><code class="bash">alice-cli accounts create alice \
+  --auth hi_alice \
+  --ilp-address example.alice \
+  --asset-code ETH \
+  --asset-scale 9 \
+  --ilp-over-http-incoming-token alice_password
+</code></pre>
+<p>Create the Alice ⇋ Bob account on Alice's node (ETH, peer relation):</p>
+<pre><code class="bash">alice-cli accounts create bob \
+  --auth hi_alice \
+  --ilp-address example.bob \
+  --asset-code ETH \
+  --asset-scale 9 \
+  --settlement-engine-url http://alice-eth:3000 \
+  --ilp-over-http-incoming-token bob_password \
+  --ilp-over-http-outgoing-token alice_password \
+  --ilp-over-http-url http://bob-node:7770/accounts/alice/ilp \
+  --settle-threshold 100000 \
+  --settle-to 0 \
+  --routing-relation Peer
+</code></pre>
+<p>After more than 0.0001 ETH is fulfilled from Alice to Bob (<code>settle-threshold</code>), Alice will settle the entire liability with Bob (<code>settle-to</code>).</p>
+<h3 id="configure-bobs-accounts">Configure Bob's accounts</h3>
+<p>Create the Alice ⇋ Bob account on Bob's node (ETH, peer relation):</p>
+<pre><code class="bash">bob-cli accounts create alice \
+  --auth hi_bob \
+  --ilp-address example.alice \
+  --asset-code ETH \
+  --asset-scale 9 \
+  --max-packet-amount 100000 \
+  --settlement-engine-url http://bob-eth:3000 \
+  --ilp-over-http-incoming-token alice_password \
+  --ilp-over-http-outgoing-token bob_password \
+  --ilp-over-http-url http://alice-node:7770/accounts/bob/ilp \
+  --min-balance -150000 \
+  --routing-relation Peer
+</code></pre>
+<p>Bob enforces that Alice will not owe him greater than 0.00015 ETH (<code>min-balance</code>). After that, she must settle to send additional ILP packets.</p>
+<p>Create the Bob ⇋ Charlie account on Bob's node (XRP, child relation):</p>
+<pre><code class="bash">bob-cli accounts create charlie \
+  --auth hi_bob \
+  --asset-code XRP \
+  --asset-scale 6 \
+  --settlement-engine-url http://bob-xrp:3001 \
+  --ilp-over-http-incoming-token charlie_password \
+  --ilp-over-http-outgoing-token bob_other_password \
+  --ilp-over-http-url http://charlie-node:7770/accounts/bob/ilp \
+  --settle-threshold 10000 \
+  --settle-to -1000000 \
+  --routing-relation Child
+</code></pre>
+<p>After 0.01 XRP is fulfilled from Bob to Charlie (<code>settle-threshold</code>), Bob will settle the full liability <em>plus</em> prepay Charlie 1 XRP (<code>settle-to</code>).</p>
+<h3 id="configure-charlies-accounts">Configure Charlie's accounts</h3>
+<p>Create the Bob ⇋ Charlie account on Charlie's node (XRP, parent relation):</p>
+<pre><code class="bash">charlie-cli accounts create bob \
+  --auth hi_charlie \
+  --ilp-address example.bob \
+  --asset-code XRP \
+  --asset-scale 6 \
+  --settlement-engine-url http://charlie-xrp:3000 \
+  --ilp-over-http-incoming-token bob_other_password \
+  --ilp-over-http-outgoing-token charlie_password \
+  --ilp-over-http-url http://bob-node:7770/accounts/charlie/ilp \
+  --min-balance -50000 \
+  --routing-relation Parent
+</code></pre>
+<p>Charlie enforces that Bob will not owe him greater than 0.05 XRP (<code>min-balance</code>). After that, he must settle to send additional ILP packets.</p>
+<p>Lastly, create Charlie's account:</p>
+<pre><code class="bash">charlie-cli accounts create charlie \
+  --auth hi_charlie \
+  --asset-code XRP \
+  --asset-scale 6 \
+  --ilp-over-http-incoming-token charlie_password
+</code></pre>
+<h2 id="4-send-a-payment">4. Send a payment</h2>
+<p>Now, send a payment from Alice to Charlie, via Bob. Specifically, send a payment from the <code>alice</code> account on Alice's node, to the <code>$charlie-node:7770/accounts/charlie/spsp</code> payment pointer, which corresponds to the <code>charlie</code> account on Charlie's node.</p>
+<p>To specify the amount, you must use base units. Since Alice's account is denominated in ETH with precision to 9 decimal places, to send the equivalent of 1 ETH, the amount would be <code>1000000000</code>, and to send 1 gwei, which is a very small amount of ETH, the amount would be <code>1</code>. This example sends a payment for 0.0002 ETH, which STREAM will packetize into many smaller ILP packets.</p>
+<p>Note that when the payment is performed, Alice and Charlie's nodes will automatically coordinate with one another to ensure Bob doesn't take too large of a spread or offer a poor exchange rate. By checking Bob's rate against external prices, Alice and Charlie can determine the minimum rate and maximum slippage they're willing to accept. (In this case, they also use the CoinCap API.)</p>
+<p>In order for this payment to fully complete within the credit limits set by each peer, Alice must settle by sending an ETH payment to Bob, and Bob must settle by sending an XRP payment to Charlie. Both will automatically be triggered in the background, so the whole payment will take approximately 5 seconds.</p>
+<p>Now, send it!</p>
+<pre><code class="bash">alice-cli pay alice \
+  --auth alice_password \
+  --amount 200000 \
+  --to http://charlie-node:7770/accounts/charlie/spsp
+</code></pre>
+<p>If the payment is successful, you should see output like this (the delivered amount will differ since the exchange rate will change):</p>
+<pre><code>{"delivered_amount":192613,"destination_asset_code":"XRP","destination_asset_scale":6,"from":"example.alice","in_flight_amount":0,"sent_amount":200000,"source_amount":200000,"source_asset_code":"ETH","source_asset_scale":9,"to":"example.bob.charlie.charlie.UlyQactA51Y9Kc8wu8oBVyUq"}
+</code></pre>
+<p>Congratulations, you just executed and settled a cross-currency Interledger payment!</p>
+<h2 id="5-check-balances">5. Check balances</h2>
+<p>To print balances for each account across the 3 nodes, run these commands:</p>
+<pre><code class="bash">printf "\n========= ALICE'S NODE ========="
+printf "\nAlice's balance: "
+alice-cli accounts balance alice --auth hi_alice
+printf "Bob's balance: "
+alice-cli accounts balance bob --auth hi_alice
+
+printf "\n========= BOB'S NODE ========="
+printf "\nAlice's balance: "
+bob-cli accounts balance alice --auth hi_bob
+printf "Charlie's balance: "
+bob-cli accounts balance charlie --auth hi_bob
+
+printf "\n========= CHARLIE'S NODE ========="
+printf "\nBob's balance: "
+charlie-cli accounts balance bob --auth hi_charlie
+printf "Charlie's balance: "
+charlie-cli accounts balance charlie --auth hi_charlie
+</code></pre>
+<h2 id="6-stop-services">6. Stop services</h2>
+<p>To stop all the nodes and clean up Docker, run these commands:</p>
+<pre><code class="bash">docker stop redis ethereum-testnet alice-node bob-node charlie-node alice-eth bob-eth bob-xrp charlie-xrp
+docker rm redis ethereum-testnet alice-node bob-node charlie-node alice-eth bob-eth bob-xrp charlie-xrp
+docker network rm local-ilp
+</code></pre>
+    </div>
+  </article>
+        </main>
+
+        <aside class="right-sidebar col-lg-3 order-lg-4 p-0" role="complementary">
+  <div class="card" id="page-toc-wrapper">
+    <div class="card-header">
+      <h4>On This Page</h4>
+    </div>
+    <ul class="card-body">
+      <li class="level-2"><a href="#overview">Overview</a></li>
+<li class="level-2"><a href="#1-set-up-the-environment">1. Set up the environment</a></li>
+<li class="level-2"><a href="#2-start-the-nodes">2. Start the nodes</a></li>
+<li class="level-3"><a href="#start-alices-node">Start Alice's node</a></li>
+<li class="level-3"><a href="#start-bobs-node">Start Bob's node</a></li>
+<li class="level-3"><a href="#start-charlies-node">Start Charlie's node</a></li>
+<li class="level-2"><a href="#3-configure-accounts">3. Configure accounts</a></li>
+<li class="level-3"><a href="#configure-alices-accounts">Configure Alice's accounts</a></li>
+<li class="level-3"><a href="#configure-bobs-accounts">Configure Bob's accounts</a></li>
+<li class="level-3"><a href="#configure-charlies-accounts">Configure Charlie's accounts</a></li>
+<li class="level-2"><a href="#4-send-a-payment">4. Send a payment</a></li>
+<li class="level-2"><a href="#5-check-balances">5. Check balances</a></li>
+<li class="level-2"><a href="#6-stop-services">6. Stop services</a></li>
+
+    </ul>
+  </div>
+        </aside>
+
+        </div><!--/.row (main layout)-->
+      </div>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-sm-9 col-xs-12 float-left footertext">
+                    <p><img src="/assets/img/ilp_footer_logo@2x.png" height="44" alt="Interledger" align="left" /> Interledger Project<br><span>Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0.</a></span></p>
+                </div>
+                <div class="col-sm-3 col-xs-12 float-right">
+                    <a href="https://twitter.com/interledger"><img src="/assets/img/Twitter.png"></a>
+                    <a href="https://communityinviter.com/apps/interledger/interledger-working-groups-slack"><img src="/assets/img/Slack.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/highlight.pack.js"></script>
+<script src="/assets/js/custom.js"></script>
+<!-- <script src="/assets/js/home.js"></script> -->
+<!-- <script type="text/javascript" src="/assets/js/svg-animation.js"></script> -->
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-68500608-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

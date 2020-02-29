@@ -61,35 +61,15 @@ pages:
         targets:
             - en
 
-    # -   name: Getting Started
-    #     funnel: Docs
-    #     doc_type: Overview
-    #     html: getting-started.html
-    #     md: getting-started.md
-    #     template: template-doc.html
-    #     blurb: Start an Interledger node locally and create a local ILP test network.
-    #     targets:
-    #         - en
-
-    # -   name: Send Value Programmatically
-    #     funnel: Docs
-    #     doc_type: Getting Started
-    #     html: sending-value-programmatically.html
-    #     md: sending-value-programmatically.md
-    #     template: template-doc.html
-    #     blurb: Send value over ILP using the SPSP API.
-    #     targets:
-    #         - en
-
-    # -   name: Connect to an ILP Testnet
-    #     funnel: Docs
-    #     doc_type: Getting Started
-    #     html: connect-ilp-testnet.html
-    #     md: connect-ilp-testnet.md
-    #     template: template-doc.html
-    #     blurb: Connect an Interledger node to an ILP Testnet.
-    #     targets:
-    #         - en
+    -   name: Spin Up a Local ILP Network
+        funnel: Docs
+        doc_type: Getting Started
+        html: spin-up-local-network.html
+        md: spin-up-local-network.md
+        template: template-doc.html
+        blurb: Send a cross-currency payment across a local test network
+        targets:
+            - en
 
 # Community & resources ---------------------------------------------------------------------
 
