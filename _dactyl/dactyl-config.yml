@@ -47,7 +47,7 @@ pages:
         html: setup-wallets.html
         md: setup-wallets.md
         template: template-doc.html
-        blurb: Set up and use Interledger accounts to send and receive test funds
+        blurb: Send and receive test funds on a testnet
         targets:
             - en
 
@@ -57,7 +57,7 @@ pages:
         html: setup-wallets-programmatically.html
         md: setup-wallets-programmatically.md
         template: template-doc.html
-        blurb: Set up and use Interledger accounts to send and receive test funds programmatically
+        blurb: Send and receive test funds programmatically on a testnet
         targets:
             - en
 

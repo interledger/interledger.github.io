@@ -1,5 +1,3 @@
-## Set Up Interledger accounts to send and receive test funds
-
 To get started using Interledger, we'll walk through using a test network, which uses fake money, rather than transferring real value. This Interledger testnet is currently maintained by teams at [Xpring](https://xpring.io/) and [Coil](https://coil.com/), but anyone can join.
 
 The Xpring and Rafiki testnet connectors, both used in this tutorial, together form a network for users to practice sending and receiving test currency values.
