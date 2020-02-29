@@ -37,27 +37,27 @@ pages:
         html: overview.html
         md: overview.md
         template: template-doc.html
-        blurb: Interledger enables the seamless exchange of value across different payment networks.
+        blurb: Enable seamless exchange of value across payment networks.
         targets:
             - en
 
-    -   name: Set Up and Use Interledger Accounts With a User Interface
+    -   name: Get Started With Interledger Accounts
         funnel: Docs
         doc_type: Getting Started
         html: setup-wallets.html
         md: setup-wallets.md
         template: template-doc.html
-        blurb: Send and receive test funds on a testnet
+        blurb: Make payments on a testnet.
         targets:
             - en
 
-    -   name: Set Up and Use Interledger Accounts Programmatically
+    -   name: Manage Interledger Accounts Programmatically
         funnel: Docs
         doc_type: Getting Started
         html: setup-wallets-programmatically.html
         md: setup-wallets-programmatically.md
         template: template-doc.html
-        blurb: Send and receive test funds programmatically on a testnet
+        blurb: Make payments programmatically on a testnet.
         targets:
             - en
 
