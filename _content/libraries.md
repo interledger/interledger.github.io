@@ -1,3 +1,9 @@
+# Connector Implementations
+
+# Libraries
+
+# Tools
+
 ## SPSP
 
 Build Interledger payments into your apps with the [ILP SPSP Client][1]. This library can connect to any SPSP receiver for account discovery and payment detail negotation. For more information on how to use SPSP, read ["SPSP: Simple Payment Setup Protocol"][2] on the Interledger Blog. 
@@ -14,7 +20,7 @@ You can use [ILP Fetch][6] as a client to HTTP-ILP. ILP Fetch follows the [Fetch
 
 [Moneyd-XRP][8] allows you to connect to the Interledger network via XRP. It can be used on the livenet or the testnet with minimal configuration. We also have "Moneyd-ETH" and "Moneyd-Lightning" in the works.
 
-## More tools coming soon!
+
 
 [1]: https://github.com/interledgerjs/ilp-protocol-spsp
 [2]: https://medium.com/interledger-blog/spsp-simple-payment-setup-protocol-2028292e6925
