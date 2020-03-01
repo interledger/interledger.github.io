@@ -18,10 +18,10 @@ battle-tested in various production deployments.
 Build ILP applications natively in Java using [Quilt][4], which is a Java implementation of all Interledger primitives.
 
 ### Interledger RS
-Build ILP applications natively in Rust using [interledger.rs][4], which is a Rust implementation of all Interledger primitives.
+Build ILP applications natively in Rust using [interledger.rs][5], which is a Rust implementation of all Interledger primitives.
 
 ### Interledger JS
-Build ILP applications natively in Javascript using [InterledgerJS][4], which is a Javascript implementation of all Interledger primitives.
+Build ILP applications natively in Javascript using [InterledgerJS][6], which is a Javascript implementation of all Interledger primitives.
 
 ## Tools
 
