@@ -11,9 +11,13 @@ This tutorial describes two ways to create an Interledger account to send and re
 
 Both of these types of Interledger accounts allow you to send and receive test funds, and are useful for developing and testing apps. This type of account can also be referred to as a "wallet."
 
-If you want to send actual value in your app with an Interledger account, refer to the [Rust implementation of Interledger](http://interledger.rs), or the Java implementation of Interledger at [Hyperledger Quilt](https://www.hyperledger.org/projects/quilt). Because these efforts are open source, your contributions are welcome.
-
 You can also perform these same tasks programmatically. See [Set up Interledger accounts programmaticallly](setup-wallets-programmatically.html).
+
+If you want to send actual value in your app with an Interledger account, refer to the following open-source projects (contributions welcome):
+
+* [Java Connector](https://connector.interledger4j.dev)  — Actively maintained by Xpring and recommended for new production deployments.
+* [Rust Connector](http://interledger.rs)  — Not actively maintained, but recommended to get started for its ease of use and feature-set.
+* [Javascript Connector](https://github.com/interledgerjs/ilp-connector)  — Not actively maintained, byt battle-tested in production.
 
 ### Create an Interledger account and get your own payment pointer
 
