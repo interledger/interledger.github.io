@@ -17,7 +17,7 @@ If you want to send actual value in your app with an Interledger account, refer 
 
 * [Java Connector](https://connector.interledger4j.dev)  — Actively maintained by Xpring and recommended for new production deployments.
 * [Rust Connector](http://interledger.rs)  — Not actively maintained, but recommended to get started for its ease of use and feature-set.
-* [Javascript Connector](https://github.com/interledgerjs/ilp-connector)  — Not actively maintained, but battle-tested in production.
+* [Javascript Connector](https://github.com/interledgerjs/ilp-connector)  — Battle-tested in production.
 
 ### Create an Interledger account and get your own payment pointer
 
