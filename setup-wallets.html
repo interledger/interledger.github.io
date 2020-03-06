@@ -113,8 +113,13 @@
 <li>With a <a class="external-link" href="https://rafiki.money" target="_blank">rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a> account</li>
 </ul>
 <p>Both of these types of Interledger accounts allow you to send and receive test funds, and are useful for developing and testing apps. This type of account can also be referred to as a "wallet."</p>
-<p>If you want to send actual value in your app with an Interledger account, refer to the <a class="external-link" href="http://interledger.rs" target="_blank">Rust implementation of Interledger <i aria-hidden="true" class="fa fa-external-link"></i></a>, or the Java implementation of Interledger at <a class="external-link" href="https://www.hyperledger.org/projects/quilt" target="_blank">Hyperledger Quilt <i aria-hidden="true" class="fa fa-external-link"></i></a>. Because these efforts are open source, your contributions are welcome.</p>
 <p>You can also perform these same tasks programmatically. See <a href="setup-wallets-programmatically.html">Set up Interledger accounts programmaticallly</a>.</p>
+<p>If you want to send actual value in your app with an Interledger account, refer to the following open-source projects (contributions welcome):</p>
+<ul>
+<li><a class="external-link" href="https://connector.interledger4j.dev" target="_blank">Java Connector <i aria-hidden="true" class="fa fa-external-link"></i></a>  — Actively maintained by Xpring and recommended for new production deployments.</li>
+<li><a class="external-link" href="http://interledger.rs" target="_blank">Rust Connector <i aria-hidden="true" class="fa fa-external-link"></i></a>  — Not actively maintained, but recommended to get started for its ease of use and feature-set.</li>
+<li><a class="external-link" href="https://github.com/interledgerjs/ilp-connector" target="_blank">Javascript Connector <i aria-hidden="true" class="fa fa-external-link"></i></a>  — Battle-tested in production.</li>
+</ul>
 <h3 id="create-an-interledger-account-and-get-your-own-payment-pointer">Create an Interledger account and get your own payment pointer</h3>
 <p>This section refers to the Xpring ILP testnet.</p>
 <ol>
