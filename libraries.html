@@ -116,11 +116,23 @@ and is easy to use.</p>
 battle-tested in various production deployments.</p>
 <h2 id="libraries">Libraries</h2>
 <h3 id="interledger-java">Interledger Java</h3>
-<p>Build ILP applications natively in Java using <a class="external-link" href="https://www.hyperledger.org/projects/quilt" target="_blank">Quilt <i aria-hidden="true" class="fa fa-external-link"></i></a>, which is a Java implementation of all Interledger primitives.</p>
+<p>Build ILP applications that send and receive payments natively in Java using <a class="external-link" href="https://www.hyperledger.org/projects/quilt" target="_blank">Quilt <i aria-hidden="true" class="fa fa-external-link"></i></a>, which is a Java implementation of Interledger.</p>
 <h3 id="interledger-rs">Interledger RS</h3>
-<p>Build ILP applications natively in Rust using <a class="external-link" href="http://interledger.rs/" target="_blank">interledger.rs <i aria-hidden="true" class="fa fa-external-link"></i></a>, which is a Rust implementation of all Interledger primitives.</p>
-<h3 id="interledger-js">Interledger JS</h3>
-<p>Build ILP applications natively in Javascript using <a class="external-link" href="https://github.com/interledgerjs/" target="_blank">InterledgerJS <i aria-hidden="true" class="fa fa-external-link"></i></a>, which is a Javascript implementation of all Interledger primitives.</p>
+<p>Build ILP applications that send and receive payments natively in Rust using <a class="external-link" href="http://interledger.rs/" target="_blank">interledger.rs <i aria-hidden="true" class="fa fa-external-link"></i></a>, which is a Rust implementation of Interledger.</p>
+<h3 id="ilp-over-http">ILP-over-HTTP</h3>
+<p>Implementations of <a class="external-link" href="https://github.com/interledger/rfcs/blob/master/0035-ilp-over-http/0035-ilp-over-http.md" target="_blank">ILP-over-HTTP <i aria-hidden="true" class="fa fa-external-link"></i></a>, which is a bilateral communications protocol for server-to-server ILP connections.</p>
+<ul>
+<li><strong>Java</strong>: <a class="external-link" href="https://github.com/hyperledger/quilt/tree/master/link-parent/link-ilp-over-http" target="_blank">ILP-over-HTTP Link <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+<li><strong>Rust</strong>: <a class="external-link" href="https://github.com/interledger-rs/interledger-rs/tree/master/crates/interledger-http" target="_blank">ILP-over-HTTP <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+<li><strong>Javascript</strong>: <a class="external-link" href="https://github.com/interledgerjs/ilp-plugin-http" target="_blank">ilp-plugin-http <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+</ul>
+<h3 id="interledger-stream">Interledger STREAM</h3>
+<p>Reliably send packetized money and data over Interledger using <a class="external-link" href="https://github.com/interledger/rfcs/blob/master/0029-stream/0029-stream.md" target="_blank">STREAM <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
+<ul>
+<li><strong>Java</strong>: <a class="external-link" href="https://github.com/hyperledger/quilt/tree/master/stream-parent" target="_blank">STREAM Java <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+<li><strong>Rust</strong>: <a class="external-link" href="https://github.com/interledger-rs/interledger-rs/tree/master/crates/interledger-stream" target="_blank">STREAM RS <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+<li><strong>Javascript</strong>: <a class="external-link" href="https://github.com/interledgerjs/ilp-protocol-stream" target="_blank">STREAM JS <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+</ul>
     </div>
   </article>
         </main>
@@ -138,7 +150,8 @@ battle-tested in various production deployments.</p>
 <li class="level-2"><a href="#libraries">Libraries</a></li>
 <li class="level-3"><a href="#interledger-java">Interledger Java</a></li>
 <li class="level-3"><a href="#interledger-rs">Interledger RS</a></li>
-<li class="level-3"><a href="#interledger-js">Interledger JS</a></li>
+<li class="level-3"><a href="#ilp-over-http">ILP-over-HTTP</a></li>
+<li class="level-3"><a href="#interledger-stream">Interledger STREAM</a></li>
 
     </ul>
   </div>
