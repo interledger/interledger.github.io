@@ -9,7 +9,7 @@ An Interledger [Connector implemented in Rust][2]. This project is not actively 
 and is easy to use.
 
 ### Javascript Connector
-An Interledger [Connector implemented in Javascript][3]. This project is not actively maintained, but has been 
+An Interledger [Connector implemented in Javascript][3]. This project has been 
 battle-tested in various production deployments.
 
 ## Libraries
