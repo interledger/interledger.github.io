@@ -1,26 +1,49 @@
-## SPSP
+## Connectors
 
-Build Interledger payments into your apps with the [ILP SPSP Client][1]. This library can connect to any SPSP receiver for account discovery and payment detail negotation. For more information on how to use SPSP, read ["SPSP: Simple Payment Setup Protocol"][2] on the Interledger Blog. 
+### Java Connector
+An Interledger [Connector implemented in Java][1]. This project is actively maintained by [Xpring](https://xpring.io) 
+and recommended for new production deployments. 
 
-## Koa ILP
+### Rust Connector
+An Interledger [Connector implemented in Rust][2]. This project is not actively maintained, but has a robust feature-set
+and is easy to use.
 
-If you use the [Koa framework][3] in Node.js, this library will allow you to monetize your API in only a few lines of code. For more information, [check out our Github][4] and [our blog post about it.][5]
+### Javascript Connector
+An Interledger [Connector implemented in Javascript][3]. This project has been 
+battle-tested in various production deployments.
 
-## ILP Fetch
+## Libraries
 
-You can use [ILP Fetch][6] as a client to HTTP-ILP. ILP Fetch follows the [Fetch API][7], but allows the client to send payments. You can use it to interact with paid APIs on Interledger.
+### Interledger Java
+Build ILP applications that send and receive payments natively in Java using [Quilt][4], which is a Java implementation of Interledger.
 
-## Moneyd XRP
+### Interledger RS
+Build ILP applications that send and receive payments natively in Rust using [interledger.rs][5], which is a Rust implementation of Interledger.
 
-[Moneyd-XRP][8] allows you to connect to the Interledger network via XRP. It can be used on the livenet or the testnet with minimal configuration. We also have "Moneyd-ETH" and "Moneyd-Lightning" in the works.
+### ILP-over-HTTP
+Implementations of [ILP-over-HTTP][6], which is a bilateral communications protocol for server-to-server ILP connections.
 
-## More tools coming soon!
+* **Java**: [ILP-over-HTTP Link][7]
+* **Rust**: [ILP-over-HTTP][8]
+* **Javascript**: [ilp-plugin-http][9]
+ 
+### Interledger STREAM
+Reliably send packetized money and data over Interledger using [STREAM][10].
 
-[1]: https://github.com/interledgerjs/ilp-protocol-spsp
-[2]: https://medium.com/interledger-blog/spsp-simple-payment-setup-protocol-2028292e6925
-[3]: http://koajs.com/
-[4]: https://github.com/interledgerjs/koa-ilp
-[5]: https://medium.com/interledger-blog/http-ilp-paid-api-calls-with-interledger-fda53643a2eb
-[6]: https://github.com/interledgerjs/ilp-fetch
-[7]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-[8]: https://github.com/interledgerjs/moneyd-xrp
+* **Java**: [STREAM Java][11]
+* **Rust**: [STREAM RS][12]
+* **Javascript**: [STREAM JS][13]
+
+[1]: https://connector.interledger4j.dev
+[2]: http://interledger.rs
+[3]: https://github.com/interledgerjs/ilp-connector
+[4]: https://www.hyperledger.org/projects/quilt
+[5]: http://interledger.rs/
+[6]: https://github.com/interledger/rfcs/blob/master/0035-ilp-over-http/0035-ilp-over-http.md
+[7]: https://github.com/hyperledger/quilt/tree/master/link-parent/link-ilp-over-http
+[8]: https://github.com/interledger-rs/interledger-rs/tree/master/crates/interledger-http
+[9]: https://github.com/interledgerjs/ilp-plugin-http
+[10]: https://github.com/interledger/rfcs/blob/master/0029-stream/0029-stream.md
+[11]: https://github.com/hyperledger/quilt/tree/master/stream-parent
+[12]: https://github.com/interledger-rs/interledger-rs/tree/master/crates/interledger-stream
+[13]: https://github.com/interledgerjs/ilp-protocol-stream

@@ -104,15 +104,35 @@
     <div class="content doc-content">
         <h1 id="main-page-header">Libraries and Tools</h1>
         <p class="blurb">Build Interledger applications.</p>
-        <h2 id="spsp">SPSP</h2>
-<p>Build Interledger payments into your apps with the <a class="external-link" href="https://github.com/interledgerjs/ilp-protocol-spsp" target="_blank">ILP SPSP Client <i aria-hidden="true" class="fa fa-external-link"></i></a>. This library can connect to any SPSP receiver for account discovery and payment detail negotation. For more information on how to use SPSP, read <a class="external-link" href="https://medium.com/interledger-blog/spsp-simple-payment-setup-protocol-2028292e6925" target="_blank">"SPSP: Simple Payment Setup Protocol" <i aria-hidden="true" class="fa fa-external-link"></i></a> on the Interledger Blog. </p>
-<h2 id="koa-ilp">Koa ILP</h2>
-<p>If you use the <a class="external-link" href="http://koajs.com/" target="_blank">Koa framework <i aria-hidden="true" class="fa fa-external-link"></i></a> in Node.js, this library will allow you to monetize your API in only a few lines of code. For more information, <a class="external-link" href="https://github.com/interledgerjs/koa-ilp" target="_blank">check out our Github <i aria-hidden="true" class="fa fa-external-link"></i></a> and <a class="external-link" href="https://medium.com/interledger-blog/http-ilp-paid-api-calls-with-interledger-fda53643a2eb" target="_blank">our blog post about it. <i aria-hidden="true" class="fa fa-external-link"></i></a></p>
-<h2 id="ilp-fetch">ILP Fetch</h2>
-<p>You can use <a class="external-link" href="https://github.com/interledgerjs/ilp-fetch" target="_blank">ILP Fetch <i aria-hidden="true" class="fa fa-external-link"></i></a> as a client to HTTP-ILP. ILP Fetch follows the <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">Fetch API <i aria-hidden="true" class="fa fa-external-link"></i></a>, but allows the client to send payments. You can use it to interact with paid APIs on Interledger.</p>
-<h2 id="moneyd-xrp">Moneyd XRP</h2>
-<p><a class="external-link" href="https://github.com/interledgerjs/moneyd-xrp" target="_blank">Moneyd-XRP <i aria-hidden="true" class="fa fa-external-link"></i></a> allows you to connect to the Interledger network via XRP. It can be used on the livenet or the testnet with minimal configuration. We also have "Moneyd-ETH" and "Moneyd-Lightning" in the works.</p>
-<h2 id="more-tools-coming-soon">More tools coming soon!</h2>
+        <h2 id="connectors">Connectors</h2>
+<h3 id="java-connector">Java Connector</h3>
+<p>An Interledger <a class="external-link" href="https://connector.interledger4j.dev" target="_blank">Connector implemented in Java <i aria-hidden="true" class="fa fa-external-link"></i></a>. This project is actively maintained by <a class="external-link" href="https://xpring.io" target="_blank">Xpring <i aria-hidden="true" class="fa fa-external-link"></i></a> 
+and recommended for new production deployments. </p>
+<h3 id="rust-connector">Rust Connector</h3>
+<p>An Interledger <a class="external-link" href="http://interledger.rs" target="_blank">Connector implemented in Rust <i aria-hidden="true" class="fa fa-external-link"></i></a>. This project is not actively maintained, but has a robust feature-set
+and is easy to use.</p>
+<h3 id="javascript-connector">Javascript Connector</h3>
+<p>An Interledger <a class="external-link" href="https://github.com/interledgerjs/ilp-connector" target="_blank">Connector implemented in Javascript <i aria-hidden="true" class="fa fa-external-link"></i></a>. This project has been 
+battle-tested in various production deployments.</p>
+<h2 id="libraries">Libraries</h2>
+<h3 id="interledger-java">Interledger Java</h3>
+<p>Build ILP applications that send and receive payments natively in Java using <a class="external-link" href="https://www.hyperledger.org/projects/quilt" target="_blank">Quilt <i aria-hidden="true" class="fa fa-external-link"></i></a>, which is a Java implementation of Interledger.</p>
+<h3 id="interledger-rs">Interledger RS</h3>
+<p>Build ILP applications that send and receive payments natively in Rust using <a class="external-link" href="http://interledger.rs/" target="_blank">interledger.rs <i aria-hidden="true" class="fa fa-external-link"></i></a>, which is a Rust implementation of Interledger.</p>
+<h3 id="ilp-over-http">ILP-over-HTTP</h3>
+<p>Implementations of <a class="external-link" href="https://github.com/interledger/rfcs/blob/master/0035-ilp-over-http/0035-ilp-over-http.md" target="_blank">ILP-over-HTTP <i aria-hidden="true" class="fa fa-external-link"></i></a>, which is a bilateral communications protocol for server-to-server ILP connections.</p>
+<ul>
+<li><strong>Java</strong>: <a class="external-link" href="https://github.com/hyperledger/quilt/tree/master/link-parent/link-ilp-over-http" target="_blank">ILP-over-HTTP Link <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+<li><strong>Rust</strong>: <a class="external-link" href="https://github.com/interledger-rs/interledger-rs/tree/master/crates/interledger-http" target="_blank">ILP-over-HTTP <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+<li><strong>Javascript</strong>: <a class="external-link" href="https://github.com/interledgerjs/ilp-plugin-http" target="_blank">ilp-plugin-http <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+</ul>
+<h3 id="interledger-stream">Interledger STREAM</h3>
+<p>Reliably send packetized money and data over Interledger using <a class="external-link" href="https://github.com/interledger/rfcs/blob/master/0029-stream/0029-stream.md" target="_blank">STREAM <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
+<ul>
+<li><strong>Java</strong>: <a class="external-link" href="https://github.com/hyperledger/quilt/tree/master/stream-parent" target="_blank">STREAM Java <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+<li><strong>Rust</strong>: <a class="external-link" href="https://github.com/interledger-rs/interledger-rs/tree/master/crates/interledger-stream" target="_blank">STREAM RS <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+<li><strong>Javascript</strong>: <a class="external-link" href="https://github.com/interledgerjs/ilp-protocol-stream" target="_blank">STREAM JS <i aria-hidden="true" class="fa fa-external-link"></i></a></li>
+</ul>
     </div>
   </article>
         </main>
@@ -123,11 +143,15 @@
       <h4>On This Page</h4>
     </div>
     <ul class="card-body">
-      <li class="level-2"><a href="#spsp">SPSP</a></li>
-<li class="level-2"><a href="#koa-ilp">Koa ILP</a></li>
-<li class="level-2"><a href="#ilp-fetch">ILP Fetch</a></li>
-<li class="level-2"><a href="#moneyd-xrp">Moneyd XRP</a></li>
-<li class="level-2"><a href="#more-tools-coming-soon">More tools coming soon!</a></li>
+      <li class="level-2"><a href="#connectors">Connectors</a></li>
+<li class="level-3"><a href="#java-connector">Java Connector</a></li>
+<li class="level-3"><a href="#rust-connector">Rust Connector</a></li>
+<li class="level-3"><a href="#javascript-connector">Javascript Connector</a></li>
+<li class="level-2"><a href="#libraries">Libraries</a></li>
+<li class="level-3"><a href="#interledger-java">Interledger Java</a></li>
+<li class="level-3"><a href="#interledger-rs">Interledger RS</a></li>
+<li class="level-3"><a href="#ilp-over-http">ILP-over-HTTP</a></li>
+<li class="level-3"><a href="#interledger-stream">Interledger STREAM</a></li>
 
     </ul>
   </div>
