@@ -21,11 +21,11 @@ If you want to send *actual* value in your app with an Interledger account, refe
 
 ### 1. Create Interledger Wallet Accounts
 
-For this tutorial, you should create an account on both the xpring.io and rafiki.money wallets.
+For this tutorial, you should create both a xpring.io and rafiki.money wallet account.
 
 #### Create an Account at xpring.io
-1. Navigate to https://xpring.io and click `Create Dev Account`.<br>
-2. Once logged-in, you will see the Xpring Portal. Click on "Interledger Wallet" to get started.
+1. Navigate to https://xpring.io and click `Create Dev Account`.
+2. Log in to see the Xpring portal. Once logged-in, click on "Interledger Wallet" to get started.
 
 #### Create an Account at https://rafiki.money
 
@@ -33,17 +33,17 @@ The [rafiki.money](https://rafiki.money) site also allows you to create an Inter
 
 1. Open [rafiki.money](https://rafiki.money).
 2. Click **Create an account** and follow the instructions. 
-3. Click **Add account** and enter a name for your account to create a new one.
+3. Click **Add account** and enter a name for your account to create a new one. You can create multiple accounts if you want.
 4. Click **No default account set for Payment pointer. Click here to assign default account**.
 5. From the **Default Account** dropdown list, select an account and click **Submit** 
 6. Notice that you can send test XRP from any of these accounts, but the default account will be the recipient of any incoming testnet funds sent from another account.
 
 ### 2. Locate Your Own Payment Pointer
 1. In each wallet, you will see a page with a payment pointer in the following formats: `$xpring.money/{your-account-name}` (Xpring Wallet) and `rafiki.money/p/{user-id}` (Rafki Money). As indicated by the payment pointer, each wallet is Interledger-enabled. 
-2. Because your new accounts don't not have any test funds, you will want to add value to them. In Xpring, click the blue `Make it rain` button to get free money! In Rafki, click the `Add Funds` button.
+2. Because your new accounts don't have any test funds, you will want to add value to them. In Xpring, click the blue `Make it rain` button to get free money! In Rafki, click the `Add Funds` button.
 3. If you want someone to pay you, provide them with your payment pointer. That's it!
 
-Note that when you subsequently login to either testnet account, you will see the current state of your wallet with the current amount of test XRP. Your accounts can receive test XRP when you are not logged in.   
+Note that when you subsequently log in to either testnet account, you will see the current state of your wallet with the current amount of test XRP. Your accounts can receive test XRP when you are not logged in.   
 
 ### 3. Send Money Between Interledger Wallets
 Once you have testnet funds in one of your wallets, you can send those funds to any other Interledger-enabled wallet.
@@ -54,7 +54,7 @@ Once you have testnet funds in one of your wallets, you can send those funds to 
 4. Enter the payment pointer for the address you want to send test XRP to (hint: try one from [https://rafiki.money](https://rafiki.money)).
 5. Click **Send**.
 
-The amount of test XRP in the lower left adjusts to the new value. At the same time, you should see your balance in rafki.money go down.
+The amount of test XRP in the lower left adjusts to the new value. At the same time, if you have your rafiki.money wallet account open in another tab, you will see your balance in that wallet account go down.
 
 Next, send the money back via the following steps:
 
