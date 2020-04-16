@@ -104,124 +104,63 @@
     <div class="content doc-content">
         <h1 id="main-page-header">Manage Interledger Accounts Programmatically</h1>
         <p class="blurb">Make payments programmatically on a testnet.</p>
-        <p>To get started using Interledger, this tutorial walks through using a test network programmatically. A test network uses fake money, rather than transferring real value. This Interledger testnet is currently maintained by teams at <a class="external-link" href="https://xpring.io/" target="_blank">Xpring <i aria-hidden="true" class="fa fa-external-link"></i></a> and <a class="external-link" href="https://coil.com/" target="_blank">Coil <i aria-hidden="true" class="fa fa-external-link"></i></a>, but anyone can join.</p>
+        <p><em>Before starting this tutorial, make sure you have created accounts in both the Rafiki and Xpring wallets by following the instructions in the <a class="external-link" href="https://interledger.org/setup-wallets.html" target="_blank">Setup Wallets <i aria-hidden="true" class="fa fa-external-link"></i></a> tutorial.</em></p>
+<p>To get started using Interledger, this tutorial helps you access the Interledger testnet programmatically. This Interledger testnet is currently maintained by teams at <a class="external-link" href="https://xpring.io/" target="_blank">Xpring <i aria-hidden="true" class="fa fa-external-link"></i></a> and <a class="external-link" href="https://coil.com/" target="_blank">Coil <i aria-hidden="true" class="fa fa-external-link"></i></a>, but anyone can join. Note that all Interledger test networks use fake money, rather than transferring real value. </p>
 <p>The Xpring and Rafiki testnet connectors, both used in this tutorial, together form a network for users to practice sending and receiving test currency values. Although this tutorial uses test XRP for simplicity, Interledger can handle transactions involving any currency pairs, as described in <a href="overview.html">Interledger Overview</a>.</p>
-<p>You will:</p>
+<p>In this tutorial, you will:</p>
 <ol>
-<li><a href="#1-create-an-account">Create an account</a> using the Xpring connector to the ILP testnet.</li>
-<li><a href="#2-add-test-xrp-to-your-account">Add test XRP</a> to your account using the Xpring "rainmaker", which is a "faucet" for dispensing test funds.</li>
-<li><a href="#3-check-your-account-balance">Check your account balance</a>.</li>
-<li><a href="#4-send-test-xrp-to-another-payment-pointer">Send test XRP</a> to another payment pointer.</li>
-<li><a href="#5-receive-test-xrp">Receive test XRP</a>.</li>
+<li><a href="#1-check-your-balance">Check Your Balance</a>.</li>
+<li><a href="#2-pay-a-friend">Pay a Friend</a> to another payment pointer.</li>
+<li><a href="#3-get-paid">Get Paid</a>.</li>
 </ol>
-<p>To do the same with a GUI-based interface, refer to <a href="setup-wallets.html">Set Up Interledger accounts with a user interface</a>.</p>
-<h3 id="1-create-an-account">1. Create an account</h3>
-<p>To create a new account, you send an HTTP request. For this tutorial, we'll use curl on the command line to make requests to the API, but you can use an HTTP client library in any language. Here's how to create an account on the command line.</p>
-<pre><code>&gt; curl --location --request POST 'https://hermes-rest.ilpv4.dev/accounts' \
---header 'Content-Type: application/json' \
+<h3 id="1-check-your-balance">1. Check Your Balance</h3>
+<p>To programmatically see how much money is in your account, use the following <a class="external-link" href="https://curl.haxx.se/docs/manual.html" target="_blank">curl <i aria-hidden="true" class="fa fa-external-link"></i></a> call. Be sure to replace <strong><code>{your-account-id}</code></strong> and <strong><code>{auth_token}</code></strong> above with the values obtained from the xpring.io portal.</p>
+<pre><code class="bash">curl --location 
+--request GET 'https://xpring.io/hermes-rest/accounts/{your-account-id}/balance' \
 --header 'Accept: application/json' \
---data-raw '{
-  "assetCode": "XRP",
-  "assetScale": "6"
-}'
-</code></pre>
-<p>This request returns:
-- A payload that contains your <code>accountId</code>
-- An auth token which you use to authenticate to the connector
-- A <a class="external-link" href="https://paymentpointers.org/" target="_blank">payment pointer <i aria-hidden="true" class="fa fa-external-link"></i></a> that can be used to receive value in your test account.</p>
-<p>Here's an example response payload for reference. Keep track of the generated <code>accountId</code> at <code>accountId</code>, and your generated auth token at <code>"customSettings"</code> -&gt; <code>"ilpOverHttp.incoming.simple.auth_token"</code>, for use in subsequent steps.</p>
-<pre><code class="text">{
-    "accountId": "user_qqGV8nij",
-    "accountRelationship": "CHILD",
-    "assetCode": "XRP",
-    "assetScale": "6",
-    "maximumPacketAmount": null,
-    "linkType": {},
-    "connectionInitiator": true,
-    "isInternal": false,
-    "sendRoutes": true,
-    "receiveRoutes": false,
-    "balanceSettings": {
-        "minBalance": null,
-        "settleThreshold": null,
-        "settleTo": "0"
-    },
-    "rateLimitSettings": {
-        "maxPacketsPerSecond": null
-    },
-    "settlementEngineDetails": null,
-    "customSettings": {
-        "ilpOverHttp.outgoing.url": "https://money.ilpv4.dev/ilp",
-        "ilpOverHttp.incoming.auth_type": "SIMPLE",
-        "ilpOverHttp.incoming.simple.auth_token": "JQBzzLkbslrsT",
-        "ilpOverHttp.outgoing.simple.auth_token": "enc:jks:crypto/crypto.p12:secret0:1:aes_gcm:AAAADDBa7b-nDvY2ydWysQQMoZL7yIOmK-7-3kLiMc9pxhzPw1Ei68OpwcZu6W-j",
-        "ilpOverHttp.outgoing.auth_type": "SIMPLE"
-    },
-    "paymentPointer": "$money.ilpv4.dev/user_qqGV8nij",
-    "parentAccount": false,
-    "childAccount": true,
-    "peerAccount": false,
-    "peerOrParentAccount": false
-}
-</code></pre>
-<h3 id="2-add-test-xrp-to-your-account">2. Add test XRP to your account</h3>
-<p>The Xpring testnet used in this tutorial has a rainmaker account that you can use to populate your account with test XRP, so you can then use this account to send test XRP to other accounts. To add test XRP to your account, use the following command. Make sure to replace <code>{your-account-id}</code> with your own <code>accountId</code> created in Step 1.</p>
-<pre><code>&gt; curl --location --request POST \
-  'https://hermes-rest.ilpv4.dev/accounts/{your-account-id}/money'
-</code></pre>
-<h3 id="3-check-your-account-balance">3. Check your account balance</h3>
-<p>To see how much money is in your account, use the following call. Make sure to replace <strong><code>{auth_token}</code></strong> above with the auth token returned when you generated your account.</p>
-<pre><code>&gt; curl --location --request GET 'https://hermes-rest.ilpv4.dev/accounts/{your-account-id}/balance' \
---header 'Accept: application/json' \
---header 'Authorization: Bearer {auth_token}' \
+--header 'Authorization: Bearer {auth_token}'
 </code></pre>
 <p>This request will return a JSON response similar to the following:</p>
-<pre><code class="text">{
+<pre><code class="json">{
     "assetCode": "XRP",
-    "assetScale": "6",
+    "assetScale": "9",
     "accountBalance": {
-        "accountId": "user_qqGV8nij",
-        "netBalance": "0",
-        "clearingBalance": "0",
-        "prepaidAmount": "0"
+        "accountId": "caesar",
+        "netBalance": "1000",
+        "clearingBalance": "1000",
+        "prepaidAmount": "1000"
     }
 }
 </code></pre>
-<h3 id="4-send-test-funds-to-another-payment-pointer">4. Send test funds to another payment pointer</h3>
+<h3 id="2-pay-a-friend">2. Pay a Friend</h3>
 <p>You can use your account to send test funds to a different payment pointer. This example uses a destination payment pointer on <a class="external-link" href="https://rafiki.money" target="_blank">https://rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a>. Substitute your <code>accountId</code> from Step 1. You can change the destination payment pointer if you prefer.</p>
-<pre><code>&gt; curl --location --request POST 'https://hermes-rest.ilpv4.dev/accounts/{your-account-id}/pay' \
+<pre><code class="bash">curl --location \
+--request POST 'https://xpring.io/hermes-rest/accounts/{your-account-id}/pay' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer {auth_token}' \
 --data-raw '{
-  "amount": "10",
+  "amount": "1000000",
   "destinationPaymentPointer": "$rafiki.money/p/dfuelling"
 }'
 </code></pre>
 <p>This request returns a JSON response similar to the following:</p>
-<pre><code class="text">{
-    "originalAmount": "10",
-    "amountDelivered": "10",
-    "amountSent": "10",
+<pre><code class="json">{
+    "originalAmount": "1000000",
+    "amountDelivered": "1000000",
+    "amountSent": "1000000",
     "successfulPayment": true
 }
 </code></pre>
 <ul>
-<li>
-<p><strong><code>originalAmount</code></strong> is the amount that you wanted to send.</p>
-</li>
-<li>
-<p><strong><code>amountDelivered</code></strong> is the amount received by your friend, specified in the asset and units used by your friend.</p>
-</li>
-<li>
-<p><strong><code>amountSent</code></strong> is the amount you sent to your friend, specified in your asset and units.</p>
-</li>
+<li><strong><code>originalAmount</code></strong>: The amount that you wanted to send.</li>
+<li><strong><code>amountDelivered</code></strong>: The amount received by your friend, specified in the asset and units used by your friend.</li>
+<li><strong><code>amountSent</code></strong> The amount you sent to your friend, specified in the asset and units of your account.</li>
 </ul>
-<p>In this example, all three values are the same.</p>
-<h3 id="5-receive-test-funds">5. Receive test funds</h3>
+<h3 id="3-get-paid">3. Get Paid</h3>
 <p>Set up a Xpring testnet account and a rafiki.money account so you have two destination pointers to work with. Experiment with sending and receiving payments in both directions. Check your balance to make sure that the money has arrived in your account.</p>
-<h3 id="combine-gui-and-programmatic-interaction">Combine GUI and programmatic interaction</h3>
-<p>If you log in to your accounts at <a class="external-link" href="https://rafiki.money" target="_blank">rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a> and <a class="external-link" href="https://wallet.ilpv4.dev" target="_blank">https://wallet.ilpv4.dev <i aria-hidden="true" class="fa fa-external-link"></i></a>, you can directly see the results of the commands you perform.</p>
+<h3 id="combine-gui-and-programmatic-interactions">Combine GUI and Programmatic Interactions</h3>
+<p>If you log in to your accounts at <a class="external-link" href="https://rafiki.money" target="_blank">rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a> or <a class="external-link" href="https://xpring.io" target="_blank">https://xpring.io <i aria-hidden="true" class="fa fa-external-link"></i></a>, you can directly see the results of the commands you performed above.</p>
     </div>
   </article>
         </main>
@@ -232,12 +171,10 @@
       <h4>On This Page</h4>
     </div>
     <ul class="card-body">
-      <li class="level-3"><a href="#1-create-an-account">1. Create an account</a></li>
-<li class="level-3"><a href="#2-add-test-xrp-to-your-account">2. Add test XRP to your account</a></li>
-<li class="level-3"><a href="#3-check-your-account-balance">3. Check your account balance</a></li>
-<li class="level-3"><a href="#4-send-test-funds-to-another-payment-pointer">4. Send test funds to another payment pointer</a></li>
-<li class="level-3"><a href="#5-receive-test-funds">5. Receive test funds</a></li>
-<li class="level-3"><a href="#combine-gui-and-programmatic-interaction">Combine GUI and programmatic interaction</a></li>
+      <li class="level-3"><a href="#1-check-your-balance">1. Check Your Balance</a></li>
+<li class="level-3"><a href="#2-pay-a-friend">2. Pay a Friend</a></li>
+<li class="level-3"><a href="#3-get-paid">3. Get Paid</a></li>
+<li class="level-3"><a href="#combine-gui-and-programmatic-interactions">Combine GUI and Programmatic Interactions</a></li>
 
     </ul>
   </div>

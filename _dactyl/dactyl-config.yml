@@ -55,7 +55,7 @@ pages:
         funnel: Docs
         doc_type: Getting Started
         html: setup-wallets-programmatically.html
-        md: setup-wallets-programmatically.md
+        md: use-wallets-programmatically.md
         template: template-doc.html
         blurb: Make payments programmatically on a testnet.
         targets:
