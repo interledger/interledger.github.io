@@ -1,3 +1,13 @@
+## Wallets
+
+### Rafiki Money
+A user-facing demo wallet that can make Interledger payments to a variety of peers (supports USD, testnet only).
+Sign up at [https://rafiki.money](https://rafiki.money).
+
+### Xpring Wallet
+A user-facing demo wallet that can make Interledger payments to a variety of peers (supports XRP, testnet only).
+Sign up at [https://xpring.io](https://xpring.io). 
+
 ## Connectors
 
 ### Java Connector

@@ -117,6 +117,9 @@ BEGIN</p>
     FROM GenericTypes</p>
 <pre><code>Address
 FROM InterledgerTypes
+
+Receipt
+FROM StreamReceipt
 </code></pre>
 <p>;</p>
 <p>StreamEncryptionEnvelope ::= SEQUENCE {
@@ -163,7 +166,8 @@ cipherText OCTET STRING (SIZE (0..32739))
   {19 StreamMoneyBlocked} |
   {20 StreamData} |
   {21 StreamMaxData} |
-  {22 StreamDataBlocked}
+  {22 StreamDataBlocked} |
+  {23 StreamReceipt}
 }</p>
 <p>StreamFrame ::= SEQUENCE {
   type FRAME.&amp;typeId ({FrameSet}),
@@ -242,6 +246,14 @@ cipherText OCTET STRING (SIZE (0..32739))
   streamId VarUInt,</p>
 <p>-- Maximum number of bytes the endpoint wants to send on this stream
   maxOffset VarUInt
+}</p>
+<p>StreamReceipt ::= SEQUENCE {
+  -- Identifier of the stream
+  streamId VarUInt,</p>
+<p>-- Length-prefixed Receipt for verifying the total amount received on this stream
+  -- The sender is not expected to decode the Receipt fields but must be able to decode the
+  -- receipt string in the frame, even if it represents an unsupported Receipt version
+  receipt Receipt
 }</p>
 <p>END</p>
             </code>
