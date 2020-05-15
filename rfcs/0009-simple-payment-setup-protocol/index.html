@@ -139,13 +139,35 @@
 Host: example.com
 Accept: application/spsp4+json, application/spsp+json
 </code></pre>
+<h5 id="request-headers-to-support-stream-receipts">Request Headers to Support STREAM Receipts</h5>
+<p>The request MAY contain at least the following headers in order to pre-share <a href="../proposals/0000-stream-receipts.md">STREAM Receipt</a> details between the SPSP Server and <a href="../proposals/0000-stream-receipts.md#conventions-and-definitions">receipt verifier</a>:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Header</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Receipt-Nonce</code></td>
+<td align="left">A base64-encoded Receipt Nonce.</td>
+</tr>
+<tr>
+<td align="left"><code>Receipt-Secret</code></td>
+<td align="left">A base64-encoded Receipt Secret.</td>
+</tr>
+</tbody>
+</table>
+<p>The SPSP Client MAY be provided with an SPSP Endpoint belonging to the receipt verifier, which would add the receipt headers and proxy the query to the SPSP Server.</p>
 <h4 id="response">Response</h4>
 <pre><code class="http">HTTP/1.1 200 OK
 Content-Type: application/spsp4+json
 
 {
   "destination_account": "example.ilpdemo.red.bob",
-  "shared_secret": "6jR5iNIVRvqeasJeCty6C+YB5X9FhSOUPCL/5nha5Vs="
+  "shared_secret": "6jR5iNIVRvqeasJeCty6C+YB5X9FhSOUPCL/5nha5Vs=",
+  "receipts_enabled": true
 }
 </code></pre>
 <p>More information about the parameters can be found in section <a href="#response-body">Response Body</a>.</p>
@@ -209,6 +231,11 @@ Content-Type: application/spsp4+json
 <td><code>shared_secret</code></td>
 <td>32 bytes, <a class="external-link" href="https://en.wikipedia.org/wiki/Base64" target="_blank">base64 (base64url) encoded <i aria-hidden="true" class="fa fa-external-link"></i></a> (including padding)</td>
 <td>The shared secret to be used by this specific HTTP client in the <a href="/rfcs/0029-stream/">STREAM</a>. Should be shared only by the server and this specific HTTP client, and should therefore be different in each query response. Even though clients SHOULD accept base64url encoded secrets, base64 encoded secrets are recommended.</td>
+</tr>
+<tr>
+<td><code>receipts_enabled</code></td>
+<td>Boolean</td>
+<td><em>(OPTIONAL)</em>  If <code>true</code>, the SPSP server will issue STREAM Receipts in the STREAM connection. If <code>false</code> or omitted, the server will not issue STREAM Receipts.</td>
 </tr>
 </tbody>
 </table>
