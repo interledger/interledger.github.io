@@ -1,4 +1,4 @@
-## Wallets
+## Testnet Wallets
 
 ### Rafiki Money
 A user-facing demo wallet that can make Interledger payments to a variety of peers (supports USD, testnet only).
