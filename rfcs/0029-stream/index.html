@@ -107,42 +107,42 @@
 <p>This document specifies the STREAM Interledger Transport protocol, which provides for reliably sending money and data over ILP. STREAM is designed to be used in applications that involve streaming payments or data, as well as those that require sending larger discrete payments and messages. A virtual connection is established between a "client" and a "server" and can be used to send authenticated ILP packets between them.</p>
 <p><strong>Table of Contents:</strong></p>
 <ul>
+<li><a href="#stream-a-multiplexed-money-and-data-transport-for-ilp">STREAM: A Multiplexed Money and Data Transport for ILP</a></li>
+<li><a href="#abstract">Abstract</a></li>
 <li><a href="#1-introduction">1. Introduction</a></li>
 <li><a href="#2-conventions-and-definitions">2. Conventions and Definitions</a></li>
-<li><a href="#3-overview">3. Overview</a></li>
+<li><a href="#3-overview">3. Overview</a><ul>
 <li><a href="#31-relationship-with-other-protocols">3.1. Relationship with Other Protocols</a></li>
 <li><a href="#32-why-streams">3.2. Why Streams?</a></li>
 <li><a href="#33-multiplexed-streams">3.3. Multiplexed Streams</a></li>
 <li><a href="#34-exchange-rates">3.4. Exchange Rates</a></li>
 <li><a href="#35-packets-and-frames">3.5. Packets and Frames</a></li>
 <li><a href="#36-packet-acknowledgements-acks">3.6. Packet Acknowledgements (ACKs)</a></li>
-<li><a href="#4-life-of-a-connection">4. Life of a Connection</a></li>
-<li><a href="#41-setup">4.1. Setup</a></li>
-<li><a href="#42-matching-packets-to-connections">4.2. Matching Packets to Connections</a></li>
-<li><a href="#43-client-address-communication-and-connection-migration">4.3. Client Address Communication and Connection Migration</a><ul>
-<li><a href="#431-connection-asset-details">4.3.1. Connection Asset Details</a></li>
 </ul>
 </li>
-<li><a href="#44-streams">4.4. Streams</a><ul>
+<li><a href="#4-life-of-a-connection">4. Life of a Connection</a><ul>
+<li><a href="#41-setup">4.1. Setup</a></li>
+<li><a href="#42-matching-packets-to-connections">4.2. Matching Packets to Connections</a></li>
+<li><a href="#43-client-address-communication-and-connection-migration">4.3. Client Address Communication and Connection Migration</a></li>
+<li><a href="#431-connection-asset-details">4.3.1. Connection Asset Details</a></li>
+<li><a href="#44-streams">4.4. Streams</a></li>
 <li><a href="#441-opening-new-streams">4.4.1. Opening New Streams</a></li>
 <li><a href="#442-sending-money">4.4.2. Sending Money</a></li>
 <li><a href="#443-sending-data">4.4.3. Sending Data</a></li>
 <li><a href="#444-stream-level-flow-control">4.4.4. Stream-Level Flow Control</a></li>
 <li><a href="#445-closing-streams">4.4.5. Closing Streams</a></li>
-</ul>
-</li>
 <li><a href="#45-connection-level-flow-control">4.5. Connection-Level Flow Control</a></li>
 <li><a href="#46-closing-connections">4.6. Closing Connections</a></li>
-<li><a href="#5-packet-and-frame-specification">5. Packet and Frame Specification</a></li>
-<li><a href="#51-encryption">5.1. Encryption</a><ul>
+</ul>
+</li>
+<li><a href="#5-packet-and-frame-specification">5. Packet and Frame Specification</a><ul>
+<li><a href="#51-encryption">5.1. Encryption</a></li>
 <li><a href="#511-encryption-envelope">5.1.1. Encryption Envelope</a></li>
 <li><a href="#512-encryption-pseudocode">5.1.2. Encryption Pseudocode</a></li>
 <li><a href="#513-maximum-number-of-packets-per-connection">5.1.3. Maximum Number of Packets Per Connection</a></li>
 <li><a href="#514-maximum-varuint-size">5.1.4. Maximum <code>VarUInt</code> Size</a></li>
-</ul>
-</li>
 <li><a href="#52-stream-packet">5.2. STREAM Packet</a></li>
-<li><a href="#53-frames">5.3. Frames</a><ul>
+<li><a href="#53-frames">5.3. Frames</a></li>
 <li><a href="#531-connectionclose-frame">5.3.1. <code>ConnectionClose</code> Frame</a></li>
 <li><a href="#532-connectionnewaddress-frame">5.3.2. <code>ConnectionNewAddress</code> Frame</a></li>
 <li><a href="#533-connectionmaxdata-frame">5.3.3. <code>ConnectionMaxData</code> Frame</a></li>
@@ -158,16 +158,16 @@
 <li><a href="#5313-streamdatablocked-frame">5.3.13. <code>StreamDataBlocked</code> Frame</a></li>
 <li><a href="#5314-connectionassetdetails-frame">5.3.14. <code>ConnectionAssetDetails</code> Frame</a></li>
 <li><a href="#5315-streamreceipt-frame">5.3.15. <code>StreamReceipt</code> Frame</a></li>
+<li><a href="#54-error-codes">5.4. Error Codes</a></li>
 </ul>
 </li>
-<li><a href="#54-error-codes">5.4. Error Codes</a></li>
-<li><a href="#6-condition-and-fulfillment-generation">6. Condition and Fulfillment Generation</a></li>
-<li><a href="#61-unfulfillable-condition">6.1. Unfulfillable Condition</a><ul>
+<li><a href="#6-condition-and-fulfillment-generation">6. Condition and Fulfillment Generation</a><ul>
+<li><a href="#61-unfulfillable-condition">6.1. Unfulfillable Condition</a></li>
 <li><a href="#62-fulfillable-condition">6.2. Fulfillable Condition</a></li>
 <li><a href="#63-fulfillment-generation">6.3. Fulfillment Generation</a></li>
 </ul>
 </li>
-<li><a href="#appendix-a--similarities-and-differences-with-quic">Appendix A: Similarities and Differences with QUIC</a></li>
+<li><a href="#appendix-a-similarities-and-differences-with-quic">Appendix A: Similarities and Differences with QUIC</a></li>
 </ul>
 <h2 id="1-introduction">1. Introduction</h2>
 <p>STREAM is a multiplexed Interledger Transport Protocol that provides for sending multiple "streams" of money and data between two parties using ILP. STREAM is designed to provide a flexible set of features that allow it to be used for multiple payment and messaging applications:</p>
@@ -232,7 +232,7 @@
 <li>Cryptographically secure random or pseudorandom shared secret (it is RECOMMENDED to use 32 bytes)</li>
 </ul>
 <p>To avoid storing a 32 byte secret for each connection, a server MAY deterministically generate the shared secret for each connection from a single server secret and a nonce appended to the ILP Address given to a particular client, for example by using an HMAC.</p>
-<p>For each new connection, a server MAY be provided with a pre-shared 32 byte Receipt Secret (to generate <a href="../proposals/0000-stream-receipts.md">STREAM receipts</a>) and a 16 byte Receipt Nonce (to include in those receipts). To avoid storing this data for each connection, a Server MAY deterministically append this data to the ILP Address used for a Connection. If doing so, the server MUST encrypt the Receipt Secret.</p>
+<p>For each new connection, a server MAY be provided with a pre-shared 32 byte Receipt Secret (to generate <a href="/rfcs/0039-stream-receipts/">STREAM receipts</a>) and a 16 byte Receipt Nonce (to include in those receipts). To avoid storing this data for each connection, a Server MAY deterministically append this data to the ILP Address used for a Connection. If doing so, the server MUST encrypt the Receipt Secret.</p>
 <h3 id="42-matching-packets-to-connections">4.2. Matching Packets to Connections</h3>
 <p>Incoming packets can either be associated with an existing connection, or, for servers, potentially create a new connection. Endpoints MAY append extra segments to the ILP addresses assigned to them by their upstream connectors to help direct incoming packets.</p>
 <p>STREAM packets are completely encrypted so endpoints must try to decrypt and parse them to determine whether a given packet was sent by the other endpoint of a connection. Incoming Prepare packets whose data cannot be decrypted with the expected shared secret MUST be rejected with <code>F06: Unexpected Payment</code> errors.</p>
@@ -251,7 +251,7 @@
 <h4 id="442-sending-money">4.4.2. Sending Money</h4>
 <p>Money can be sent for a given stream by sending an ILP Prepare packet with a non-zero <code>amount</code> and a <code>StreamMoney</code> frame in the STREAM packet to indicate which stream the money is for. A single ILP Prepare can carry value destined for multiple streams and the <code>shares</code> field in each of the <code>StreamMoney</code> frames indicates what portion of the Prepare amount should go to each stream.</p>
 <p>The receiver SHOULD include <code>StreamReceipt</code> frames in the ILP Fulfill packet indicating the total amount of money received in each stream, unless a Receipt Secret and Receipt Nonce were not pre-shared with the receiver.</p>
-<p>To use <a href="../proposals/0000-stream-receipts.md">STREAM receipts</a>, the Receipt Secret and Receipt Nonce are pre-shared between the receiver and <a href="../proposals/0000-stream-receipts.md#conventions-and-definitions">receipt verifier</a>. Receipts are generated by the receiver and passed to the sender, who may submit the receipts directly or indirectly to the verifier. This allows the verifier to confirm the payment, as only the receiver and the verifier know the Receipt Secret.</p>
+<p>To use <a href="/rfcs/0039-stream-receipts/">STREAM receipts</a>, the Receipt Secret and Receipt Nonce are pre-shared between the receiver and <a href="/rfcs/0039-stream-receipts/#conventions-and-definitions">receipt verifier</a>. Receipts are generated by the receiver and passed to the sender, who may submit the receipts directly or indirectly to the verifier. This allows the verifier to confirm the payment, as only the receiver and the verifier know the Receipt Secret.</p>
 <h4 id="443-sending-data">4.4.3. Sending Data</h4>
 <p>Data can be sent for a given stream by sending an ILP Prepare packet with a <code>StreamData</code> frame in the STREAM packet. A single ILP Prepare can carry data destined for multiple streams.</p>
 <h4 id="444-stream-level-flow-control">4.4.4. Stream-Level Flow Control</h4>
@@ -791,7 +791,7 @@ StreamData { StreamID: 1, Offset: 15, Data: "67890" }
 <tr>
 <td>Receipt</td>
 <td>VarOctetString</td>
-<td>Length-prefixed <a href="../proposals/0000-stream-receipts.md#specification">STREAM Receipt</a> provided by the receiver as proof of the total amount received on this stream. Note that the stream sender is not expected to decode the receipt itself.</td>
+<td>Length-prefixed <a href="/rfcs/0039-stream-receipts/#specification">STREAM Receipt</a> provided by the receiver as proof of the total amount received on this stream. Note that the stream sender is not expected to decode the receipt itself.</td>
 </tr>
 </tbody>
 </table>
