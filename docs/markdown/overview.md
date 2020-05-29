@@ -12,7 +12,7 @@ to receive ETH, or you can send USD to someone who wants to receive EUR.
 ## What is Interledger?
 
 Interledger is a network of computers that enables the sending of value across independent payment networks. 
-Similar to how the Internet routes packets information, Interledger routes packets of value. Computers on the Interledger 
+Similar to how the Internet routes packets of information, Interledger routes packets of value. Computers on the Interledger 
 network are called *nodes*. Nodes can take one or more of the following roles:
 
 - Sender – Initiates a value transfer.
