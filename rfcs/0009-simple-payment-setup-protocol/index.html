@@ -139,8 +139,30 @@
 Host: example.com
 Accept: application/spsp4+json, application/spsp+json
 </code></pre>
+<h5 id="request-headers-to-support-web-monetization-polyfills">Request Headers to Support Web Monetization Polyfills</h5>
+<p><a href="/rfcs/0028-web-monetization/">Web Monetization</a> polyfills may query SPSP from a non-privileged context if they are implemented as a script rather than a browser extension. Sites may choose to use a script-based polyfill to enable Web Monetization for their visitors without requiring any browser extension or browser support.</p>
+<p>In this situation, <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" target="_blank">CORS <i aria-hidden="true" class="fa fa-external-link"></i></a> headers are necessary to make the SPSP server reachable. If CORS headers are not included, the SPSP query will be rejected and Web Monetization will fail to initialize.</p>
+<p>SPSP servers SHOULD expose the CORS headers listed below on <code>GET &lt;SPSP Endpoint&gt;</code> <strong>and <code>OPTIONS &lt;SPSP Endpoint&gt;</code></strong>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Header</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Access-Control-Allow-Origin</code></td>
+<td align="left"><code>*</code></td>
+</tr>
+<tr>
+<td align="left"><code>Access-Control-Allow-Headers</code></td>
+<td align="left"><code>web-monetization-id</code></td>
+</tr>
+</tbody>
+</table>
 <h5 id="request-headers-to-support-stream-receipts">Request Headers to Support STREAM Receipts</h5>
-<p>The request MAY contain at least the following headers in order to pre-share <a href="../proposals/0000-stream-receipts.md">STREAM Receipt</a> details between the SPSP Server and <a href="../proposals/0000-stream-receipts.md#conventions-and-definitions">receipt verifier</a>:</p>
+<p>The request MAY contain at least the following headers in order to pre-share <a href="/rfcs/0039-stream-receipts/">STREAM Receipt</a> details between the SPSP Server and <a href="/rfcs/0039-stream-receipts/#conventions-and-definitions">receipt verifier</a>:</p>
 <table>
 <thead>
 <tr>

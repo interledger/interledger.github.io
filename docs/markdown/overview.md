@@ -53,7 +53,7 @@ which makes transactions fast, secure, and inexpensive.
 
 Build payments into your apps or other protocols without tying yourself to a specific currency or payment network. 
 Create accounts on our demo ledgers and start sending Interledger payments with the client libraries. 
-Check out [Getting Started](getting-started.html) for more details.
+Check out [Getting Started](setup-wallets.html) for more details.
 
 
 ## Interledger architecture
@@ -78,4 +78,4 @@ used to determine in-flight balances, which are periodically settled with on-led
 For a detailed description of how this works, read the 
 [Peering, Clearing, and Settlement](https://interledger.org/rfcs/0032-peering-clearing-settlement/) documentation.
 
-Next: [Getting Started](getting-started.html)
+Next: [Getting Started](setup-wallets.html)
