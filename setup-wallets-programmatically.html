@@ -116,7 +116,7 @@
 <h3 id="1-check-your-balance">1. Check Your Balance</h3>
 <p>To programmatically see how much money is in your account, use the following <a class="external-link" href="https://curl.haxx.se/docs/manual.html" target="_blank">curl <i aria-hidden="true" class="fa fa-external-link"></i></a> call. Be sure to replace <strong><code>{your-account-id}</code></strong> and <strong><code>{auth_token}</code></strong> above with the values obtained from the xpring.io portal.</p>
 <pre><code class="bash">curl --location 
---request GET 'https://xpring.io/hermes-rest/accounts/{your-account-id}/balance' \
+--request GET 'https://xpring.io/portal/ilp/hermes/accounts/{your-account-id}/balance' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer {auth_token}'
 </code></pre>
@@ -135,13 +135,13 @@
 <h3 id="2-pay-a-friend">2. Pay a Friend</h3>
 <p>You can use your account to send test funds to a different payment pointer. This example uses a destination payment pointer on <a class="external-link" href="https://rafiki.money" target="_blank">https://rafiki.money <i aria-hidden="true" class="fa fa-external-link"></i></a>. Substitute your <code>accountId</code> from Step 1. You can change the destination payment pointer if you prefer.</p>
 <pre><code class="bash">curl --location \
---request POST 'https://xpring.io/hermes-rest/accounts/{your-account-id}/pay' \
+--request POST 'https://xpring.io/portal/ilp/hermes/accounts/{your-account-id}/pay' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer {auth_token}' \
 --data-raw '{
   "amount": "1000000",
-  "destinationPaymentPointer": "$rafiki.money/p/dfuelling"
+  "destinationPaymentPointer": "$rafiki.money/p/{username}"
 }'
 </code></pre>
 <p>This request returns a JSON response similar to the following:</p>

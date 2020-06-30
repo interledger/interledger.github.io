@@ -48,7 +48,7 @@ Interledger does not rely on any single payment network for processing value tra
 
 Build payments into your apps or other protocols without tying yourself to a specific currency or payment network.
 Create accounts on our demo ledgers and start sending Interledger payments with the client libraries.
-Check out [Getting Started](getting-started.html) for more details.
+Check out [Getting Started](setup-wallets.html) for more details.
 
 
 ## Interledger architecture
