@@ -15,7 +15,7 @@ To programmatically see how much money is in your account, use the following [cu
 
 ```bash
 curl --location 
---request GET 'https://xpring.io/hermes-rest/accounts/{your-account-id}/balance' \
+--request GET 'https://xpring.io/portal/ilp/hermes/accounts/{your-account-id}/balance' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer {auth_token}'
 ```
@@ -41,13 +41,13 @@ You can use your account to send test funds to a different payment pointer. This
 
 ```bash
 curl --location \
---request POST 'https://xpring.io/hermes-rest/accounts/{your-account-id}/pay' \
+--request POST 'https://xpring.io/portal/ilp/hermes/accounts/{your-account-id}/pay' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer {auth_token}' \
 --data-raw '{
   "amount": "1000000",
-  "destinationPaymentPointer": "$rafiki.money/p/dfuelling"
+  "destinationPaymentPointer": "$rafiki.money/p/{user-email-address}"
 }'
 ```
 
