@@ -133,17 +133,17 @@
 <p>Assuming they start with a balance of 0 and the following sequence of events occurs:</p>
 <ol>
 <li>Alice passes an ILP Prepare to Bob with an amount of 6.</li>
-<li>Bob replies, before the request expires, with a valid ILP Fulfill.</li>
-<li>Alice's balance is now -6 satoshis</li>
-<li>Bob's balance is now 6 satoshis</li>
+<li>Bob replies, before the request expires, with a valid ILP Fulfill.
+  - Alice's balance is now -6 satoshis
+  - Bob's balance is now 6 satoshis</li>
 <li>Bob passes an ILP Prepare to Alice with an amount of 2.</li>
-<li>Alice is unable to route the packet and replies with an ILP Reject.</li>
-<li>Alice's balance is still -6 satoshis</li>
-<li>Bob's balance is still 6 satoshis</li>
+<li>Alice is unable to route the packet and replies with an ILP Reject.
+  - Alice's balance is still -6 satoshis
+  - Bob's balance is still 6 satoshis</li>
 <li>Bob passes an ILP Prepare to Alice with an amount of 20.</li>
-<li>Alice replies, before the request expires, with a valid ILP Fulfill.</li>
-<li>Alice's balance is now 14 satoshis</li>
-<li>Bob's balance is now -14 satoshis</li>
+<li>Alice replies, before the request expires, with a valid ILP Fulfill.
+  - Alice's balance is now 14 satoshis
+  - Bob's balance is now -14 satoshis</li>
 </ol>
 </blockquote>
 <h2 id="clearing">Clearing</h2>
@@ -157,9 +157,9 @@
 <p>Assuming they start with a balance of 0 and the following sequence of events occurs:</p>
 <ol>
 <li>Bob passes an ILP Prepare to Alice with an amount of 20.</li>
-<li>Alice replies with a valid ILP Fulfill and believes she has done so before the request expires, however Bob considers the request to have expired and has already rejected the payment to his downstream peer.</li>
-<li>Alice's balance is 20 satoshis</li>
-<li>Bob's balance is 0 satoshis</li>
+<li>Alice replies with a valid ILP Fulfill and believes she has done so before the request expires, however Bob considers the request to have expired and has already rejected the payment to his downstream peer.
+  - Alice's balance is 20 satoshis
+  - Bob's balance is 0 satoshis</li>
 </ol>
 <p>Clearly, Bob and Alice need to reconcile this situation however the specific mechanism they use and recourse they take to resolve this difference is outside the scope of the Interledger protocol.</p>
 </blockquote>

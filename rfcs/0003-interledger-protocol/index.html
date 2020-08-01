@@ -489,7 +489,7 @@ Address ::= IA5String
 <pre><code>Invalid destination. destination=example.us.bob
 </code></pre>
 <p>This field MUST be encoded as UTF-8.</p>
-<h4 id="data_1">data</h4>
+<h4 id="data-1">data</h4>
 <pre><code>OCTET STRING (SIZE(0..32767))
 </code></pre>
 <p>Machine-readable data. The format is defined for each error code. Implementations MUST follow the correct format for the code given in the <code>code</code> field. When parsing rejection packets, implementations MUST ignore extra bytes in the <code>data</code> field.</p>
@@ -539,7 +539,7 @@ Address ::= IA5String
 </tr>
 </tbody>
 </table>
-<h4 id="code_1">code</h4>
+<h4 id="code-1">code</h4>
 <pre><code>IA5String (SIZE(3))
 </code></pre>
 <p>Error code. For example, <code>F00</code>. See <a href="#ilp-error-codes">ILP Error Codes</a> for the list of error codes and their meanings.</p>
@@ -548,7 +548,7 @@ Address ::= IA5String
 </code></pre>
 <p>Error name. For example, <code>Bad Request</code>. See <a href="#ilp-error-codes">ILP Error Codes</a> for the list of error codes and their meanings.</p>
 <p>Implementations of ILP SHOULD NOT depend on the <code>name</code> instead of the <code>code</code>. The name is primarily provided as a convenience to facilitate debugging by humans. If the <code>name</code> does not match the <code>code</code>, the <code>code</code> is the definitive identifier of the error.</p>
-<h4 id="triggeredby_1">triggeredBy</h4>
+<h4 id="triggeredby-1">triggeredBy</h4>
 <p><a href="#account">ILP Address</a> of the entity that originally emitted the error. This MAY be an address prefix if the entity that originally omitted the error is a ledger.</p>
 <h4 id="forwardedby">forwardedBy</h4>
 <p><a href="#account">ILP Addresses</a> of the connectors that relayed the error message.</p>
@@ -556,7 +556,7 @@ Address ::= IA5String
 <pre><code>GeneralizedTime
 </code></pre>
 <p>Date and time when the error was initially emitted. This MUST be expressed in the UTC + 0 (Z) timezone.</p>
-<h4 id="data_2">data</h4>
+<h4 id="data-2">data</h4>
 <pre><code>OCTET STRING (SIZE(0..8192))
 </code></pre>
 <p>Error data provided primarily for debugging purposes. Systems that emit errors SHOULD include additional explanation or context about the issue.</p>
@@ -770,7 +770,7 @@ the resulting ILP packet would look like this:</p>
 </tr>
 </tbody>
 </table>
-<h4 id="data_3">data</h4>
+<h4 id="data-3">data</h4>
 <pre><code>OCTET STRING (SIZE(0..32767))
 </code></pre>
 <p>Arbitrary data that is attached to the fulfillment. The contents are defined by the transport layer protocol.</p>

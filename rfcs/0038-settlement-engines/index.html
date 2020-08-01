@@ -121,7 +121,7 @@
 <li>Mobile money services</li>
 <li>Cash or physical delivery of assets</li>
 </ul>
-<h3 id="settlement-engines_1">Settlement Engines</h3>
+<h3 id="settlement-engines-1">Settlement Engines</h3>
 <p><em>Settlement engines</em> are services operated by two Interledger peers that facilitate sending and receiving settlements between them. Since an Interledger connector may have many peers that settle over the same system, a single settlement engine may manage multiple accounts, to settle with many different peers.</p>
 <p>This specification defines a standardized HTTP API for Interledger connectors to interface with their settlement engines, and vice versa. Connectors trigger the settlement engine to perform settlements, and settlement engines trigger the connector to adjust accounting balances when incoming settlements are received, like so:</p>
 <p><img alt="Settlement architecture" src="../shared/graphs/settlement-architecture.svg"/></p>
@@ -243,15 +243,15 @@ Content-Type: application/json
 </code></pre>
 <h3 id="delete-an-account">Delete an account</h3>
 <p>Instructs the settlement engine that an account was deleted.</p>
-<h4 id="request_1">Request</h4>
+<h4 id="request-1">Request</h4>
 <pre><code class="http">DELETE /accounts/:id HTTP/1.1
 </code></pre>
-<h4 id="response_1">Response</h4>
+<h4 id="response-1">Response</h4>
 <pre><code class="http">HTTP/1.1 204 No-Content
 </code></pre>
 <h3 id="perform-outgoing-settlement">Perform outgoing settlement</h3>
 <p>Asynchronously send an outgoing settlement. The accounting system sends this request and <a href="#account-for-outgoing-settlements">accounts for outgoing settlements</a>.</p>
-<h4 id="request_2">Request</h4>
+<h4 id="request-2">Request</h4>
 <pre><code class="http">POST /accounts/:id/settlements HTTP/1.1
 Accept: application/json
 Content-Type: application/json
@@ -260,13 +260,13 @@ Idempotency-Key: &lt;key&gt;
 <blockquote>
 <p><strong><a href="#quantity-object"><code>Quantity</code></a></strong> to settle</p>
 </blockquote>
-<h4 id="response_2">Response</h4>
+<h4 id="response-2">Response</h4>
 <pre><code class="http">HTTP/1.1 201 Created
 Content-Type: application/json
 </code></pre>
 <h3 id="handle-incoming-message">Handle incoming message</h3>
 <p>Process and respond to an incoming message from the peer's settlement engine. The connector sends this request when it receives an incoming settlement message from the peer, and returns the response message back to the peer.</p>
-<h4 id="request_3">Request</h4>
+<h4 id="request-3">Request</h4>
 <pre><code class="http">POST /accounts/:id/messages HTTP/1.1
 Accept: application/octet-stream
 Content-Type: application/octet-stream
@@ -274,7 +274,7 @@ Content-Type: application/octet-stream
 <blockquote>
 <p><em>&lt;raw bytes of message&gt;</em></p>
 </blockquote>
-<h4 id="response_3">Response</h4>
+<h4 id="response-3">Response</h4>
 <pre><code class="http">HTTP/1.1 201 Created
 Content-Type: application/octet-stream
 </code></pre>
@@ -286,7 +286,7 @@ Content-Type: application/octet-stream
 <p>HTTP/2 is RECOMMENDED for performance reasons, although HTTP/1.1 MAY also be used. Implementations SHOULD support HTTP version negotiation via Application Protocol Negotiation (ALPN).</p>
 <h3 id="credit-incoming-settlement">Credit incoming settlement</h3>
 <p><a href="#account-for-incoming-settlements">Account for an incoming settlement</a>. The settlement engine sends this request as it receives incoming settlements in in order to ensure <a href="#settlement-symmetry">settlement symmetry</a>.</p>
-<h4 id="request_4">Request</h4>
+<h4 id="request-4">Request</h4>
 <pre><code class="http">POST /accounts/:id/settlements HTTP/1.1
 Accept: application/json
 Content-Type: application/json
@@ -295,13 +295,13 @@ Idempotency-Key: &lt;key&gt;
 <blockquote>
 <p><strong><a href="#quantity-object"><code>Quantity</code></a></strong> to be credited to the account as an incoming settlement</p>
 </blockquote>
-<h4 id="response_4">Response</h4>
+<h4 id="response-4">Response</h4>
 <pre><code class="http">HTTP/1.1 201 Created
 Content-Type: application/json
 </code></pre>
 <h3 id="send-outgoing-message">Send outgoing message</h3>
 <p>Send the message to the given peer's settlement engine and return its response. The connector handles <a href="#exchanging-messages">proxying the message</a> through the peer's connector.</p>
-<h4 id="request_5">Request</h4>
+<h4 id="request-5">Request</h4>
 <pre><code class="http">POST /accounts/:id/messages HTTP/1.1
 Accept: application/octet-stream
 Content-Type: application/octet-stream
@@ -309,7 +309,7 @@ Content-Type: application/octet-stream
 <blockquote>
 <p><em>&lt;raw bytes of message&gt;</em></p>
 </blockquote>
-<h4 id="response_5">Response</h4>
+<h4 id="response-5">Response</h4>
 <pre><code class="http">HTTP/1.1 201 Created
 Content-Type: application/octet-stream
 </code></pre>
@@ -343,7 +343,7 @@ Content-Type: application/octet-stream
 <li class="level-2"><a href="#overview">Overview</a></li>
 <li class="level-3"><a href="#clearing">Clearing</a></li>
 <li class="level-3"><a href="#settlement">Settlement</a></li>
-<li class="level-3"><a href="#settlement-engines_1">Settlement Engines</a></li>
+<li class="level-3"><a href="#settlement-engines-1">Settlement Engines</a></li>
 <li class="level-2"><a href="#motivation">Motivation</a></li>
 <li class="level-2"><a href="#concepts">Concepts</a></li>
 <li class="level-3"><a href="#accounting">Accounting</a></li>

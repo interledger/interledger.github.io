@@ -136,7 +136,7 @@
   4. If the SPSP Client reaches their <code>sendMax</code>, they end the stream and the connection. If the SPSP Server reaches their <code>receiveMax</code>, they will end the stream and the connection. Furthermore, when the SPSP Server has received enough value to fully pay the invoice, it ends the stream and the connection. In both cases, the connection is closed with a <code>NoError</code> code in the <code>ConnectionClose</code> frame.</p>
 <p>The STREAM parameters--<code>sendMax</code> and <code>receiveMax</code>--as well as the <code>ConnectionClose</code> frame are defined in <a href="/rfcs/0029-stream/#53-frames">STREAM's frame encoding</a>.</p>
 <h2 id="specification">Specification</h2>
-<h3 id="query-get-ltspsp-endpointgt">Query (<code>GET &lt;SPSP Endpoint&gt;</code>)</h3>
+<h3 id="query-get-spsp-endpoint">Query (<code>GET &lt;SPSP Endpoint&gt;</code>)</h3>
 <p>The SPSP Client queries the Invoice Payment Pointer to get information about the SPSP Server as well as Invoice specific details:</p>
 <h4 id="request">Request</h4>
 <pre><code class="http">GET /invoice123 HTTP/1.1
@@ -262,7 +262,7 @@ Content-Type: application/spsp4+json
 <li class="level-3"><a href="#creating-an-invoice-payment-pointer">Creating an Invoice Payment Pointer</a></li>
 <li class="level-3"><a href="#conducting-an-invoice-payment">Conducting an Invoice Payment</a></li>
 <li class="level-2"><a href="#specification">Specification</a></li>
-<li class="level-3"><a href="#query-get-ltspsp-endpointgt">Query ( GET &lt;SPSP Endpoint&gt; )</a></li>
+<li class="level-3"><a href="#query-get-spsp-endpoint">Query (GET &lt;SPSP Endpoint&gt;)</a></li>
 
     </ul>
   </div>

@@ -397,7 +397,7 @@ Rejects with <code>TypeError</code> if <code>options.timeout</code> is passed bu
 <p><code>ledgerPlugin.getAccount() ⇒ String</code></p>
 <p>Get the ledger plugin's ILP address. This is given to senders to receive transfers to this account. Plugin must be connected, otherwise the function should throw.</p>
 <p>The mapping from the ILP address to the local ledger address is dependent on the ledger / ledger plugin. An ILP address could be the <code>&lt;ledger prefix&gt;.&lt;account name or number&gt;</code>, or a token could be used in place of the actual account name or number.</p>
-<h6 id="example-return-value_1">Example Return Value</h6>
+<h6 id="example-return-value-1">Example Return Value</h6>
 <p><code>us.fed.some-bank.my-account</code></p>
 <h4 id="getbalance">getBalance</h4>
 <p><code>ledgerPlugin.getBalance() ⇒ Promise.&lt;String&gt;</code></p>
@@ -432,7 +432,7 @@ If the transfer is accepted by the ledger, however, then
 further errors will be in the form of <code>"reject"</code> events.</p>
 <p>All plugins MUST implement zero-amount transfers, but some ledger plugins MAY
 implement zero-amount transfers differently than other transfers.</p>
-<h6 id="parameters_1">Parameters</h6>
+<h6 id="parameters-1">Parameters</h6>
 <table>
 <thead>
 <tr>
@@ -455,7 +455,7 @@ are required.</p>
 <p><strong><code>Promise.&lt;null&gt;</code></strong> A promise which resolves when the transfer has been submitted (but not necessarily accepted.)</p>
 <p>Rejects with <code>InvalidFieldsError</code> if required fields are missing from the transfer or malformed. Rejects with <code>DuplicateIdError</code> if a transfer with
 the given ID and different already exists. Rejects with <code>InsufficientBalanceError</code> if the transfer is rejected due to the source balance being too low. Rejects with <code>AccountNotFoundError</code> if the destination account does not exist. Rejects with <code>NotAcceptedError</code> if the transfer is otherwise rejected by the ledger.</p>
-<h6 id="example_1">Example</h6>
+<h6 id="example-1">Example</h6>
 <pre><code class="js">p.sendTransfer({
   id: 'd86b0299-e2fa-4713-833a-96a6a75271b8',
   to: 'example.ledger.connector',
@@ -471,7 +471,7 @@ the given ID and different already exists. Rejects with <code>InsufficientBalanc
 <p>Plugin must be connected, otherwise the promise should reject. Sends a ledger-local message. Returns a promise for a response message from the other side.
 If there is a problem with the structure or validity of the message, then <code>sendRequest</code> should reject with an error.</p>
 <p>Messaging is used by connectors for <a href="../0008-interledger-quoting-protocol/">quoting</a> and broadcasting routes.</p>
-<h6 id="parameters_2">Parameters</h6>
+<h6 id="parameters-2">Parameters</h6>
 <table>
 <thead>
 <tr>
@@ -489,12 +489,12 @@ If there is a problem with the structure or validity of the message, then <code>
 </tbody>
 </table>
 <p>When sending messages, the <a href="#messageto">to</a> and <a href="#messageilp">ilp</a> fields are required.</p>
-<h6 id="returns_1">Returns</h6>
+<h6 id="returns-1">Returns</h6>
 <p><strong><code>Promise.&lt;<a href="#class-message">Message</a>&gt;</code></strong> A promise which resolves when a response message has been received.</p>
 <p>Rejects with <code>InvalidFieldsError</code> if required fields are missing from the message or malformed.
 Rejects with <code>NotAcceptedError</code> if the message is rejected by the ledger.
 Rejects with <code>NoSubscriptionsError</code> if the message cannot be delivered because there is nobody listening to messages addressed to the given account.</p>
-<h6 id="example_2">Example</h6>
+<h6 id="example-2">Example</h6>
 <pre><code class="js">p.sendRequest({
   to: 'example.ledger.connector',
   ilp: '...base64url-encoded data...',
@@ -715,7 +715,7 @@ left undefined (but not any other false-y value) if unused.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="fields_1">Fields</h3>
+<h3 id="fields-1">Fields</h3>
 <h4 id="transferid">Transfer#id</h4>
 <p><code><strong>id</strong>:String</code></p>
 <p>External unique identifier used by the host.</p>
@@ -759,7 +759,7 @@ left undefined (but not any other false-y value) if unused.</p>
 <p><code><strong>custom</strong>:Object</code></p>
 <p>Optional object that ledger plugins MAY use to accept and/or set additional fields for other features they support. The object MUST be serializable, i.e. only plain JSON types are allowed anywhere in the object or sub-objects.</p>
 <p>If the <code>custom</code> data is too large, the ledger plugin MUST reject with a <code>MaximumCustomDataSizeExceededError</code>.</p>
-<h6 id="example_3">Example</h6>
+<h6 id="example-3">Example</h6>
 <pre><code class="js">{
   id: '94adc29e-26cd-471b-987e-8d41e8773864',
   account: 'example.ledger.bob',
@@ -777,7 +777,7 @@ left undefined (but not any other false-y value) if unused.</p>
 <h2 id="class-message">Class: Message</h2>
 <p><code>class Message</code></p>
 <p>The <code>Message</code> class is used to describe local ledger message. All fields are required.</p>
-<h6 id="fields_2">Fields</h6>
+<h6 id="fields-2">Fields</h6>
 <table>
 <thead>
 <tr>
@@ -840,7 +840,7 @@ Include either this field, or the <code>custom</code> field, or both.</p>
 <p><code><strong>custom</strong>:Object</code></p>
 <p>An optional, arbitrary plain JavaScript object containing additional custom data to be sent. The object MUST be serializable to JSON. Ledger plugins SHOULD treat this data as opaque.</p>
 <p>If the <code>custom</code> data is too large, the ledger plugin MUST reject with a <code>MaximumCustomDataSizeExceededError</code>.</p>
-<h6 id="example_4">Example</h6>
+<h6 id="example-4">Example</h6>
 <pre><code class="js">{
   account: 'example.ledger.bob',
   from: 'example.ledger.alice',
@@ -853,7 +853,7 @@ Include either this field, or the <code>custom</code> field, or both.</p>
 <h2 id="class-ledgerinfo">Class: LedgerInfo</h2>
 <p><code>class LedgerInfo</code></p>
 <p>Metadata describing the ledger. This data is returned by the <a href="#getinfo"><code>getInfo</code></a> method.</p>
-<h6 id="fields_3">Fields</h6>
+<h6 id="fields-3">Fields</h6>
 <table>
 <thead>
 <tr>
@@ -895,7 +895,7 @@ Include either this field, or the <code>custom</code> field, or both.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="fields_4">Fields</h3>
+<h3 id="fields-4">Fields</h3>
 <h4 id="ledgerinfoprefix">LedgerInfo#prefix</h4>
 <p><code><strong>prefix</strong>:String</code></p>
 <p>The ledger plugin's ILP address prefix. This is used to determine whether a given ILP address is local to this ledger plugin and thus can be reached using this plugin's <code>sendTransfer</code> method.</p>
@@ -952,13 +952,13 @@ an underscore, and listed in the table below.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="fields_5">Fields</h3>
+<h3 id="fields-5">Fields</h3>
 <h4 id="pluginoptions_store">PluginOptions#_store</h4>
 <p><code><strong>_store</strong>:Object</code></p>
 <p>Provides callback hooks to the host's persistence layer.</p>
 <p>Persistence MAY be required for internal use by some ledger plugins. For this purpose hosts MAY be configured with a persistence layer.</p>
 <p>Method names are based on the popular LevelUP/LevelDOWN packages.</p>
-<h6 id="example_5">Example</h6>
+<h6 id="example-5">Example</h6>
 <pre><code class="js">{
   // Store a value under a key
   put: (key, value) =&gt; {
@@ -976,7 +976,7 @@ an underscore, and listed in the table below.</p>
 </code></pre>
 <h2 id="class-connectoptions">Class: ConnectOptions</h2>
 <p><code>class ConnectOptions</code></p>
-<h6 id="fields_6">Fields</h6>
+<h6 id="fields-6">Fields</h6>
 <table>
 <thead>
 <tr>
@@ -993,7 +993,7 @@ an underscore, and listed in the table below.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="fields_7">Fields</h3>
+<h3 id="fields-7">Fields</h3>
 <h4 id="connectoptionstimeout">ConnectOptions#timeout</h4>
 <p><code><strong>timeout</strong>:Number</code></p>
 <p>The number of milliseconds that the plugin should spend trying to connect before giving up.</p>
@@ -1001,7 +1001,7 @@ an underscore, and listed in the table below.</p>
 If <code>Infinity</code>, there is no timeout.</p>
 <h2 id="class-rejectionmessage">Class: RejectionMessage</h2>
 <p><code>class RejectionMessage</code></p>
-<h6 id="fields_8">Fields</h6>
+<h6 id="fields-8">Fields</h6>
 <table>
 <thead>
 <tr>
@@ -1063,23 +1063,23 @@ If <code>Infinity</code>, there is no timeout.</p>
 <li class="level-3"><a href="#instance-management">Instance Management</a></li>
 <li class="level-3"><a href="#connection-management">Connection Management</a></li>
 <li class="level-3"><a href="#ledger-transfers">Ledger Transfers</a></li>
-<li class="level-3"><a href="#event-_transfer">Event:  *_transfer</a></li>
-<li class="level-3"><a href="#event-_prepare">Event:  *_prepare</a></li>
-<li class="level-3"><a href="#event-_fulfill">Event:  *_fulfill</a></li>
-<li class="level-3"><a href="#event-_reject">Event:  *_reject</a></li>
-<li class="level-3"><a href="#event-_cancel">Event:  *_cancel</a></li>
-<li class="level-3"><a href="#event-_request">Event:  *_request</a></li>
-<li class="level-3"><a href="#event-_response">Event:  *_response</a></li>
-<li class="level-3"><a href="#event-info_change">Event:  info_change</a></li>
+<li class="level-3"><a href="#event-_transfer">Event: *_transfer</a></li>
+<li class="level-3"><a href="#event-_prepare">Event: *_prepare</a></li>
+<li class="level-3"><a href="#event-_fulfill">Event: *_fulfill</a></li>
+<li class="level-3"><a href="#event-_reject">Event: *_reject</a></li>
+<li class="level-3"><a href="#event-_cancel">Event: *_cancel</a></li>
+<li class="level-3"><a href="#event-_request">Event: *_request</a></li>
+<li class="level-3"><a href="#event-_response">Event: *_response</a></li>
+<li class="level-3"><a href="#event-info_change">Event: info_change</a></li>
 <li class="level-2"><a href="#class-transfer">Class: Transfer</a></li>
-<li class="level-3"><a href="#fields_1">Fields</a></li>
+<li class="level-3"><a href="#fields-1">Fields</a></li>
 <li class="level-2"><a href="#class-message">Class: Message</a></li>
 <li class="level-2"><a href="#class-ledgerinfo">Class: LedgerInfo</a></li>
-<li class="level-3"><a href="#fields_4">Fields</a></li>
+<li class="level-3"><a href="#fields-4">Fields</a></li>
 <li class="level-2"><a href="#class-pluginoptions">Class: PluginOptions</a></li>
-<li class="level-3"><a href="#fields_5">Fields</a></li>
+<li class="level-3"><a href="#fields-5">Fields</a></li>
 <li class="level-2"><a href="#class-connectoptions">Class: ConnectOptions</a></li>
-<li class="level-3"><a href="#fields_7">Fields</a></li>
+<li class="level-3"><a href="#fields-7">Fields</a></li>
 <li class="level-2"><a href="#class-rejectionmessage">Class: RejectionMessage</a></li>
 
     </ul>
