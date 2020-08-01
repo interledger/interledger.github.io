@@ -275,7 +275,7 @@ Rejects with <code>TypeError</code> if <code>options.timeout</code> is passed bu
 <h4 id="ledgerpluginsenddata">LedgerPlugin#sendData</h4>
 <p><code>ledgerPlugin.sendData( <strong>data</strong>:Buffer ) ⇒ Promise.&lt;Buffer&gt;</code></p>
 <p>Sends data to the counterparty of the account and returns a response asynchronously. Request data is passed in as a <code>Buffer</code> and response data is returned as a <code>Buffer</code>.</p>
-<h6 id="parameters-1">Parameters</h6>
+<h6 id="parameters_1">Parameters</h6>
 <table>
 <thead>
 <tr>
@@ -295,7 +295,7 @@ Rejects with <code>TypeError</code> if <code>options.timeout</code> is passed bu
 <h6 id="returns">Returns</h6>
 <p><strong><code>Promise.&lt;Buffer&gt;</code></strong> A promise which resolves when the response has been received.</p>
 <p>This method MAY reject with any arbitrary JavaScript error.</p>
-<h6 id="example-1">Example</h6>
+<h6 id="example_1">Example</h6>
 <pre><code class="js">const responseBuffer = await p.sendData(requestBuffer)
 </code></pre>
 <h4 id="ledgerpluginsendmoney">LedgerPlugin#sendMoney</h4>
@@ -354,7 +354,7 @@ MAY vary based on the host environment or none MAY be available at all.</p>
 <p>Provides callback hooks to the host's persistence layer.</p>
 <p>Most plugins SHOULD work (possibly with higher trust or degraded experience) without a <code>store</code>. However, if a plugin is not able to function without a store and none is provided, the constructor MUST throw an <code>InvalidServicesError</code>.</p>
 <p>Method names are based on the popular LevelUP/LevelDOWN packages.</p>
-<h6 id="example-2">Example</h6>
+<h6 id="example_2">Example</h6>
 <pre><code class="js">{
   // Store a value under a key
   put: (key, value) =&gt; {
@@ -410,7 +410,7 @@ MAY vary based on the host environment or none MAY be available at all.</p>
 </tbody>
 </table>
 <p>Log messages MUST NOT contain private keys or other credentials.</p>
-<h6 id="example-3">Example</h6>
+<h6 id="example_3">Example</h6>
 <pre><code class="js">{
   // Extremely verbose debug information
   debug: (message, ...params) =&gt; { }
@@ -424,7 +424,7 @@ MAY vary based on the host environment or none MAY be available at all.</p>
 </code></pre>
 <h2 id="class-connectoptions">Class: ConnectOptions</h2>
 <p><code>class ConnectOptions</code></p>
-<h6 id="fields-1">Fields</h6>
+<h6 id="fields_1">Fields</h6>
 <table>
 <thead>
 <tr>
@@ -441,7 +441,7 @@ MAY vary based on the host environment or none MAY be available at all.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="fields-2">Fields</h3>
+<h3 id="fields_2">Fields</h3>
 <h4 id="connectoptionstimeout">ConnectOptions#timeout</h4>
 <p><code><strong>timeout</strong>:Number</code></p>
 <p>The number of milliseconds that the plugin should spend trying to connect before giving up.</p>
@@ -474,7 +474,7 @@ InvalidFieldsError.prototype = Error.prototype
 <li class="level-2"><a href="#class-pluginservices">Class: PluginServices</a></li>
 <li class="level-3"><a href="#fields">Fields</a></li>
 <li class="level-2"><a href="#class-connectoptions">Class: ConnectOptions</a></li>
-<li class="level-3"><a href="#fields-2">Fields</a></li>
+<li class="level-3"><a href="#fields_2">Fields</a></li>
 <li class="level-2"><a href="#errors">Errors</a></li>
 
     </ul>

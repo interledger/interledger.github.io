@@ -171,7 +171,7 @@
 <li>Sender gets the ILP Fulfill packet and decrypts the PSK Response from the data. They SHOULD ignore the Response if the Request ID does not match their original request or if the PSK packet is not a Response type. They may use the Request Amount from the Response to estimate the path exchange rate. They may also use the data in the PSK Response from the receiver.</li>
 </ol>
 <h2 id="specification">Specification</h2>
-<h3 id="encryption-1">Encryption</h3>
+<h3 id="encryption_1">Encryption</h3>
 <p>Request and response data are encrypted using <a class="external-link" href="https://en.wikipedia.org/wiki/Galois/Counter_Mode" target="_blank">AES-256-GCM <i aria-hidden="true" class="fa fa-external-link"></i></a> with a random 12-byte Initialization Vector (IV) and a 16-byte Authentication Tag.</p>
 <h4 id="encryption-envelope">Encryption Envelope</h4>
 <p>Also see the <a href="/rfcs/asn1/PreSharedKeyV2.asn.html">ASN.1 definition</a>.</p>
@@ -395,7 +395,7 @@ fulfillment = hmac_sha256(hmac_key, data)
 <li class="level-3"><a href="#informational-quote">Informational Quote</a></li>
 <li class="level-3"><a href="#single-payment">Single Payment</a></li>
 <li class="level-2"><a href="#specification">Specification</a></li>
-<li class="level-3"><a href="#encryption-1">Encryption</a></li>
+<li class="level-3"><a href="#encryption_1">Encryption</a></li>
 <li class="level-3"><a href="#data-packet">Data Packet</a></li>
 <li class="level-3"><a href="#condition-and-fulfillment-generation">Condition and Fulfillment Generation</a></li>
 

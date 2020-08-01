@@ -137,7 +137,7 @@ Content-Type: application/json
 true
 </code></pre>
 <h3 id="send-request-ilqp">Send Request (ILQP)</h3>
-<h4 id="request-1">Request</h4>
+<h4 id="request_1">Request</h4>
 <pre><code class="http">POST /rpc/?method=send_request&amp;prefix=peer.me HTTP/1.1
 Host: rpchost
 Accept: application/json
@@ -152,7 +152,7 @@ Authorization: Bearer ABCXYZ
   }
 ]
 </code></pre>
-<h4 id="response-1">Response</h4>
+<h4 id="response_1">Response</h4>
 <pre><code class="http">HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -163,7 +163,7 @@ Content-Type: application/json
 }
 </code></pre>
 <h3 id="send-request-routing">Send Request (Routing)</h3>
-<h4 id="request-2">Request</h4>
+<h4 id="request_2">Request</h4>
 <pre><code class="http">POST /rpc/?method=send_request&amp;prefix=peer.me HTTP/1.1
 Host: rpchost
 Accept: application/json
@@ -193,7 +193,7 @@ Authorization: Bearer ABCXYZ
   }
 ]
 </code></pre>
-<h4 id="response-2">Response</h4>
+<h4 id="response_2">Response</h4>
 <pre><code class="http">HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -204,7 +204,7 @@ Content-Type: application/json
 }
 </code></pre>
 <h3 id="fulfill-condition">Fulfill Condition</h3>
-<h4 id="request-3">Request</h4>
+<h4 id="request_3">Request</h4>
 <pre><code class="http">POST /rpc/?method=fulfill_condition&amp;prefix=peer.me HTTP/1.1
 Host: rpchost
 Accept: application/json
@@ -216,14 +216,14 @@ Authorization: Bearer ABCXYZ
   "yMy5Sy5dTjQASrNjS0SywjbwH9nQaiFMWJv1QD3Q_VE"
 ]
 </code></pre>
-<h4 id="response-3">Response</h4>
+<h4 id="response_3">Response</h4>
 <pre><code class="http">HTTP/1.1 200 OK
 Content-Type: application/json
 
 true
 </code></pre>
 <h3 id="reject-incoming-transfer">Reject Incoming Transfer</h3>
-<h4 id="request-4">Request</h4>
+<h4 id="request_4">Request</h4>
 <pre><code class="http">POST /rpc/?method=reject_incoming_transfer&amp;prefix=peer.me HTTP/1.1
 Host: rpchost
 Accept: application/json
@@ -234,14 +234,14 @@ Authorization: Bearer ABCXYZ
   "0e798bd6-213b-4b2f-bc1c-040788e7bae5"
 ]
 </code></pre>
-<h4 id="response-4">Response</h4>
+<h4 id="response_4">Response</h4>
 <pre><code class="http">HTTP/1.1 200 OK
 Content-Type: application/json
 
 true
 </code></pre>
 <h3 id="get-limit">Get Limit</h3>
-<h4 id="request-5">Request</h4>
+<h4 id="request_5">Request</h4>
 <pre><code class="http">POST /rpc/?method=get_limit&amp;prefix=peer.me HTTP/1.1
 Host: rpchost
 Accept: application/json
@@ -250,14 +250,14 @@ Authorization: Bearer ABCXYZ
 
 []
 </code></pre>
-<h4 id="response-5">Response</h4>
+<h4 id="response_5">Response</h4>
 <pre><code class="http">HTTP/1.1 200 OK
 Content-Type: application/json
 
 "-5000000000"
 </code></pre>
 <h3 id="get-balance">Get Balance</h3>
-<h4 id="request-6">Request</h4>
+<h4 id="request_6">Request</h4>
 <pre><code class="http">POST /rpc/?method=get_balance&amp;prefix=peer.me HTTP/1.1
 Host: rpchost
 Accept: application/json
@@ -266,7 +266,7 @@ Authorization: Bearer ABCXYZ
 
 []
 </code></pre>
-<h4 id="response-6">Response</h4>
+<h4 id="response_6">Response</h4>
 <pre><code class="http">HTTP/1.1 200 OK
 Content-Type: application/json
 

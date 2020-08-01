@@ -140,7 +140,7 @@
 <p>The STREAM parameters - <code>sendMax</code> and <code>receiveMax</code> - are defined in <a href="/rfcs/0029-stream/#53-frames">STREAM's frame encoding</a>.</p>
 <p>Note that if there are multiple open streams (via one or more STREAM connections) to the <code>destination_account</code> the Pull Payment Pointer is resolving to, the SPSP Server MUST only set one <code>sendMax</code> at a time.</p>
 <h2 id="specification">Specification</h2>
-<h3 id="query-get-spsp-endpoint">Query (<code>GET &lt;SPSP Endpoint&gt;</code>)</h3>
+<h3 id="query-get-ltspsp-endpointgt">Query (<code>GET &lt;SPSP Endpoint&gt;</code>)</h3>
 <p>The SPSP Client queries the SPSP Endpoint to get information about the SPSP Server:</p>
 <h4 id="request">Request</h4>
 <pre><code class="http">GET /0f09dc92-84ad-401b-a7c9-441bc6173f4e HTTP/1.1
@@ -312,7 +312,7 @@ Content-Type: application/spsp4+json
 <li class="level-3"><a href="#negotiating-the-pull-payment-agreement">Negotiating the Pull Payment Agreement</a></li>
 <li class="level-3"><a href="#conducting-the-pull-payment">Conducting the Pull Payment</a></li>
 <li class="level-2"><a href="#specification">Specification</a></li>
-<li class="level-3"><a href="#query-get-spsp-endpoint">Query (GET &lt;SPSP Endpoint&gt;)</a></li>
+<li class="level-3"><a href="#query-get-ltspsp-endpointgt">Query ( GET &lt;SPSP Endpoint&gt; )</a></li>
 
     </ul>
   </div>

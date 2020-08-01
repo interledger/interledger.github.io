@@ -650,7 +650,7 @@
 <p>An unconditional transfer executes automatically as soon as all debits are authorized. A conditional transfer holds the debited funds until it is executed by the <a href="#submit-fulfillment">Submit Fulfillment</a> method or it is rejected. See <a href="#transfer-states">Transfer States</a> for more information.</p>
 <p>A ledger SHOULD reject a request to create a <code>proposed</code> transfer, unless the client is authenticated as one of the accounts in the <code>debits</code> or <code>credits</code> of the transfer, or the client is authenticated as an administrator.</p>
 <p><strong>Authorization:</strong> The owner of an account MUST be able to prepare a conditional transfer that debits the account. Non-administrators MUST NOT be able to prepare a transfer that debits a different account. A ledger MAY disallow non-administrators from preparing unconditional transfers.</p>
-<h4 id="request-format-1">Request Format</h4>
+<h4 id="request-format_1">Request Format</h4>
 <pre><code>PUT /transfers/{id}
 </code></pre>
 <p><strong><a href="#urls">Metadata URL Name</a>:</strong> <code>transfer</code></p>
@@ -707,9 +707,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="response-format-1">Response Format</h4>
+<h4 id="response-format_1">Response Format</h4>
 <p>A successful result uses the HTTP response code <strong>200 OK</strong> and contains a JSON body with the <a href="#transfer-resource">Transfer resource</a> as saved.</p>
-<h4 id="example-1">Example</h4>
+<h4 id="example_1">Example</h4>
 <p>Request:</p>
 <pre><code class="json">PUT /transfers/3a2a1d9e-8640-4d2d-b06c-84f2cd613204
 Content-Type: application/json
@@ -753,7 +753,7 @@ Content-Type: application/json
   }
 }
 </code></pre>
-<h4 id="errors-1">Errors</h4>
+<h4 id="errors_1">Errors</h4>
 <ul>
 <li><a href="#insufficientfundserror">InsufficientFundsError</a> - A debited account would go below its <code>minimum_allowed_balance</code> if this transfer were executed</li>
 <li><a href="#unprocessableentityerror">UnprocessableEntityError</a> - The request is formatted properly but contains an otherwise-unspecified semantic problem.</li>
@@ -767,17 +767,17 @@ Content-Type: application/json
 <p>To execute a transfer, the transfer MUST begin in the <code>prepared</code> state and the submitted fulfillment must satisfy the <a href="#crypto-conditions">Crypto-Condition</a> in the transfer's <code>execution_condition</code> field. Doing so transitions the transaction to <code>executed</code>.</p>
 <p>To cancel a transfer, the submitted fulfillment must satisfy the <a href="#crypto-conditions">Crypto-Condition</a> in the transfer's <code>cancellation_condition</code> field. Doing so transitions the transaction to <code>rejected</code>.</p>
 <p><strong>Authorization:</strong> The owner of an account MUST be able to submit the fulfillment for a transfer that credits the account. A ledger MAY allow other account owners or unauthorized clients to submit a fulfillment.</p>
-<h4 id="request-format-2">Request Format</h4>
+<h4 id="request-format_2">Request Format</h4>
 <pre><code>PUT /transfers/{id}/fulfillment
 Content-Type: text/plain
 </code></pre>
 <p><strong>Caution:</strong> This method requires the request to specify the header <code>Content-Type: text/plain</code></p>
 <p><strong><a href="#urls">Metadata URL Name</a>:</strong> <code>transfer_fulfillment</code>.</p>
-<h5 id="body-parameters-1">Body Parameters</h5>
+<h5 id="body-parameters_1">Body Parameters</h5>
 <p>The message body should be a <a href="#crypto-conditions">Crypto-Condition Fulfillment</a> in string format.</p>
-<h4 id="response-format-2">Response Format</h4>
+<h4 id="response-format_2">Response Format</h4>
 <p>A successful result uses the HTTP response code <strong>201 Created</strong> ONLY if the fulfillment was executed or canceled as a result of this request. This method returns <strong>200 OK</strong> if the fulfillment matched a condition, but the transfer had already been executed or canceled before processing this request. The message body of the response is the submitted fulfillment as plain text.</p>
-<h4 id="example-2">Example</h4>
+<h4 id="example_2">Example</h4>
 <p>Request:</p>
 <pre><code>PUT /transfers/3a2a1d9e-8640-4d2d-b06c-84f2cd613204/fulfillment
 Content-Type: text/plain
@@ -789,7 +789,7 @@ oA6ADEhlbGxvIFdvcmxkIQ
 
 oA6ADEhlbGxvIFdvcmxkIQ
 </code></pre>
-<h4 id="errors-2">Errors</h4>
+<h4 id="errors_2">Errors</h4>
 <ul>
 <li><a href="#notfounderror">NotFoundError</a> - The transfer does not exist.</li>
 <li><a href="#unmetconditionerror">UnmetConditionError</a> - The fulfillment does not match the condition.</li>
@@ -801,7 +801,7 @@ oA6ADEhlbGxvIFdvcmxkIQ
 <h3 id="reject-transfer">Reject Transfer</h3>
 <p>Reject a prepared transfer. A transfer can be rejected if and only if that transfer is in the <code>prepared</code> state. Doing so transitions the transfer to the <code>rejected</code> state.</p>
 <p><strong>Authorization:</strong> Accounts from the <code>credits</code> field of a transfer MUST be able to reject the transfer. Any other non-admin user MUST NOT be able to reject the transfer.</p>
-<h4 id="request-format-3">Request Format</h4>
+<h4 id="request-format_3">Request Format</h4>
 <pre><code>PUT /transfers/{id}/rejection
 Content-Type: text/plain
 
@@ -809,11 +809,11 @@ your rejection reason here
 </code></pre>
 <p><strong><a href="#urls">Metadata URL Name</a>:</strong> <code>transfer_rejection</code>.</p>
 <p>This request MUST use the header <code>Content-Type: text/plain</code>.</p>
-<h5 id="body-parameters-2">Body Parameters</h5>
+<h5 id="body-parameters_2">Body Parameters</h5>
 <p>The message body contains the rejection reason as plain text. The rejection reason is an arbitrary string that is intended to be a machine-readable identifier indicating the reason for the transfer's rejection. This string should be no more than 2KB or 512 UTF-8 characters.</p>
-<h4 id="response-format-3">Response Format</h4>
+<h4 id="response-format_3">Response Format</h4>
 <p>A successful result uses the HTTP response code <strong>200 OK</strong> and contains a JSON object containing the updated <a href="#transfer-resource">Transfer resource</a> containing the rejection reason.</p>
-<h4 id="example-3">Example</h4>
+<h4 id="example_3">Example</h4>
 <p>Request:</p>
 <pre><code class="json">PUT /transfers/3a2a1d9e-8640-4d2d-b06c-84f2cd613204/rejection
 Content-Type: text/plain
@@ -846,7 +846,7 @@ BlacklistedSender
   "rejection_reason": "BlacklistedSender"
 }
 </code></pre>
-<h4 id="errors-3">Errors</h4>
+<h4 id="errors_3">Errors</h4>
 <ul>
 <li><a href="#notfounderror">NotFoundError</a> - The transfer does not exist.</li>
 <li><a href="#unprocessableentityerror">UnprocessableEntityError</a> - The request is formatted properly but contains an otherwise-unspecified semantic problem. This includes cases where the transfer has already been executed or rejected.</li>
@@ -856,13 +856,13 @@ BlacklistedSender
 <h3 id="get-transfer">Get Transfer</h3>
 <p>Check the details or status of a local transfer.</p>
 <p><strong>Authorization:</strong> The accounts from the <code>credits</code> and <code>debits</code> field of a transfer MUST be able to get that transfer. A ledger MAY allow other account owners or unauthorized clients to get a transfer.</p>
-<h4 id="request-format-4">Request Format</h4>
+<h4 id="request-format_4">Request Format</h4>
 <pre><code>GET /transfers/{id}
 </code></pre>
 <p><strong><a href="#urls">Metadata URL Name</a>:</strong> <code>transfer</code>. Suggested generic path: <code>/transfers/{id}</code></p>
-<h4 id="response-format-4">Response Format</h4>
+<h4 id="response-format_4">Response Format</h4>
 <p>A successful result uses the HTTP response code <strong>200 OK</strong> and contains a JSON body with the requested <a href="#transfer-resource">Transfer resource</a>.</p>
-<h4 id="example-4">Example</h4>
+<h4 id="example_4">Example</h4>
 <p>Request:</p>
 <pre><code>GET /transfers/63a61fa9-fca2-4779-9d50-49dc691b8fbf
 </code></pre>
@@ -892,7 +892,7 @@ BlacklistedSender
   "rejection_reason": "BlacklistedSender"
 }
 </code></pre>
-<h4 id="errors-4">Errors</h4>
+<h4 id="errors_4">Errors</h4>
 <ul>
 <li><a href="#notfounderror">NotFoundError</a> - No transfer with a matching ID was found.</li>
 <li><a href="#invaliduriparametererror">InvalidUriParameterError</a> - The transfer ID from the request was not a valid <a class="external-link" href="http://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank">UUID <i aria-hidden="true" class="fa fa-external-link"></i></a>.</li>
@@ -900,11 +900,11 @@ BlacklistedSender
 <h3 id="get-transfer-fulfillment">Get Transfer Fulfillment</h3>
 <p>Retrieve the fulfillment for a transfer that has been executed or rejected. This is separate from the <a href="#transfer-resource">Transfer resource</a> because it can be very large.</p>
 <p><strong>Authorization:</strong> The ledger MUST allow account owners from the account's <code>debits</code> and <code>credits</code> to get the transfer's fulfillment. A ledger MAY allow other account owners or unauthorized users to get a transfer's fulfillment.</p>
-<h4 id="request-format-5">Request Format</h4>
+<h4 id="request-format_5">Request Format</h4>
 <pre><code>GET /transfers/{id}/fulfillment
 </code></pre>
 <p><strong><a href="#urls">Metadata URL Name</a>:</strong> <code>transfer_fulfillment</code>.</p>
-<h5 id="url-parameters-1">URL Parameters</h5>
+<h5 id="url-parameters_1">URL Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -921,9 +921,9 @@ BlacklistedSender
 </tr>
 </tbody>
 </table>
-<h4 id="response-format-5">Response Format</h4>
+<h4 id="response-format_5">Response Format</h4>
 <p>A successful result uses the HTTP response code <strong>200 OK</strong> and the header <code>Content-Type: text/plain</code>. The body contains the Transfer's <a href="#crypto-conditions">Crypto-Condition Fulfillment</a> in text format.</p>
-<h4 id="example-5">Example</h4>
+<h4 id="example_5">Example</h4>
 <p>Request:</p>
 <pre><code>GET /transfers/3a2a1d9e-8640-4d2d-b06c-84f2cd613204/fulfillment
 </code></pre>
@@ -933,7 +933,7 @@ Content-Type: text/plain
 
 oA6ADEhlbGxvIFdvcmxkIQ
 </code></pre>
-<h4 id="errors-5">Errors</h4>
+<h4 id="errors_5">Errors</h4>
 <ul>
 <li><a href="#notfounderror">NotFoundError</a> - The specified transfer does not exist,</li>
 <li><a href="#invaliduriparametererror">InvalidUriParameterError</a></li>
@@ -941,13 +941,13 @@ oA6ADEhlbGxvIFdvcmxkIQ
 <h3 id="get-account">Get Account</h3>
 <p>Get an account resource.</p>
 <p><strong>Authorization:</strong> The owner of an account MUST be able to get the account resource. A ledger MAY allow other account owners or unauthorized users to get other account resources. A ledger MAY return a subset of fields when it returns an account resource to any client other than the account owner (for example, omitting the balance).</p>
-<h4 id="request-format-6">Request Format</h4>
+<h4 id="request-format_6">Request Format</h4>
 <pre><code>GET /accounts/{name}
 </code></pre>
 <p><strong><a href="#urls">Metadata URL Name</a>:</strong> <code>account</code>.</p>
-<h4 id="response-format-6">Response Format</h4>
+<h4 id="response-format_6">Response Format</h4>
 <p>A successful response uses the HTTP response code <strong>200 OK</strong> and contains the <a href="#account-resource">Account resource</a> in JSON format.</p>
-<h4 id="example-6">Example</h4>
+<h4 id="example_6">Example</h4>
 <p>Request:</p>
 <pre><code>GET /accounts/bob
 </code></pre>
@@ -964,7 +964,7 @@ Content-Type: application/json
   "minimum_allowed_balance": "-infinity"
 }
 </code></pre>
-<h4 id="errors-6">Errors</h4>
+<h4 id="errors_6">Errors</h4>
 <ul>
 <li><a href="#notfounderror">NotFoundError</a></li>
 <li><a href="#invaliduriparametererror">InvalidUriParameterError</a></li>
@@ -972,11 +972,11 @@ Content-Type: application/json
 <h3 id="create-or-update-account">Create or Update Account</h3>
 <p>Update an account in the ledger.</p>
 <p><strong>Authorization:</strong> The owner of an account MUST be able to update the account, except for specific fields. An administrator MAY be able to update any fields of any account.</p>
-<h4 id="request-format-7">Request Format</h4>
+<h4 id="request-format_7">Request Format</h4>
 <pre><code>PUT /accounts/{name}
 </code></pre>
 <p><strong><a href="#urls">Metadata URL Name</a>:</strong> <code>account</code>.</p>
-<h5 id="url-parameters-2">URL Parameters</h5>
+<h5 id="url-parameters_2">URL Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -995,9 +995,9 @@ Content-Type: application/json
 </table>
 <h5 id="request-body">Request Body</h5>
 <p>The request is an <a href="#account-resource">Account Resource</a>. Any omitted fields are left unchanged.</p>
-<h4 id="response-format-7">Response Format</h4>
+<h4 id="response-format_7">Response Format</h4>
 <p>A successful response uses the HTTP status code <strong>200 OK</strong> and contains a JSON object with the <a href="#account-resource">Account Resource</a> as saved.</p>
-<h4 id="example-7">Example</h4>
+<h4 id="example_7">Example</h4>
 <p>Request:</p>
 <pre><code>PUT /accounts/bob
 Content-Type: application/json
@@ -1020,7 +1020,7 @@ Content-Type: application/json
   "fingerprint": "88:90:3a:e7:e5:1c:c4:51:05:4b:0c:2b:3f:41:df:bf:0c:21:f3:78"
 }
 </code></pre>
-<h4 id="errors-7">Errors</h4>
+<h4 id="errors_7">Errors</h4>
 <ul>
 <li><a href="#invalidbodyerror">InvalidBodyError</a> - The request was not valid JSON, or did not match the schema for the request.</li>
 <li><a href="#invaliduriparametererror">InvalidUriParameterError</a> - One of the URLs, URIs, or UUIDs in the body is not validly formatted.</li>
@@ -1030,14 +1030,14 @@ Content-Type: application/json
 <h3 id="send-message">Send Message</h3>
 <p>Try to send a notification to another account. The message is only delivered if the other account is subscribed to <a href="#subscribe-to-account">account notifications</a> on a WebSocket connection. ILP Clients and ILP Connectors use this method to request and send quotes.</p>
 <p><strong>Authorization:</strong> The <code>from</code> field of the message MUST match the account owner. Unauthenticated users MUST NOT be able to send messages. A ledger MAY allow admin connections to send messages whose <code>from</code> value matches the ledger's base <a href="#urls">URL</a>.</p>
-<h4 id="request-format-8">Request Format</h4>
+<h4 id="request-format_8">Request Format</h4>
 <pre><code>POST /messages
 </code></pre>
 <p><strong><a href="#urls">Metadata URL Name</a>:</strong> <code>message</code>.</p>
 <p>The request body contains a [Message object][] as JSON.</p>
-<h4 id="response-format-8">Response Format</h4>
+<h4 id="response-format_8">Response Format</h4>
 <p>A successful response uses the HTTP response code <strong>201 Created</strong> and contains no message body or an empty message body.</p>
-<h4 id="example-8">Example</h4>
+<h4 id="example_8">Example</h4>
 <p>Request:</p>
 <pre><code class="json">POST /messages
 Content-Type: application/json
@@ -1061,7 +1061,7 @@ Content-Type: application/json
 <p>Response:</p>
 <pre><code>HTTP/1.1 204 No Content
 </code></pre>
-<h4 id="errors-8">Errors</h4>
+<h4 id="errors_8">Errors</h4>
 <ul>
 <li><a href="#invalidbodyerror">InvalidBodyError</a> - The request was not valid JSON, or did not match the schema for the request.</li>
 <li><a href="#invaliduriparametererror">InvalidUriParameterError</a> - One of the URLs, URIs, or UUIDs in the body is not validly formatted.</li>
@@ -1070,14 +1070,14 @@ Content-Type: application/json
 <h3 id="get-auth-token">Get Auth Token</h3>
 <p>Get a token that can be used to authenticate future requests.</p>
 <p><strong>Note:</strong> This method is REQUIRED for ledgers to authenticate <a href="#websocket">WebSocket</a> connections. If the ledger does not authenticate WebSocket connections, this method is OPTIONAL. The ledger MAY allow clients to authenticate for any other methods of the API using the tokens returned by this method.</p>
-<h4 id="request-format-9">Request Format</h4>
+<h4 id="request-format_9">Request Format</h4>
 <pre><code>GET /auth_token
 </code></pre>
 <p>Depending on the <a href="#authorization-and-authentication">authentication mechanism</a> used by this ledger, the ledger MAY require the HTTP <code>Auth</code> header with a valid username and password, or the ledger may require a different method of authentication.</p>
 <p><strong><a href="#urls">Metadata URL Name</a>:</strong> <code>auth_token</code>.</p>
-<h4 id="response-format-9">Response Format</h4>
+<h4 id="response-format_9">Response Format</h4>
 <p>A successful response uses the HTTP response code <strong>200 OK</strong> and contains a JSON object with a token that can be used for subsequent requests. The ledger can generate the token with <a class="external-link" href="https://jwt.io/" target="_blank">JWT <i aria-hidden="true" class="fa fa-external-link"></i></a> or any similar system.</p>
-<h4 id="example-9">Example</h4>
+<h4 id="example_9">Example</h4>
 <p>Request:</p>
 <pre><code>GET /auth_token
 Authorization: Basic myUsername:securePassphrase
@@ -1090,7 +1090,7 @@ Content-Type: application/json
   "token": "9AtVZPN3t49Kx07stO813UHXv6pcES"
 }
 </code></pre>
-<h4 id="errors-9">Errors</h4>
+<h4 id="errors_9">Errors</h4>
 <ul>
 <li><a href="#unauthorized">Unauthorized</a></li>
 <li><a href="#forbidden">Forbidden</a></li>
@@ -1263,7 +1263,7 @@ Upgrade: websocket
 </tr>
 </tbody>
 </table>
-<h5 id="response-1">Response</h5>
+<h5 id="response_1">Response</h5>
 <p>The ledger acknowledges the request immediately by sending a JSON object with the following fields:</p>
 <table>
 <thead>

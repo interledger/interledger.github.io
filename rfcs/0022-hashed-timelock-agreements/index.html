@@ -129,7 +129,7 @@
 <p>When the transfer is "prepared", the sender's funds are put on hold by the ledger, pending the fulfillment of a predefined condition. The condition is a hashlock, or the digest of a cryptographic hash function, such as SHA-256 in Lightning and Interledger. The "contract" stipulates that the recipient may claim the funds by presenting a valid preimage of the hash digest before a given timeout. After the timeout, the funds are automatically returned to the sender. This is the Hashed-Timelock Contract.</p>
 <p>HTLCs are enforced by the ledger, so the parties transacting only need to trust the ledger to correctly execute the contract. However, this mechanism requires support from the ledger and only works with ledgers that implement hashlocks and timeouts.</p>
 <p>Interledger is designed to work with all ledgers, so it must support both ledgers with and without support for hashlocks and timeouts.</p>
-<h2 id="hashed-timelock-agreements-htlas-1">Hashed-Timelock Agreements (HTLAs)</h2>
+<h2 id="hashed-timelock-agreements-htlas_1">Hashed-Timelock Agreements (HTLAs)</h2>
 <p>A contract is a certain type of agreement that is enforced by a third party. Hashed-Timelock Agreements (HTLAs) generalize the idea of HTLCs to include agreements that are enforced by a ledger. The principle has been in use in Interledger since the project was started but the HTLA term was proposed more recently in <a class="external-link" href="https://lists.w3.org/Archives/Public/public-interledger/2017Jun/0009.html" target="_blank">this thread on the Interledger mailing list <i aria-hidden="true" class="fa fa-external-link"></i></a>.</p>
 <p>HTLAs enable secure Interledger payments through all types of ledgers, including those that do not support conditional transfers.</p>
 <h2 id="htlas-without-ledger-support">HTLAs Without Ledger Support</h2>
@@ -265,7 +265,7 @@ Alice --(Blockchain A)--&gt; Connector 1 --(Blockchain B)--&gt; Connector 2 --(B
       <li class="level-1"><a href="#hashed-timelock-agreements-htlas">Hashed-Timelock Agreements (HTLAs)</a></li>
 <li class="level-2"><a href="#table-of-contents">Table of Contents</a></li>
 <li class="level-2"><a href="#background-on-hashed-timelock-contracts-htlcs">Background on Hashed-Timelock Contracts (HTLCs)</a></li>
-<li class="level-2"><a href="#hashed-timelock-agreements-htlas-1">Hashed-Timelock Agreements (HTLAs)</a></li>
+<li class="level-2"><a href="#hashed-timelock-agreements-htlas_1">Hashed-Timelock Agreements (HTLAs)</a></li>
 <li class="level-2"><a href="#htlas-without-ledger-support">HTLAs Without Ledger Support</a></li>
 <li class="level-2"><a href="#interledger-across-diverse-htlas">Interledger Across Diverse HTLAs</a></li>
 <li class="level-3"><a href="#example-payment-flow">Example Payment Flow</a></li>

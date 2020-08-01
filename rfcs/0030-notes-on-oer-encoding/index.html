@@ -290,7 +290,7 @@ for the specification of abstract data types.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="examples-1">Examples</h4>
+<h4 id="examples_1">Examples</h4>
 <table>
 <thead>
 <tr>
@@ -443,7 +443,7 @@ for the specification of abstract data types.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="examples-2">Examples</h4>
+<h4 id="examples_2">Examples</h4>
 <table>
 <thead>
 <tr>
@@ -480,7 +480,7 @@ for the specification of abstract data types.</p>
 <h4 id="long-form">Long form</h4>
 <p>A single byte in the range 128 .. 255, denoting the value <em>128 + n</em>, where <em>n</em> is the length-of-length. This is followed by an unsigned integer of <em>n</em> bytes denoting the length. This length MUST NOT contain leading zeros. If the length is less than 127, the short form encoding MUST be used.</p>
 <p>Implementations MAY limit the length determinants they support to a length-of-length of no more than eight bytes. Interledger protocols MUST NOT use length determinants greater than <code>18446744073709551615 (2^64 - 1)</code>.</p>
-<h4 id="examples-3">Examples</h4>
+<h4 id="examples_3">Examples</h4>
 <table>
 <thead>
 <tr>
@@ -582,7 +582,7 @@ Leap seconds MUST be smeared across the entirety of a day according to <a class=
 <li><code>20171225000000000</code> -&gt; <code>2017-12-25T00:00:00.000Z</code> (correct representation of midnight)</li>
 <li><code>99991224161432279</code> -&gt; <code>9999-12-24T16:14:32.279Z</code> (year 9999 is valid)</li>
 </ul>
-<h4 id="examples-4">Examples</h4>
+<h4 id="examples_4">Examples</h4>
 <p>When encoded in binary, the shortened date string is encoded as a <a href="#fixed-length-string">fixed-length string</a>.</p>
 <table>
 <thead>
@@ -611,7 +611,7 @@ Leap seconds MUST be smeared across the entirety of a day according to <a class=
 <p>Used in: BTP</p>
 </blockquote>
 <p>Timestamps are encoded using ASN.1 GeneralizedTime. This is a shortened and slightly restricted variant of ISO 8601 encoding. Once the date string is derived it is encoded as a variable-length string.</p>
-<h4 id="encoding-1">Encoding</h4>
+<h4 id="encoding_1">Encoding</h4>
 <p>When encoding an ISO 8601 timestamp, the hyphens, colons and <code>T</code> character MUST be removed. The date MUST end in <code>Z</code>, denoting UTC time, local timezones are not allowed. Timestamps MAY use up to millisecond precision. The period <code>.</code> MUST be used as the decimal separator. If the millisecond part is zero, it MUST be left out. Trailing zeros in the millisecond part MUST be left out. Years MUST be given as four digits and MUST NOT be left out. Months, day, hours, minutes and seconds MUST be given as two digits and MUST NOT be left out. Midnight MUST be encoded as <code>000000</code> on the following day. Leap seconds MUST be encoded using <code>60</code> as the value for seconds.</p>
 <p>Here is how to encode certain dates:</p>
 <ul>
@@ -630,7 +630,7 @@ Leap seconds MUST be smeared across the entirety of a day according to <a class=
 <li><code>2017-12-24T16:14:32,182Z</code> -&gt; <code>20171224161432.182Z</code> (use correct decimal separator)</li>
 <li><code>2017-12-24T18:14:32.000+0200</code> -&gt; <code>20171224161432Z</code> (converted to UTC)</li>
 </ul>
-<h4 id="decoding-1">Decoding</h4>
+<h4 id="decoding_1">Decoding</h4>
 <p>All required fields MUST be present. Extra elements MUST NOT be present. Midnight MUST be represented as <code>000000</code>. Implementations MUST allow leap seconds.</p>
 <p>The following examples are invalid and parsers MUST reject them:</p>
 <ul>
@@ -655,7 +655,7 @@ Leap seconds MUST be smeared across the entirety of a day according to <a class=
 <li><code>20171225000000Z</code> -&gt; <code>2017-12-25T00:00:00.000Z</code> (correct representation of midnight)</li>
 <li><code>99991224161432.279Z</code> -&gt; <code>9999-12-24T16:14:32.279Z</code> (year 9999 is valid)</li>
 </ul>
-<h4 id="examples-5">Examples</h4>
+<h4 id="examples_5">Examples</h4>
 <p>When encoded in binary, the shortened date string is encoded as a <a href="#variable-length-string">variable-length string</a>.</p>
 <table>
 <thead>
