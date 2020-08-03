@@ -36,17 +36,12 @@ The services in this example use the following Docker images:
 Run these commands to pull the Docker images:
 
 ```bash
+docker pull interledgerrs/ilp-node
 docker pull interledgerrs/ilp-cli
 docker pull interledgerrs/ilp-settlement-ethereum
 docker pull trufflesuite/ganache-cli
 docker pull interledgerjs/settlement-xrp
 docker pull redis
-```
-
-Run this command to build the Docker image for the Interledger.rs node, which may take a few minutes:
-
-```
-docker build -f ./docker/ilp-node.dockerfile -t interledgerrs/ilp-node --build-arg CARGO_BUILD_OPTION="--release --features monitoring --manifest-path ./crates/ilp-node/Cargo.toml" --build-arg RUST_BIN_DIR_NAME="release" https://github.com/interledger-rs/interledger-rs.git#ko-stream-reliability
 ```
 
 Next, create a local Docker network so each service can communicate with each other:
