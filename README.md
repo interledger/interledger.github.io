@@ -1,6 +1,6 @@
 # Interledger.org Website
 
-This repository holds the code behind the website at [interledger.org](https://interledger.org).
+This repository holds the code for the legacy [interledger.org](https://interledger.org) website and was deprecated 8-April-2021. The new repo can be found at [interledger-website](https://github.com/interledger/interledger-website).
 
 ## Get Involved
 
